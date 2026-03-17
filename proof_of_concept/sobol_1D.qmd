@@ -1,0 +1,165 @@
+```{r}
+
+#install.packages("sensobol")
+#install.packages("deSolve")
+install.packages("tidyverse")
+
+```
+
+
+```{r}
+library(deSolve)
+library(sensobol)
+library(tidyverse)
+
+```
+
+
+```{r}
+
+log_growth <- function(t,N,parms) {
+    r <- parms[1]
+    K <- parms[2]
+    dNdt <- N*r*(1 - (N/K))
+    list(n_cells = dNdt)
+}
+
+
+```
+
+```{r}
+
+t <- seq(0, 50, 0.1)
+N_start <- 2
+K <- 10^4
+r <- 0.2
+
+```
+
+```{r}
+bacterial_growth <- deSolve::rk(y = N_start,times =t,parms = c(r,K), func = log_growth
+)
+
+bacterial_growth %>%
+    as_tibble() %>%
+    mutate(n_cells = `1`) %>%
+    ggplot(aes(x = time, y = n_cells)) + geom_line()
+
+```
+
+### Sensitivity analyis
+
+We might not know K and r with perfect accuracy, but there might be some uncertainty. We can use sensobol to do variance decomposition
+
+```{r}
+bacterial_growth <- deSolve::rk(y = N_start,times =t,parms = c(r,K), func = log_growth
+)
+
+bacterial_growth %>%
+    as_tibble() %>%
+    mutate(n_cells = `1`) %>%
+    ggplot(aes(x = time, y = n_cells)) + geom_line()
+
+
+
+
+
+```
+
+```{r}
+
+mat <- sensobol::sobol_matrices(
+    matrices = c("A", "B", "AB", "BA"),
+    N = 2^11,
+    params = c("r", "K"),
+    order = "second",
+    type = "LHS"
+)
+
+
+nrow(mat)
+ncol(mat)
+```
+
+
+```{r}
+
+?rk
+
+mat[, "r"] <- qunif(mat[, "r"],0.17, 0.23)
+mat[, "K"] <- qunif(mat[, "K"], 0.5* 10^4, 1.5*10^4)
+```
+
+```{r}
+mat %>%
+    as_tibble() %>%
+    ggplot(aes(x = r)) + geom_histogram()
+
+
+mat %>%
+    as_tibble() %>%
+    ggplot(aes(x = K)) + geom_histogram()
+
+```
+
+
+```{r}
+
+N_start <- 2
+t <- seq(0, 50, 0.1)
+
+bact_growth_run <- function(r,K) {
+
+
+    bacterial_growth <- deSolve::rk(y = N_start,times=t, parms = c(r,K), func = log_growth) %>% 
+        tail(n = 1) %>% as.data.frame()
+return(bacterial_growth)
+
+
+}
+
+
+
+```
+
+```{r}
+
+
+
+res <- map2_dfr(mat[,"r"], mat[,"K"], bact_growth_run) %>% as_tibble()
+
+
+
+```
+
+```{r}
+
+
+
+res  %>% 
+    as_tibble() %>%
+    mutate(
+        cell_count = `1`
+    ) %>% select(!`1`)
+
+
+```
+
+```{r}
+
+sobol_indices(
+    matrices = matrices,
+    Y = 
+)
+
+```
+
+So the computation of the sobol indices is hidden behind this function. And the model has to be passed to the function. So I currently see no real way of applying this function to the cold-water detection algorithm. Because the CWP algorithm is a function with a multidimensional output. -> If I however do not find a way of performing a spatial sensitivity analisis and need to lump the model into a scalar value, then `sensobol`would become an opportunity again. ` sensobol` however is a great tool to create the matrices so that I can then run the model. 
+
+
+--- 
+
+## Testing multisensi
+
+There is a function called mutlisensi, that claims to implement spatial sensitivity analsis. I looked into this too, but to me it seems like the multi sensi function is more of a wrapper around the generall sensitivity topic + it can not callculate the pixle wise sobol indices in parallel. But it features great tools to boil down the dimensionality of the model output => If the computation gets to expensive, then this could hoste a sollution.
+
