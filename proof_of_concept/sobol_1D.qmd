@@ -1,3 +1,4 @@
+# Protocoll
 ```{r}
 
 #install.packages("sensobol")
@@ -163,3 +164,26 @@ So the computation of the sobol indices is hidden behind this function. And the 
 
 There is a function called mutlisensi, that claims to implement spatial sensitivity analsis. I looked into this too, but to me it seems like the multi sensi function is more of a wrapper around the generall sensitivity topic + it can not callculate the pixle wise sobol indices in parallel. But it features great tools to boil down the dimensionality of the model output => If the computation gets to expensive, then this could hoste a sollution.
 
+
+--- 17.03.2026
+
+
+- Recieved the data. Set up the git repository and deposited all the data
+- Then I started analysing the code -> hard to read, so i used claude sonnet 4.6 to get commented out version of the  code 
+- Got the high level structure of the code. Identified that this has an inner loop and an outer loop.
+- The outerloop runs the cold water detection algorithm over hyperparameters.
+- So the whole structure around this is not of interest right now. I need to make this CWP algorithm go fast and not the whole hyperparameter search funcitonality.
+- So i tasked claude opus 4.6 to extract the CWP algorithm from the code an write it to a new R script. Also It should set up the loading in of the data.
+- Now I will perform timing and generally start dooing optimisation using profiling.
+
+
+I then hit a brick wall. Bad alloc, some c++ problems under the hood. -> I understand that I have to take a closer look at the individual rasters, their size, do some loading in myself ect. I can not just dive head in. So i inspected all the rasters with gdal.
+
+Terra extract seems to be a very memory hungy step. I think this is because it generateds a dataframe and puts the complete dataframe into memory. And this is just to much memory allocation for my "standart device". On a device with much more memory, this step however might be absolutely no Issue. The question now is, what to do. Should I just go to the HPC imediately ? Because large memory consumption does not realy mean bad performance in a  way. Or should this step be rethought to something that is less memory hungry ? -> 
+
+I think this can actually also bee done with zonal statistics and reclassificaiton ? 
+
+
+This might be a possibility. This then however might cause issues with having to compute the mean around the buffer. Hmm its a pretty hard problem.
+
+I think the best thing for me to do right now is to get a jupyter notebook, and visually interpret and decompose the code segment by segment. This, because it is actually so complicated, that I am pooking around in a stack of hay on the look for a needle right now.
