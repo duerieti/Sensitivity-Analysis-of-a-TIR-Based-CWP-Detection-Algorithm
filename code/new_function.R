@@ -1,0 +1,166 @@
+detect_cwp_single <- function(
+    ras_path,
+    line_path,
+    step_m            = 500,
+    buffer_px         = 3,
+    delta_C           = 1.0,
+    min_patch_area_m2 = 2,
+    round_to          = 0.1,
+    slab_halfwidth_m  = 60,
+    connect_diagonals = TRUE,
+    union_chunk_size  = 50000L
+) {
+
+r <- terra::rast(ras_path)
+line <- sf::st_read(line_path, quiet = TRUE) |> sf::st_zm(TRUE, "ZM")
+  
+stopifnot(terra::nlyr(r) == 1)
+names(r) <- "T"
+if (terra::is.lonlat(r)) stop("Raster must be in a metric CRS.")
+
+rres   <- terra::res(r)
+cell_m <- mean(rres)
+
+if (!is.na(sf::st_crs(line)) &&
+  !identical(terra::crs(r), sf::st_crs(line)$wkt)) {
+  line <- sf::st_transform(line, terra::crs(r))
+}
+
+g <- sf::st_union(line)
+  
+if (inherits(g, "sfc_GEOMETRYCOLLECTION"))
+  g <- sf::st_collection_extract(g, "LINESTRING")
+if (inherits(g, "sfc_MULTILINESTRING")) {
+  g <- sf::st_line_merge(g)
+  if (inherits(g, "sfc_GEOMETRYCOLLECTION"))
+    g <- sf::st_collection_extract(g, "LINESTRING")
+}
+  
+rfactor <- if (!is.null(round_to) && round_to > 0) 1 / round_to else NA_real_
+
+L <- as.numeric(sf::st_length(line))
+S <- step_m
+
+pos <- sort(unique(c(0, seq(0, 1, by = S / L), 1)))
+npt <- length(pos)
+
+if (npt < 2) stop("Too few stations for step = ", S)
+
+from <- pos[1:(npt - 1)]
+to   <- pos[2:npt]
+k    <- length(from)
+
+g1 <- sf::st_geometry(line)[1]
+
+subs_list <- vector("list", k)
+for (j in seq_len(k)) {
+  subs_list[[j]] <- lwgeom::st_linesubstring(g1, from[j], to[j])
+}
+
+subs <- do.call(c, subs_list)
+rm(subs_list); gc()
+
+slabs <- sf::st_buffer(subs,
+                       dist        = slab_halfwidth_m,
+                       endCapStyle = "FLAT",
+                       joinStyle   = "MITRE",
+                       mitreLimit  = 2)
+slabs_sf <- sf::st_sf(geometry = slabs)
+rm(slabs); gc()
+
+slabs_terra <- terra::vect(slabs_sf)
+
+buffer_m <- cell_m * buffer_px
+
+slabs_buffer <- sf::st_buffer(subs,
+                              dist        = buffer_m,
+                              endCapStyle = "FLAT",
+                              joinStyle   = "MITRE",
+                              mitreLimit  = 2)
+slabs_buffer_sf <- sf::st_sf(geometry = slabs_buffer)
+rm(slabs_buffer); gc()
+
+slaps_buffer_vect <- slabs_buffer_sf %>%
+  mutate(slap_id = row_number()) %>%
+  terra::vect()
+rm(slabs_buffer_sf); gc()
+
+slabs <- sf::st_buffer(subs,
+                       dist        = slab_halfwidth_m,
+                       endCapStyle = "FLAT",
+                       joinStyle   = "MITRE",
+                       mitreLimit  = 2)
+slabs_sf <- sf::st_sf(geometry = slabs)
+rm(slabs); gc()
+
+slaps_sf_vect <- slabs_sf %>%
+  mutate(slap_id = row_number()) %>%
+  terra::vect()
+rm(slabs_sf, slabs_terra); gc()
+
+zone_r_big <- terra::rasterize(slaps_sf_vect, r, field = "slap_id")
+rm(slaps_sf_vect); gc()
+
+r_rounded <- round(r * rfactor) / rfactor
+rm(r); gc()
+
+zone_r <- terra::rasterize(slaps_buffer_vect, r_rounded, field = "slap_id")
+rm(slaps_buffer_vect); gc()
+
+mean_raster <- terra::zonal(r_rounded, zone_r, fun = "median", na.rm = TRUE)
+rm(zone_r); gc()
+
+Tmean <- terra::classify(zone_r_big, mean_raster)
+rm(zone_r_big, mean_raster); gc()
+
+flagged_pixels <- r_rounded - Tmean
+binary <- flagged_pixels <= (-1 * delta_C)
+rm(flagged_pixels); gc()
+
+binary[binary == 0] <- NA
+patches_v <- terra::as.polygons(binary, dissolve = TRUE, eight = FALSE)
+rm(binary); gc()
+
+eps <- if (connect_diagonals) cell_m * 0.1 else 0
+
+patches_sf <- patches_v %>%
+  sf::st_as_sf() %>%
+  sf::st_cast("POLYGON") %>%
+  sf::st_buffer(eps) %>%
+  sf::st_union() %>%
+  sf::st_buffer(-eps)
+rm(patches_v); gc()
+
+patches_large <- patches_sf %>%
+  filter(as.numeric(st_area(.)) >= 2) %>%
+  mutate(ID = row_number())
+rm(patches_sf); gc()
+
+stats_per_poly <- terra::extract(r_rounded, patches_large) %>%
+  group_by(ID) %>%
+  summarise(
+    mean_temp   = mean(T),
+    min_temp    = min(T),
+    max_temp    = max(T),
+    median_temp = median(T)
+  )
+
+patches_large_with_stas <- patches_large %>%
+  left_join(stats_per_poly, by = "ID") %>%
+  select(!T)
+rm(stats_per_poly, patches_large); gc()
+
+slab_means <- terra::extract(Tmean, vect(patches_large_with_stas), fun = "mean") %>%
+  rename(slab_mean_T = slap_id)
+rm(Tmean, r_rounded); gc()
+
+final_patches <- patches_large_with_stas %>%
+  left_join(slab_means, by = "ID") %>%
+  mutate(deltaT = slab_mean_T - mean_temp) %>%
+  filter(deltaT >= delta_C)
+rm(patches_large_with_stas, slab_means); gc()
+
+return(final_patches)
+
+}
+
