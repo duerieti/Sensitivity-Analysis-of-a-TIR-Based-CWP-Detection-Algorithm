@@ -89,7 +89,22 @@ detect_cwp_single <- function(
   npt <- length(pos)
   if (npt < 2) stop("Too few stations for step = ", S)
 
-  from <- pos[1:(npt - 1)]
+  from <- pos[1:(npt - 1)]fc_GEOMETRY of length 2; first list element: List of 1
+##   ..$ : num [1:11845, 1:2] -738336 -738357 -738363 -738368 -738378 ...
+##   ..- attr(*, "class")= chr  "XY" "POLYGON" "sfg"
+##  - attr(*, "sf_column")= chr "."
+##  - attr(*, "agr")= Factor w/ 3 levels "constant","aggregate",..: NA
+##   ..- attr(*, "names")= chr "centrum"
+
+Lo and behold - a sf data frame with just two rows, one for center and one for the outskirts.
+
+And while it was not my original intention the outskirts area is a single spatial object consisting of three separate polygons. Which I found rather neat.
+
+Tagged: data-viz, spatial
+JLA Data
+
+© 2018 / Powered by Hugo
+
   to   <- pos[2:npt]
   k    <- length(from)
   g1   <- sf::st_geometry(line)[1]
