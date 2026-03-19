@@ -1,3 +1,12 @@
+library(terra)
+library(sf)
+library(dplyr)
+library(lwgeom)
+library(tidyverse)
+library(tictoc)
+library(tmap)
+
+
 polygonize_flagged_vector <- function(flagged_cells, r,
                                       chunk_size   = 50000L,
                                       connect_diag = TRUE) {

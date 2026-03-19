@@ -1,3 +1,16 @@
+library(terra)
+library(sf)
+library(dplyr)
+library(lwgeom)
+library(tidyverse)
+library(tictoc)
+library(tmap)
+
+path_raster <- "../data/thermal_rasters_FINAL/mean_v01emme.tif"
+path_line <- "../data/Centerlines_FINAL/Emme_V01.shp"
+
+terraOptions(memmax=49)
+
 detect_cwp_single <- function(
     ras_path,
     line_path,
@@ -163,4 +176,6 @@ rm(patches_large_with_stas, slab_means); gc()
 return(final_patches)
 
 }
+
+detect_cwp_single(path_raster,path_line)
 
