@@ -7,6 +7,11 @@ library(tictoc)
 library(tmap)
 
 
+path_raster <- "../data/thermal_rasters_FINAL/mean_v01emme.tif"
+path_line <- "../data/Centerlines_FINAL/Emme_V01.shp"
+
+terraOptions(memmax=49)
+
 polygonize_flagged_vector <- function(flagged_cells, r,
                                       chunk_size   = 50000L,
                                       connect_diag = TRUE) {
@@ -282,5 +287,7 @@ detect_cwp_single <- function(
 
   list(patches = pol_sf, timings = timings)
 }
+
+detect_cwp_single(path_raster,path_line)
 
 

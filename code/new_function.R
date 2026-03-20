@@ -8,8 +8,14 @@ library(tmap)
 
 path_raster <- "../data/thermal_rasters_FINAL/mean_v01emme.tif"
 path_line <- "../data/Centerlines_FINAL/Emme_V01.shp"
+terra_tmp <- file.path(tempdir(), "terra_work")
+dir.create(terra_tmp)
+
 
 terraOptions(memmax=49)
+terraOptions(tempdir=terra_tmp)
+
+
 
 detect_cwp_single <- function(
     ras_path,
@@ -114,15 +120,28 @@ rm(slabs_sf, slabs_terra); gc()
 zone_r_big <- terra::rasterize(slaps_sf_vect, r, field = "slap_id")
 rm(slaps_sf_vect); gc()
 
+print("round r")
+
 r_rounded <- round(r * rfactor) / rfactor
-rm(r); gc()
 
+
+print("creating buffer raster ")
 zone_r <- terra::rasterize(slaps_buffer_vect, r_rounded, field = "slap_id")
-rm(slaps_buffer_vect); gc()
 
+
+print("writing r_rounded and zone_r to disk")
+
+r_rounded <- writeRaster(r_rounded, tempfile(fileext = ".tif"), overwrite = TRUE)
+zone_r <- writeRaster(zone_r, tempfile(fileext = ".tif"), overwrite = TRUE)
+
+print(terra::inMemory(zone_r))
+print(terra::inMemory(r_rounded))
+
+print("calculating mean_raster")
 mean_raster <- terra::zonal(r_rounded, zone_r, fun = "median", na.rm = TRUE)
-rm(zone_r); gc()
 
+
+print("doing mean calculation")
 Tmean <- terra::classify(zone_r_big, mean_raster)
 rm(zone_r_big, mean_raster); gc()
 
@@ -179,3 +198,5 @@ return(final_patches)
 
 detect_cwp_single(path_raster,path_line)
 
+
+unlink(terra_tmp, recursive=TRUE)
