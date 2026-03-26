@@ -7,14 +7,24 @@ library(tictoc)
 library(tmap)
 library(exactextractr)
 
-path_raster <- "../data/thermal_rasters_FINAL/mean_v01emme.tif"
-path_line <- "../data/Centerlines_FINAL/Emme_V01.shp"
-terra_tmp <- file.path(tempdir(), "terra_work")
-dir.create(terra_tmp)
 
-terraOptions(memmax=49)
-terraOptions(tempdir=terra_tmp)
+workdir <- Sys.getenv("WORKDIR")
 
+print("dirs")
+list.dirs(workdir) %>% print()
+
+print("files")
+list.files(workdir, recursive = TRUE) %>% print()
+
+
+
+path_raster <- file.path(workdir, "data/thermal_rasters_FINAL/mean_v01emme.tif")
+path_line <- file.path(workdir, "data/Centerlines_FINAL/Emme_V01.shp")
+
+terraOptions() %>% print() 
+terraOptions(memmax=150)
+terraOptions(memmin=100)
+terraOptions(memfrac=0.9)
 detect_cwp_single <- function(
     ras_path,
     line_path,
@@ -29,6 +39,7 @@ detect_cwp_single <- function(
 ) {
 
 r <- terra::rast(ras_path)
+r <- terra::toMemory(r)
 line <- sf::st_read(line_path, quiet = TRUE) |> sf::st_zm(TRUE, "ZM")
   
 stopifnot(terra::nlyr(r) == 1)
@@ -75,7 +86,6 @@ for (j in seq_len(k)) {
 }
 
 subs <- do.call(c, subs_list)
-rm(subs_list); gc()
 
 slabs <- sf::st_buffer(subs,
                        dist        = slab_halfwidth_m,
@@ -83,7 +93,6 @@ slabs <- sf::st_buffer(subs,
                        joinStyle   = "MITRE",
                        mitreLimit  = 2)
 slabs_sf <- sf::st_sf(geometry = slabs)
-rm(slabs); gc()
 
 slabs_terra <- terra::vect(slabs_sf)
 
@@ -95,12 +104,10 @@ slabs_buffer <- sf::st_buffer(subs,
                               joinStyle   = "MITRE",
                               mitreLimit  = 2)
 slabs_buffer_sf <- sf::st_sf(geometry = slabs_buffer)
-rm(slabs_buffer); gc()
 
 slaps_buffer_vect <- slabs_buffer_sf %>%
   mutate(slap_id = row_number()) %>%
   terra::vect()
-rm(slabs_buffer_sf); gc()
 
 slabs <- sf::st_buffer(subs,
                        dist        = slab_halfwidth_m,
@@ -108,43 +115,32 @@ slabs <- sf::st_buffer(subs,
                        joinStyle   = "MITRE",
                        mitreLimit  = 2)
 slabs_sf <- sf::st_sf(geometry = slabs)
-rm(slabs); gc()
 
 slaps_sf_vect <- slabs_sf %>%
   mutate(slap_id = row_number()) %>%
   terra::vect()
-rm(slabs_sf, slabs_terra); gc()
 
 zone_r_big <- terra::rasterize(slaps_sf_vect, r, field = "slap_id")
 
 print("round r")
 r_rounded <- round(r * rfactor) / rfactor
-rm(r); gc()
 
 print("calculating median per slab with exactextractr")
 
-median_vals <- terra::extract(r_rounded, slaps_sf_vect,
-                                             fun = "median")
-
-mean_raster <- data.frame(
-  slap_id = slabs_buffer_sf_for_exact$slap_id,
-  T       = median_vals
-)
-rm(slabs_buffer_sf_for_exact, median_vals, slaps_buffer_vect); gc()
+median_vals <- terra::zonal(r_rounded, slaps_buffer_vect,
+                                             fun = "median",
+					     na.rm = TRUE)
 
 print("doing mean calculation")
-Tmean <- terra::classify(zone_r_big, mean_raster)
-rm(zone_r_big, mean_raster); gc()
+Tmean <- terra::classify(zone_r_big, median_vals)
 
 print("raster algebra")
 flagged_pixels <- r_rounded - Tmean
 binary <- flagged_pixels <= (-1 * delta_C)
-rm(flagged_pixels); gc()
 
 print("setting to NA")
 binary[binary == 0] <- NA
 patches_v <- terra::as.polygons(binary, dissolve = TRUE, eight = FALSE)
-rm(binary); gc()
 
 eps <- if (connect_diagonals) cell_m * 0.1 else 0
 
@@ -162,12 +158,10 @@ patches_sf <- patches_v %>%
   sf::st_buffer(eps) %>%
   sf::st_union() %>%
   sf::st_buffer(-eps)
-rm(patches_v); gc()
 
 patches_large <- patches_sf %>%
   filter(as.numeric(st_area(.)) >= 2) %>%
   mutate(ID = row_number())
-rm(patches_sf); gc()
 
 print("raster statistics")
 stats_per_poly <- terra::extract(r_rounded, patches_large) %>%
@@ -182,18 +176,15 @@ stats_per_poly <- terra::extract(r_rounded, patches_large) %>%
 patches_large_with_stas <- patches_large %>%
   left_join(stats_per_poly, by = "ID") %>%
   select(!T)
-rm(stats_per_poly, patches_large); gc()
 
 
 slab_means <- terra::extract(Tmean, vect(patches_large_with_stas), fun = "mean") %>%
   rename(slab_mean_T = slap_id)
-rm(Tmean, r_rounded); gc()
 
 final_patches <- patches_large_with_stas %>%
   left_join(slab_means, by = "ID") %>%
   mutate(deltaT = slab_mean_T - mean_temp) %>%
   filter(deltaT >= delta_C)
-rm(patches_large_with_stas, slab_means); gc()
 
 return(final_patches)
 
