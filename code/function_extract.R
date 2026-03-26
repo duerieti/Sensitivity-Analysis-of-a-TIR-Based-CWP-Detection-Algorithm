@@ -21,10 +21,7 @@ list.files(workdir, recursive = TRUE) %>% print()
 path_raster <- file.path(workdir, "data/thermal_rasters_FINAL/mean_v01emme.tif")
 path_line <- file.path(workdir, "data/Centerlines_FINAL/Emme_V01.shp")
 
-terraOptions() %>% print() 
-terraOptions(memmax=150)
-terraOptions(memmin=100)
-terraOptions(memfrac=0.9)
+
 detect_cwp_single <- function(
     ras_path,
     line_path,
@@ -39,7 +36,6 @@ detect_cwp_single <- function(
 ) {
 
 r <- terra::rast(ras_path)
-r <- terra::toMemory(r)
 line <- sf::st_read(line_path, quiet = TRUE) |> sf::st_zm(TRUE, "ZM")
   
 stopifnot(terra::nlyr(r) == 1)
@@ -122,35 +118,21 @@ slaps_sf_vect <- slabs_sf %>%
 
 zone_r_big <- terra::rasterize(slaps_sf_vect, r, field = "slap_id")
 
-print("round r")
 r_rounded <- round(r * rfactor) / rfactor
 
-print("calculating median per slab with exactextractr")
+zone_r <- terra::rasterize(slaps_buffer_vect, r_rounded, field = "slap_id")
 
-median_vals <- terra::zonal(r_rounded, slaps_buffer_vect,
-                                             fun = "median",
-					     na.rm = TRUE)
+mean_raster <- terra::zonal(r_rounded, zone_r, fun = "median", na.rm = TRUE)
 
-print("doing mean calculation")
-Tmean <- terra::classify(zone_r_big, median_vals)
+Tmean <- terra::classify(zone_r_big, mean_raster)
 
-print("raster algebra")
 flagged_pixels <- r_rounded - Tmean
 binary <- flagged_pixels <= (-1 * delta_C)
 
-print("setting to NA")
 binary[binary == 0] <- NA
 patches_v <- terra::as.polygons(binary, dissolve = TRUE, eight = FALSE)
 
 eps <- if (connect_diagonals) cell_m * 0.1 else 0
-
-
-patches_sf_raw <- patches_v %>% sf::st_as_sf()
-class(patches_sf_raw)  # should be c("sf", "data.frame")
-
-patches_sf <- patches_sf_raw %>%
-	  sf::st_cast("POLYGON")
-  class(patches_sf)  # verify still sf
 
 patches_sf <- patches_v %>%
   sf::st_as_sf() %>%
@@ -163,7 +145,6 @@ patches_large <- patches_sf %>%
   filter(as.numeric(st_area(.)) >= 2) %>%
   mutate(ID = row_number())
 
-print("raster statistics")
 stats_per_poly <- terra::extract(r_rounded, patches_large) %>%
   group_by(ID) %>%
   summarise(
@@ -176,7 +157,6 @@ stats_per_poly <- terra::extract(r_rounded, patches_large) %>%
 patches_large_with_stas <- patches_large %>%
   left_join(stats_per_poly, by = "ID") %>%
   select(!T)
-
 
 slab_means <- terra::extract(Tmean, vect(patches_large_with_stas), fun = "mean") %>%
   rename(slab_mean_T = slap_id)
