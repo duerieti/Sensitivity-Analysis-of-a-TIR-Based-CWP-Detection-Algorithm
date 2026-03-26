@@ -116,18 +116,15 @@ slaps_sf_vect <- slabs_sf %>%
 rm(slabs_sf, slabs_terra); gc()
 
 zone_r_big <- terra::rasterize(slaps_sf_vect, r, field = "slap_id")
-rm(slaps_sf_vect); gc()
 
 print("round r")
 r_rounded <- round(r * rfactor) / rfactor
 rm(r); gc()
 
 print("calculating median per slab with exactextractr")
-slabs_buffer_sf_for_exact <- sf::st_as_sf(slaps_buffer_vect)
 
-median_vals <- exactextractr::exact_extract(r_rounded, slabs_buffer_sf_for_exact,
-                                             fun = "median",
-                                             progress = FALSE)
+median_vals <- terra::extract(r_rounded, slaps_sf_vect,
+                                             fun = "median")
 
 mean_raster <- data.frame(
   slap_id = slabs_buffer_sf_for_exact$slap_id,
@@ -139,15 +136,25 @@ print("doing mean calculation")
 Tmean <- terra::classify(zone_r_big, mean_raster)
 rm(zone_r_big, mean_raster); gc()
 
+print("raster algebra")
 flagged_pixels <- r_rounded - Tmean
 binary <- flagged_pixels <= (-1 * delta_C)
 rm(flagged_pixels); gc()
 
+print("setting to NA")
 binary[binary == 0] <- NA
 patches_v <- terra::as.polygons(binary, dissolve = TRUE, eight = FALSE)
 rm(binary); gc()
 
 eps <- if (connect_diagonals) cell_m * 0.1 else 0
+
+
+patches_sf_raw <- patches_v %>% sf::st_as_sf()
+class(patches_sf_raw)  # should be c("sf", "data.frame")
+
+patches_sf <- patches_sf_raw %>%
+	  sf::st_cast("POLYGON")
+  class(patches_sf)  # verify still sf
 
 patches_sf <- patches_v %>%
   sf::st_as_sf() %>%
@@ -162,6 +169,7 @@ patches_large <- patches_sf %>%
   mutate(ID = row_number())
 rm(patches_sf); gc()
 
+print("raster statistics")
 stats_per_poly <- terra::extract(r_rounded, patches_large) %>%
   group_by(ID) %>%
   summarise(
@@ -175,6 +183,7 @@ patches_large_with_stas <- patches_large %>%
   left_join(stats_per_poly, by = "ID") %>%
   select(!T)
 rm(stats_per_poly, patches_large); gc()
+
 
 slab_means <- terra::extract(Tmean, vect(patches_large_with_stas), fun = "mean") %>%
   rename(slab_mean_T = slap_id)

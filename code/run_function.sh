@@ -14,6 +14,6 @@ module load lsfm-init-miniconda/1.0.0
 
 conda activate R_env
 
-Rscript new_function.R
+Rscript function_extract.R
 
 

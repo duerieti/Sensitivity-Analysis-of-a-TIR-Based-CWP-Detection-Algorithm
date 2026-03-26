@@ -44,3 +44,5 @@ The following objects are masked from ‘package:terra’:
 
     shift, size
 
+/cm/local/apps/slurm/var/spool/job267589/slurm_script: line 17: 785156 Killed                  Rscript new_function.R
+slurmstepd: error: Detected 1 oom-kill event(s) in StepId=267589.batch. Some of your processes may have been killed by the cgroup out-of-memory handler.
