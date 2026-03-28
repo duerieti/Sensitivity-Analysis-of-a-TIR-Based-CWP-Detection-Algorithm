@@ -25,9 +25,15 @@ detect_cwp_single <- function(
     union_chunk_size  = 50000L
 ) {
 
+  timings <- numeric()
+  tic <- function() proc.time()[["elapsed"]]
+
+  # ── 0. READ INPUTS ────────────────────────────────────────────────────────
+  t0 <- tic()
+
 r <- terra::rast(ras_path)
 line <- sf::st_read(line_path, quiet = TRUE) |> sf::st_zm(TRUE, "ZM")
-  
+
 stopifnot(terra::nlyr(r) == 1)
 names(r) <- "T"
 if (terra::is.lonlat(r)) stop("Raster must be in a metric CRS.")
@@ -41,7 +47,7 @@ if (!is.na(sf::st_crs(line)) &&
 }
 
 g <- sf::st_union(line)
-  
+
 if (inherits(g, "sfc_GEOMETRYCOLLECTION"))
   g <- sf::st_collection_extract(g, "LINESTRING")
 if (inherits(g, "sfc_MULTILINESTRING")) {
@@ -49,8 +55,13 @@ if (inherits(g, "sfc_MULTILINESTRING")) {
   if (inherits(g, "sfc_GEOMETRYCOLLECTION"))
     g <- sf::st_collection_extract(g, "LINESTRING")
 }
-  
+
 rfactor <- if (!is.null(round_to) && round_to > 0) 1 / round_to else NA_real_
+
+  timings[["read_inputs"]] <- tic() - t0
+
+  # ── 1. BUILD SLABS ────────────────────────────────────────────────────────
+  t0 <- tic()
 
 L <- as.numeric(sf::st_length(line))
 S <- step_m
@@ -106,6 +117,11 @@ slaps_sf_vect <- slabs_sf %>%
   mutate(slap_id = row_number()) %>%
   terra::vect()
 
+  timings[["build_slabs"]] <- tic() - t0
+
+  # ── 2. COMPUTE REFERENCE TEMPERATURES ────────────────────────────────────
+  t0 <- tic()
+
 print("rasterize slaps")
 zone_r_big <- terra::rasterize(slaps_sf_vect, r, field = "slap_id")
 
@@ -115,8 +131,18 @@ r_rounded <- round(r * rfactor) / rfactor
 print("compute median temperature for every zone")
 mean_raster <- terra::extract(r_rounded, slaps_buffer_vect, fun = "median", na.rm = TRUE)
 
+  timings[["compute_ref_temps"]] <- tic() - t0
+
+  # ── 5. BURN MEDIANS INTO ZONES ────────────────────────────────────────────
+  t0 <- tic()
+
 print("burn in the means into zones")
 Tmean <- terra::classify(zone_r_big, mean_raster)
+
+  timings[["burn_medians"]] <- tic() - t0
+
+  # ── 6. FLAG COLD PIXELS ───────────────────────────────────────────────────
+  t0 <- tic()
 
 print("calculate difference from median")
 flagged_pixels <- r_rounded - Tmean
@@ -126,6 +152,10 @@ print("set pixels that are not to cold to NA")
 binary[binary == 0] <- NA
 patches_v <- terra::as.polygons(binary, dissolve = TRUE, eight = FALSE)
 
+  timings[["flag_pixels"]] <- tic() - t0
+
+  # ── 7. POLYGONIZE ─────────────────────────────────────────────────────────
+  t0 <- tic()
 
 eps <- if (connect_diagonals) cell_m * 0.1 else 0
 
@@ -138,9 +168,19 @@ patches_sf <- patches_v %>%
   sf::st_cast("POLYGON") %>%
   sf::st_as_sf()
 
+  timings[["polygonize"]] <- tic() - t0
+
+  # ── 8. AREA FILTER ────────────────────────────────────────────────────────
+  t0 <- tic()
+
 patches_large <- patches_sf %>%
   filter(as.numeric(st_area(.)) >= 2) %>%
   mutate(ID = row_number())
+
+  timings[["area_filter"]] <- tic() - t0
+
+  # ── 9. TEMPERATURE STATISTICS PER PATCH ──────────────────────────────────
+  t0 <- tic()
 
 stats_per_poly <- terra::extract(r_rounded, patches_large) %>%
   group_by(ID) %>%
@@ -165,7 +205,12 @@ final_patches <- patches_large_with_stas %>%
   mutate(deltaT = slab_mean_T - mean_temp) %>%
   filter(deltaT >= delta_C)
 
-return(final_patches)
+  timings[["patch_stats"]] <- tic() - t0
+
+  # ── TOTAL ──────────────────────────────────────────────────────────────────
+  timings[["TOTAL"]] <- sum(timings)
+
+  list(patches = final_patches, timings = timings)
 
 }
 
