@@ -110,12 +110,10 @@ slabs <- sf::st_buffer(subs,
                        joinStyle   = "MITRE",
                        mitreLimit  = 2)
 slabs_sf <- sf::st_sf(geometry = slabs)
-rm(slabs); gc()
 
 slaps_sf_vect <- slabs_sf %>%
   mutate(slap_id = row_number()) %>%
   terra::vect()
-rm(slabs_sf, slabs_terra); gc()
 
 zone_r_big <- terra::rasterize(slaps_sf_vect, r, field = "slap_id")
 rm(slaps_sf_vect); gc()

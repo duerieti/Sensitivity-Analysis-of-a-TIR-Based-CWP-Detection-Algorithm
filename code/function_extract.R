@@ -1,4 +1,4 @@
-library(terra)
+wlibrary(terra)
 library(sf)
 library(dplyr)
 library(lwgeom)
@@ -8,18 +8,8 @@ library(tmap)
 library(exactextractr)
 
 
-workdir <- Sys.getenv("WORKDIR")
-
-print("dirs")
-list.dirs(workdir) %>% print()
-
-print("files")
-list.files(workdir, recursive = TRUE) %>% print()
-
-
-
-path_raster <- file.path(workdir, "data/thermal_rasters_FINAL/mean_v01emme.tif")
-path_line <- file.path(workdir, "data/Centerlines_FINAL/Emme_V01.shp")
+path_raster <- file.path("../data/thermal_rasters_FINAL/mean_v01emme.tif")
+path_line <- file.path("../data/Centerlines_FINAL/Emme_V01.shp")
 
 
 detect_cwp_single <- function(
@@ -116,21 +106,26 @@ slaps_sf_vect <- slabs_sf %>%
   mutate(slap_id = row_number()) %>%
   terra::vect()
 
+print("rasterize slaps")
 zone_r_big <- terra::rasterize(slaps_sf_vect, r, field = "slap_id")
 
+print("round raster")
 r_rounded <- round(r * rfactor) / rfactor
 
-zone_r <- terra::rasterize(slaps_buffer_vect, r_rounded, field = "slap_id")
+print("compute median temperature for every zone")
+mean_raster <- terra::extract(r_rounded, slaps_buffer_vect, fun = "median", na.rm = TRUE)
 
-mean_raster <- terra::zonal(r_rounded, zone_r, fun = "median", na.rm = TRUE)
-
+print("burn in the means into zones")
 Tmean <- terra::classify(zone_r_big, mean_raster)
 
+print("calculate difference from median")
 flagged_pixels <- r_rounded - Tmean
 binary <- flagged_pixels <= (-1 * delta_C)
 
+print("set pixels that are not to cold to NA")
 binary[binary == 0] <- NA
 patches_v <- terra::as.polygons(binary, dissolve = TRUE, eight = FALSE)
+
 
 eps <- if (connect_diagonals) cell_m * 0.1 else 0
 
@@ -154,9 +149,11 @@ stats_per_poly <- terra::extract(r_rounded, patches_large) %>%
     median_temp = median(T)
   )
 
+
 patches_large_with_stas <- patches_large %>%
   left_join(stats_per_poly, by = "ID") %>%
   select(!T)
+
 
 slab_means <- terra::extract(Tmean, vect(patches_large_with_stas), fun = "mean") %>%
   rename(slab_mean_T = slap_id)
