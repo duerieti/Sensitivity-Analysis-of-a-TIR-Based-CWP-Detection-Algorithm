@@ -134,7 +134,9 @@ patches_sf <- patches_v %>%
   sf::st_cast("POLYGON") %>%
   sf::st_buffer(eps) %>%
   sf::st_union() %>%
-  sf::st_buffer(-eps)
+  sf::st_buffer(-eps) %>%
+  sf::st_cast("POLYGON") %>%
+  sf::st_as_sf()
 
 patches_large <- patches_sf %>%
   filter(as.numeric(st_area(.)) >= 2) %>%

@@ -193,11 +193,226 @@ I think the best thing for me to do right now is to get a jupyter notebook, and 
 
 Finished the code that I ran in my jupyter notebook (did that because terra::explode in their function caused bad::alloc) issues for me. My code worked in the jupyter notebook, but now that i wraped everything into a function, i get bad alloc too. Could it be due to memory allocation of R for functions ? I have to look into that right now (I allready used gc() and rm() to help with the garbage collection, but this is of no help appraently). After reseach i found that terraOptions(memfrac) can be used to set the amount of memory that terra is allowed to consume. I increased that to 0.8. Maybe the other function from the Hydro team works to now on my pc. Because this PC has 30 GB of memory, so there is some room and a realistic chance that the computer can handle the memoryspike.
 
--- The terra memory adjustment has not really worked, it still crashed at the same location. I improved rm() gc() now. If this won't work, then I am going to move to the HPC. Not even this worked, moving to the hpc as I just have to little memory apparently? 
+-- The terra memory adjustment has not really worked, it still crashed at the same location. I improved rm() gc() now. If this won't work, then I am going to move to the HPC. Not even this worked, moving to the hpc as I just have to little memory apparently?
 
 
-I set up the function on the HPC. Sadly there indeed is a large memory spike over 50 MG. The rest of the function is rather tame at around 10 - 15 GB. I think the spike occurs during the zonal operation of terra. Hoever I have to look deeper into that.
+### March 20 ---
+
+So their algorithm apparently works without spikes on the HPC. Ab it over an hour of time is needed to run. My algorithm still has this large memory spike that appraently goes over 80 GB. Did i programm somehting wrong? I decided to first deploy a writing step so that terra can stream the dataset through memory instead of having to hold everything in memory Maybe this resolves the issue. Because I think there is a decent chance that i can beat 1h 15 min with this by a decent margin. And I gues the Idea of great hpc developement holds everything in memory is very much nonrealisitc when working with Geodata anyways. The rasters are large and so there is much space taken up in memory -> We can run out quite quickly in generall. GDAL therefore adresses this very valid concern by streaming opertaions from file to file and use the limited memory. And GDAL is just the mother of all beasts, so terra, rasterio, QGIS, ArchGIS etc they all use GDAL under the hood. Therefore they rely on streaming the data from one disk location (file) to another (a second file). And I gues with that in mind, an extra deliberate writing step doesn't hurt in any way (because reading and writing happens all the time anyways) (Its visible in htop that a decent amount of time is spent for IO).
+
+And I gues since the writing and reading problematic is generally unavoidable, we can do some bash and and use gdal directly over the command line (we can also user a smaller datatype here). THe question remains hoever wheter we can tell GDAL to only use a fixed memory quota like 20 GB. Otherwise paprallelisation could become nightmarish.
+
+Maybe the issue comes from the median calculation. sum, min, max, mean. All these functions can be streamed through memory. median needs to order all numbers. So all numbers need to be held in memory and sorted in order to find the median. So in a way, the median is exactly the function which causes this problem. So terra zonal operations are simply not a possibility here. We have to use extract_extract or something here and simply hope, that this works more gracefully.
+
+extract extract works. Now there is a later issue in a filter step somewhere at the end of the function (happens after 40 mins, so i gues this function is marginally faster the the other one). This is acutally an error in extract extract i beliefe. So it is not faster after al but much much slower ? I generally do not know anymore ...
+Anyways, I'm just gonna use terra::extract now. Hopefully this works (it works in their code, so we will see). 
+
+Then next I tought about how I potentially could parallelize this. And I think it is rather apparent now, that the only real mode of parallelisaiton is mutliprocessing here. Because there don't seem to be any parallelisation possibilities with gdal as multi threading generally is not as supported as I first assumed it to be. So we are just gonna run with mutliprocessing. And I should definitely also try to use bash to chain GDAL computations and R compitations together. This mainly, because I noticed that there is no way to handle all these runs with this slow code. I got to speed it up. And if GDAL on the command line is the only solution, then so be it.
+
+```{r}
+
+getwd()
+
+library(terra)
+library(sf)
+library(dplyr)
+library(lwgeom)
+library(tidyverse)
+library(tictoc)
+library(tmap)
+
+path_raster <- "data/thermal_rasters_FINAL/mean_v01emme.tif"
+path_line <- "data/Centerlines_FINAL/Emme_V01.shp"
+terra_tmp <- file.path(tempdir(), "terra_work")
+dir.create(terra_tmp)
+
+terraOptions(memmax=49)
+terraOptions(tempdir=terra_tmp)
+
+detect_cwp_single <- function(
+    ras_path,
+    line_path,
+    step_m            = 500,
+    buffer_px         = 3,
+    delta_C           = 1.0,
+    min_patch_area_m2 = 2,
+    round_to          = 0.1,
+    slab_halfwidth_m  = 60,
+    connect_diagonals = TRUE,
+    union_chunk_size  = 50000L
+) {
+
+r <- terra::rast(path_raster)
+line <- sf::st_read(path_line, quiet = TRUE) |> sf::st_zm(TRUE, "ZM")
+  
+stopifnot(terra::nlyr(r) == 1)
+names(r) <- "T"
+if (terra::is.lonlat(r)) stop("Raster must be in a metric CRS.")
+
+rres   <- terra::res(r)
+cell_m <- mean(rres)
+
+if (!is.na(sf::st_crs(line)) &&
+  !identical(terra::crs(r), sf::st_crs(line)$wkt)) {
+  line <- sf::st_transform(line, terra::crs(r))
+}
+
+g <- sf::st_union(line)
+  
+if (inherits(g, "sfc_GEOMETRYCOLLECTION"))
+  g <- sf::st_collection_extract(g, "LINESTRING")
+if (inherits(g, "sfc_MULTILINESTRING")) {
+  g <- sf::st_line_merge(g)
+  if (inherits(g, "sfc_GEOMETRYCOLLECTION"))
+    g <- sf::st_collection_extract(g, "LINESTRING")
+}
+  
+rfactor <- if (!is.null(round_to) && round_to  > 0) 1 / round_to  else NA_real_
+
+L <- as.numeric(sf::st_length(line))
+S <- step_m
+
+pos <- sort(unique(c(0, seq(0, 1, by = S / L), 1)))
+npt <- length(pos)
+
+if (npt < 2) stop("Too few stations for step = ", S)
+
+from <- pos[1:(npt - 1)]
+to   <- pos[2:npt]
+k    <- length(from)
+
+g1 <- sf::st_geometry(line)[1]
+
+subs_list <- vector("list", k)
+for (j in seq_len(k)) {
+  subs_list[[j]] <- lwgeom::st_linesubstring(g1, from[j], to[j])
+}
+
+subs <- do.call(c, subs_list)
 
 
-Maybe, since all the data has to be read into memory for the calculation to work ? Don't know. Does not make to much sense to me to be honest since a lot of statistical functions like sum() mean() etc can also be implemented in a "streaming" fassion. -> To do: Try extract_extract. Try to run the other function.
+slabs <- sf::st_buffer(subs,
+                       dist        = slab_halfwidth_m,
+                       endCapStyle = "FLAT",
+                       joinStyle   = "MITRE",
+                       mitreLimit  = 2)
+slabs_sf <- sf::st_sf(geometry = slabs)
 
+
+slabs_terra <- terra::vect(slabs_sf)
+
+buffer_m <- cell_m * 3
+
+slabs_buffer <- sf::st_buffer(subs,
+                              dist        = buffer_m,
+                              endCapStyle = "FLAT",
+                              joinStyle   = "MITRE",
+                              mitreLimit  = 2)
+slabs_buffer_sf <- sf::st_sf(geometry = slabs_buffer)
+
+
+slaps_buffer_vect <- slabs_buffer_sf %>%
+  mutate(slap_id = row_number()) %>%
+  terra::vect()
+
+
+slabs <- sf::st_buffer(subs,
+                       dist        = slab_halfwidth_m,
+                       endCapStyle = "FLAT",
+                       joinStyle   = "MITRE",
+                       mitreLimit  = 2)
+
+slabs_sf <- sf::st_sf(geometry = slabs)
+
+slaps_sf_vect <- slabs_sf %>%
+  mutate(slap_id = row_number()) %>%
+  terra::vect()
+
+
+zone_r_big <- terra::rasterize(slaps_sf_vect, r, field = "slap_id")
+
+print("round r")
+r_rounded <- round(r * rfactor) / rfactor
+
+
+print("calculating median per slab with exactextractr")
+
+median_vals <- terra::extract(r_rounded, slaps_buffer_vect,
+                                             fun = "median",
+                                             na.rm =TRUE)
+
+
+median_vals
+
+print("doing mean calculation")
+Tmean <- terra::classify(zone_r_big, median_vals)
+
+                            
+
+print("raster algebra")
+flagged_pixels <- r_rounded - Tmean
+binary <- flagged_pixels <= (-1 * 1.0)
+                
+
+patches_large <- patches_sf %>%
+  filter(as.numeric(st_area(.)) >= 2) %>%
+  mutate(ID = row_number())
+
+
+print("raster statistics")
+stats_per_poly <- terra::extract(r_rounded, patches_large) %>%
+  group_by(ID) %>%
+  summarise(
+    mean_temp   = mean(T),
+    min_temp    = min(T),
+    max_temp    = max(T),
+    median_temp = median(T)
+  )
+
+patches_large_with_stas <- patches_large %>%
+  left_join(stats_per_poly, by = "ID") %>%
+  select(!T)
+
+
+slab_means <- terra::extract(Tmean, vect(patches_large_with_stas), fun = "mean") %>%
+  rename(slab_mean_T = slap_id)
+
+final_patches <- patches_large_with_stas %>%
+  left_join(slab_means, by = "ID") %>%
+  mutate(deltaT = slab_mean_T - mean_temp) %>%
+  filter(deltaT >= delta_C)
+
+return(final_patches)
+
+}
+
+detect_cwp_single(path_raster, path_line)
+
+unlink(terra_tmp, recursive=TRUE)
+
+
+?terraOptions
+```
+
+
+
+The rounding is an invariant step. So we could actually just round the raster once and then save it to disk -> this would allready be another huuuge timesave.
+
+-> My code runs now, an I am rather certain, that it is slower than the original code. Also, it seems like my code is faster on my local pc than on the cluster. Is this the IO issue, that I am running into ? I am going to move the rasters to the compute node at the beginning so that the disk on the compute node is used -> less
+
+The code runs not completely I noticed, it fails at a later stage
+
+Also I now move the data to the local disk of the node first in hopes of a speedup when dooing terra extract. Because on my computer this takes like 30 seconds, on the hpc this takes around 20 mins or so. So disproportionately longer. Hopefully this helps. I also checked the location of the tempdir. Thisone seems to be directly on the nodes disk. 
+
+Update: I am quite certain that this did in fact not help. Why ? I am running into a roadblock here.
+-> Mutlithreading ?: Im gonna test this. I assigned 15 cores to the code now. Looked at HTOP. Loading the data and rounding does not use mutli threading. maybe terra::extract does ? 
+-> IO ? Maybe this assumption that the node has its own disk is wrong ? Something flashed up on htop but only for a small split second. To me it looks like terra extract just performs very small calculations in a sequential manner
+-> Memory fraction ? Memory fraction and memmax are exactly the same on my pc and on the hpc setup. I have to go and read the hpc wiki about the disk setup. Also I have to find a diagnosis tool/ library that shows me network traffic of my processes and stuff -> What a great OSI revision. So this is a linux based cluster, so actually ther might be some interesting OSI stuff here.
+
+The rounding step takes 12 mins btw, so doing this once would be best. If the IO stuff is realy such a big problem, then maybe I got to hold stuff in memory ?
+
+
+Before I dive in that deep lets just try terra::zonal again. Because I am rather certain that the big memory spikes that I experienced are actually comming fom the fact that i accidentaly passed the complete slaps to the function and not the buffer slaps (which are a magnitude smaller). -> No that was not the case. So I am certain that the problem is IO bound. New strat: Get function working, then profiling both functions -> merge -> 
+
+
+I did more research using claude. Indeed geotiff is not the best file format right now. It would be best to change to a more suited format. These cloud optimized geotiffs or whatever they are called -> these would be great
