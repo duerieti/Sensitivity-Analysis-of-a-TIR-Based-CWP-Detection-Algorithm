@@ -194,7 +194,7 @@ stats_per_poly <- terra::extract(r_rounded, patches_large) %>%
 
 patches_large_with_stas <- patches_large %>%
   left_join(stats_per_poly, by = "ID") %>%
-  select(!all_of("T"))
+  select(!T)
 
 
 slab_means <- terra::extract(Tmean, vect(patches_large_with_stas), fun = "mean") %>%

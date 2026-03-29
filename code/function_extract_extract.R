@@ -100,10 +100,10 @@ slabs_buffer <- sf::st_buffer(subs,
                               endCapStyle = "FLAT",
                               joinStyle   = "MITRE",
                               mitreLimit  = 2)
-slabs_buffer_sf <- sf::st_sf(geometry = slabs_buffer)
+slabs_buffer_sf <- sf::st_sf(geometry = slabs_buffer) %>%
+	mutate(slap_id = row_number())
 
 slaps_buffer_vect <- slabs_buffer_sf %>%
-  mutate(slap_id = row_number()) %>%
   terra::vect()
 
 slabs <- sf::st_buffer(subs,
@@ -111,10 +111,10 @@ slabs <- sf::st_buffer(subs,
                        endCapStyle = "FLAT",
                        joinStyle   = "MITRE",
                        mitreLimit  = 2)
-slabs_sf <- sf::st_sf(geometry = slabs)
+slabs_sf <- sf::st_sf(geometry = slabs) %>%
+	mutate(slap_id = row_number())
 
 slaps_sf_vect <- slabs_sf %>%
-  mutate(slap_id = row_number()) %>%
   terra::vect()
 
   timings[["build_slabs"]] <- tic() - t0
@@ -129,7 +129,7 @@ print("round raster")
 r_rounded <- round(r * rfactor) / rfactor
 
 print("compute median temperature for every zone")
-mean_raster <- terra::extract(r_rounded, slaps_buffer_vect, fun = "median", na.rm = TRUE)
+mean_raster <- exact_extract(r_rounded, slaps_buffer, fun = "median", na.rm = TRUE)
 
   timings[["compute_ref_temps"]] <- tic() - t0
 
@@ -182,7 +182,7 @@ patches_large <- patches_sf %>%
   # ── 9. TEMPERATURE STATISTICS PER PATCH ──────────────────────────────────
   t0 <- tic()
 
-stats_per_poly <- terra::extract(r_rounded, patches_large) %>%
+stats_per_poly <- exact_extract(r_rounded, patches_large) %>%
   group_by(ID) %>%
   summarise(
     mean_temp   = mean(T),
@@ -197,7 +197,7 @@ patches_large_with_stas <- patches_large %>%
   select(!all_of("T"))
 
 
-slab_means <- terra::extract(Tmean, vect(patches_large_with_stas), fun = "mean") %>%
+slab_means <- exact_extract(Tmean,patches_large_with_stas, fun = "mean") %>%
   rename(slab_mean_T = slap_id)
 
 final_patches <- patches_large_with_stas %>%
