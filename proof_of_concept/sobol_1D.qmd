@@ -416,3 +416,24 @@ Before I dive in that deep lets just try terra::zonal again. Because I am rather
 
 
 I did more research using claude. Indeed geotiff is not the best file format right now. It would be best to change to a more suited format. These cloud optimized geotiffs or whatever they are called -> these would be great
+
+
+### Parallelisation or I/O ?
+
+I checked with sacct -j 272575 how much time is spent with the CPU active and how much timeis spent with the CPU in idle -> waiting for IO. The cpu is running all the time -> the performance is not blocked by IO, its blocked by cpu.
+
+I will therefore let claude set up parallelisation with file chunking for certain operations, where this is possible.
+
+
+
+### Parallelism in R
+
+I tried terras::app function to perform some of the raster computation in parallel. But my 30 GB ram computer runs out of memory If I am runnign 2 cores. 
+I beliefe that parallelism in R is just fundamentally flawed in a way. In order to do parallelism in R, different processes are spawned. Each process must have its own memory block. -> Data has to be copied => this is just fundamentally to expensive.
+
+
+### Trying to run with system() and gdal.
+
+Gdal on the command line seems to be way faster for some operations. Maybe we can outsource some computations. This is what I am going to do next.
+
+
