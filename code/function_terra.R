@@ -6,6 +6,7 @@ library(tictoc)
 library(tmap)
 library(exactextractr)
 
+tic("Total: ")
 
 ras_path <- file.path("../data/thermal_rasters_FINAL/mean_v01emme.tif")
 line_path <- file.path("../data/Centerlines_FINAL/Emme_V01.shp")
@@ -116,38 +117,13 @@ zone_r_big <- terra::rasterize(slaps_sf_vect, r, field = "slap_id")
 toc()
 # 165.35 seconds
 
-e <- ext(r)
 
-ext_string <- paste(e$xmin, e$ymin, e$xmax, e$ymax, sep = ",")
-resolution <- res(r)
-res_string <- paste(resolution, collapse = ",")
-
-
-sf::write_sf(slabs_sf, "slabs_sf.shp")
-
-system(
-  paste0(
-    'gdal vector rasterize -i slabs_sf.shp -o zone_r_big.tiff --extent ', ext_string, ' --resolution ', res_string, ' --overwrite --ot Int8 -a slap_id --optimization RASTER'
-  )
-)
-zone_r_big <- terra::rast("zone_r_big.tiff")
-# 5 seconds, so doing it like this is a huge speedup
 
 tic("terra approach:")
 print("round raster")
 r_rounded <- round(r * rfactor) / rfactor
 toc()
 # 567.91 seconds
-
-
-tic("tic direct gdal approach:")
-system(
-  paste0('gdal raster calc -i "A=../data/thermal_rasters_FINAL/mean_v01emme.tif" --calc "A*', rfactor , '/', rfactor,'"', ' -o r_rounded.tiff --overwrite --ot Float32')
-)
-toc()
-
-r_rounded <- terra::rast("r_rounded.tiff")
-# 180.387 seconds. So using gdal directly yields a speedup here
 
 
 #tic()
@@ -171,30 +147,6 @@ Tmean <- terra::classify(zone_r_big, temp_look_up_df)
 toc()
 # 153.786
 
-
-
-
-writeLines(
-  paste0(
-    paste0("[", temp_look_up_df$slap_id, ",", temp_look_up_df$slap_id, "]=", temp_look_up_df$slap_means, collapse = "; "),
-    "; DEFAULT=NO_DATA"
-  ),
-  "median_lookup_gdal.txt"
-)
-
-lookup_str <- readLines("median_lookup_gdal.txt")
-
-tic()
-system(paste0(
-  'gdal raster reclassify -i zone_r_big.tiff  -o Tmean_raster.tiff --datatype Float64 --overwrite  -m "',
-  lookup_str,
-  '"'
-))
-toc()
-# 91 seconds
-# so when I also use gdal in the step for the zone_r_big creation, then this is a speedup of roughly 1/3 here
-
-
   # ── 6. FLAG COLD PIXELS ───────────────────────────────────────────────────
 tic()
 
@@ -205,16 +157,6 @@ binary <- flagged_pixels <= (-1 * delta_C)
 print("set pixels that are not to cold to NA")
 binary[binary == 0] <- NA
 toc()
-
-# 868.92 seconds
-
-tic()
-system(
-
-paste0('gdal raster calc -i "A=r_rounded.tiff" -i "B=Tmean_raster.tiff" --calc "((A - B) >= ', delta_C, ') ? 1 : NaN" -o binary_out.tif --overwrite')
-)
-toc()
-# 405 seconds. So roughy a doubling in performance
 
 
 
@@ -283,3 +225,5 @@ final_patches <- patches_large_with_stas %>%
   mutate(deltaT = median- slap_median_T) %>%
   filter(deltaT >= delta_C)
 
+
+toc()

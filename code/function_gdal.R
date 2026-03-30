@@ -6,7 +6,7 @@ library(tictoc)
 library(tmap)
 library(exactextractr)
 
-
+tic("Total Time: ")
 ras_path <- file.path("../data/thermal_rasters_FINAL/mean_v01emme.tif")
 line_path <- file.path("../data/Centerlines_FINAL/Emme_V01.shp")
 
@@ -102,19 +102,11 @@ slabs <- sf::st_buffer(subs,
                        joinStyle   = "MITRE",
                        mitreLimit  = 2)
 slabs_sf <- sf::st_sf(geometry = slabs) %>% mutate(slap_id = row_number())
+sf::write_sf(slabs_sf, "slabs_sf.shp")
 
-slaps_sf_vect <- slabs_sf %>%
-  mutate(slap_id = row_number()) %>%
-  terra::vect()
 
 
   # ── 2. COMPUTE REFERENCE TEMPERATURES ────────────────────────────────────
-
-tic()
-print("rasterize slaps")
-zone_r_big <- terra::rasterize(slaps_sf_vect, r, field = "slap_id")
-toc()
-# 165.35 seconds
 
 e <- ext(r)
 
@@ -123,21 +115,11 @@ resolution <- res(r)
 res_string <- paste(resolution, collapse = ",")
 
 
-sf::write_sf(slabs_sf, "slabs_sf.shp")
-
 system(
   paste0(
     'gdal vector rasterize -i slabs_sf.shp -o zone_r_big.tiff --extent ', ext_string, ' --resolution ', res_string, ' --overwrite --ot Int8 -a slap_id --optimization RASTER'
   )
 )
-zone_r_big <- terra::rast("zone_r_big.tiff")
-# 5 seconds, so doing it like this is a huge speedup
-
-tic("terra approach:")
-print("round raster")
-r_rounded <- round(r * rfactor) / rfactor
-toc()
-# 567.91 seconds
 
 
 tic("tic direct gdal approach:")
@@ -145,16 +127,10 @@ system(
   paste0('gdal raster calc -i "A=../data/thermal_rasters_FINAL/mean_v01emme.tif" --calc "A*', rfactor , '/', rfactor,'"', ' -o r_rounded.tiff --overwrite --ot Float32')
 )
 toc()
+# 118.197
+
 
 r_rounded <- terra::rast("r_rounded.tiff")
-# 180.387 seconds. So using gdal directly yields a speedup here
-
-
-#tic()
-#print("compute median temperature for every zone")
-#mean_df <- terra::extract(r_rounded, slaps_buffer_vect, fun = "median", na.rm = TRUE)
-#toc()
-# can not run, because of out of memory issues.
 
 tic()
 slap_means <- exactextractr::exact_extract(r_rounded, slaps_buffer_sf, fun = "median")
@@ -165,14 +141,6 @@ temp_look_up_df <- tibble(slap_id = slaps_buffer_sf$slap_id, slap_means = slap_m
 
 
   # ── 5. BURN MEDIANS INTO ZONES ────────────────────────────────────────────
-tic()
-print("burn in the means into zones")
-Tmean <- terra::classify(zone_r_big, temp_look_up_df)
-toc()
-# 153.786
-
-
-
 
 writeLines(
   paste0(
@@ -195,18 +163,6 @@ toc()
 # so when I also use gdal in the step for the zone_r_big creation, then this is a speedup of roughly 1/3 here
 
 
-  # ── 6. FLAG COLD PIXELS ───────────────────────────────────────────────────
-tic()
-
-print("calculate difference from median")
-flagged_pixels <- r_rounded - Tmean
-binary <- flagged_pixels <= (-1 * delta_C)
-
-print("set pixels that are not to cold to NA")
-binary[binary == 0] <- NA
-toc()
-
-# 868.92 seconds
 
 tic()
 system(
@@ -216,19 +172,12 @@ paste0('gdal raster calc -i "A=r_rounded.tiff" -i "B=Tmean_raster.tiff" --calc "
 toc()
 # 405 seconds. So roughy a doubling in performance
 
-
-
 binary <- terra::rast("binary_out.tif")
-
 
 tic()
 patches_v <- terra::as.polygons(binary, dissolve = TRUE, eight = FALSE)
 toc()
 ## Doing gdal here does not make sense i beliefe. Because I was not able to track down the command that lets you compute
-## 
-
-
-
 
   # ── 7. POLYGONIZE ─────────────────────────────────────────────────────────
 
@@ -243,7 +192,6 @@ patches_sf <- patches_v %>%
   sf::st_cast("POLYGON") %>%
   sf::st_as_sf()
 
-
   # ── 8. AREA FILTER ────────────────────────────────────────────────────────
 patches_large <- patches_sf %>%
   filter(as.numeric(st_area(.)) >= 2) %>%
@@ -251,8 +199,6 @@ patches_large <- patches_sf %>%
 
 
   # ── 9. TEMPERATURE STATISTICS PER PATCH ──────────────────────────────────
-
-
 
 tic()
 stats_matrix <- exact_extract(r_rounded, patches_large, c("mean", "min", "max", "median"))
@@ -263,8 +209,6 @@ stats_per_poly <- stats_matrix %>%
   mutate(
       ID = patches_large$ID
   )
-
-# 22.552 seconds
 # 5.894 seconds -> so writing the file in chunks is a huuge speedup. So this deffinetely has to be noted
 patches_large_with_stas <- patches_large %>%
   left_join(stats_per_poly, by = "ID")
@@ -283,3 +227,4 @@ final_patches <- patches_large_with_stas %>%
   mutate(deltaT = median- slap_median_T) %>%
   filter(deltaT >= delta_C)
 
+toc()
