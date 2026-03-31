@@ -436,4 +436,59 @@ I beliefe that parallelism in R is just fundamentally flawed in a way. In order 
 
 Gdal on the command line seems to be way faster for some operations. Maybe we can outsource some computations. This is what I am going to do next.
 
+I noticed two things: Running GDAL with system() on the command line is a bit of a hussle to set up, but it brings along large time savings. In the order of 66% to 55% and for some it is a massive speedup.
 
+Then i also noticed that exact_extract is massively faster on chunked files. Possibly because if a polygon just falls into one or mutlible chunks, all that has to be done is to read that chunk and not a whole array of lines that need to be read. And since this algorithm uses exact_extract 3 times, this ammounts to a decent speed up.
+
+I'm gonna finish up the gdal only version now and then compare to the non gdal version and then also to the original code version.
+
+
+
+### The four functions
+
+-> Original function crashes -> terra::extract. I got to run this on their machine
+-> function_terra.R -> Original function implemented relying heavily on the terra package -> all loops are replaced by raster computations. The main idea was here to decrease the proportion of time spent in the interpreted R language into the compiled C++ language. -> C++ is just much faster, so you wanna spend as much time there as possible. Further I was under the impression that terra or underlying gdal has easy parallelisation access backed in, so I tried to express the workflow with a set of functions that allow for easy prallelisation. Further I saw in an exercise how much faster pure GDAL over the commandline can be comprared to terra. Terra is built on GDAL, so whatever is possible in Terra, almost certaintly is also possible in GDAL. For that reason I also knew, if I can express everything using the classical vector and raster opertations (zonal, focal, raster algebra, rasterize, poylgonize) etc, then I can later outsource to gdal. Sadly terra and gdal do not feature parallelisation (I was under the naive assumption that gdal for shure allows for mutli threaded computation. Propably thought so because numexpression and numpy can do this over the OPENBLAS dependency. It is unfortunately not the case). Also i replaced terra::extract with exact_extract from the exactextractr package. Not shure which one is more performative, but exact_extractr does not load the whole raster into memory when doing the calculations (which i susspect for terra::extract) and also has a C++ backbone so it is very fast. Execution time on my device: 33 min
+
+
+-> function_gdal.R: Whenever possible, I substituted the terra operations with the faster gdal operations using the system() function and strings. On my computer 21 min.
+
+-> function_gdal_chunked.R : Here I am writing my files in a chuncked manner. This makes exact_extract perform much better. The reason for this lies in the way geotiffs are written. They are written to disk in a manner where each
+
+row 1:  [pixel 1, pixel 2, pixel 3, ... pixel N]  ← written first
+row 2:  [pixel 1, pixel 2, pixel 3, ... pixel N]
+row 3:  [pixel 1, pixel 2, pixel 3, ... pixel N]
+...
+row M:  [pixel 1, pixel 2, pixel 3, ... pixel N]  ← written last
+
+So if a polygon spanns mutlibe scannlines, they all have to ber written in order to get the necessairy pixels. If we read in chuncks however, only two reading opperations are neccessairy per chunk, so much less reading -> much better performance. Execution time on my device: 16 min.
+
+
+### Onto the HPC
+
+-> I think the secret to succes is to write and read large chunks of data.
+
+function_gdal_compressed + large chache size.R :
+
+function_gdal_chunked.R : Actually, this function was super duper fast. The same speed as on my computer. Don't realy know why tho. But I mean, I take it. But I have to look into this, because this was "to easy" so something must be wrong.
+
+function_gdal.R:
+
+took 20 mins to run. Just like on my device. But I did not do any chunking. What is going on ?? I realy did not expect it to turn out like this. Why is there no issue here?? Lets check the terra function. Maybe terra is just utter trash in handling distributed file systems or whatever
+
+function_terra.R:
+
+yea I am very possitive that terra actually has some issues with distributed file systems or something else on the HPC. Because it takes dispropotionally longer for this stuff to run on the HPC than on my device but only for the terra workflow. Got no idea why -> This would be very interesting to figure out. Maybe it is the temp directory which is setup somewhere where a lot of networking is needed. This version of the code took 44 minutes oposed to the 31 minutes on my device. So arround 15 mins more
+
+
+function_gdal_with_large_chache_and_chunking: 
+Chache was set to 16 GB, but it did not realy yield a speed up
+
+
+function_gdal_with_chunking_and_compression:
+
+compression was set for all gdal operations. It takes longer -> this makes rather sense since I noticed a while ago that the computation is not I/O bound but it is CPU bound. Meaning the CPU is the bottle neck. So adding more computation steps to the cpu (compressing and decompressing does not realy yield an improvement obviously). Takes 25 minutes -> so this is worse.
+
+
+function_original:
+
+-> Takes 54 mins allready on the hpc
