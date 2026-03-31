@@ -6,7 +6,8 @@ library(tictoc)
 library(tmap)
 library(exactextractr)
 
-getwd()
+
+
 
 tic("Total Time Chunked workflow: ")
 ras_path <- file.path("../../data/thermal_rasters_FINAL/mean_v01emme.tif")
@@ -126,7 +127,7 @@ tic("tic direct gdal approach:")
 system(paste0(
   'gdal raster calc -i "A=../../data/thermal_rasters_FINAL/mean_v01emme.tif" ',
   '--calc "A*', rfactor, '/', rfactor, '" ',
-  '-o r_rounded.tiff --overwrite --ot Float32 ',
+  '-o r_rounded.tiff --overwrite --ot Float32  --nodata -9999 ',
   co
 ))
 toc()
@@ -166,13 +167,15 @@ system(paste0(
   'gdal raster calc ',
   '-i "A=r_rounded.tiff" ',
   '-i "B=Tmean_raster.tiff" ',
-  '--calc "((A - B) >= ', delta_C, ') ? 1 : NaN" ',
+  '--calc "((B - A) >= ', delta_C, ') * (A != -9999) ? 1 : NaN" ', # B has a bit of a larger extent than A, so in order to garantuee that everything works out (A != 0) is needed
   '-o binary_out.tif --overwrite ',
   co
 ))
 toc()
 
 binary <- terra::rast("binary_out.tif")
+
+binary %>% plot()
 
 tic()
 patches_v <- terra::as.polygons(binary, dissolve = TRUE, eight = FALSE)
@@ -206,6 +209,26 @@ stats_per_poly <- stats_matrix %>%
   as_tibble() %>%
   mutate(ID = patches_large$ID)
 
-sf::write_sf(stats_per_poly, "final_polys.shp")
+patches_large_with_stats <- patches_large %>%
+  inner_join(
+    by = join_by(ID==ID),
+    stats_per_poly
+  )
+
+sf::write_sf(patches_large_with_stats , "final_polys.shp")
+
+
 
 toc()
+
+
+library(tmap)
+
+tmap_mode("view")
+
+
+
+tm_shape(patches_large_with_stats) +
+  tm_polygons()
+
+patches_large_with_stats %>% terra::vect() %>% plot()
