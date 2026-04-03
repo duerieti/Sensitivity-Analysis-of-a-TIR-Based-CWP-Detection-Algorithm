@@ -492,3 +492,42 @@ compression was set for all gdal operations. It takes longer -> this makes rathe
 function_original:
 
 -> Takes 54 mins allready on the hpc
+
+
+
+### Traching down algorithmic differences
+
+
+If my code realy should be an improvement of the existing code, then it needs to produce the exact same results as the original code. I allready noticed  view days ago, that there was one mayor conceptual bug left in the gdal calculation step. This bug arised since the slabs are larger than the river raster. And the way I set up the raster algebra, yielded some funny interactions with the nondata values in the raster. Namely, when you do calculations, then the nondata values get interpreted as realy numbers too. So in order to combat this i specifically set up a rule to ensure that nodata fields are treated correctly.
+
+
+Now I ploted the output of the optimized code and the output of the current code using tmap. (Both are polygons). The output mostly seems to allighn howerver there are some very minor differences plus some larger polygons where I am wondering why and how the differences come to be.
+
+Observations:
+
+For one patch I can see small holes which are present in the old version but not in the new one
+
+
+
+For this one, half of the plot is missing in the original one. Wonder what happend her
+![weird_1](weird_inconsitency_1.png)
+
+
+
+for another one you got some weird gaps again which are not filled up in the original function
+![weird_2](weird_spot_2.png)
+
+
+
+Here we got a similar issue again, the new function captures a nit more than the old one
+![weird_3](weird_spot_3.png)
+
+
+
+The new code seems to spot less than the current code
+
+-> Mabye in the thresholding ? 
+-> Maybe in the dialating into shrinking step?
+
+
+Lets first compare both binary rasters
