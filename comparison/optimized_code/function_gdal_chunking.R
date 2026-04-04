@@ -5,9 +5,8 @@ library(tidyverse)
 library(tictoc)
 library(tmap)
 library(exactextractr)
+install.packages("terra")
 
-
-getwd()
 
 tic("Total Time Chunked workflow: ")
 ras_path <- file.path("data/thermal_rasters_FINAL/mean_v01emme.tif")
@@ -22,7 +21,6 @@ line_path <- file.path("data/Centerlines_FINAL/Emme_V01.shp")
     connect_diagonals = TRUE
     union_chunk_size  = 50000L
 
-# tiling creation options — no compression, just chunked layout
 co <- "--co TILED=YES --co BLOCKXSIZE=512 --co BLOCKYSIZE=512 --co BIGTIFF=YES"
 
   # ── 0. READ INPUTS ────────────────────────────────────────────────────────
@@ -82,9 +80,8 @@ slabs <- sf::st_buffer(subs,
                        endCapStyle = "FLAT",
                        joinStyle   = "MITRE",
                        mitreLimit  = 2)
-slabs_sf <- sf::st_sf(geometry = slabs)
-
-slabs_terra <- terra::vect(slabs_sf)
+slabs_sf <- sf::st_sf(geometry = slabs) %>% mutate(slap_id = row_number())
+sf::write_sf(slabs_sf, "slabs_sf.shp")
 
 buffer_m <- cell_m * buffer_px
 
@@ -95,34 +92,8 @@ slabs_buffer <- sf::st_buffer(subs,
                               mitreLimit  = 2)
 slaps_buffer_sf <- sf::st_sf(geometry = slabs_buffer) %>% mutate(slap_id = row_number())
 
-slaps_buffer_vect <- slaps_buffer_sf %>%
-  mutate(slap_id = row_number()) %>%
-  terra::vect()
-
-slabs <- sf::st_buffer(subs,
-                       dist        = slab_halfwidth_m,
-                       endCapStyle = "FLAT",
-                       joinStyle   = "MITRE",
-                       mitreLimit  = 2)
-slabs_sf <- sf::st_sf(geometry = slabs) %>% mutate(slap_id = row_number())
-sf::write_sf(slabs_sf, "slabs_sf.shp")
-
   # ── 2. COMPUTE REFERENCE TEMPERATURES ────────────────────────────────────
 
-e <- ext(r)
-ext_string <- paste(e$xmin, e$ymin, e$xmax, e$ymax, sep = ",")
-resolution <- res(r)
-res_string <- paste(resolution, collapse = ",")
-
-# zone_r_big: read once by reclassify → tile it
-system(paste0(
-  'gdal vector rasterize -i slabs_sf.shp -o zone_r_big.tiff ',
-  '--extent ', ext_string, ' --resolution ', res_string,
-  ' --overwrite --ot Int16 -a slap_id --optimization RASTER ',
-  co
-))
-
-# r_rounded: read multiple times (exact_extract x2, raster calc) → tile it
 tic("tic direct gdal approach:")
 system(paste0(
   'gdal raster calc -i "A=data/thermal_rasters_FINAL/mean_v01emme.tif" ',
@@ -134,138 +105,181 @@ toc()
 
 r_rounded <- terra::rast("r_rounded.tiff")
 
-?exact_extract
-
-tic()
-slap_means <- exactextractr::exact_extract(r_rounded, slaps_buffer_sf, fun = "median", coverage_fraction = 0.5)
-toc()
-
-slap_means <- exactextractr::exact_extract(
-  r_rounded,
-  slaps_buffer_sf,
-  fun = function(values, coverage_fractions) {
-    # only keep cells whose centre is inside (coverage > 0.5)
-    median(values[coverage_fractions > 0.5], na.rm = TRUE)
-  }
-)
+slap_means <- exactextractr::exact_extract(r_rounded, slaps_buffer_sf, fun = "median") %>% round(1)
 
 temp_look_up_df <- tibble(slap_id = slaps_buffer_sf$slap_id, slap_means = slap_means)
 
-  # ── 5. BURN MEDIANS INTO ZONES ────────────────────────────────────────────
+  # ── 3. FLAG COLD PIXELS WITH OR LOGIC ACROSS OVERLAPPING SLABS ───────────
 
-writeLines(
-  paste0(
-    paste0("[", temp_look_up_df$slap_id, ",", temp_look_up_df$slap_id, "]=", temp_look_up_df$slap_means, collapse = "; "),
-    "; DEFAULT=NO_DATA"
-  ),
-  "median_lookup_gdal.txt"
+tic("OR-logic pixel flagging: ")
+
+
+# Extract all cell-to-slab mappings — duplicates intentional for overlap zones
+cell_slab_df <- exactextractr::exact_extract(
+  r_rounded,
+  slabs_sf,                  # use full slabs (not corridors) to match original logic
+  fun = NULL,
+  include_cell = TRUE,
+  include_cols = "slap_id",
+  progress = FALSE
+) |> dplyr::bind_rows()
+
+
+# Join reference temperatures, flag per (cell, slab) pair, then OR across slabs
+flagged_cells <- cell_slab_df |>
+  dplyr::filter(!is.na(value)) |>
+  dplyr::left_join(temp_look_up_df, by = "slap_id") |>
+  dplyr::mutate(flagged = (slap_means - value) >= delta_C) |>
+  dplyr::group_by(cell) |>
+  dplyr::summarise(flag = any(flagged, na.rm = TRUE), .groups = "drop") |>
+  dplyr::filter(flag) |>
+  dplyr::pull(cell)
+
+toc()
+
+
+  # ── 4. BURN FLAGGED CELLS INTO BINARY RASTER ─────────────────────────────
+
+tic("Build binary raster: ")
+
+xy_flagged <- terra::xyFromCell(r_rounded, flagged_cells) |>
+  as.data.frame() |>
+  dplyr::mutate(flag = 1L)
+
+print("creating the vector")
+pts <- terra::vect(
+  xy_flagged, 
+  geom  = c("x", "y"), 
+  crs   = terra::crs(r_rounded)
 )
 
-lookup_str <- readLines("median_lookup_gdal.txt")
+terra::writeVector(pts, "points.shp", overwrite=TRUE)
 
-# Tmean_raster: read once by raster calc → tile it
-tic()
+print("trying the rasterisation")
+terra::rasterize(
+  pts,
+  r_rounded,
+  field    = "flag",
+  filename = "binary_out.tif",
+  overwrite = TRUE,
+  datatype  = "INT1U",
+  NAflag    = 255,
+  gdal      = c("TILED=YES", "BLOCKXSIZE=512", "BLOCKYSIZE=512", "BIGTIFF=YES")
+)
+
+
+tic("tic direct gdal approach:")
 system(paste0(
-  'gdal raster reclassify -i zone_r_big.tiff -o Tmean_raster.tiff ',
-  '--datatype Float64 --overwrite -m "', lookup_str, '" ',
+  'gdal vector rasterize -i points.shp -o binary_out --burn 1 --overwrite --datatype Int8 --nodata 255',
   co
 ))
 toc()
 
-# binary_out: read by terra::as.polygons and exact_extract → tile it
-tic()
-system(paste0(
-  'gdal raster calc ',
-  '-i "A=r_rounded.tiff" ',
-  '-i "B=Tmean_raster.tiff" ',
-  '--calc "((B - A) >= ', delta_C, ') * (A != -9999) ? 1 : NaN" ', # B has a bit of a larger extent than A, so in order to garantuee that everything works out (A != 0) is needed
-  '-o binary_out.tif --overwrite ',
-  co
-))
+
 toc()
 
+getwd()
+
+print("load")
 binary <- terra::rast("binary_out.tif")
 
-tic()
-patches_v <- terra::as.polygons(binary, dissolve = TRUE, eight = FALSE)
-toc()
 
-  # ── 7. POLYGONIZE ─────────────────────────────────────────────────────────
+
+  # ── 5. POLYGONIZE ─────────────────────────────────────────────────────────
+
+tic()
+patches_v <- terra::as.polygons(binary, dissolve = TRUE, eight = TRUE)
+toc()
 
 eps <- if (connect_diagonals) cell_m * 0.1 else 0
 
 patches_sf <- patches_v %>%
   sf::st_as_sf() %>%
-  sf::st_cast("POLYGON") %>%
-  sf::st_buffer(eps) %>%
-  sf::st_union() %>%
-  sf::st_buffer(-eps) %>%
-  sf::st_cast("POLYGON") %>%
-  sf::st_as_sf()
+  sf::st_cast("POLYGON")
+  
+  # ── 6. AREA FILTER ────────────────────────────────────────────────────────
 
-  # ── 8. AREA FILTER ────────────────────────────────────────────────────────
 patches_large <- patches_sf %>%
-  filter(as.numeric(st_area(.)) >= 2) %>%
+  mutate(area_m2 = as.numeric(st_area(.))) %>%
+  filter(area_m2 >= min_patch_area_m2) %>%
   mutate(ID = row_number())
 
-  # ── 9. TEMPERATURE STATISTICS PER PATCH ──────────────────────────────────
+  # ── 7. TEMPERATURE STATISTICS PER PATCH ──────────────────────────────────
 
 tic()
 stats_matrix <- exact_extract(r_rounded, patches_large, c("mean", "min", "max", "median"))
-
 toc()
+
+
 
 stats_per_poly <- stats_matrix %>%
   as_tibble() %>%
-  mutate(ID = patches_large$ID)
+  mutate(ID = patches_large$ID) %>%
+  mutate(
+    T_min = min,
+    T_max = max,
+    T_med = median,
+    T_mean = mean
+  ) %>% select(!c(min, max, median, mean))
+
+
+
+median_of_slab <- exact_extract(, patches_large, "median", force_df = TRUE) %>%
+  mutate(
+    ID = row_number(),
+    median = round(median,1)
+) %>%
+  rename(median_of_slab = median)
+  
+
 
 patches_large_with_stats <- patches_large %>%
-  inner_join(
-    by = join_by(ID==ID),
-    stats_per_poly
-  )
+  inner_join(stats_per_poly, by = join_by(ID == ID)) %>%
+  inner_join(median_of_slab, by = join_by(ID == ID)) %>%
+  mutate(delta_T = median_of_slab - T_med)
 
-sf::write_sf(patches_large_with_stats , "final_polys.shp")
 
+sf::write_sf(patches_large_with_stats, "final_polys.shp")
 
 
 polys_current <- sf::read_sf("./comparison/current_code/final_polys.shp")
-polys_new <- sf::read_sf("./comparison/optimized_code/final_polys.shp")
-rast_binary_new <- terra::rast("./comparison/optimized_code/binary_out.tif")
+polys_new <- sf::read_sf("final_polys.shp")
+rast_binary <- terra::rast("binary_out.tif")
+
+
 
 
 tmap_mode("view")
 
 
-tm_shape(rast_binary, name = "Binary Raster") +
-  tm_raster(
-    col.scale = tm_scale_categorical(values = c("0" = "white", "1" = "red")),
-    col.legend = tm_legend(title = "Binary Raster"),
-    col_alpha = 0.6
-  ) +
 tm_shape(polys_current, name = "Current Polygons") +
   tm_polygons(
-    fill = "yellow",
-    fill_alpha = 0.5,
+    fill = "T_mean",
+    fill.scale = tm_scale_continuous(values = "viridis"),
+    fill_alpha = 0.7,
     col = "darkorange",
     lwd = 1.5,
-    fill.legend = tm_legend(title = "Current Code")
+    fill.legend = tm_legend(title = "Current Code (ID)")
   ) +
+  tm_text("T_mean", size = 1.5, col = "darkorange", fontface = "bold",
+          xmod = -0.002, ymod = 0.002) +   # shift UP-LEFT
 tm_shape(polys_new, name = "New Polygons") +
   tm_polygons(
-    fill = "blue",
-    fill_alpha = 0.5,
+    fill = "T_mean",
+    fill.scale = tm_scale_continuous(values = "plasma"),
+    fill_alpha = 0.7,
     col = "darkblue",
     lwd = 1.5,
-    fill.legend = tm_legend(title = "Optimized Code")
+    fill.legend = tm_legend(title = "Optimized Code (ID)")
   ) +
+  tm_text("T_mean", size = 1.5, col = "darkblue", fontface = "bold",
+          xmod = 0.002, ymod = -0.002) +   # shift DOWN-RIGHT
 tm_basemap(c(
-  "OpenStreetMap"       = "OpenStreetMap",
-  "Satellite"           = "Esri.WorldImagery",
-  "Topo"                = "OpenTopoMap"
-)) +
-tm_scalebar(position = c("left", "bottom")) +
-tm_compass(position = c("right", "top")) +
-tm_title("Layer Comparison: Current vs Optimized")
-
+    "OpenStreetMap" = "OpenStreetMap",
+    "Satellite"     = "Esri.WorldImagery",
+    "Topo"          = "OpenTopoMap"
+  )) +
+  tm_scalebar(position = c("left", "bottom")) +
+  tm_compass(position = c("right", "top")) +
+  tm_title("Layer Comparison: Current vs Optimized (colored by ID)")
 
