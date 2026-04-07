@@ -4,3 +4,6 @@ code/Slurm*
 *.tif
 *.tiff
 *.shp
+*.dbf
+*.shx
+*.prj
