@@ -6,12 +6,12 @@ library(tictoc)
 library(tmap)
 library(exactextractr)
 
+setwd("/home/etienne/Desktop/repos/Github_Enterprise/BSc_project/comparison/optimized_code")
 
-getwd()
 
 tic("Total Time Chunked workflow: ")
-ras_path <- file.path("data/thermal_rasters_FINAL/mean_v01emme.tif")
-line_path <- file.path("data/Centerlines_FINAL/Emme_V01.shp")
+ras_path <- file.path("../../data/thermal_rasters_FINAL/mean_v01emme.tif")
+line_path <- file.path("../../data/Centerlines_FINAL/Emme_V01.shp")
 
     step_m            = 500
     buffer_px         = 3
@@ -109,45 +109,48 @@ sf::write_sf(slabs_sf, "slabs_sf.shp")
 
   # ── 2. COMPUTE REFERENCE TEMPERATURES ────────────────────────────────────
 
+sf::st_layers("slabs_sf.shp")
+
 e <- ext(r)
 ext_string <- paste(e$xmin, e$ymin, e$xmax, e$ymax, sep = ",")
 resolution <- res(r)
 res_string <- paste(resolution, collapse = ",")
 
-# zone_r_big: read once by reclassify → tile it
 system(paste0(
-  'gdal vector rasterize -i slabs_sf.shp -o zone_r_big.tiff ',
+  'gdal vector rasterize -i slabs_sf.shp -o zone_r_big_asc.tiff ',
+  '--dialect SQLITE --sql "SELECT * FROM slabs_sf ORDER BY slap_id ASC" ',
   '--extent ', ext_string, ' --resolution ', res_string,
-  ' --overwrite --ot Int16 -a slap_id --optimization RASTER ',
+  ' --overwrite --ot Int8 -a slap_id --optimization RASTER ',
   co
 ))
+
+system(paste0(
+  'gdal vector rasterize -i slabs_sf.shp -o zone_r_big_desc.tiff ',
+  '--dialect SQLITE --sql "SELECT * FROM slabs_sf ORDER BY slap_id DESC" ',
+  '--extent ', ext_string, ' --resolution ', res_string,
+  ' --overwrite --ot Int8 -a slap_id --optimization RASTER ',
+  co
+))
+
 
 # r_rounded: read multiple times (exact_extract x2, raster calc) → tile it
 tic("tic direct gdal approach:")
 system(paste0(
-  'gdal raster calc -i "A=data/thermal_rasters_FINAL/mean_v01emme.tif" ',
-  '--calc "A*', rfactor, '/', rfactor, '" ',
-  '-o r_rounded.tiff --overwrite --ot Float32  --nodata -9999 ',
+  'gdal raster calc -i "A=../../data/thermal_rasters_FINAL/mean_v01emme.tif" ',
+  '--calc "rint(A * ', rfactor, ') / ', rfactor, '"',
+  ' -o r_rounded.tiff --overwrite --ot Float64 --nodata -9999 ',
   co
 ))
 toc()
 
+
 r_rounded <- terra::rast("r_rounded.tiff")
 
-?exact_extract
+
 
 tic()
-slap_means <- exactextractr::exact_extract(r_rounded, slaps_buffer_sf, fun = "median", coverage_fraction = 0.5)
+slap_means <- exactextractr::exact_extract(r_rounded, slaps_buffer_sf, fun = "median" )
 toc()
-
-slap_means <- exactextractr::exact_extract(
-  r_rounded,
-  slaps_buffer_sf,
-  fun = function(values, coverage_fractions) {
-    # only keep cells whose centre is inside (coverage > 0.5)
-    median(values[coverage_fractions > 0.5], na.rm = TRUE)
-  }
-)
 
 temp_look_up_df <- tibble(slap_id = slaps_buffer_sf$slap_id, slap_means = slap_means)
 
@@ -166,11 +169,35 @@ lookup_str <- readLines("median_lookup_gdal.txt")
 # Tmean_raster: read once by raster calc → tile it
 tic()
 system(paste0(
-  'gdal raster reclassify -i zone_r_big.tiff -o Tmean_raster.tiff ',
+  'gdal raster reclassify -i zone_r_big_asc.tiff -o Tmean_raster_asc.tiff ',
   '--datatype Float64 --overwrite -m "', lookup_str, '" ',
   co
 ))
 toc()
+
+
+
+
+tic()
+system(paste0(
+  'gdal raster reclassify -i zone_r_big_desc.tiff -o Tmean_raster_desc.tiff ',
+  '--datatype Float64 --overwrite -m "', lookup_str, '" ',
+  co
+))
+toc()
+
+
+
+
+system(paste0(
+  'gdal raster calc -i "A=Tmean_raster_desc.tiff" -i "B=Tmean_raster_asc.tiff" -o Tmean_raster.tiff ',
+  '--calc "A > B ? A : B" ',
+  '--overwrite --ot Float32 ',
+  co
+))
+
+
+
 
 # binary_out: read by terra::as.polygons and exact_extract → tile it
 tic()
@@ -179,16 +206,22 @@ system(paste0(
   '-i "A=r_rounded.tiff" ',
   '-i "B=Tmean_raster.tiff" ',
   '--calc "((B - A) >= ', delta_C, ') * (A != -9999) ? 1 : NaN" ', # B has a bit of a larger extent than A, so in order to garantuee that everything works out (A != 0) is needed
-  '-o binary_out.tif --overwrite ',
+  '-o binary_out.tif --overwrite --ot Float32 ',
   co
 ))
 toc()
 
+
+
 binary <- terra::rast("binary_out.tif")
 
+
+
 tic()
-patches_v <- terra::as.polygons(binary, dissolve = TRUE, eight = FALSE)
+patches_v <- terra::as.polygons(binary, dissolve = TRUE, eight = TRUE)
 toc()
+
+
 
   # ── 7. POLYGONIZE ─────────────────────────────────────────────────────────
 
@@ -211,61 +244,54 @@ patches_large <- patches_sf %>%
   # ── 9. TEMPERATURE STATISTICS PER PATCH ──────────────────────────────────
 
 tic()
-stats_matrix <- exact_extract(r_rounded, patches_large, c("mean", "min", "max", "median"))
-
+stats_matrix <- exact_extract(r, patches_large, c("mean", "min", "max", "median"))
 toc()
 
 stats_per_poly <- stats_matrix %>%
   as_tibble() %>%
   mutate(ID = patches_large$ID)
 
-patches_large_with_stats <- patches_large %>%
+
+
+patches_large_w_stats <- patches_large %>%
   inner_join(
-    by = join_by(ID==ID),
-    stats_per_poly
+    stats_per_poly,
+    by = join_by(ID==ID)
   )
 
-sf::write_sf(patches_large_with_stats , "final_polys.shp")
 
 
+Tmean_raster <- terra::rast("Tmean_raster.tiff")
 
-polys_current <- sf::read_sf("./comparison/current_code/final_polys.shp")
-polys_new <- sf::read_sf("./comparison/optimized_code/final_polys.shp")
-rast_binary_new <- terra::rast("./comparison/optimized_code/binary_out.tif")
+tic()
+slap_means_per_poly <- exact_extract(Tmean_raster, patches_large_w_stats, fun = "median")
+toc()
+
+slap_means_df <- tibble(slap_mean = slap_means_per_poly, ID = patches_large_w_stats$ID)
+
+patches_large_w_stats <- patches_large_w_stats %>%
+  inner_join(
+    slap_means_df,
+    by = join_by(ID == ID)
+  ) %>%
+  filter(slap_mean - median >= delta_C)
+
+current_polys <- sf::read_sf("../current_code/final_polys.shp")
+
+toc()
 
 
-tmap_mode("view")
+library(tmap)
 
+tmap_mode("view")  # interactive; use "plot" for static
 
-tm_shape(rast_binary, name = "Binary Raster") +
-  tm_raster(
-    col.scale = tm_scale_categorical(values = c("0" = "white", "1" = "red")),
-    col.legend = tm_legend(title = "Binary Raster"),
-    col_alpha = 0.6
-  ) +
-tm_shape(polys_current, name = "Current Polygons") +
-  tm_polygons(
-    fill = "yellow",
-    fill_alpha = 0.5,
-    col = "darkorange",
-    lwd = 1.5,
-    fill.legend = tm_legend(title = "Current Code")
-  ) +
-tm_shape(polys_new, name = "New Polygons") +
-  tm_polygons(
-    fill = "blue",
-    fill_alpha = 0.5,
-    col = "darkblue",
-    lwd = 1.5,
-    fill.legend = tm_legend(title = "Optimized Code")
-  ) +
-tm_basemap(c(
-  "OpenStreetMap"       = "OpenStreetMap",
-  "Satellite"           = "Esri.WorldImagery",
-  "Topo"                = "OpenTopoMap"
-)) +
-tm_scalebar(position = c("left", "bottom")) +
-tm_compass(position = c("right", "top")) +
-tm_title("Layer Comparison: Current vs Optimized")
+tm_shape(current_polys) +
+  tm_polygons(fill = "blue") +
+tm_shape(patches_large_w_stats) +
+  tm_polygons(fill = "yellow") +
+tm_title("Patches with stats vs. current polys") +
+tm_scalebar() +
+tm_compass()
+
 
 

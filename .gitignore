@@ -2,5 +2,8 @@ data/
 literature/
 code/Slurm*
 *.tif
-*.shp
 *.tiff
+*.shp
+*.dbf
+*.shx
+*.prj

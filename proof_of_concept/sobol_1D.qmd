@@ -509,7 +509,7 @@ For one patch I can see small holes which are present in the old version but not
 
 
 
-For this one, half of the plot is missing in the original one. Wonder what happend her
+For this one, half of the plot is missing in the new version. Wonder what happend her
 ![weird_1](weird_inconsitency_1.png)
 
 
@@ -531,3 +531,70 @@ The new code seems to spot less than the current code
 
 
 Lets first compare both binary rasters
+
+
+
+
+### Overlapping slab polygons
+
+I found the first issue. The slab polygons that are beeing created are actually overlapping at certain boundaries. Their code loops through slabs. All pixels covered by a slab are subject of extraction and pixel flagging. So pixels that lie within an intersection of two slabs are first compared to the mean of the fist slab and the mean of the second slab. So they have the possibility to be flagged twiche. My code is different in the sense that each pixel only gets accounted towards one slab and only gets flagged with respect to the median temperature of one slab. So this yielded the differences in
+
+![weird_1](weird_inconsitency_1.png)
+
+
+### Rounding errors
+
+I just found another issue I think!!! they did the subtraction of the rounded slab median rounded to one decimal point. This has very much gotten rid of all the small pixel differences at the edges of the cold water patches. They are all 100% deckungsgleich now. The ony exception are 3 cold water patches which are no no longer detected by the new algorithm. I wonder why. Probably because the median temperature of the slab is higher in my function than in theirs or the slab median in my function is lower than in theirs. Lets figgure it out. If we got this, then thats a humongous win.
+
+
+I now looked at the mean values. Almost the same. But some patches are slightly different and some are two patches.
+
+
+Lastly, the last remaining difference to be sorted out why some patches are droped.
+
+
+This patch is sorted out but has exaclty the same median value as in the old algorithm.
+![issue_patch](median_of_first_issue_patch.png)
+
+This plot also has the exact same median value as produced by the old algorithm but still gets sorted out.
+
+![second_issue_patch](second_issue_patch.png)
+
+
+So I think it has become rather clear that the issue lies not in the median temperature of th patches, but the issue lies in something else. But what might this be?
+
+
+ T_med) %>% pull(median_of_slab) %>% unique()
+ [1] 20.9 20.7 19.7 22.7 21.6 18.4 16.8 19.2 21.3 21.4 21.9 22.4 23.0
+[14] 21.8 19.6 20.2 20.1 20.0 19.9 19.8
+> polys_current$Tmd_slb %>% unique()
+ [1] 20.0 19.8 19.6 19.7 19.9 20.1 20.2 21.3 21.8 20.9 16.8 22.4 22.7
+[14] 21.4 23.0
+
+It seems like there are more unique slab temperatures in my code than in the old code. Difficult, difficult. Might this be due to terra::extract or to rounding or something. It for sure shows that the slab mean temperatures seem to be different. Well this is also no wonder given that exact_extract does indeed also treat partially overlapping pixels differently.
+
+
+#### Article covering exact_extract and terra::extract
+
+Some tests seem to underline that exact_extract is slower than terra::extract for small rasters but much faster for large rasters. Also extracting on mutlilayer rasters is faster than on single rasters. The second statement of course makes rather a lot of sense. If a raster has the same extent and resolution, then we only need to solve the problem for one pixel. The corresponding pixels in all other layers will then of course also be in the polygon bounds. => This can be used to optimize further. This, because I have to do two extraction steps at the end. I can combine them together.
+
+https://tmieno2.github.io/R-as-GIS-for-Economists/extract-speed.html
+
+Its a book and it was written by a Lecturer. So i beliefe it is niece but citation worthy. 
+
+
+#### Is terra::extract vs. exact_extract the last hurdle explaining the differences
+
+To test this, i got to run an adapted version of my function that uses terra::extract on the hpc and see. I hope it is, because this would then finaly reviel the differences.
+
+
+#### Exact timing and proviling
+
+I need to time and profile the two functions properly. Need to find a profiler that shows how much time is spent in compiled C routines and less time is spent in native R. It would then be great to see how this time is beeing reduced in my function.
+
+
+#### Presentation
+
+I guess this time it would be very important to first clearly decide what to communicate, then think about great visualisations of my results and findings. Perception is humans strongest sense to process data and analyse patterns. Also I need to demonstrate, that I improved in using visualisations. I would recommend quarto to do this, as this shows some extra care and looks more proper. At the same time it is very text based which is an ideal format for applying some AI as an aid.
+
+

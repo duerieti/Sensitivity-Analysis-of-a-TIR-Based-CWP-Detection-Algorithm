@@ -201,6 +201,10 @@ detect_cwp_single <- function(
   }
   flagged <- unique(flagged)
 
+
+
+
+
   timings[["flag_pixels"]] <- tic() - t0
 
   # ── 5. POLYGONIZE FLAGGED CELLS ────────────────────────────────────────────
