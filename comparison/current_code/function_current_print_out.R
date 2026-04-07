@@ -7,8 +7,8 @@ library(tictoc)
 library(tmap)
 
 
-path_raster <- "../data/thermal_rasters_FINAL/mean_v01emme.tif"
-path_line <- "../data/Centerlines_FINAL/Emme_V01.shp"
+path_raster <- "../../data/thermal_rasters_FINAL/mean_v01emme.tif"
+path_line <- "../../data/Centerlines_FINAL/Emme_V01.shp"
 
 terraOptions(memmax=49)
 
@@ -202,7 +202,7 @@ detect_cwp_single <- function(
   }
   flagged <- unique(flagged)
 
-
+  print("trying to write")
   debug_binary <- terra::rast(r)
   terra::values(debug_binary) <- NA_real_
   debug_binary[flagged] <- 1

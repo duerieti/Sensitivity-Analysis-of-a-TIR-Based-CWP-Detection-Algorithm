@@ -23,6 +23,8 @@ line_path <- file.path("../data/Centerlines_FINAL/Emme_V01.shp")
 
   # ── 0. READ INPUTS ────────────────────────────────────────────────────────
 
+tic("Total:")
+ 
 r <- terra::rast(ras_path)
 line <- sf::st_read(line_path, quiet = TRUE) |> sf::st_zm(TRUE, "ZM")
 

@@ -1,0 +1,39 @@
+terra 1.9.1
+Linking to GEOS 3.14.1, GDAL 3.12.2, PROJ 9.7.1; sf_use_s2() is TRUE
+
+Attaching package: ‘dplyr’
+
+The following objects are masked from ‘package:terra’:
+
+    intersect, union
+
+The following objects are masked from ‘package:stats’:
+
+    filter, lag
+
+The following objects are masked from ‘package:base’:
+
+    intersect, setdiff, setequal, union
+
+── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──
+✔ forcats   1.0.1     ✔ readr     2.2.0
+✔ ggplot2   4.0.2     ✔ stringr   1.6.0
+✔ lubridate 1.9.5     ✔ tibble    3.3.1
+✔ purrr     1.2.1     ✔ tidyr     1.3.2
+── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
+✖ tidyr::extract() masks terra::extract()
+✖ dplyr::filter()  masks stats::filter()
+✖ dplyr::lag()     masks stats::lag()
+ℹ Use the conflicted package (<http://conflicted.r-lib.org/>) to force all conflicts to become errors
+
+Attaching package: ‘tictoc’
+
+The following objects are masked from ‘package:terra’:
+
+    shift, size
+
+Cannot preload entire working area of 6559723170 cells with max_cells_in_memory = 3e+07. Raster values will be read for each feature individually.
+Warning message:
+In st_cast.sf(., "POLYGON") :
+  repeating attributes for all sub-geometries for which they may not be constant
+Cannot preload entire working area of 6572283260 cells with max_cells_in_memory = 3e+07. Raster values will be read for each feature individually.
