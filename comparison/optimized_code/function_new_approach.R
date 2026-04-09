@@ -93,7 +93,6 @@ slabs_buffer <- sf::st_buffer(subs,
                               endCapStyle = "FLAT",
                               joinStyle   = "MITRE",
                               mitreLimit  = 2)
-
 slaps_buffer_sf <- sf::st_sf(geometry = slabs_buffer) %>% mutate(slap_id = row_number())
 
 slaps_buffer_vect <- slaps_buffer_sf %>%
@@ -108,7 +107,99 @@ slabs <- sf::st_buffer(subs,
 slabs_sf <- sf::st_sf(geometry = slabs) %>% mutate(slap_id = row_number())
 sf::write_sf(slabs_sf, "slabs_sf.shp")
 
+slabs_sf %>% nrow()
+
+e <- ext(r)
+ext_string <- paste(e$xmin, e$ymin, e$xmax, e$ymax, sep = ",")
+resolution <- res(r)
+res_string <- paste(resolution, collapse = ",")
+
+
+tic()
+slap_means <- exactextractr::exact_extract(r, slaps_buffer_sf, fun = "median")
+toc()
+
+Tref_vec <- round(slap_means * rfactor) / rfactor
+
+
+for (j in seq_len(nrow(slabs_sf))) {
+  Tref_j <- Tref_vec[j]
+  if (is.na(Tref_j)) next
+  
+  # Rasterize slab j at FULL extent (same grid as r_rounded)
+  system(paste0(
+    'gdal vector rasterize -i slabs_sf.shp -o tmp_tref.tif ',
+    '--dialect SQLITE --sql "SELECT * FROM slabs_sf WHERE slap_id = ', j, '" ',
+    '--extent ', ext_string, ' --resolution ', res_string,
+    ' --overwrite --ot Float32 --burn ', Tref_j, ' ', co
+  ))
+  
+  # Flag: (Tref - T_rounded) >= delta, nodata where slab doesn't exist
+  system(paste0(
+    'gdal raster calc ',
+    '-i "T=tmp_tref.tif" -i "A=r_rounded.tiff" ',
+    '--calc "((T - A) >= ', delta_C, ') * (T != 0)" ',
+    '-o tmp_flag.tif --overwrite --ot Byte --nodata 255 ', co
+  ))
+  
+  # OR into accumulator
+  system(paste0(
+    'gdal raster calc ',
+    '-i "F=flag_accum.tif" -i "N=tmp_flag.tif" ',
+    '--calc "max(F, N)" ',
+    '-o flag_accum_new.tif --overwrite --ot Byte --nodata 255 ', co
+  ))
+  
+  file.rename("flag_accum_new.tif", "flag_accum.tif")
+}
+
   # ── 2. COMPUTE REFERENCE TEMPERATURES ────────────────────────────────────
+
+# Rasterize each slab as a separate layer in one SpatRaster stack
+mask_layers <- terra::rasterize(
+  terra::vect(slabs_sf),
+  r,
+  field = "slap_id",
+  by = "slap_id"        # key: creates one band per unique slap_id
+)
+# Result: nlyr(mask_layers) == number of slabs
+# Each band has the slap_id value inside its slab, NA outside
+
+# Convert each band to a 1/NA binary mask
+mask_binary <- !is.na(mask_layers)  # TRUE/FALSE → 1/0 per band
+
+
+
+tic()
+slap_means <- exactextractr::exact_extract(r, slaps_buffer_sf, fun = "median")
+toc()
+
+Tref_vec <- round(slap_means * rfactor) / rfactor
+
+Tref_stack <- mask_binary * Tref_vec  
+
+system(paste0(
+  'gdal raster calc -i "A=../../data/thermal_rasters_FINAL/mean_v01emme.tif" ',
+  '--calc "rint(A * ', rfactor, ') / ', rfactor, '"',
+  ' -o r_rounded.tiff --overwrite --ot Float64 --nodata -9999 ',
+  co
+))
+
+r_rounded <- terra::rast("r_rounded.tiff")
+
+# ── 4. Flag: per-band (Tref_j - T_rounded >= delta) AND inside slab j ───────
+
+delta_stack <- Tref_stack - r_rounded     # broadcasts r_rounded across all bands
+flag_stack  <- (delta_stack >= delta_C) & mask_binary
+
+
+# ── 5. Collapse: OR across all bands ────────────────────────────────────────
+
+flag_final <- terra::app(flag_stack, fun = "max", na.rm = TRUE)
+# 1 wherever ANY slab flagged the pixel, 0 otherwise
+
+# Clean up: set 0 → NA for polygonization
+flag_final[flag_final == 0] <- NA
 
 sf::st_layers("slabs_sf.shp")
 
@@ -116,6 +207,9 @@ e <- ext(r)
 ext_string <- paste(e$xmin, e$ymin, e$xmax, e$ymax, sep = ",")
 resolution <- res(r)
 res_string <- paste(resolution, collapse = ",")
+
+
+
 
 system(paste0(
   'gdal vector rasterize -i slabs_sf.shp -o zone_r_big_asc.tiff ',
@@ -147,17 +241,11 @@ toc()
 
 r_rounded <- terra::rast("r_rounded.tiff")
 
-slap_means <- exact_extract(r_rounded, slaps_buffer_sf, fun = function(values, coverage) {
-  median(values[coverage > 0], na.rm = TRUE)
-})
 
-slap_means <- exact_extract(r_rounded, slaps_buffer_sf, fun = function(values, coverage) {
-  median(values[coverage >= 0.5], na.rm = TRUE)
-})
 
-#tic()
-#slap_means <- exactextractr::exact_extract(r_rounded, slaps_buffer_sf, fun = "median")
-#toc()
+tic()
+slap_means <- exactextractr::exact_extract(r, slaps_buffer_sf, fun = "median" )
+toc()
 
 temp_look_up_df <- tibble(slap_id = slaps_buffer_sf$slap_id, slap_means = slap_means)
 
@@ -183,6 +271,8 @@ system(paste0(
 toc()
 
 
+
+
 tic()
 system(paste0(
   'gdal raster reclassify -i zone_r_big_desc.tiff -o Tmean_raster_desc.tiff ',
@@ -192,25 +282,30 @@ system(paste0(
 toc()
 
 
+
+
 system(paste0(
   'gdal raster calc -i "A=Tmean_raster_desc.tiff" -i "B=Tmean_raster_asc.tiff" -o Tmean_raster.tiff ',
   '--calc "A > B ? A : B" ',
-  '--overwrite --ot Float64 ',
+  '--overwrite --ot Float32 ',
   co
 ))
+
+
 
 
 # binary_out: read by terra::as.polygons and exact_extract → tile it
 tic()
 system(paste0(
   'gdal raster calc ',
-  '-i "A=r_rounded.tiff" ',
+  '-i "A=../../data/thermal_rasters_FINAL/mean_v01emme.tif" ',
   '-i "B=Tmean_raster.tiff" ',
   '--calc "((B - A) >= ', delta_C, ') * (A != -9999) ? 1 : NaN" ', # B has a bit of a larger extent than A, so in order to garantuee that everything works out (A != 0) is needed
   '-o binary_out.tif --overwrite --ot Float32 ',
   co
 ))
 toc()
+
 
 
 binary <- terra::rast("binary_out.tif")
@@ -264,10 +359,7 @@ patches_large_w_stats <- patches_large %>%
 Tmean_raster <- terra::rast("Tmean_raster.tiff")
 
 tic()
-slap_means_per_poly <- exact_extract(Tmean_raster, patches_large_w_stats, fun = function(values, coverage) {
-  median(values[coverage >= 0.5], na.rm = TRUE)
-})
-
+slap_means_per_poly <- exact_extract(Tmean_raster, patches_large_w_stats, fun = "median") %>% round(1)
 toc()
 
 slap_means_df <- tibble(slap_mean = slap_means_per_poly, ID = patches_large_w_stats$ID)
@@ -287,7 +379,7 @@ toc()
 library(tmap)
 
 tmap_mode("view")  # interactive; use "plot" for static
-tm_shape(slabs_buffer) + tm_polygons() +
+
 tm_shape(current_polys) +
   tm_polygons(fill = "blue") +
 tm_shape(patches_large_w_stats) +
@@ -295,7 +387,6 @@ tm_shape(patches_large_w_stats) +
 tm_title("Patches with stats vs. current polys") +
 tm_scalebar() +
 tm_compass()
-
 
 
 
