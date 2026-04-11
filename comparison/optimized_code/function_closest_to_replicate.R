@@ -137,19 +137,14 @@ system(paste0(
 # r_rounded: read multiple times (exact_extract x2, raster calc) → tile it
 tic("tic direct gdal approach:")
 system(paste0(
-  'gdal raster calc -i "A=../../data/thermal_rasters_FINAL/mean_v01emme.tif" ',
-  '--calc "rint(A * ', rfactor, ') / ', rfactor, '"',
+  'gdal raster calc -i "A=', ras_path, '"',
+  ' --calc "rint(A * ', rfactor, ') / ', rfactor, '"',
   ' -o r_rounded.tiff --overwrite --ot Float64 --nodata -9999 ',
   co
 ))
 toc()
 
-
 r_rounded <- terra::rast("r_rounded.tiff")
-
-slap_means <- exact_extract(r_rounded, slaps_buffer_sf, fun = function(values, coverage) {
-  median(values[coverage > 0], na.rm = TRUE)
-})
 
 slap_means <- exact_extract(r_rounded, slaps_buffer_sf, fun = function(values, coverage) {
   median(values[coverage >= 0.5], na.rm = TRUE)
@@ -192,21 +187,13 @@ system(paste0(
 toc()
 
 
-system(paste0(
-  'gdal raster calc -i "A=Tmean_raster_desc.tiff" -i "B=Tmean_raster_asc.tiff" -o Tmean_raster.tiff ',
-  '--calc "A > B ? A : B" ',
-  '--overwrite --ot Float64 ',
-  co
-))
-
-
-# binary_out: read by terra::as.polygons and exact_extract → tile it
-tic()
+tic("One large opperation:")
 system(paste0(
   'gdal raster calc ',
+  '-i "D=Tmean_raster_desc.tiff" ',
+  '-i "B=Tmean_raster_asc.tiff" ',
   '-i "A=r_rounded.tiff" ',
-  '-i "B=Tmean_raster.tiff" ',
-  '--calc "((B - A) >= ', delta_C, ') * (A != -9999) ? 1 : NaN" ', # B has a bit of a larger extent than A, so in order to garantuee that everything works out (A != 0) is needed
+  '--calc "((D > B ? D : B) - A >= ', delta_C, ') * (A != -9999) ? 1 : NaN" ',
   '-o binary_out.tif --overwrite --ot Float32 ',
   co
 ))
@@ -216,16 +203,15 @@ toc()
 binary <- terra::rast("binary_out.tif")
 
 
-
 tic()
 patches_v <- terra::as.polygons(binary, dissolve = TRUE, eight = TRUE)
 toc()
 
 
-
-  # ── 7. POLYGONIZE ─────────────────────────────────────────────────────────
+# ── 7. POLYGONIZE ─────────────────────────────────────────────────────────
 
 eps <- if (connect_diagonals) cell_m * 0.1 else 0
+
 
 patches_sf <- patches_v %>%
   sf::st_as_sf() %>%
@@ -236,9 +222,11 @@ patches_sf <- patches_v %>%
   sf::st_cast("POLYGON") %>%
   sf::st_as_sf()
 
+
   # ── 8. AREA FILTER ────────────────────────────────────────────────────────
 patches_large <- patches_sf %>%
-  filter(as.numeric(st_area(.)) >= 2) %>%
+  mutate(area_m2 = st_area(.) %>% as.numeric()) %>%
+  filter(area_m2 >= 2) %>%
   mutate(ID = row_number())
 
   # ── 9. TEMPERATURE STATISTICS PER PATCH ──────────────────────────────────
@@ -257,8 +245,15 @@ patches_large_w_stats <- patches_large %>%
   inner_join(
     stats_per_poly,
     by = join_by(ID==ID)
-  )
+  ) %>%
+  rename(
+    T_min=min,
+    T_max=max,
+    T_med=median,
+    T_mean=mean,
+    geometry=x
 
+  )
 
 
 Tmean_raster <- terra::rast("Tmean_raster.tiff")
@@ -270,17 +265,22 @@ slap_means_per_poly <- exact_extract(Tmean_raster, patches_large_w_stats, fun = 
 
 toc()
 
-slap_means_df <- tibble(slap_mean = slap_means_per_poly, ID = patches_large_w_stats$ID)
+slap_means_df <- tibble(Tmd_slb = slap_means_per_poly, ID = patches_large_w_stats$ID)
 
-patches_large_w_stats <- patches_large_w_stats %>%
+patches_large_refiltered <- patches_large_w_stats %>%
   inner_join(
     slap_means_df,
     by = join_by(ID == ID)
   ) %>%
-  filter(slap_mean - median >= delta_C)
-
+  mutate(
+    deltaT = Tmd_slb - T_med
+  ) %>%
+  filter(deltaT >= delta_C) 
 current_polys <- sf::read_sf("../current_code/final_polys.shp")
 
+
+current_polys %>% colnames()
+patches_large_refiltered %>% colnames()
 toc()
 
 
