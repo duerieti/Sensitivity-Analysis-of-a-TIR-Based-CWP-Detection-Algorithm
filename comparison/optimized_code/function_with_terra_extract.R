@@ -5,7 +5,6 @@ library(tidyverse)
 library(tictoc)
 library(tmap)
 
-setwd("/home/etienne/Desktop/repos/Github_Enterprise/BSc_project/comparison/optimized_code")
 
 
 tic("Total Time Chunked workflow: ")
@@ -191,16 +190,12 @@ system(paste0(
 toc()
 
 
-
-
 system(paste0(
   'gdal raster calc -i "A=Tmean_raster_desc.tiff" -i "B=Tmean_raster_asc.tiff" -o Tmean_raster.tiff ',
   '--calc "A > B ? A : B" ',
   '--overwrite --ot Float32 ',
   co
 ))
-
-
 
 
 # binary_out: read by terra::as.polygons and exact_extract → tile it
@@ -215,17 +210,11 @@ system(paste0(
 ))
 toc()
 
-
-
 binary <- terra::rast("binary_out.tif")
-
-
 
 tic()
 patches_v <- terra::as.polygons(binary, dissolve = TRUE, eight = TRUE)
 toc()
-
-
 
   # ── 7. POLYGONIZE ─────────────────────────────────────────────────────────
 
@@ -300,7 +289,5 @@ patches_large_w_stats <- patches_large_w_stats %>%
   ) %>%
   filter(slap_mean - median >= delta_C)
 
-current_polys <- sf::read_sf("../current_code/final_polys.shp")
-
-
+sf::write_sf(patches_large_w_stats, "final_polys.shp")
 

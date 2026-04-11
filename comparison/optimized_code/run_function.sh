@@ -14,6 +14,6 @@ module load lsfm-init-miniconda/1.0.0
 
 conda activate R_env
 
-Rscript ../comparison/current_code/function_current.R
+Rscript functio_with_terra_extract.R
 
 
