@@ -7,13 +7,16 @@ library(tmap)
 library(exactextractr)
 
 
+ras_path <- file.path("./data/thermal_rasters_FINAL/mean_v01emme.tif")
+line_path <- file.path("./data/Centerlines_FINAL/Emme_V01.shp")
+
 detect_cwp_single <- function(
 
     ras_path,
     line_path,
-    step_m            = 500,
-    buffer_px         = 3,
-    delta_C           = 1.0,
+    step_m            = 300,
+    buffer_px         = 4,
+    delta_C           = 2.0,
     min_patch_area_m2 = 2,
     round_to          = 0.1,
     slab_halfwidth_m  = 60,
@@ -116,6 +119,8 @@ ext_string <- paste(e$xmin, e$ymin, e$xmax, e$ymax, sep = ",")
 resolution <- res(r)
 res_string <- paste(resolution, collapse = ",")
 
+  
+tic("GDAL based rasterization:")
 system(paste0(
   'gdal vector rasterize -i slabs_sf.shp -o zone_r_big_asc.tiff ',
   '--dialect SQLITE --sql "SELECT * FROM slabs_sf ORDER BY slap_id ASC" ',
@@ -123,6 +128,7 @@ system(paste0(
   ' --overwrite --ot Int32 -a slap_id --optimization RASTER ',
   co
 ))
+toc()
 
 system(paste0(
   'gdal vector rasterize -i slabs_sf.shp -o zone_r_big_desc.tiff ',
@@ -175,7 +181,6 @@ system(paste0(
   co
 ))
 
-
 system(paste0(
   'gdal raster calc -i "A=Tmean_raster_desc.tiff" -i "B=Tmean_raster_asc.tiff" -o Tmean_raster.tiff ',
   '--calc "A > B ? A : B" ',
@@ -199,7 +204,7 @@ toc()
 
 binary <- terra::rast("binary_out.tif")
 
-print("polygonize")
+
 patches_v <- terra::as.polygons(binary, dissolve = TRUE, eight = TRUE)
 
 
@@ -225,7 +230,7 @@ patches_large <- patches_sf %>%
 
   # ── 9. TEMPERATURE STATISTICS PER PATCH ──────────────────────────────────
 
-print("extract")
+
 stats_matrix <- exact_extract(r, patches_large, c("mean", "min", "max", "median"))
 
 
@@ -274,12 +279,10 @@ patches_large_refiltered <- patches_large_w_stats %>%
 }
 
 
+ras_path <- file.path("./data/thermal_rasters_FINAL/mean_v01emme.tif")
+line_path <- file.path("./data/Centerlines_FINAL/Emme_V01.shp")
 
-ras_path <- file.path("../../../data/thermal_rasters_FINAL/mean_v01emme.tif")
-line_path <- file.path("../../../data/Centerlines_FINAL/Emme_V01.shp")
-
-terraOptions(memmax=8)
-
+tic("Function Reworked")
 patches_new <- detect_cwp_single(ras_path, line_path)
-
+toc()
 

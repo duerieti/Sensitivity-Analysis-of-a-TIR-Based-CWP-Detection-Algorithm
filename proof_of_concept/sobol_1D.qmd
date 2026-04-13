@@ -606,3 +606,18 @@ I tracked down the last issue I guess. The problem was located in the mean compu
 ### Now onto profiling
 
 Now the improved script needs to be properly encapsulated into a function, and then of to profiling on the HPC.
+
+Not quite certain wheter profiling is even of use here. System calls are not recorded in time so its hard to determine.
+
+### Comparison
+
+To compare, wheter both functions truly yield the same results, I am trying 3 different parameter combinations and then I do some visual comparison. It has to be noted that this is of course not realy a rigorous way of testing this. But I can not do a mathematical proof or something. So this is just the best I got currently.
+
+
+### Memory test
+
+It would be interesting to now how much memory the new function and the old function need to get by. If the new function needs significantly less memory, then this would be another great argument for the funciton. Because parallelizing on multiple cpus is also only realy possible, if not all the memory of a node is exausted just by running a view parallel processes. If 10 processes allready use up the 200 GB of memory, then only 10 out of 20 cores realy can be used. So in a way memory is connected to time over resource efficiency.
+
+I asume that the new function should get by with only 5 gigabites of memory. Not quite shure about the old function. Pretty shure terra::extract will cause a crash here.
+
+new function can not get by using only 5 GB of memory. Lets hope that 9 GB wors. Because 20 * 9 = 180 GB which would still fit onto one node
