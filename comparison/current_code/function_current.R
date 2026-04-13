@@ -10,6 +10,8 @@ library(tmap)
 path_raster <- "../../data/thermal_rasters_FINAL/mean_v01emme.tif"
 path_line <- "../../data/Centerlines_FINAL/Emme_V01.shp"
 
+terraOptions(memmax = 100)
+
 
 polygonize_flagged_vector <- function(flagged_cells, r,
                                       chunk_size   = 50000L,
@@ -294,6 +296,9 @@ detect_cwp_single <- function(
   sf::write_sf(pol_sf, "final_polys.shp")
 }
 
-detect_cwp_single(path_raster,path_line)
 
+
+tic("Current Function:")
+detect_cwp_single(path_raster,path_line)
+toc()
 
