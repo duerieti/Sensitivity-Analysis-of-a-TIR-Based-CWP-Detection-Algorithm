@@ -598,3 +598,11 @@ I need to time and profile the two functions properly. Need to find a profiler t
 I guess this time it would be very important to first clearly decide what to communicate, then think about great visualisations of my results and findings. Perception is humans strongest sense to process data and analyse patterns. Also I need to demonstrate, that I improved in using visualisations. I would recommend quarto to do this, as this shows some extra care and looks more proper. At the same time it is very text based which is an ideal format for applying some AI as an aid.
 
 
+#### Found last issue
+
+I tracked down the last issue I guess. The problem was located in the mean computation. terra::extract includes all pixels which center lies within the polygon. exact_extract also includes snipets of polygons and just weights them by their coverage. This allone has lead to a large enough difference in the computed median, that it had an effect on pixel flagging and also rejudging polygons. Luckely there is a way to tric around and write a median function that only includes pixels with a higher coverage than 0.5. This mimics the behaviour of terra::extract while using exact_extract which is much much much faster.
+
+
+### Now onto profiling
+
+Now the improved script needs to be properly encapsulated into a function, and then of to profiling on the HPC.

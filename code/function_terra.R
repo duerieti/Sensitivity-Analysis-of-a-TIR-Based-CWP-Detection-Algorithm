@@ -111,11 +111,9 @@ slaps_sf_vect <- slabs_sf %>%
 
   # ── 2. COMPUTE REFERENCE TEMPERATURES ────────────────────────────────────
 
-tic()
-print("rasterize slaps")
+tic("Terra based rasterisation:")
 zone_r_big <- terra::rasterize(slaps_sf_vect, r, field = "slap_id")
 toc()
-# 165.35 seconds
 
 
 

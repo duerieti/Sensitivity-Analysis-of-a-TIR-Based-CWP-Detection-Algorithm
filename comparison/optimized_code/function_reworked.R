@@ -121,6 +121,8 @@ ext_string <- paste(e$xmin, e$ymin, e$xmax, e$ymax, sep = ",")
 resolution <- res(r)
 res_string <- paste(resolution, collapse = ",")
 
+  
+tic("GDAL based rasterization:")
 system(paste0(
   'gdal vector rasterize -i slabs_sf.shp -o zone_r_big_asc.tiff ',
   '--dialect SQLITE --sql "SELECT * FROM slabs_sf ORDER BY slap_id ASC" ',
@@ -128,6 +130,7 @@ system(paste0(
   ' --overwrite --ot Int32 -a slap_id --optimization RASTER ',
   co
 ))
+toc()
 
 system(paste0(
   'gdal vector rasterize -i slabs_sf.shp -o zone_r_big_desc.tiff ',
@@ -273,6 +276,7 @@ setwd("/home/etienne/Desktop/repos/Github_Enterprise/BSc_project/comparison/opti
 ras_path <- file.path("../../data/thermal_rasters_FINAL/mean_v01emme.tif")
 line_path <- file.path("../../data/Centerlines_FINAL/Emme_V01.shp")
 
+tic("Function Reworked")
 patches_new <- detect_cwp_single(ras_path, line_path)
-
+toc()
 
