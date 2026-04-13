@@ -6,7 +6,7 @@
 #SBATCH --cpus-per-task=1
 #SBATCH --time=04:00:00
 #SBATCH --partition=earth-3
-#SBATCH --mem=50G
+#SBATCH --mem=100G
 
 module load USS/2022
 module load gcc/9.4.0-pe5.34
@@ -14,6 +14,6 @@ module load lsfm-init-miniconda/1.0.0
 
 conda activate R_env
 
-Rscript function_current_print_out.R
+Rscript function_current.R
 
 
