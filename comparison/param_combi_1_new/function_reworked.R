@@ -6,10 +6,6 @@ library(tictoc)
 library(tmap)
 library(exactextractr)
 
-
-ras_path <- file.path("./data/thermal_rasters_FINAL/mean_v01emme.tif")
-line_path <- file.path("./data/Centerlines_FINAL/Emme_V01.shp")
-
 detect_cwp_single <- function(
 
     ras_path,
@@ -279,10 +275,14 @@ patches_large_refiltered <- patches_large_w_stats %>%
 }
 
 
-ras_path <- file.path("./data/thermal_rasters_FINAL/mean_v01emme.tif")
-line_path <- file.path("./data/Centerlines_FINAL/Emme_V01.shp")
+terraOptions(memmax=19)
+
+ras_path <- file.path("../../data/thermal_rasters_FINAL/mean_v01emme.tif")
+line_path <- file.path("../../data/Centerlines_FINAL/Emme_V01.shp")
 
 tic("Function Reworked")
 patches_new <- detect_cwp_single(ras_path, line_path)
 toc()
+
+sf::st_write(patches_new, "final_polys.shp")
 
