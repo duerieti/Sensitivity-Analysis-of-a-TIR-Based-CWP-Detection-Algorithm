@@ -1,0 +1,273 @@
+sh: /dev/tty: No such device or address
+
+Computers / CPU cores / Max jobs to run
+1:local / 15 / 15
+
+Computer:jobs running/jobs completed/%of started jobs/Average seconds to complete
+ETA: 0s Left: 132 AVG: 0.00s  local:15/0/100%/0.0s ETA: 0s Left: 132 AVG: 0.00s  local:15/0/100%/0.0s ETA: 0s Left: 132 AVG: 0.00s  local:15/0/100%/0.0s ETA: 0s Left: 132 AVG: 0.00s  local:15/0/100%/0.0s ETA: 0s Left: 132 AVG: 0.00s  local:15/0/100%/0.0s ETA: 0s Left: 132 AVG: 0.00s  local:15/0/100%/0.0s ETA: 0s Left: 132 AVG: 0.00s  local:15/0/100%/0.0s ETA: 0s Left: 132 AVG: 0.00s  local:15/0/100%/0.0s ETA: 0s Left: 132 AVG: 0.00s  local:15/0/100%/0.0s ETA: 0s Left: 132 AVG: 0.00s  local:15/0/100%/0.0s ETA: 0s Left: 132 AVG: 0.00s  local:15/0/100%/0.0s ETA: 0s Left: 132 AVG: 0.00s  local:15/0/100%/0.0s ETA: 0s Left: 132 AVG: 0.00s  local:15/0/100%/0.0s ETA: 0s Left: 132 AVG: 0.00s  local:15/0/100%/0.0s ETA: 0s Left: 132 AVG: 0.00s  local:15/0/100%/0.0s ETA: 0s Left: 132 AVG: 0.00s  local:15/0/100%/0.0s ETA: 0s Left: 132 AVG: 0.00s  local:15/0/100%/0.0s ETA: 0s Left: 132 AVG: 0.00s  local:15/0/100%/0.0s ETA: 0s Left: 132 AVG: 0.00s  local:15/0/100%/0.0s ETA: 0s Left: 132 AVG: 0.00s  local:15/0/100%/0.0s ETA: 0s Left: 132 AVG: 0.00s  local:15/0/100%/0.0s ETA: 0s Left: 132 AVG: 0.00s  local:15/0/100%/0.0s ETA: 0s Left: 132 AVG: 0.00s  local:15/0/100%/0.0s ETA: 0s Left: 132 AVG: 0.00s  local:15/0/100%/0.0s ETA: 0s Left: 132 AVG: 0.00s  local:15/0/100%/0.0s ETA: 0s Left: 132 AVG: 0.00s  local:15/0/100%/0.0s ETA: 0s Left: 132 AVG: 0.00s  local:15/0/100%/0.0s ETA: 0s Left: 132 AVG: 0.00s  local:15/0/100%/0.0s ETA: 0s Left: 132 AVG: 0.00s  local:15/0/100%/0.0s ETA: 0s Left: 132 AVG: 0.00s  local:15/0/100%/0.0s ETA: 0s Left: 132 AVG: 0.00s  local:15/0/100%/0.0s ETA: 0s Left: 132 AVG: 0.00s  local:15/0/100%/0.0s ETA: 0s Left: 132 AVG: 0.00s  local:15/0/100%/0.0s ETA: 0s Left: 132 AVG: 0.00s  local:15/0/100%/0.0s ETA: 0s Left: 132 AVG: 0.00s  local:15/0/100%/0.0s ETA: 0s Left: 132 AVG: 0.00s  local:15/0/100%/0.0s ETA: 0s Left: 132 AVG: 0.00s  local:15/0/100%/0.0s ETA: 0s Left: 132 AVG: 0.00s  local:15/0/100%/0.0s ETA: 0s Left: 132 AVG: 0.00s  local:15/0/100%/0.0s ETA: 0s Left: 132 AVG: 0.00s  local:15/0/100%/0.0s ETA: 0s Left: 132 AVG: 0.00s  local:15/0/100%/0.0s ETA: 0s Left: 132 AVG: 0.00s  local:15/0/100%/0.0s ETA: 0s Left: 132 AVG: 0.00s  local:15/0/100%/0.0s ETA: 0s Left: 132 AVG: 0.00s  local:15/0/100%/0.0s ETA: 0s Left: 132 AVG: 0.00s  local:15/0/100%/0.0s ETA: 0s Left: 132 AVG: 0.00s  local:15/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 132 AVG: 0.00s  local:15/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 132 AVG: 0.00s  local:15/0/100%/0.0s ETA: 0s Left: 132 AVG: 0.00s  local:15/0/100%/0.0s ETA: 0s Left: 132 AVG: 0.00s  local:15/0/100%/0.0s ETA: 0s Left: 132 AVG: 0.00s  local:15/0/100%/0.0s ETA: 0s Left: 132 AVG: 0.00s  local:15/0/100%/0.0s ETA: 0s Left: 132 AVG: 0.00s  local:15/0/100%/0.0s ETA: 0s Left: 132 AVG: 0.00s  local:15/0/100%/0.0s ETA: 0s Left: 132 AVG: 0.00s  local:15/0/100%/0.0s ETA: 0s Left: 132 AVG: 0.00s  local:15/0/100%/0.0s ETA: 0s Left: 132 AVG: 0.00s  local:15/0/100%/0.0s ETA: 0s Left: 132 AVG: 0.00s  local:15/0/100%/0.0s ETA: 0s Left: 132 AVG: 0.00s  local:15/0/100%/0.0s ETA: 0s Left: 132 AVG: 0.00s  local:15/0/100%/0.0s ETA: 0s Left: 132 AVG: 0.00s  local:15/0/100%/0.0s ETA: 0s Left: 132 AVG: 0.00s  local:15/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 132 AVG: 0.00s  local:15/0/100%/0.0s ETA: 0s Left: 132 AVG: 0.00s  local:15/0/100%/0.0s ETA: 0s Left: 132 AVG: 0.00s  local:15/0/100%/0.0s ETA: 0s Left: 132 AVG: 0.00s  local:15/0/100%/0.0s ETA: 0s Left: 132 AVG: 0.00s  local:15/0/100%/0.0s ETA: 0s Left: 132 AVG: 0.00s  local:15/0/100%/0.0s ETA: 0s Left: 132 AVG: 0.00s  local:15/0/100%/0.0s ETA: 0s Left: 132 AVG: 0.00s  local:15/0/100%/0.0s ETA: 0s Left: 132 AVG: 0.00s  local:15/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 132 AVG: 0.00s  local:15/0/100%/0.0s ETA: 0s Left: 132 AVG: 0.00s  local:15/0/100%/0.0s ETA: 0s Left: 132 AVG: 0.00s  local:15/0/100%/0.0s ETA: 0s Left: 132 AVG: 0.00s  local:15/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 132 AVG: 0.00s  local:15/0/100%/0.0s ETA: 0s Left: 132 AVG: 0.00s  local:15/0/100%/0.0s ETA: 0s Left: 132 AVG: 0.00s  local:15/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 132 AVG: 0.00s  local:15/0/100%/0.0s ETA: 0s Left: 132 AVG: 0.00s  local:15/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 132 AVG: 0.00s  local:15/0/100%/0.0s ETA: 0s Left: 132 AVG: 0.00s  local:15/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 132 AVG: 0.00s  local:15/0/100%/0.0s ETA: 0s Left: 132 AVG: 0.00s  local:15/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 132 AVG: 0.00s  local:15/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 132 AVG: 0.00s  local:15/0/100%/0.0s ETA: 0s Left: 132 AVG: 0.00s  local:15/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 132 AVG: 0.00s  local:15/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 132 AVG: 0.00s  local:15/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 132 AVG: 0.00s  local:15/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 132 AVG: 0.00s  local:15/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 132 AVG: 0.00s  local:15/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 132 AVG: 0.00s  local:15/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 132 AVG: 0.00s  local:15/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 132 AVG: 0.00s  local:15/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 132 AVG: 0.00s  local:15/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 132 AVG: 0.00s  local:15/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 132 AVG: 0.00s  local:15/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 132 AVG: 0.00s  local:15/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 132 AVG: 0.00s  local:15/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 132 AVG: 0.00s  local:15/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 132 AVG: 0.00s  local:15/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 132 AVG: 0.00s  local:15/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 132 AVG: 0.00s  local:15/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 132 AVG: 0.00s  local:15/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 132 AVG: 0.00s  local:15/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 132 AVG: 0.00s  local:15/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 132 AVG: 0.00s  local:15/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 132 AVG: 0.00s  local:15/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 132 AVG: 0.00s  local:15/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 132 AVG: 0.00s  local:15/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 132 AVG: 0.00s  local:15/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 132 AVG: 0.00s  local:15/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 132 AVG: 0.00s  local:15/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 132 AVG: 0.00s  local:15/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 132 AVG: 0.00s  local:15/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 132 AVG: 0.00s  local:15/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 132 AVG: 0.00s  local:15/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 132 AVG: 0.00s  local:15/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 132 AVG: 0.00s  local:15/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 132 AVG: 0.00s  local:15/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 132 AVG: 0.00s  local:15/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 132 AVG: 0.00s  local:15/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 132 AVG: 0.00s  local:15/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 132 AVG: 0.00s  local:15/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 132 AVG: 0.00s  local:15/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 132 AVG: 0.00s  local:15/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 132 AVG: 0.00s  local:15/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 132 AVG: 0.00s  local:15/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 132 AVG: 0.00s  local:15/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 132 AVG: 0.00s  local:15/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 132 AVG: 0.00s  local:15/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 132 AVG: 0.00s  local:15/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 132 AVG: 0.00s  local:15/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 132 AVG: 0.00s  local:15/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 132 AVG: 0.00s  local:15/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 132 AVG: 0.00s  local:15/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 132 AVG: 0.00s  local:15/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 132 AVG: 0.00s  local:15/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 132 AVG: 0.00s  local:15/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 132 AVG: 0.00s  local:15/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 132 AVG: 0.00s  local:15/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 132 AVG: 0.00s  local:15/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 132 AVG: 0.00s  local:15/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 132 AVG: 0.00s  local:15/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 132 AVG: 0.00s  local:15/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 132 AVG: 0.00s  local:15/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 132 AVG: 0.00s  local:15/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 132 AVG: 0.00s  local:15/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 132 AVG: 0.00s  local:15/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 132 AVG: 0.00s  local:15/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 132 AVG: 0.00s  local:15/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 132 AVG: 0.00s  local:15/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 132 AVG: 0.00s  local:15/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 132 AVG: 0.00s  local:15/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 132 AVG: 0.00s  local:15/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 132 AVG: 0.00s  local:15/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 132 AVG: 0.00s  local:15/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 132 AVG: 0.00s  local:15/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 132 AVG: 0.00s  local:15/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 132 AVG: 0.00s  local:15/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 132 AVG: 0.00s  local:15/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 132 AVG: 0.00s  local:15/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 132 AVG: 0.00s  local:15/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 132 AVG: 0.00s  local:15/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 132 AVG: 0.00s  local:15/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 132 AVG: 0.00s  local:15/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 132 AVG: 0.00s  local:15/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 132 AVG: 0.00s  local:15/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 132 AVG: 0.00s  local:15/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 132 AVG: 0.00s  local:15/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 132 AVG: 0.00s  local:15/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 132 AVG: 0.00s  local:15/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 132 AVG: 0.00s  local:15/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 132 AVG: 0.00s  local:15/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 132 AVG: 0.00s  local:15/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 132 AVG: 0.00s  local:15/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 132 AVG: 0.00s  local:15/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 132 AVG: 0.00s  local:15/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 132 AVG: 0.00s  local:15/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 132 AVG: 0.00s  local:15/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 132 AVG: 0.00s  local:15/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 132 AVG: 0.00s  local:15/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 132 AVG: 0.00s  local:15/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 132 AVG: 0.00s  local:15/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 132 AVG: 0.00s  local:15/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 132 AVG: 0.00s  local:15/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 132 AVG: 0.00s  local:15/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 132 AVG: 0.00s  local:15/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 132 AVG: 0.00s  local:15/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 132 AVG: 0.00s  local:15/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 132 AVG: 0.00s  local:15/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 132 AVG: 0.00s  local:15/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 132 AVG: 0.00s  local:15/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 132 AVG: 0.00s  local:15/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 132 AVG: 0.00s  local:15/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 132 AVG: 0.00s  local:15/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 132 AVG: 0.00s  local:15/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 132 AVG: 0.00s  local:15/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 132 AVG: 0.00s  local:15/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 132 AVG: 0.00s  local:15/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 132 AVG: 0.00s  local:15/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 132 AVG: 0.00s  local:15/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 132 AVG: 0.00s  local:15/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 132 AVG: 0.00s  local:15/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 132 AVG: 0.00s  local:15/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 132 AVG: 0.00s  local:15/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 132 AVG: 0.00s  local:15/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 132 AVG: 0.00s  local:15/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 132 AVG: 0.00s  local:15/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 132 AVG: 0.00s  local:15/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 132 AVG: 0.00s  local:15/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 132 AVG: 0.00s  local:15/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 132 AVG: 0.00s  local:15/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 132 AVG: 0.00s  local:15/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 132 AVG: 0.00s  local:15/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 132 AVG: 0.00s  local:15/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 132 AVG: 0.00s  local:15/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 132 AVG: 0.00s  local:15/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 132 AVG: 0.00s  local:15/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 132 AVG: 0.00s  local:15/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 132 AVG: 0.00s  local:15/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 132 AVG: 0.00s  local:15/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 132 AVG: 0.00s  local:15/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 132 AVG: 0.00s  local:15/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 132 AVG: 0.00s  local:15/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 132 AVG: 0.00s  local:15/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 132 AVG: 0.00s  local:15/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 132 AVG: 0.00s  local:15/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 132 AVG: 0.00s  local:15/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 132 AVG: 0.00s  local:15/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 132 AVG: 0.00s  local:15/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 132 AVG: 0.00s  local:15/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 132 AVG: 0.00s  local:15/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 132 AVG: 0.00s  local:15/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 132 AVG: 0.00s  local:15/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 132 AVG: 0.00s  local:15/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 132 AVG: 0.00s  local:15/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 132 AVG: 0.00s  local:15/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 132 AVG: 0.00s  local:15/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 132 AVG: 0.00s  local:15/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 132 AVG: 0.00s  local:15/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 132 AVG: 0.00s  local:15/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 132 AVG: 0.00s  local:15/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 132 AVG: 0.00s  local:15/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 132 AVG: 0.00s  local:15/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 132 AVG: 0.00s  local:15/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 132 AVG: 0.00s  local:15/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 132 AVG: 0.00s  local:15/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 132 AVG: 0.00s  local:15/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 132 AVG: 0.00s  local:15/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 132 AVG: 0.00s  local:15/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 132 AVG: 0.00s  local:15/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 132 AVG: 0.00s  local:15/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 132 AVG: 0.00s  local:15/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 132 AVG: 0.00s  local:15/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 132 AVG: 0.00s  local:15/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 132 AVG: 0.00s  local:15/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 132 AVG: 0.00s  local:15/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 132 AVG: 0.00s  local:15/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 132 AVG: 0.00s  local:15/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 132 AVG: 0.00s  local:15/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 132 AVG: 0.00s  local:15/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 132 AVG: 0.00s  local:15/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 132 AVG: 0.00s  local:15/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 132 AVG: 0.00s  local:15/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 132 AVG: 0.00s  local:15/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 132 AVG: 0.00s  local:15/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 132 AVG: 0.00s  local:15/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 132 AVG: 0.00s  local:15/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 132 AVG: 0.00s  local:15/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 132 AVG: 0.00s  local:15/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 132 AVG: 0.00s  local:15/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 132 AVG: 0.00s  local:15/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 132 AVG: 0.00s  local:15/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 132 AVG: 0.00s  local:15/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 132 AVG: 0.00s  local:15/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 132 AVG: 0.00s  local:15/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 132 AVG: 0.00s  local:15/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 132 AVG: 0.00s  local:15/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 132 AVG: 0.00s  local:15/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 132 AVG: 0.00s  local:15/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 132 AVG: 0.00s  local:15/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 132 AVG: 0.00s  local:15/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 132 AVG: 0.00s  local:15/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 132 AVG: 0.00s  local:15/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 132 AVG: 0.00s  local:15/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 132 AVG: 0.00s  local:15/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 132 AVG: 0.00s  local:15/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 132 AVG: 0.00s  local:15/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 132 AVG: 0.00s  local:15/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 132 AVG: 0.00s  local:15/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 132 AVG: 0.00s  local:15/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 132 AVG: 0.00s  local:15/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 132 AVG: 0.00s  local:15/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 132 AVG: 0.00s  local:15/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 132 AVG: 0.00s  local:15/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 132 AVG: 0.00s  local:15/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 132 AVG: 0.00s  local:15/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 132 AVG: 0.00s  local:15/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 132 AVG: 0.00s  local:15/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 132 AVG: 0.00s  local:15/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 132 AVG: 0.00s  local:15/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 132 AVG: 0.00s  local:15/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 132 AVG: 0.00s  local:15/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 132 AVG: 0.00s  local:15/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 132 AVG: 0.00s  local:15/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 132 AVG: 0.00s  local:15/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 132 AVG: 0.00s  local:15/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 132 AVG: 0.00s  local:15/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 132 AVG: 0.00s  local:15/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 132 AVG: 0.00s  local:15/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 132 AVG: 0.00s  local:15/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 132 AVG: 0.00s  local:15/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 132 AVG: 0.00s  local:15/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 132 AVG: 0.00s  local:15/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 132 AVG: 0.00s  local:15/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 132 AVG: 0.00s  local:15/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 132 AVG: 0.00s  local:15/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 132 AVG: 0.00s  local:15/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 132 AVG: 0.00s  local:15/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 132 AVG: 0.00s  local:15/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 132 AVG: 0.00s  local:15/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 132 AVG: 0.00s  local:15/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 132 AVG: 0.00s  local:15/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 132 AVG: 0.00s  local:15/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 132 AVG: 0.00s  local:15/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 132 AVG: 0.00s  local:15/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 132 AVG: 0.00s  local:15/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 132 AVG: 0.00s  local:15/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 132 AVG: 0.00s  local:15/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 132 AVG: 0.00s  local:15/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 132 AVG: 0.00s  local:15/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 132 AVG: 0.00s  local:15/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 132 AVG: 0.00s  local:15/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 132 AVG: 0.00s  local:15/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 132 AVG: 0.00s  local:15/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 132 AVG: 0.00s  local:15/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 132 AVG: 0.00s  local:15/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 132 AVG: 0.00s  local:15/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 132 AVG: 0.00s  local:15/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 132 AVG: 0.00s  local:15/0/100%/0.0s slurmstepd: error: *** JOB 303060 ON node011 CANCELLED AT 2026-04-19T17:42:20 ***
+slurmstepd: error: Detected 27 oom-kill event(s) in StepId=303060.batch. Some of your processes may have been killed by the cgroup out-of-memory handler.
