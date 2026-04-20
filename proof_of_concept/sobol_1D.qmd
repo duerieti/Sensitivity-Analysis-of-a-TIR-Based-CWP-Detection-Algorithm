@@ -592,6 +592,40 @@ To test this, i got to run an adapted version of my function that uses terra::ex
 
 I need to time and profile the two functions properly. Need to find a profiler that shows how much time is spent in compiled C routines and less time is spent in native R. It would then be great to see how this time is beeing reduced in my function.
 
+250
+3
+1.0
+2
+0.1
+60
+TRUE
+50000
+new: 1748.18
+old: 
+
+500
+3
+1.0
+2
+0.1
+60
+TRUE
+50000
+new: 1741.18
+old: 3667.31
+
+
+1000
+3
+1.0
+2
+0.1
+60
+TRUE
+50000
+new: 1737.039
+old: 3063.5
+
 
 #### Presentation
 
@@ -614,10 +648,149 @@ Not quite certain wheter profiling is even of use here. System calls are not rec
 To compare, wheter both functions truly yield the same results, I am trying 3 different parameter combinations and then I do some visual comparison. It has to be noted that this is of course not realy a rigorous way of testing this. But I can not do a mathematical proof or something. So this is just the best I got currently.
 
 
+I checked two parameter combinations. The results are exactly the same down to the very pixel. Here are the parameter combinations I tried:
+
+
+Combination 1
+
+step_m = 300
+buffer_px = 4
+delta_C = 2.0
+min_patch_area_m2 = 2
+round_to = 0.1
+slab_halfwidth_m = 60
+connect_diagonals = TRUE
+union_chunk_size = 50000L
+
+Combination 2
+
+step_m = 700
+buffer_px = 2
+delta_C = 1.0
+min_patch_area_m2 = 2
+round_to = 0.1
+slab_halfwidth_m = 60
+connect_diagonals = TRUE
+union_chunk_size = 50000L
+
+Both yielded the same results
+
+
+
+
 ### Memory test
 
 It would be interesting to now how much memory the new function and the old function need to get by. If the new function needs significantly less memory, then this would be another great argument for the funciton. Because parallelizing on multiple cpus is also only realy possible, if not all the memory of a node is exausted just by running a view parallel processes. If 10 processes allready use up the 200 GB of memory, then only 10 out of 20 cores realy can be used. So in a way memory is connected to time over resource efficiency.
 
 I asume that the new function should get by with only 5 gigabites of memory. Not quite shure about the old function. Pretty shure terra::extract will cause a crash here.
 
-new function can not get by using only 5 GB of memory. Lets hope that 9 GB wors. Because 20 * 9 = 180 GB which would still fit onto one node
+new function can not get by using only 5 GB of memory. Lets hope that 9 GB wors. Because 20 * 9 = 180 GB which would still fit onto one node. 
+
+Success, the new method can run on 9 GB of memory. Nothing stands in the way of parallelisation anymore interms of compute and memory. What is still open is to check wheter there is ample networktraffic that would slow other users down and wheter the new function reproduces the old function also for different parameter combinations.
+
+The old function crashed on 5 GB. Trying 25 now. 25 worked. Going down to 10 now (9.8 for terraOpts).
+
+
+Something that i also just noticed or I am starting to expect, is that my function scales wayy wayy better with an increased number of slabs. Because the code that runs with 50 slabs is running for 3h allready. But the new function does not mind at all how meany slabs there are. It does not matter algorithmicly. Because all the heavy stuff is just a bunch of raster algebra. Does not realy matter what value a pixel has, what mean is computed per slab and how meany slabs there are etc. Every pixel just gets computed a fixed number of times. My version only takes 27 minutes for 50 meter slabs.
+
+
+
+## Setting up parallelism
+
+### Estimating data storage
+
+one shapefile packet (.shp, .prj, .dbf, etc) takes up approx 10 MB. A thousand of those will be 10 GB. We got 300 GB on scratch => We are good on that
+
+One process needs 9 GB. A node has 200 GB and 20 cores. 20 * 9 GB = 180 GB -> We are good on that.
+
+
+We can use GNU parallel to set up the parallelisation
+
+Its an embarresingly parallel problem. No communication what so ever needed between workers. Workers can optain variables from a
+
+
+### Pivoting to Morris indices
+
+Sobol indices are the master class of sensitivity analysis. But they are difficult and very expensive to compute. The hypthotesis that we definded can also be answered using Morris indices. + Morris indices are much easier to understand (in my reach of understanding) and computionally much less expensive. So it is only reasonable to go for Morris instead. Because the idea is to have a metric of how much individual parameters affect the outcome spatially -> Morris is likely enough for that. The rest of a good project and therefore a good grade comes from things like lear comunication, good visualsiations, etc. So diving ultra deep into Sobol will not yield any benefit. But 
+
+#### Sampling parameters in Morris
+
+Its not that tremendously complicated. Exaclty the right thing for a theory secion in a BSc project. The libary `sensitivity` can be used to set up the grid. Then this can be saved to a textfile and read by gnu parallel.
+
+
+Kind of hitting a wall since I am not able to load a specific package called sensitivity on the hpc. But I need this package to set up the parameter combinations. Ok it worked now luckely.
+
+
+
+#### Disk management
+
+I noticed that my function is writing huge rasters to disk. One raster is like 25GB. So If I run functions in parallel, this is a recepie for disaster: 25GB * 20  is allready above my disk limit. I need to compress and delete intermediary results.
+
+zone_r_big_asc and zone_r_big_desc are only 1 GB, so deleting them as soon as they are no longer used suffices, no compression needed.
+Tmean_raster_asc.tiff, Tmean_raster_desc.tiff and Tmean_raster.tiff are each 1.5 GB. So there is also no compression necessairy.
+Binary_out.tif is 25 gb. so compression is definitely needed here, or something else (maybe writing byte datatype ?)
+r_rounded.tiff is 50 GB, so this also needs to be addressed. => Since the rounding step is always the same, we could simply just set this as the new entry raster into the algorithm -> So only compute it once => disk save + time save
+
+
+binary_out.tif currently stores Float32 numbers just to represent 0 and 1. This is unnecessairly large datatype. I set it to byte now. Theoretically this should allready decrease size by a factor of 4. But we might still have to compress it. It came down to 4.5 G now. => so roughly a factor of 5
+
+2 x 1.0 + 3 x 1.5 + 4.5 = 2.0 + 4.5 + 4.5 = 11 GB
+
+11 GB * 20 = 220 GB
+
+
+But some rasters allready get deleted before others get created. From that perspective this is most likely aready enough. But for good measure I deployed compression on binary_out.tif. Its now only 4.4 MB. So we are around 6.5 GB now. This is low enough.
+
+Also i stored r_rounded.tiff in data and the function now just gets it from there => Another 50 GB eliminated!! 
+
+
+
+### Something fishy is happening at the last exact_extract.
+
+Somehow I got an Out of memory error. Weird memory spike I guess.
+
+
+
+### GNU Parallel, another try
+
+With the disk quota beeing the likely culprit in the last run, lets try GNU parallel with this improved function. around 300 runs, then we are allready finished and ready to answer the hypothesis
+
+
+### Improved sampling
+
+I read satelli et all to realy get the nack of morris and understand how the sampling method works on a deeper level. I think it is a very intuitive yet powerfull method and it is much much cheaper than sobol.
+
+I also picked sensible number of levels and delta accoring to satelli
+
+Sobol would require 800 model runs and also I am rather certain, that the we would run into issues as sobol requires continuous sampling ? Not quite certain about that one. But I gues the 800 runs are just very very expensive. And in the end I think a project work also needs to be written along the following rational: The main goal is to hand in a report with 10 000 words that covers all the necessairy chapters. It does not serve anybody if one of these chapters presents a perfectly exectuted and difficult method if the rest is trash due to time constraints.
+
+So better just take morris and lump the output into m² area and temperature and stuff like this. Because this is easily understandable, this will work with a high likelyhood, one can produce clear and easy plots and discussion is managable. So it is just the better overall package. And also i only need 130 model runs. So plenty of time to rerun everything in case something does not work out.
+
+
+### Selection of tributary areas
+
+I scanned though the river section and selected suited areas for the analysis.
+
+The first one is the Limpbach. This was recommended by Diego and Manuel.
+
+The second one I picked myself. For both I realy should check wheter the tributaries feature a significantly different temperature value. => This is also part of the hypothesis.
+
+
+I also searched for areas that feature coldspots but no tributary rivers in sight. These seem to be surprisingly sparse. I found one near hasle bei Burgdorf. I found another one near emmepark right after bätterkinden.
+
+
+Now we can track temperature and size of these 4 areas and use them as a lumped measure in morris.
+
+### Lumping
+
+The job on the HPC ran succesfully. All 133 parameter combinations were computed. I now ziped them together and downloaded them using scp. Then I did the spatial lumping in a script the result is a csv file holding the resulting measures of all 4 locations for every parameter combination. Before I do the morris, I think it would be whise to check wheter the grüene tributary and the limpbach tributary are indeed colder than the emme. A quick visual verification should suffice here. But I got to operationalise this decision later on. What does "significantly different temperature" mean? This of course needs to be defined. But for now, just having a look at it in QGIS should be sufficient.
+
+
+#### Are the tributaries significantly colder?
+
+I am rather certain that it holds for the urtene but the grüene I think is not significantly different in temperatue. So we have to pick another tirbutary
+
+I actually checked their report and found that the "Grundbach" also causes coldwater patches. So lets just replace the Grüene with the grundback.
+
+Then the Limpbach also is a confirmed cold water tributary.
+
