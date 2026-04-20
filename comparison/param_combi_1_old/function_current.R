@@ -1,3 +1,4 @@
+
 library(terra)
 library(sf)
 library(dplyr)
@@ -79,9 +80,9 @@ polygonize_flagged_vector <- function(flagged_cells, r,
 detect_cwp_single <- function(
     ras_path,
     line_path,
-    step_m            = 300,       # slab length along centerline (m)
-    buffer_px         = 4,         # corridor half-width for reference T (pixels)
-    delta_C           = 2.0,       # temperature anomaly threshold (deg C)
+    step_m            = 500,       # slab length along centerline (m)
+    buffer_px         = 3,         # corridor half-width for reference T (pixels)
+    delta_C           = 1.0,       # temperature anomaly threshold (deg C)
     min_patch_area_m2 = 2,         # drop patches smaller than this
     round_to          = 0.1,       # round temperatures to this precision
     slab_halfwidth_m  = 60,        # lateral half-width of slab polygons (m)
@@ -293,7 +294,7 @@ detect_cwp_single <- function(
   list(patches = pol_sf, timings = timings)
 
 
-  sf::write_sf(pol_sf, "final_polys.shp")
+  sf::st_write(pol_sf, "final_polys.shp", append = FALSE)
 }
 
 

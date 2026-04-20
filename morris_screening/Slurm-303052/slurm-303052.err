@@ -1,0 +1,1925 @@
+
+CommandNotFoundError: Your shell has not been properly configured to use 'conda deactivate'.
+To initialize your shell, run
+
+    $ conda init <SHELL_NAME>
+
+Currently supported shells are:
+  - bash
+  - fish
+  - tcsh
+  - xonsh
+  - zsh
+  - powershell
+
+See 'conda init --help' for more information and options.
+
+IMPORTANT: You may need to close and restart your shell after running 'conda init'.
+
+
+sh: /dev/tty: No such device or address
+
+Computers / CPU cores / Max jobs to run
+1:local / 15 / 15
+sh: /dev/tty: No such device or address
+
+Computer:jobs running/jobs completed/%of started jobs/Average seconds to complete
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 10 AVG: 0.00s  local:10/0/100%/0.0s terra 1.9.1
+Linking to GEOS 3.14.1, GDAL 3.12.2, PROJ 9.7.1; sf_use_s2() is TRUE
+
+Attaching package: ‘dplyr’
+
+The following objects are masked from ‘package:terra’:
+
+    intersect, union
+
+The following objects are masked from ‘package:stats’:
+
+    filter, lag
+
+The following objects are masked from ‘package:base’:
+
+    intersect, setdiff, setequal, union
+
+── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──
+✔ forcats   1.0.1     ✔ readr     2.2.0
+✔ ggplot2   4.0.2     ✔ stringr   1.6.0
+✔ lubridate 1.9.5     ✔ tibble    3.3.1
+✔ purrr     1.2.1     ✔ tidyr     1.3.2
+── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
+✖ tidyr::extract() masks terra::extract()
+✖ dplyr::filter()  masks stats::filter()
+✖ dplyr::lag()     masks stats::lag()
+ℹ Use the conflicted package (<http://conflicted.r-lib.org/>) to force all conflicts to become errors
+
+Attaching package: ‘tictoc’
+
+The following objects are masked from ‘package:terra’:
+
+    shift, size
+
+Cannot preload entire working area of 6559723170 cells with max_cells_in_memory = 3e+07. Raster values will be read for each feature individually.
+Cannot preload entire working area of 6281707376 cells with max_cells_in_memory = 3e+07. Raster values will be read for each feature individually.
+Cannot preload entire working area of 6281707376 cells with max_cells_in_memory = 3e+06. Raster values will be read for each feature individually.
+Warning message:
+In st_cast.sf(., "POLYGON") :
+  repeating attributes for all sub-geometries for which they may not be constant
+ETA: 0s Left: 9 AVG: 0.00s  local:9/1/100%/1817.0s ETA: 0s Left: 9 AVG: 0.00s  local:9/1/100%/1817.0s sh: /dev/tty: No such device or address
+ETA: 9s Left: 9 AVG: 1.00s  local:9/1/100%/1818.0s sh: /dev/tty: No such device or address
+ETA: 9s Left: 9 AVG: 2.00s  local:9/1/100%/1819.0s ETA: 10s Left: 9 AVG: 2.00s  local:9/1/100%/1819.0s sh: /dev/tty: No such device or address
+ETA: 12s Left: 9 AVG: 3.00s  local:9/1/100%/1821.0s sh: /dev/tty: No such device or address
+ETA: 14s Left: 9 AVG: 4.00s  local:9/1/100%/1822.0s sh: /dev/tty: No such device or address
+ETA: 17s Left: 9 AVG: 5.00s  local:9/1/100%/1823.0s sh: /dev/tty: No such device or address
+ETA: 22s Left: 9 AVG: 7.00s  local:9/1/100%/1824.0s sh: /dev/tty: No such device or address
+ETA: 27s Left: 9 AVG: 8.00s  local:9/1/100%/1825.0s sh: /dev/tty: No such device or address
+ETA: 32s Left: 9 AVG: 9.00s  local:9/1/100%/1827.0s sh: /dev/tty: No such device or address
+ETA: 39s Left: 9 AVG: 11.00s  local:9/1/100%/1828.0s sh: /dev/tty: No such device or address
+ETA: 46s Left: 9 AVG: 12.00s  local:9/1/100%/1829.0s sh: /dev/tty: No such device or address
+ETA: 53s Left: 9 AVG: 13.00s  local:9/1/100%/1831.0s sh: /dev/tty: No such device or address
+ETA: 61s Left: 9 AVG: 15.00s  local:9/1/100%/1832.0s sh: /dev/tty: No such device or address
+ETA: 69s Left: 9 AVG: 16.00s  local:9/1/100%/1833.0s sh: /dev/tty: No such device or address
+ETA: 77s Left: 9 AVG: 17.00s  local:9/1/100%/1835.0s sh: /dev/tty: No such device or address
+ETA: 87s Left: 9 AVG: 19.00s  local:9/1/100%/1836.0s sh: /dev/tty: No such device or address
+ETA: 87s Left: 9 AVG: 20.00s  local:9/1/100%/1837.0s sh: /dev/tty: No such device or address
+ETA: 105s Left: 9 AVG: 21.00s  local:9/1/100%/1839.0s sh: /dev/tty: No such device or address
+ETA: 105s Left: 9 AVG: 23.00s  local:9/1/100%/1840.0s sh: /dev/tty: No such device or address
+ETA: 125s Left: 9 AVG: 24.00s  local:9/1/100%/1841.0s sh: /dev/tty: No such device or address
+ETA: 125s Left: 9 AVG: 25.00s  local:9/1/100%/1843.0s sh: /dev/tty: No such device or address
+ETA: 146s Left: 9 AVG: 27.00s  local:9/1/100%/1844.0s sh: /dev/tty: No such device or address
+ETA: 146s Left: 9 AVG: 28.00s  local:9/1/100%/1845.0s sh: /dev/tty: No such device or address
+ETA: 167s Left: 9 AVG: 29.00s  local:9/1/100%/1847.0s sh: /dev/tty: No such device or address
+ETA: 167s Left: 9 AVG: 31.00s  local:9/1/100%/1848.0s sh: /dev/tty: No such device or address
+ETA: 189s Left: 9 AVG: 32.00s  local:9/1/100%/1849.0s sh: /dev/tty: No such device or address
+ETA: 189s Left: 9 AVG: 33.00s  local:9/1/100%/1851.0s sh: /dev/tty: No such device or address
+ETA: 211s Left: 9 AVG: 35.00s  local:9/1/100%/1852.0s sh: /dev/tty: No such device or address
+ETA: 211s Left: 9 AVG: 36.00s  local:9/1/100%/1853.0s sh: /dev/tty: No such device or address
+ETA: 211s Left: 9 AVG: 37.00s  local:9/1/100%/1855.0s sh: /dev/tty: No such device or address
+ETA: 245s Left: 9 AVG: 39.00s  local:9/1/100%/1856.0s sh: /dev/tty: No such device or address
+ETA: 245s Left: 9 AVG: 40.00s  local:9/1/100%/1857.0s sh: /dev/tty: No such device or address
+ETA: 245s Left: 9 AVG: 41.00s  local:9/1/100%/1859.0s sh: /dev/tty: No such device or address
+ETA: 280s Left: 9 AVG: 43.00s  local:9/1/100%/1860.0s sh: /dev/tty: No such device or address
+ETA: 280s Left: 9 AVG: 44.00s  local:9/1/100%/1861.0s sh: /dev/tty: No such device or address
+ETA: 280s Left: 9 AVG: 45.00s  local:9/1/100%/1863.0s sh: /dev/tty: No such device or address
+ETA: 315s Left: 9 AVG: 47.00s  local:9/1/100%/1864.0s sh: /dev/tty: No such device or address
+ETA: 315s Left: 9 AVG: 48.00s  local:9/1/100%/1865.0s sh: /dev/tty: No such device or address
+ETA: 315s Left: 9 AVG: 49.00s  local:9/1/100%/1867.0s sh: /dev/tty: No such device or address
+ETA: 350s Left: 9 AVG: 51.00s  local:9/1/100%/1868.0s sh: /dev/tty: No such device or address
+ETA: 350s Left: 9 AVG: 52.00s  local:9/1/100%/1869.0s sh: /dev/tty: No such device or address
+ETA: 350s Left: 9 AVG: 53.00s  local:9/1/100%/1871.0s sh: /dev/tty: No such device or address
+ETA: 350s Left: 9 AVG: 55.00s  local:9/1/100%/1872.0s sh: /dev/tty: No such device or address
+ETA: 397s Left: 9 AVG: 56.00s  local:9/1/100%/1873.0s sh: /dev/tty: No such device or address
+ETA: 397s Left: 9 AVG: 57.00s  local:9/1/100%/1875.0s sh: /dev/tty: No such device or address
+ETA: 397s Left: 9 AVG: 59.00s  local:9/1/100%/1876.0s sh: /dev/tty: No such device or address
+ETA: 397s Left: 9 AVG: 60.00s  local:9/1/100%/1877.0s sh: /dev/tty: No such device or address
+ETA: 444s Left: 9 AVG: 61.00s  local:9/1/100%/1878.0s terra 1.9.1
+Linking to GEOS 3.14.1, GDAL 3.12.2, PROJ 9.7.1; sf_use_s2() is TRUE
+
+Attaching package: ‘dplyr’
+
+The following objects are masked from ‘package:terra’:
+
+    intersect, union
+
+The following objects are masked from ‘package:stats’:
+
+    filter, lag
+
+The following objects are masked from ‘package:base’:
+
+    intersect, setdiff, setequal, union
+
+── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──
+✔ forcats   1.0.1     ✔ readr     2.2.0
+✔ ggplot2   4.0.2     ✔ stringr   1.6.0
+✔ lubridate 1.9.5     ✔ tibble    3.3.1
+✔ purrr     1.2.1     ✔ tidyr     1.3.2
+── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
+✖ tidyr::extract() masks terra::extract()
+✖ dplyr::filter()  masks stats::filter()
+✖ dplyr::lag()     masks stats::lag()
+ℹ Use the conflicted package (<http://conflicted.r-lib.org/>) to force all conflicts to become errors
+
+Attaching package: ‘tictoc’
+
+The following objects are masked from ‘package:terra’:
+
+    shift, size
+
+Cannot preload entire working area of 6560414535 cells with max_cells_in_memory = 3e+07. Raster values will be read for each feature individually.
+Cannot preload entire working area of 6281707376 cells with max_cells_in_memory = 3e+07. Raster values will be read for each feature individually.
+Cannot preload entire working area of 6281707376 cells with max_cells_in_memory = 3e+06. Raster values will be read for each feature individually.
+Warning message:
+In st_cast.sf(., "POLYGON") :
+  repeating attributes for all sub-geometries for which they may not be constant
+ETA: 365s Left: 8 AVG: 30.50s  local:8/2/100%/939.0s ETA: 340s Left: 8 AVG: 30.50s  local:8/2/100%/939.0s ETA: 321s Left: 8 AVG: 30.50s  local:8/2/100%/939.0s sh: /dev/tty: No such device or address
+ETA: 306s Left: 8 AVG: 31.00s  local:8/2/100%/939.5s sh: /dev/tty: No such device or address
+ETA: 295s Left: 8 AVG: 31.50s  local:8/2/100%/940.0s sh: /dev/tty: No such device or address
+ETA: 287s Left: 8 AVG: 32.00s  local:8/2/100%/940.5s ETA: 281s Left: 8 AVG: 32.00s  local:8/2/100%/940.5s terra 1.9.1
+Linking to GEOS 3.14.1, GDAL 3.12.2, PROJ 9.7.1; sf_use_s2() is TRUE
+
+Attaching package: ‘dplyr’
+
+The following objects are masked from ‘package:terra’:
+
+    intersect, union
+
+The following objects are masked from ‘package:stats’:
+
+    filter, lag
+
+The following objects are masked from ‘package:base’:
+
+    intersect, setdiff, setequal, union
+
+── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──
+✔ forcats   1.0.1     ✔ readr     2.2.0
+✔ ggplot2   4.0.2     ✔ stringr   1.6.0
+✔ lubridate 1.9.5     ✔ tibble    3.3.1
+✔ purrr     1.2.1     ✔ tidyr     1.3.2
+── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
+✖ tidyr::extract() masks terra::extract()
+✖ dplyr::filter()  masks stats::filter()
+✖ dplyr::lag()     masks stats::lag()
+ℹ Use the conflicted package (<http://conflicted.r-lib.org/>) to force all conflicts to become errors
+
+Attaching package: ‘tictoc’
+
+The following objects are masked from ‘package:terra’:
+
+    shift, size
+
+Cannot preload entire working area of 6559953621 cells with max_cells_in_memory = 3e+07. Raster values will be read for each feature individually.
+Cannot preload entire working area of 6281707376 cells with max_cells_in_memory = 3e+07. Raster values will be read for each feature individually.
+Cannot preload entire working area of 6281707376 cells with max_cells_in_memory = 3e+06. Raster values will be read for each feature individually.
+Warning message:
+In st_cast.sf(., "POLYGON") :
+  repeating attributes for all sub-geometries for which they may not be constant
+ETA: 217s Left: 7 AVG: 21.33s  local:7/3/100%/627.0s ETA: 196s Left: 7 AVG: 21.33s  local:7/3/100%/627.0s sh: /dev/tty: No such device or address
+ETA: 183s Left: 7 AVG: 21.67s  local:7/3/100%/627.3s ETA: 173s Left: 7 AVG: 21.67s  local:7/3/100%/627.3s sh: /dev/tty: No such device or address
+ETA: 167s Left: 7 AVG: 22.00s  local:7/3/100%/627.7s sh: /dev/tty: No such device or address
+ETA: 164s Left: 7 AVG: 22.33s  local:7/3/100%/628.0s sh: /dev/tty: No such device or address
+ETA: 162s Left: 7 AVG: 22.67s  local:7/3/100%/628.3s sh: /dev/tty: No such device or address
+ETA: 162s Left: 7 AVG: 23.00s  local:7/3/100%/628.7s sh: /dev/tty: No such device or address
+ETA: 162s Left: 7 AVG: 23.33s  local:7/3/100%/629.0s terra 1.9.1
+Linking to GEOS 3.14.1, GDAL 3.12.2, PROJ 9.7.1; sf_use_s2() is TRUE
+
+Attaching package: ‘dplyr’
+
+The following objects are masked from ‘package:terra’:
+
+    intersect, union
+
+The following objects are masked from ‘package:stats’:
+
+    filter, lag
+
+The following objects are masked from ‘package:base’:
+
+    intersect, setdiff, setequal, union
+
+── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──
+✔ forcats   1.0.1     ✔ readr     2.2.0
+✔ ggplot2   4.0.2     ✔ stringr   1.6.0
+✔ lubridate 1.9.5     ✔ tibble    3.3.1
+✔ purrr     1.2.1     ✔ tidyr     1.3.2
+── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
+✖ tidyr::extract() masks terra::extract()
+✖ dplyr::filter()  masks stats::filter()
+✖ dplyr::lag()     masks stats::lag()
+ℹ Use the conflicted package (<http://conflicted.r-lib.org/>) to force all conflicts to become errors
+
+Attaching package: ‘tictoc’
+
+The following objects are masked from ‘package:terra’:
+
+    shift, size
+
+Cannot preload entire working area of 6560581112 cells with max_cells_in_memory = 3e+07. Raster values will be read for each feature individually.
+Cannot preload entire working area of 6281707376 cells with max_cells_in_memory = 3e+07. Raster values will be read for each feature individually.
+Cannot preload entire working area of 6281707376 cells with max_cells_in_memory = 3e+06. Raster values will be read for each feature individually.
+Warning message:
+In st_cast.sf(., "POLYGON") :
+  repeating attributes for all sub-geometries for which they may not be constant
+ETA: 125s Left: 6 AVG: 17.50s  local:6/4/100%/471.8s ETA: 117s Left: 6 AVG: 17.50s  local:6/4/100%/471.8s ETA: 112s Left: 6 AVG: 17.50s  local:6/4/100%/471.8s sh: /dev/tty: No such device or address
+ETA: 110s Left: 6 AVG: 17.75s  local:6/4/100%/472.0s sh: /dev/tty: No such device or address
+ETA: 109s Left: 6 AVG: 18.00s  local:6/4/100%/472.2s ETA: 108s Left: 6 AVG: 18.00s  local:6/4/100%/472.2s sh: /dev/tty: No such device or address
+ETA: 108s Left: 6 AVG: 18.25s  local:6/4/100%/472.5s sh: /dev/tty: No such device or address
+ETA: 108s Left: 6 AVG: 18.50s  local:6/4/100%/472.8s sh: /dev/tty: No such device or address
+ETA: 108s Left: 6 AVG: 18.75s  local:6/4/100%/473.0s sh: /dev/tty: No such device or address
+ETA: 108s Left: 6 AVG: 19.00s  local:6/4/100%/473.2s sh: /dev/tty: No such device or address
+ETA: 108s Left: 6 AVG: 19.25s  local:6/4/100%/473.5s sh: /dev/tty: No such device or address
+ETA: 108s Left: 6 AVG: 19.50s  local:6/4/100%/474.0s sh: /dev/tty: No such device or address
+ETA: 108s Left: 6 AVG: 20.00s  local:6/4/100%/474.2s sh: /dev/tty: No such device or address
+ETA: 108s Left: 6 AVG: 20.25s  local:6/4/100%/474.5s sh: /dev/tty: No such device or address
+ETA: 120s Left: 6 AVG: 20.50s  local:6/4/100%/475.0s sh: /dev/tty: No such device or address
+ETA: 120s Left: 6 AVG: 21.00s  local:6/4/100%/475.2s sh: /dev/tty: No such device or address
+ETA: 120s Left: 6 AVG: 21.25s  local:6/4/100%/475.5s sh: /dev/tty: No such device or address
+ETA: 120s Left: 6 AVG: 21.75s  local:6/4/100%/476.0s sh: /dev/tty: No such device or address
+ETA: 120s Left: 6 AVG: 22.00s  local:6/4/100%/476.2s sh: /dev/tty: No such device or address
+ETA: 120s Left: 6 AVG: 22.25s  local:6/4/100%/476.8s sh: /dev/tty: No such device or address
+ETA: 120s Left: 6 AVG: 22.50s  local:6/4/100%/476.8s terra 1.9.1
+Linking to GEOS 3.14.1, GDAL 3.12.2, PROJ 9.7.1; sf_use_s2() is TRUE
+
+Attaching package: ‘dplyr’
+
+The following objects are masked from ‘package:terra’:
+
+    intersect, union
+
+The following objects are masked from ‘package:stats’:
+
+    filter, lag
+
+The following objects are masked from ‘package:base’:
+
+    intersect, setdiff, setequal, union
+
+── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──
+✔ forcats   1.0.1     ✔ readr     2.2.0
+✔ ggplot2   4.0.2     ✔ stringr   1.6.0
+✔ lubridate 1.9.5     ✔ tibble    3.3.1
+✔ purrr     1.2.1     ✔ tidyr     1.3.2
+── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
+✖ tidyr::extract() masks terra::extract()
+✖ dplyr::filter()  masks stats::filter()
+✖ dplyr::lag()     masks stats::lag()
+ℹ Use the conflicted package (<http://conflicted.r-lib.org/>) to force all conflicts to become errors
+
+Attaching package: ‘tictoc’
+
+The following objects are masked from ‘package:terra’:
+
+    shift, size
+
+Cannot preload entire working area of 6559953621 cells with max_cells_in_memory = 3e+07. Raster values will be read for each feature individually.
+Cannot preload entire working area of 6280829184 cells with max_cells_in_memory = 3e+07. Raster values will be read for each feature individually.
+Cannot preload entire working area of 6280829184 cells with max_cells_in_memory = 3e+06. Raster values will be read for each feature individually.
+Warning message:
+In st_cast.sf(., "POLYGON") :
+  repeating attributes for all sub-geometries for which they may not be constant
+ETA: 100s Left: 5 AVG: 18.00s  local:5/5/100%/381.4s ETA: 95s Left: 5 AVG: 18.00s  local:5/5/100%/381.4s sh: /dev/tty: No such device or address
+ETA: 93s Left: 5 AVG: 18.20s  local:5/5/100%/381.6s sh: /dev/tty: No such device or address
+ETA: 92s Left: 5 AVG: 18.40s  local:5/5/100%/381.8s ETA: 92s Left: 5 AVG: 18.40s  local:5/5/100%/381.8s sh: /dev/tty: No such device or address
+ETA: 92s Left: 5 AVG: 18.60s  local:5/5/100%/382.0s sh: /dev/tty: No such device or address
+ETA: 92s Left: 5 AVG: 18.80s  local:5/5/100%/382.4s sh: /dev/tty: No such device or address
+ETA: 92s Left: 5 AVG: 19.00s  local:5/5/100%/382.6s sh: /dev/tty: No such device or address
+ETA: 92s Left: 5 AVG: 19.40s  local:5/5/100%/382.8s sh: /dev/tty: No such device or address
+ETA: 92s Left: 5 AVG: 19.60s  local:5/5/100%/383.0s sh: /dev/tty: No such device or address
+ETA: 92s Left: 5 AVG: 19.80s  local:5/5/100%/383.4s sh: /dev/tty: No such device or address
+ETA: 92s Left: 5 AVG: 20.20s  local:5/5/100%/383.6s sh: /dev/tty: No such device or address
+ETA: 92s Left: 5 AVG: 20.40s  local:5/5/100%/383.8s sh: /dev/tty: No such device or address
+ETA: 92s Left: 5 AVG: 20.60s  local:5/5/100%/384.2s sh: /dev/tty: No such device or address
+ETA: 92s Left: 5 AVG: 20.80s  local:5/5/100%/384.2s terra 1.9.1
+Linking to GEOS 3.14.1, GDAL 3.12.2, PROJ 9.7.1; sf_use_s2() is TRUE
+
+Attaching package: ‘dplyr’
+
+The following objects are masked from ‘package:terra’:
+
+    intersect, union
+
+The following objects are masked from ‘package:stats’:
+
+    filter, lag
+
+The following objects are masked from ‘package:base’:
+
+    intersect, setdiff, setequal, union
+
+── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──
+✔ forcats   1.0.1     ✔ readr     2.2.0
+✔ ggplot2   4.0.2     ✔ stringr   1.6.0
+✔ lubridate 1.9.5     ✔ tibble    3.3.1
+✔ purrr     1.2.1     ✔ tidyr     1.3.2
+── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
+✖ tidyr::extract() masks terra::extract()
+✖ dplyr::filter()  masks stats::filter()
+✖ dplyr::lag()     masks stats::lag()
+ℹ Use the conflicted package (<http://conflicted.r-lib.org/>) to force all conflicts to become errors
+
+Attaching package: ‘tictoc’
+
+The following objects are masked from ‘package:terra’:
+
+    shift, size
+
+Cannot preload entire working area of 6559953621 cells with max_cells_in_memory = 3e+07. Raster values will be read for each feature individually.
+Cannot preload entire working area of 6281707376 cells with max_cells_in_memory = 3e+07. Raster values will be read for each feature individually.
+Cannot preload entire working area of 6281707376 cells with max_cells_in_memory = 3e+06. Raster values will be read for each feature individually.
+Warning message:
+In st_cast.sf(., "POLYGON") :
+  repeating attributes for all sub-geometries for which they may not be constant
+ETA: 74s Left: 4 AVG: 17.33s  local:4/6/100%/320.2s ETA: 71s Left: 4 AVG: 17.33s  local:4/6/100%/320.2s sh: /dev/tty: No such device or address
+ETA: 70s Left: 4 AVG: 17.50s  local:4/6/100%/320.3s sh: /dev/tty: No such device or address
+ETA: 70s Left: 4 AVG: 17.67s  local:4/6/100%/320.5s sh: /dev/tty: No such device or address
+ETA: 70s Left: 4 AVG: 17.83s  local:4/6/100%/320.7s ETA: 70s Left: 4 AVG: 17.83s  local:4/6/100%/320.7s sh: /dev/tty: No such device or address
+ETA: 70s Left: 4 AVG: 18.00s  local:4/6/100%/320.8s sh: /dev/tty: No such device or address
+ETA: 70s Left: 4 AVG: 18.17s  local:4/6/100%/321.2s sh: /dev/tty: No such device or address
+ETA: 70s Left: 4 AVG: 18.33s  local:4/6/100%/321.3s sh: /dev/tty: No such device or address
+ETA: 70s Left: 4 AVG: 18.67s  local:4/6/100%/321.5s sh: /dev/tty: No such device or address
+ETA: 70s Left: 4 AVG: 18.83s  local:4/6/100%/321.7s sh: /dev/tty: No such device or address
+ETA: 70s Left: 4 AVG: 19.00s  local:4/6/100%/322.0s sh: /dev/tty: No such device or address
+ETA: 70s Left: 4 AVG: 19.33s  local:4/6/100%/322.2s sh: /dev/tty: No such device or address
+ETA: 70s Left: 4 AVG: 19.50s  local:4/6/100%/322.3s sh: /dev/tty: No such device or address
+ETA: 78s Left: 4 AVG: 19.67s  local:4/6/100%/322.5s sh: /dev/tty: No such device or address
+ETA: 78s Left: 4 AVG: 19.83s  local:4/6/100%/322.8s sh: /dev/tty: No such device or address
+ETA: 78s Left: 4 AVG: 20.17s  local:4/6/100%/323.0s sh: /dev/tty: No such device or address
+ETA: 78s Left: 4 AVG: 20.33s  local:4/6/100%/323.2s sh: /dev/tty: No such device or address
+ETA: 78s Left: 4 AVG: 20.50s  local:4/6/100%/323.5s sh: /dev/tty: No such device or address
+ETA: 78s Left: 4 AVG: 20.83s  local:4/6/100%/323.7s sh: /dev/tty: No such device or address
+ETA: 78s Left: 4 AVG: 21.00s  local:4/6/100%/323.8s sh: /dev/tty: No such device or address
+ETA: 78s Left: 4 AVG: 21.17s  local:4/6/100%/324.0s sh: /dev/tty: No such device or address
+ETA: 78s Left: 4 AVG: 21.33s  local:4/6/100%/324.3s terra 1.9.1
+Linking to GEOS 3.14.1, GDAL 3.12.2, PROJ 9.7.1; sf_use_s2() is TRUE
+
+Attaching package: ‘dplyr’
+
+The following objects are masked from ‘package:terra’:
+
+    intersect, union
+
+The following objects are masked from ‘package:stats’:
+
+    filter, lag
+
+The following objects are masked from ‘package:base’:
+
+    intersect, setdiff, setequal, union
+
+── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──
+✔ forcats   1.0.1     ✔ readr     2.2.0
+✔ ggplot2   4.0.2     ✔ stringr   1.6.0
+✔ lubridate 1.9.5     ✔ tibble    3.3.1
+✔ purrr     1.2.1     ✔ tidyr     1.3.2
+── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
+✖ tidyr::extract() masks terra::extract()
+✖ dplyr::filter()  masks stats::filter()
+✖ dplyr::lag()     masks stats::lag()
+ℹ Use the conflicted package (<http://conflicted.r-lib.org/>) to force all conflicts to become errors
+
+Attaching package: ‘tictoc’
+
+The following objects are masked from ‘package:terra’:
+
+    shift, size
+
+Cannot preload entire working area of 6560581112 cells with max_cells_in_memory = 3e+07. Raster values will be read for each feature individually.
+Cannot preload entire working area of 6279825536 cells with max_cells_in_memory = 3e+07. Raster values will be read for each feature individually.
+Cannot preload entire working area of 6279825536 cells with max_cells_in_memory = 3e+06. Raster values will be read for each feature individually.
+Warning message:
+In st_cast.sf(., "POLYGON") :
+  repeating attributes for all sub-geometries for which they may not be constant
+sh: /dev/tty: No such device or address
+ETA: 57s Left: 3 AVG: 18.43s  local:3/7/100%/278.0s ETA: 56s Left: 3 AVG: 18.43s  local:3/7/100%/278.0s ETA: 55s Left: 3 AVG: 18.43s  local:3/7/100%/278.0s sh: /dev/tty: No such device or address
+ETA: 55s Left: 3 AVG: 18.57s  local:3/7/100%/278.1s sh: /dev/tty: No such device or address
+ETA: 55s Left: 3 AVG: 18.71s  local:3/7/100%/278.3s sh: /dev/tty: No such device or address
+ETA: 55s Left: 3 AVG: 18.86s  local:3/7/100%/278.4s sh: /dev/tty: No such device or address
+ETA: 55s Left: 3 AVG: 19.00s  local:3/7/100%/278.6s sh: /dev/tty: No such device or address
+ETA: 55s Left: 3 AVG: 19.14s  local:3/7/100%/278.7s sh: /dev/tty: No such device or address
+ETA: 55s Left: 3 AVG: 19.29s  local:3/7/100%/278.9s sh: /dev/tty: No such device or address
+ETA: 55s Left: 3 AVG: 19.43s  local:3/7/100%/279.1s sh: /dev/tty: No such device or address
+ETA: 55s Left: 3 AVG: 19.71s  local:3/7/100%/279.3s sh: /dev/tty: No such device or address
+ETA: 55s Left: 3 AVG: 19.86s  local:3/7/100%/279.4s sh: /dev/tty: No such device or address
+ETA: 55s Left: 3 AVG: 20.14s  local:3/7/100%/279.7s sh: /dev/tty: No such device or address
+ETA: 55s Left: 3 AVG: 20.29s  local:3/7/100%/279.9s sh: /dev/tty: No such device or address
+ETA: 55s Left: 3 AVG: 20.43s  local:3/7/100%/280.1s sh: /dev/tty: No such device or address
+ETA: 55s Left: 3 AVG: 20.71s  local:3/7/100%/280.3s sh: /dev/tty: No such device or address
+ETA: 62s Left: 3 AVG: 20.86s  local:3/7/100%/280.4s sh: /dev/tty: No such device or address
+ETA: 62s Left: 3 AVG: 21.00s  local:3/7/100%/280.7s terra 1.9.1
+Linking to GEOS 3.14.1, GDAL 3.12.2, PROJ 9.7.1; sf_use_s2() is TRUE
+
+Attaching package: ‘dplyr’
+
+The following objects are masked from ‘package:terra’:
+
+    intersect, union
+
+The following objects are masked from ‘package:stats’:
+
+    filter, lag
+
+The following objects are masked from ‘package:base’:
+
+    intersect, setdiff, setequal, union
+
+── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──
+✔ forcats   1.0.1     ✔ readr     2.2.0
+✔ ggplot2   4.0.2     ✔ stringr   1.6.0
+✔ lubridate 1.9.5     ✔ tibble    3.3.1
+✔ purrr     1.2.1     ✔ tidyr     1.3.2
+── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
+✖ tidyr::extract() masks terra::extract()
+✖ dplyr::filter()  masks stats::filter()
+✖ dplyr::lag()     masks stats::lag()
+ℹ Use the conflicted package (<http://conflicted.r-lib.org/>) to force all conflicts to become errors
+
+Attaching package: ‘tictoc’
+
+The following objects are masked from ‘package:terra’:
+
+    shift, size
+
+Cannot preload entire working area of 6560581112 cells with max_cells_in_memory = 3e+07. Raster values will be read for each feature individually.
+Cannot preload entire working area of 6279825536 cells with max_cells_in_memory = 3e+07. Raster values will be read for each feature individually.
+Cannot preload entire working area of 6279825536 cells with max_cells_in_memory = 3e+06. Raster values will be read for each feature individually.
+Warning message:
+In st_cast.sf(., "POLYGON") :
+  repeating attributes for all sub-geometries for which they may not be constant
+sh: /dev/tty: No such device or address
+ETA: 37s Left: 2 AVG: 18.50s  local:2/8/100%/245.6s ETA: 37s Left: 2 AVG: 18.50s  local:2/8/100%/245.6s ETA: 37s Left: 2 AVG: 18.50s  local:2/8/100%/245.6s sh: /dev/tty: No such device or address
+ETA: 37s Left: 2 AVG: 18.62s  local:2/8/100%/245.8s sh: /dev/tty: No such device or address
+ETA: 37s Left: 2 AVG: 18.75s  local:2/8/100%/245.9s sh: /dev/tty: No such device or address
+ETA: 37s Left: 2 AVG: 18.88s  local:2/8/100%/246.0s sh: /dev/tty: No such device or address
+ETA: 37s Left: 2 AVG: 19.00s  local:2/8/100%/246.1s sh: /dev/tty: No such device or address
+ETA: 37s Left: 2 AVG: 19.12s  local:2/8/100%/246.2s sh: /dev/tty: No such device or address
+ETA: 37s Left: 2 AVG: 19.25s  local:2/8/100%/246.4s terra 1.9.1
+Linking to GEOS 3.14.1, GDAL 3.12.2, PROJ 9.7.1; sf_use_s2() is TRUE
+
+Attaching package: ‘dplyr’
+
+The following objects are masked from ‘package:terra’:
+
+    intersect, union
+
+The following objects are masked from ‘package:stats’:
+
+    filter, lag
+
+The following objects are masked from ‘package:base’:
+
+    intersect, setdiff, setequal, union
+
+── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──
+✔ forcats   1.0.1     ✔ readr     2.2.0
+✔ ggplot2   4.0.2     ✔ stringr   1.6.0
+✔ lubridate 1.9.5     ✔ tibble    3.3.1
+✔ purrr     1.2.1     ✔ tidyr     1.3.2
+── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
+✖ tidyr::extract() masks terra::extract()
+✖ dplyr::filter()  masks stats::filter()
+✖ dplyr::lag()     masks stats::lag()
+ℹ Use the conflicted package (<http://conflicted.r-lib.org/>) to force all conflicts to become errors
+
+Attaching package: ‘tictoc’
+
+The following objects are masked from ‘package:terra’:
+
+    shift, size
+
+Cannot preload entire working area of 6560414535 cells with max_cells_in_memory = 3e+07. Raster values will be read for each feature individually.
+Cannot preload entire working area of 6280829184 cells with max_cells_in_memory = 3e+07. Raster values will be read for each feature individually.
+Cannot preload entire working area of 6280829184 cells with max_cells_in_memory = 3e+06. Raster values will be read for each feature individually.
+Warning message:
+In st_cast.sf(., "POLYGON") :
+  repeating attributes for all sub-geometries for which they may not be constant
+ETA: 17s Left: 1 AVG: 17.11s  local:1/9/100%/219.0s ETA: 17s Left: 1 AVG: 17.11s  local:1/9/100%/219.0s ETA: 17s Left: 1 AVG: 17.11s  local:1/9/100%/219.0s sh: /dev/tty: No such device or address
+ETA: 17s Left: 1 AVG: 17.22s  local:1/9/100%/219.1s sh: /dev/tty: No such device or address
+ETA: 17s Left: 1 AVG: 17.33s  local:1/9/100%/219.2s sh: /dev/tty: No such device or address
+ETA: 17s Left: 1 AVG: 17.44s  local:1/9/100%/219.3s sh: /dev/tty: No such device or address
+ETA: 17s Left: 1 AVG: 17.56s  local:1/9/100%/219.4s sh: /dev/tty: No such device or address
+ETA: 17s Left: 1 AVG: 17.67s  local:1/9/100%/219.6s sh: /dev/tty: No such device or address
+ETA: 17s Left: 1 AVG: 17.78s  local:1/9/100%/219.8s sh: /dev/tty: No such device or address
+ETA: 17s Left: 1 AVG: 18.00s  local:1/9/100%/219.9s sh: /dev/tty: No such device or address
+ETA: 17s Left: 1 AVG: 18.11s  local:1/9/100%/220.0s sh: /dev/tty: No such device or address
+ETA: 17s Left: 1 AVG: 18.22s  local:1/9/100%/220.1s sh: /dev/tty: No such device or address
+ETA: 17s Left: 1 AVG: 18.33s  local:1/9/100%/220.3s sh: /dev/tty: No such device or address
+ETA: 17s Left: 1 AVG: 18.56s  local:1/9/100%/220.4s sh: /dev/tty: No such device or address
+ETA: 17s Left: 1 AVG: 18.67s  local:1/9/100%/220.6s terra 1.9.1
+Linking to GEOS 3.14.1, GDAL 3.12.2, PROJ 9.7.1; sf_use_s2() is TRUE
+
+Attaching package: ‘dplyr’
+
+The following objects are masked from ‘package:terra’:
+
+    intersect, union
+
+The following objects are masked from ‘package:stats’:
+
+    filter, lag
+
+The following objects are masked from ‘package:base’:
+
+    intersect, setdiff, setequal, union
+
+── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──
+✔ forcats   1.0.1     ✔ readr     2.2.0
+✔ ggplot2   4.0.2     ✔ stringr   1.6.0
+✔ lubridate 1.9.5     ✔ tibble    3.3.1
+✔ purrr     1.2.1     ✔ tidyr     1.3.2
+── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
+✖ tidyr::extract() masks terra::extract()
+✖ dplyr::filter()  masks stats::filter()
+✖ dplyr::lag()     masks stats::lag()
+ℹ Use the conflicted package (<http://conflicted.r-lib.org/>) to force all conflicts to become errors
+
+Attaching package: ‘tictoc’
+
+The following objects are masked from ‘package:terra’:
+
+    shift, size
+
+Cannot preload entire working area of 6559953621 cells with max_cells_in_memory = 3e+07. Raster values will be read for each feature individually.
+Cannot preload entire working area of 6281707376 cells with max_cells_in_memory = 3e+07. Raster values will be read for each feature individually.
+Cannot preload entire working area of 6281707376 cells with max_cells_in_memory = 3e+06. Raster values will be read for each feature individually.
+Warning message:
+In st_cast.sf(., "POLYGON") :
+  repeating attributes for all sub-geometries for which they may not be constant
+ETA: 0s Left: 0 AVG: 16.80s  local:0/10/100%/198.5s ETA: 0s Left: 0 AVG: 16.80s  local:0/10/100%/198.5s 
+slurmstepd: error: Detected 2 oom-kill event(s) in StepId=303052.batch. Some of your processes may have been killed by the cgroup out-of-memory handler.

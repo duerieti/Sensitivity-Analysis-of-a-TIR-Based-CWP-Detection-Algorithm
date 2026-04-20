@@ -1,0 +1,25 @@
+
+CommandNotFoundError: Your shell has not been properly configured to use 'conda deactivate'.
+To initialize your shell, run
+
+    $ conda init <SHELL_NAME>
+
+Currently supported shells are:
+  - bash
+  - fish
+  - tcsh
+  - xonsh
+  - zsh
+  - powershell
+
+See 'conda init --help' for more information and options.
+
+IMPORTANT: You may need to close and restart your shell after running 'conda init'.
+
+
+Registered S3 method overwritten by 'sensitivity':
+  method    from 
+  print.src dplyr
+Warning message:
+In morris(model = NULL, factors = c("buffer_px", "slab_halfwidth_m"),  :
+  keeping 44 repetitions out of 66

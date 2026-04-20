@@ -10,9 +10,10 @@ detect_cwp_single <- function(
 
     ras_path,
     line_path,
-    step_m            = 300,
-    buffer_px         = 4,
-    delta_C           = 2.0,
+    rounded_ras_path,
+    step_m            = 500,
+    buffer_px         = 3,
+    delta_C           = 1.0,
     min_patch_area_m2 = 2,
     round_to          = 0.1,
     slab_halfwidth_m  = 60,
@@ -134,16 +135,7 @@ system(paste0(
   co
 ))
 
-
-# r_rounded: read multiple times (exact_extract x2, raster calc) → tile it
-system(paste0(
-  'gdal raster calc -i "A=', ras_path, '"',
-  ' --calc "rint(A * ', rfactor, ') / ', rfactor, '"',
-  ' -o r_rounded.tiff --overwrite --ot Float64 --nodata -9999 ',
-  co
-))
-
-r_rounded <- terra::rast("r_rounded.tiff")
+r_rounded <- terra::rast(rounded_ras_path)
 
 slap_means <- exact_extract(r_rounded, slaps_buffer_sf, fun = function(values, coverage) {
   median(values[coverage >= 0.5], na.rm = TRUE)
@@ -177,6 +169,10 @@ system(paste0(
   co
 ))
 
+
+# Do some cleaning up of raster files
+file.remove(c("zone_r_big_asc.tiff", "zone_r_big_desc.tiff"))
+
 system(paste0(
   'gdal raster calc -i "A=Tmean_raster_desc.tiff" -i "B=Tmean_raster_asc.tiff" -o Tmean_raster.tiff ',
   '--calc "A > B ? A : B" ',
@@ -184,12 +180,10 @@ system(paste0(
   co
 ))
 
-
-# binary_out: read by terra::as.polygons and exact_extract → tile it
 tic()
 system(paste0(
   'gdal raster calc ',
-  '-i "A=r_rounded.tiff" ',
+  '-i "A=', rounded_ras_path, '" ',
   '-i "B=Tmean_raster.tiff" ',
   '--calc "((B - A) >= ', delta_C, ') * (A != -9999) ? 1 : NaN" ', # B has a bit of a larger extent than A, so in order to garantuee that everything works out (A != 0) is needed
   '-o binary_out.tif --overwrite --ot Float32 ',
@@ -197,6 +191,8 @@ system(paste0(
 ))
 toc()
 
+
+file.remove(c("Tmean_raster_desc.tiff", "Tmean_raster_asc.tiff"))
 
 binary <- terra::rast("binary_out.tif")
 
@@ -226,7 +222,7 @@ patches_large <- patches_sf %>%
 
   # ── 9. TEMPERATURE STATISTICS PER PATCH ──────────────────────────────────
 
-
+print("second exact_extract")
 stats_matrix <- exact_extract(r, patches_large, c("mean", "min", "max", "median"))
 
 
@@ -253,6 +249,11 @@ patches_large_w_stats <- patches_large %>%
 
 Tmean_raster <- terra::rast("Tmean_raster.tiff")
 
+print(nrow(patches_large_w_stats))  # how many polygons?
+print(terra::ncell(Tmean_raster))   # how many raster cells?
+print(gc()) 
+
+print("third exaxt_extract")
 slap_means_per_poly <- exact_extract(Tmean_raster, patches_large_w_stats, fun = function(values, coverage) {
   median(values[coverage >= 0.5], na.rm = TRUE)
 })
@@ -270,7 +271,10 @@ patches_large_refiltered <- patches_large_w_stats %>%
   ) %>%
   filter(deltaT >= delta_C) 
 
-  return(patches_large_refiltered)
+
+file.remove(c("binary_out.tif","Tmean_raster.tiff"))
+
+return(patches_large_refiltered)
   
 }
 
@@ -278,11 +282,12 @@ patches_large_refiltered <- patches_large_w_stats %>%
 terraOptions(memmax=19)
 
 ras_path <- file.path("../../data/thermal_rasters_FINAL/mean_v01emme.tif")
+rounded_ras_path <- file.path("../../data/r_rounded.tiff")
 line_path <- file.path("../../data/Centerlines_FINAL/Emme_V01.shp")
 
-tic("Function Reworked")
-patches_new <- detect_cwp_single(ras_path, line_path)
+tic("Function Reworked:")
+patches_new <- detect_cwp_single(ras_path, line_path, rounded_ras_path)
 toc()
 
-sf::st_write(patches_new, "final_polys.shp")
+sf::st_write(patches_new, "final_polys.shp", append = FALSE)
 
