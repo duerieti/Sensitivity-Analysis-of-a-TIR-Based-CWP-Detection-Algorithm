@@ -1,0 +1,281 @@
+
+detect_cwp_single <- function(
+
+    ras_path,
+    line_path,
+    rounded_ras_path,
+    step_m            = 500,
+    buffer_px         = 3,
+    delta_C           = 1.0,
+    min_patch_area_m2 = 2,
+    round_to          = 0.1,
+    slab_halfwidth_m  = 60,
+    connect_diagonals = TRUE,
+    union_chunk_size  = 50000L
+
+) {
+# tiling creation options — no compression, just chunked layout
+co <- "--co TILED=YES --co BLOCKXSIZE=512 --co BLOCKYSIZE=512 --co BIGTIFF=YES"
+print(delta_C)
+  # ── 0. READ INPUTS ────────────────────────────────────────────────────────
+
+r <- terra::rast(ras_path)
+line <- sf::st_read(line_path, quiet = TRUE) |> sf::st_zm(TRUE, "ZM")
+
+stopifnot(terra::nlyr(r) == 1)
+names(r) <- "T"
+if (terra::is.lonlat(r)) stop("Raster must be in a metric CRS.")
+
+rres   <- terra::res(r)
+cell_m <- mean(rres)
+
+if (!is.na(sf::st_crs(line)) &&
+  !identical(terra::crs(r), sf::st_crs(line)$wkt)) {
+  line <- sf::st_transform(line, terra::crs(r))
+}
+
+g <- sf::st_union(line)
+
+if (inherits(g, "sfc_GEOMETRYCOLLECTION"))
+  g <- sf::st_collection_extract(g, "LINESTRING")
+if (inherits(g, "sfc_MULTILINESTRING")) {
+  g <- sf::st_line_merge(g)
+  if (inherits(g, "sfc_GEOMETRYCOLLECTION"))
+    g <- sf::st_collection_extract(g, "LINESTRING")
+}
+
+rfactor <- if (!is.null(round_to) && round_to > 0) 1 / round_to else NA_real_
+
+  # ── 1. BUILD SLABS ────────────────────────────────────────────────────────
+
+L <- as.numeric(sf::st_length(line))
+S <- step_m
+
+pos <- sort(unique(c(0, seq(0, 1, by = S / L), 1)))
+npt <- length(pos)
+
+if (npt < 2) stop("Too few stations for step = ", S)
+
+from <- pos[1:(npt - 1)]
+to   <- pos[2:npt]
+k    <- length(from)
+
+g1 <- sf::st_geometry(line)[1]
+
+subs_list <- vector("list", k)
+for (j in seq_len(k)) {
+  subs_list[[j]] <- lwgeom::st_linesubstring(g1, from[j], to[j])
+}
+
+subs <- do.call(c, subs_list)
+
+slabs <- sf::st_buffer(subs,
+                       dist        = slab_halfwidth_m,
+                       endCapStyle = "FLAT",
+                       joinStyle   = "MITRE",
+                       mitreLimit  = 2)
+slabs_sf <- sf::st_sf(geometry = slabs)
+
+slabs_terra <- terra::vect(slabs_sf)
+
+buffer_m <- cell_m * buffer_px
+
+slabs_buffer <- sf::st_buffer(subs,
+                              dist        = buffer_m,
+                              endCapStyle = "FLAT",
+                              joinStyle   = "MITRE",
+                              mitreLimit  = 2)
+
+slaps_buffer_sf <- sf::st_sf(geometry = slabs_buffer) %>% mutate(slap_id = row_number())
+
+slaps_buffer_vect <- slaps_buffer_sf %>%
+  mutate(slap_id = row_number()) %>%
+  terra::vect()
+
+slabs <- sf::st_buffer(subs,
+                       dist        = slab_halfwidth_m,
+                       endCapStyle = "FLAT",
+                       joinStyle   = "MITRE",
+                       mitreLimit  = 2)
+slabs_sf <- sf::st_sf(geometry = slabs) %>% mutate(slap_id = row_number())
+sf::write_sf(slabs_sf, "slabs_sf.shp")
+
+  # ── 2. COMPUTE REFERENCE TEMPERATURES ────────────────────────────────────
+
+sf::st_layers("slabs_sf.shp")
+
+e <- ext(r)
+ext_string <- paste(e$xmin, e$ymin, e$xmax, e$ymax, sep = ",")
+resolution <- res(r)
+res_string <- paste(resolution, collapse = ",")
+
+  
+tic("GDAL based rasterization:")
+system(paste0(
+  'gdal vector rasterize -i slabs_sf.shp -o zone_r_big_asc.tiff ',
+  '--dialect SQLITE --sql "SELECT * FROM slabs_sf ORDER BY slap_id ASC" ',
+  '--extent ', ext_string, ' --resolution ', res_string,
+  ' --overwrite --ot Int32 -a slap_id --optimization RASTER ',
+  co
+))
+
+toc()
+
+system(paste0(
+  'gdal vector rasterize -i slabs_sf.shp -o zone_r_big_desc.tiff ',
+  '--dialect SQLITE --sql "SELECT * FROM slabs_sf ORDER BY slap_id DESC" ',
+  '--extent ', ext_string, ' --resolution ', res_string,
+  ' --overwrite --ot Int32 -a slap_id --optimization RASTER ',
+  co
+))
+
+r_rounded <- terra::rast(rounded_ras_path)
+
+slap_means <- exact_extract(r_rounded, slaps_buffer_sf, fun = function(values, coverage) {
+  median(values[coverage >= 0.5], na.rm = TRUE)
+})
+
+
+temp_look_up_df <- tibble(slap_id = slaps_buffer_sf$slap_id, slap_means = slap_means)
+
+  # ── 5. BURN MEDIANS INTO ZONES ────────────────────────────────────────────
+
+writeLines(
+  paste0(
+    paste0("[", temp_look_up_df$slap_id, ",", temp_look_up_df$slap_id, "]=", temp_look_up_df$slap_means, collapse = "; "),
+    "; DEFAULT=NO_DATA"
+  ),
+  "median_lookup_gdal.txt"
+)
+
+lookup_str <- readLines("median_lookup_gdal.txt")
+
+# Tmean_raster: read once by raster calc → tile it
+system(paste0(
+  'gdal raster reclassify -i zone_r_big_asc.tiff -o Tmean_raster_asc.tiff ',
+  '--datatype Float64 --overwrite -m "', lookup_str, '" ',
+  co
+))
+
+system(paste0(
+  'gdal raster reclassify -i zone_r_big_desc.tiff -o Tmean_raster_desc.tiff ',
+  '--datatype Float64 --overwrite -m "', lookup_str, '" ',
+  co
+))
+
+
+print("Remove for the first time")
+# Do some cleaning up of raster files
+file.remove(c("zone_r_big_asc.tiff", "zone_r_big_desc.tiff"))
+
+system(paste0(
+  'gdal raster calc -i "A=Tmean_raster_desc.tiff" -i "B=Tmean_raster_asc.tiff" -o Tmean_raster.tiff ',
+  '--calc "A > B ? A : B" ',
+  '--overwrite --ot Float64 ',
+  co
+))
+
+tic()
+system(paste0(
+  'gdal raster calc ',
+  '-i "A=', rounded_ras_path, '" ',
+  '-i "B=Tmean_raster.tiff" ',
+  '--calc "((B - A) >= ', delta_C, ') * (A != -9999) ? 1 : NaN" ', # B has a bit of a larger extent than A, so in order to garantuee that everything works out (A != 0) is needed
+  '-o binary_out.tif --overwrite --ot Float32 ',
+  co
+))
+toc()
+
+file.remove(c("Tmean_raster_desc.tiff", "Tmean_raster_asc.tiff"))
+
+binary <- terra::rast("binary_out.tif")
+
+
+patches_v <- terra::as.polygons(binary, dissolve = TRUE, eight = TRUE)
+
+
+# ── 7. POLYGONIZE ─────────────────────────────────────────────────────────
+
+eps <- if (connect_diagonals) cell_m * 0.1 else 0
+
+patches_sf <- patches_v %>%
+  sf::st_as_sf() %>%
+  sf::st_cast("POLYGON") %>%
+  sf::st_buffer(eps) %>%
+  sf::st_union() %>%
+  sf::st_buffer(-eps) %>%
+  sf::st_cast("POLYGON") %>%
+  sf::st_as_sf()
+
+
+  # ── 8. AREA FILTER ────────────────────────────────────────────────────────
+patches_large <- patches_sf %>%
+  mutate(area_m2 = st_area(.) %>% as.numeric()) %>%
+  filter(area_m2 >= 2) %>%
+  mutate(ID = row_number())
+
+  # ── 9. TEMPERATURE STATISTICS PER PATCH ──────────────────────────────────
+
+print("second exact_extract")
+stats_matrix <- exact_extract(r, patches_large, c("mean", "min", "max", "median"))
+
+
+stats_per_poly <- stats_matrix %>%
+  as_tibble() %>%
+  mutate(ID = patches_large$ID)
+
+
+
+patches_large_w_stats <- patches_large %>%
+  inner_join(
+    stats_per_poly,
+    by = join_by(ID==ID)
+  ) %>%
+  rename(
+    T_min=min,
+    T_max=max,
+    T_med=median,
+    T_mean=mean,
+    geometry=x
+
+  )
+
+
+Tmean_raster <- terra::rast("Tmean_raster.tiff")
+
+print(nrow(patches_large_w_stats))  # how many polygons?
+print(terra::ncell(Tmean_raster))   # how many raster cells?
+print(gc()) 
+
+print("third exaxt_extract")
+slap_means_per_poly <- exact_extract(Tmean_raster, patches_large_w_stats, fun = function(values, coverage) {
+  median(values[coverage >= 0.5], na.rm = TRUE)
+},   max_cells_in_memory = 3e+06)
+  
+print("passed third extract")
+
+slap_means_df <- tibble(Tmd_slb = slap_means_per_poly, ID = patches_large_w_stats$ID)
+
+print("slab_means")
+print(slap_means_df)
+print(slap_means_df$Tmd_slb)
+print("patches_large_w_stats")
+print(patches_large_w_stats)
+patches_large_refiltered <- patches_large_w_stats %>%
+  inner_join(
+    slap_means_df,
+    by = join_by(ID == ID)
+  ) %>%
+  mutate(
+    deltaT = Tmd_slb - T_med
+  ) %>%
+  filter(deltaT >= delta_C) 
+
+
+file.remove(c("binary_out.tif","Tmean_raster.tiff"))
+
+return(patches_large_refiltered)
+  
+}
+
+
