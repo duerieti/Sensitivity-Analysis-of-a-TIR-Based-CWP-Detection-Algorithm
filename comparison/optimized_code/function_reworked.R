@@ -270,13 +270,4 @@ patches_large_refiltered <- patches_large_w_stats %>%
   
 }
 
-setwd("/home/etienne/Desktop/repos/Github_Enterprise/BSc_project/comparison/optimized_code")
-
-
-ras_path <- file.path("../../data/thermal_rasters_FINAL/mean_v01emme.tif")
-line_path <- file.path("../../data/Centerlines_FINAL/Emme_V01.shp")
-
-tic("Function Reworked")
-patches_new <- detect_cwp_single(ras_path, line_path)
-toc()
 

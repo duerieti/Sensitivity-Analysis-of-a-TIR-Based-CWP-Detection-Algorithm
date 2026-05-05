@@ -1,8 +1,0 @@
-<OGRVRTDataSource>
-  <OGRVRTLayer name="flagged_cells">
-    <SrcDataSource>flagged_cells.csv</SrcDataSource>
-    <GeometryType>wkbPoint</GeometryType>
-    <LayerSRS>EPSG:YOUR_EPSG_HERE</LayerSRS>
-    <GeometryField encoding="PointFromColumns" x="x" y="y"/>
-  </OGRVRTLayer>
-</OGRVRTDataSource>

@@ -794,3 +794,61 @@ I actually checked their report and found that the "Grundbach" also causes coldw
 
 Then the Limpbach also is a confirmed cold water tributary.
 
+#### The first results
+
+The first results look very promissing. I had to normalize the moris indices, which I did not read in the literature but claude code provided this as a solution. So I will definitely have to check this out in the summary. But the normalisaiton sounds rather sound. And the first results realy seem to confirm the hypothesis ( of course it would be best to perform the analysis for more segments to increase statistical robustness and also maybe increase r). Emmepark and hasle show very small variability against both the slab width aswell as the buffer_width.
+
+Limpbach and grundbach on the other side show tremendous influence with regards to the lab with. On average one mean for grundbach and 1.42 for limpbach. Additionally both limpbach and grundbach also feature a large sigma, indicating that there is either nonlinearity present or interaction effects.
+
+
+#### A great way to visualize
+
+The humans most capable sense for interpretation is vision, so naturally it would best to also provide visual evidence/explenation. Maybe staking a bunch of polygons with different alphas. This would allow the reader to see how dramatically the patches vary and therefore it would make the large values of morris both more beliefable and also more understandable.
+
+#### How to continue
+
+-> Run variance decomposition for emme segment 2 to get more tributary influenced and non influenced areas so that statistical robustnes increases.
+
+
+### Running on emme v2
+
+I figured out why running on emme v2 does not work. the raster of emmev2 is a bit shorter than the path? No there is somehting wrong with the slab generation I am rather certain. Because one slab at the end is just simply missing. No that is not true, the collor was just white
+
+The pixel size and the resolution where not perfectly aligned => THis was the issue. So i fixed this using GDAL on the command line. Used gdal raster repoject and gdal raster edit for that
+
+
+### Running on obere emme 2
+
+Now I will run the algo on obere emme v2. Here I had issues that rounding the raster would fail on the hpc. I now reexported through QGIS. And it worked on my windows pc. Simply reexporting did the trick. So lets uppload that to the HPC and then we are allready set to go. Maybe we could try to improve the number of cores here to push through 20 parallel jobs at once or even 30 parallel jobs. This way with two nodes we can deffo get a pretty decent troughput and maybe run an essemble with around 500 executions reasonably fast. From that we can then derive the fuzzy sets. These are then pretty much independent from any input parameter because **there is no input parameter**. They got averaged out trough the ensemble. 
+
+Again the same issue. The input or the resolution or whatever does not seem to be propely alligned or something along the line of that. So I got to debug again it seems.
+
+Yes gdal raster info shows that the origins do not perfectly allign and the pixel size is slightly different too. But with gdal raster reporject this is done quite neatly
+
+
+
+# Section 2 - Addjustments to the algorithm
+
+A good first approach would be to build on this multy layer averaging approach and just create a virtual raster that stacks multible versions of slab length and buffer width and then averages these out. What is funny is, that then of course the setting parameters dissapear. So how to measure then wheter this reduces variability => Key: We do not have to change anything at all then. Just compare to the fuzzy set output and determine from that wheter this is sensical. And when it produces senscial results for the whole emme, then the answer is: This version does not have any settings at all and works well. A bit of a sloppy approach howerver. But well what to do? Run a complete assemble would be another possibility and actually that is the more whise choice I assume. And the fuzzy mach can of course also be sold as a strength rather than an issue. + A huge chunk of the code can just be recycled and we can just draw random parameters from a uniform distribution or whatever
+
+
+The results (of what I have seen) suggest that this effect of cutting of coldwaterpatches is realy just the major issue. the pixel with does not seem to be as challening. I therefore Am going to direct my fixes towards this region.
+
+The following concept I came up with:
+
+1. The deffinition of a coldwater patch states that a  coldwaterpatch is a area that is 1 Degree celsius colder than the "surrounding". Now to operationalize the idea of surrounding. This is realy what is tricky, because depending on what is beeing defined as the surrounding, you get different results. There are many "surroundings". Is it the mean of the current slab, or the mean of the next slab. Or the average? Or the mean of mutlible very small slabs. This is hard to say. I believe conceptually it could be interresting to add this diversity of the term "surrounding" into the algorithm. My approach is currently the following: 
+
+1. sample random slab lengths from an uniform distirbution.
+2. for every slab length:
+  2.1 compute the mean temperatures for the slabs over the ruounden raster
+  2.2 compute the centroid of each slab and assign the mean temperautre to the centroid
+3. collect all the centorid points with the associated mean temperature. This results in a cluster of points scattered throughout the river. Each point encodes a measurement of the surrounding temperature at a specific location represented though the slab mean.
+4. do some sampling to get an even density of points around the net (as good as possible)
+5. compute a mean temperature raster using inverse distance weighting of the centroids to compute a mean environment temperature at every pixel location
+6. Use this raster to flag coldwater pixel
+... The rest is equivalent to the current version of the algorithm
+
+
+In order to do this, some custom logic had to be implemented using Rcpp and parallelisation had to be used. this because the algorithm scales with O(m * n) (i believe) and m = 6 * 10^7 and n around 100. So the fastest code possible (compiled to get highly effective byte code) and parallelized to run in parallel is needed here to even make this feasible.
+
+The only downside is that we add some new parameters to the algorithm but yea, I mean in the hand I need to be able to write 10'000 words of report and it is inherently difficult to derive an algorithm with no external assumptions that then express themselfs as hyperparameters.
