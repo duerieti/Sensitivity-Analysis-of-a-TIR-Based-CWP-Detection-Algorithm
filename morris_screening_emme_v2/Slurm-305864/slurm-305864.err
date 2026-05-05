@@ -1,27 +1,0 @@
-
-CommandNotFoundError: Your shell has not been properly configured to use 'conda deactivate'.
-To initialize your shell, run
-
-    $ conda init <SHELL_NAME>
-
-Currently supported shells are:
-  - bash
-  - fish
-  - tcsh
-  - xonsh
-  - zsh
-  - powershell
-
-See 'conda init --help' for more information and options.
-
-IMPORTANT: You may need to close and restart your shell after running 'conda init'.
-
-
-sh: /dev/tty: No such device or address
-
-Computers / CPU cores / Max jobs to run
-1:local / 10 / 10
-
-Computer:jobs running/jobs completed/%of started jobs/Average seconds to complete
-ETA: 0s Left: 132 AVG: 0.00s  local:10/0/100%/0.0s ETA: 0s Left: 132 AVG: 0.00s  local:10/0/100%/0.0s ETA: 0s Left: 132 AVG: 0.00s  local:10/0/100%/0.0s ETA: 0s Left: 132 AVG: 0.00s  local:10/0/100%/0.0s ETA: 0s Left: 132 AVG: 0.00s  local:10/0/100%/0.0s ETA: 0s Left: 132 AVG: 0.00s  local:10/0/100%/0.0s ETA: 0s Left: 132 AVG: 0.00s  local:10/0/100%/0.0s ETA: 0s Left: 132 AVG: 0.00s  local:10/0/100%/0.0s ETA: 0s Left: 132 AVG: 0.00s  local:10/0/100%/0.0s ETA: 0s Left: 132 AVG: 0.00s  local:10/0/100%/0.0s ETA: 0s Left: 132 AVG: 0.00s  local:10/0/100%/0.0s ETA: 0s Left: 132 AVG: 0.00s  local:10/0/100%/0.0s ETA: 0s Left: 132 AVG: 0.00s  local:10/0/100%/0.0s ETA: 0s Left: 132 AVG: 0.00s  local:10/0/100%/0.0s ETA: 0s Left: 132 AVG: 0.00s  local:10/0/100%/0.0s ETA: 0s Left: 132 AVG: 0.00s  local:10/0/100%/0.0s ETA: 0s Left: 132 AVG: 0.00s  local:10/0/100%/0.0s ETA: 0s Left: 132 AVG: 0.00s  local:10/0/100%/0.0s ETA: 0s Left: 132 AVG: 0.00s  local:10/0/100%/0.0s ETA: 0s Left: 132 AVG: 0.00s  local:10/0/100%/0.0s ETA: 0s Left: 132 AVG: 0.00s  local:10/0/100%/0.0s ETA: 0s Left: 132 AVG: 0.00s  local:10/0/100%/0.0s ETA: 0s Left: 132 AVG: 0.00s  local:10/0/100%/0.0s ETA: 0s Left: 132 AVG: 0.00s  local:10/0/100%/0.0s ETA: 0s Left: 132 AVG: 0.00s  local:10/0/100%/0.0s ETA: 0s Left: 132 AVG: 0.00s  local:10/0/100%/0.0s ETA: 0s Left: 132 AVG: 0.00s  local:10/0/100%/0.0s ETA: 0s Left: 132 AVG: 0.00s  local:10/0/100%/0.0s ETA: 0s Left: 132 AVG: 0.00s  local:10/0/100%/0.0s ETA: 0s Left: 132 AVG: 0.00s  local:10/0/100%/0.0s ETA: 0s Left: 132 AVG: 0.00s  local:10/0/100%/0.0s ETA: 0s Left: 132 AVG: 0.00s  local:10/0/100%/0.0s ETA: 0s Left: 132 AVG: 0.00s  local:10/0/100%/0.0s ETA: 0s Left: 132 AVG: 0.00s  local:10/0/100%/0.0s ETA: 0s Left: 132 AVG: 0.00s  local:10/0/100%/0.0s ETA: 0s Left: 132 AVG: 0.00s  local:10/0/100%/0.0s ETA: 0s Left: 132 AVG: 0.00s  local:10/0/100%/0.0s ETA: 0s Left: 132 AVG: 0.00s  local:10/0/100%/0.0s ETA: 0s Left: 132 AVG: 0.00s  local:10/0/100%/0.0s ETA: 0s Left: 132 AVG: 0.00s  local:10/0/100%/0.0s ETA: 0s Left: 132 AVG: 0.00s  local:10/0/100%/0.0s ETA: 0s Left: 132 AVG: 0.00s  local:10/0/100%/0.0s ETA: 0s Left: 132 AVG: 0.00s  local:10/0/100%/0.0s ETA: 0s Left: 132 AVG: 0.00s  local:10/0/100%/0.0s ETA: 0s Left: 132 AVG: 0.00s  local:10/0/100%/0.0s ETA: 0s Left: 132 AVG: 0.00s  local:10/0/100%/0.0s ETA: 0s Left: 132 AVG: 0.00s  local:10/0/100%/0.0s ETA: 0s Left: 132 AVG: 0.00s  local:10/0/100%/0.0s ETA: 0s Left: 132 AVG: 0.00s  local:10/0/100%/0.0s sh: /dev/tty: No such device or address
-slurmstepd: error: *** JOB 305864 ON node009 CANCELLED AT 2026-04-23T15:19:57 ***
