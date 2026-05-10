@@ -1,0 +1,82 @@
+\section{Theoretical Background}
+
+% talk about cold water patches here. What are they, why are they interesting? Especially with respect to the salmanoid fish stuff. How are they defined. What is the critigue about the definition
+
+% Talk about the idea of sensitivity analysis with respect to parameters. Talk about Morris, how does morris work, what is the meaning of mu, sigma and mu.star. Talk about sobol indicees to, the advantages and disadvantages when compared to morris (sobol takes much more model evaluations, but it also provides secondary effects so maps out interactions). Morris is much cheaper but no secundary effects. So its not possible to differentiate between nonlinearity and interactive effects. Sigma can just give you a hint about it. Here I also need to state that variance analysis is generally well explored for models which have a onedimensional outputs. Spatial models are however inherently multidimensional due to the space and time dimensions which these models often occupy. This missmatch can be addressed suing two strategies. Some researchers produce index maps, where each pixel is beeing treated as an idependent model output and the sensitivity analysis is performed for every pixel. The result of this is a map showing model sensitivity in the spatial domain. This is very elegant but also features high computational costs, as perfoming a sensitivity analysis for every pixel in a raster can become very costly as the raster grows. (In my raster there are for instance 6 bilion pixles). Another approach is to lump the spatial output into a onedimensional metric, compute the senistivity of this lumped statistc. This is far easier and computationally less exaustive. But as a trade of the spatial information gets lost in the process. In this thesis, the later is taken into account and a lumped parameter statistic is beeing comptuted
+
+
+
+
+% Talk about compiled and interpreted languages. Provide intell why an interpreted language is more flexible and easier but also slower while a statically typed language such as c++ is faster but a more detailed decleration of types is needed.
+
+
+% Talk about gdal. Short introduction, what does it do, how is it connected to terra and oder geodata processing libraries.
+
+
+
+
+\subsection{Model - Working Definition}
+
+
+
+The term model is widely used across environmental and earth sciences, yet a precise definition of a model is surprisingly challenging to find in literature. In this work, a model is understood as a set of simplified laws and processes, intertwined by dependencies, that together form a reduced reflection of an underlying system. The aim is to capture the essential behavior of that system and enable analysis from which inferences about reality can be drawn. This view is consistent with Saltelli et al. (2008), who, drawing on Rosen (1991), describe the modelled portion of reality as an arbitrary enclosure of an otherwise open and interconnected system.
+
+
+
+\subsection{Model Input Sensitivity Analysis}
+
+The inputs to models can diver and are generally dependent in their structure and manyfoldness on the nature of the model itself. Under the light of sensitivity analysis however, it can be worthwhile to define, what the inputs to a model actually contains. In sensitivity analysis, everything that causes variation in the output of the model is classified as an input (Satelli\_Marco). Providing an example. If a linear regression of a target variable $Y$ is performed, then not only are the predictors $X_1, \dots, X_n$ considered as model inputs, but also the parameters $\theta_1, \dots, \theta_n$ that correspond to the predictors.
+
+
+\subsection{Sensitivity Analysis}
+
+
+According to Saltelli et al. sensitivity analysis is ``The study of how uncertainty in the output of a model [\dots] can be apportioned to different sources of uncertainty in the model input'' (Saltelli et al., 2004). Sensitivity analysis provides a range of benefits. Firstly it allows the Modeler to apply a strategy called ``Factor Fixing''. If we discover, that the model output $Y$ is independent of one or multiple parameters $\theta_i$, then we can set these to fixed constants. It may then even be possible to condense a complete submodule of a model, if all parameters connected to this sub-module are noninfluential. So sensitivity analysis can be a tool for model simplification (Saltelli\_Marco). Secondly, sensitivity analysis generally improves model validity by identifying highly influential and therefore critical model components (Ligmann-Zielinska). A range of different methods for sensitivity analysis exist. They can be grouped into global and local analysis methods.
+
+
+Local methods compute a sensitivity score for each parameter at a single point in the input space, typically the baseline point, which is customarily the best estimate point for the parameters. Scores are based on partial derivatives and are therefore only informative for linear models, where the derivative at one point represents behaviour across the entire input space.
+
+Global sensitivity analysis methods explore the entire input space by varying all input parameters simultaneously across their plausible ranges. Sensitivity scores are therefore not tied to a single point but reflect average behaviour across the full parameter space. This makes global methods valid regardless of model linearity, as no assumption about model structure is required. (Saltelli and Annoni 2010).
+
+global methods
+
+\subsubsection{The Morris Method}
+
+The Morris Method belongs to the group of screening methods in sensitivity analysis. These are ideal to filter a short list of important input parameters from computationally expensive models, with a great number of input parameters. This can be done, as these methods only require a relatively little number of model evaluations to provide sensitivity measures for the input parameters. This makes these methods a good choice when the target of the sensitivity analysis is Factor Fixing. (Satelly and Tarantola). The following explenation of morris method closely follows Saltelli\_Marco and is explained more explicitly in their chapter.
+
+At the core of the derivation lies a $k$-dimensional model $Y$ with inputs $X_1, \dots, X_k$. These inputs all together can also be written in a vector $\mathbf{X}$. The model inputs are defined in the $k$-dimensional unit cube, meaning that $X_i$ can take on a value in the interval $[0,1]$ (Saltelli, Tarantola). It is worth pointing out, that every model with a continuous input can be scaled to the $[0,1]$ range, which makes the unit cube a great place to define methods (Claude). In the Morris method, this input space is discretized into a grid $\Omega$. This grid features $p$ levels.
+
+% A graphic showing a 2-dimensional unit cube with 3 levels so $p = 3$.
+
+An elementary effect of the $i$th input variable is then defined as:
+
+\begin{equation}
+	EE_i = \frac{Y(X_1, X_2, \dots, X_{i-1}, X_i + \Delta, \dots, X_k) - Y(X_1, X_2, \dots, X_k)}{\Delta}
+\end{equation}
+
+Where $\Delta$ represents some step in the unit cube. $\Delta$ can be chosen from a range of different values, which are given by the set $\left\{\frac{1}{p-1}, \dots, 1 - \frac{1}{p-1}\right\}$. Which value to choose for $\Delta$ from this set has implications and will be addressed in a later paragraph.
+
+In the definition of the elementary effect, the vector $\mathbf{X} = (X_1, X_2, \dots, X_k)$ has to fulfil the condition that $\mathbf{X} + \mathbf{e}_i \cdot \Delta$ still has to lie within the grid $\Omega$. $\mathbf{e}_i$ is a vector of zeros except having a one at its $i$th entry. So for instance:
+
+\begin{equation}
+	\mathbf{e}_2 = (0, 1, 0, \dots, 0)
+\end{equation}
+
+The Morris method occupies itself with finding the statistical distribution of each of the $i$ elementary effects. $\mathcal{F}_i$ is thereby used to denote the distribution of $EE_i$, in other words $\mathcal{F}_i \sim EE_i$. $\mathcal{F}_i$ is a finite discrete distribution, and its number of elements depends on $p$, which is however not that much of interest in an applied setting.
+
+How are the $EE_i$ sampled? Generally many different points $\mathbf{X}$ over the whole grid are sampled and then used to compute elementary effects $EE_i$. This guarantees, that each elementary effect $EE_i$ is computed for many areas within the grid. This is also the reason, why the Morris method is generally classified as a global method. The exact sampling scheme is out of this project's scope but is covered in detail in Saltelli\_Marco chapter 3.3.
+
+Once the distributions $\mathcal{F}_i$ have been mapped out, statistical measures can be computed just like over every other statistical distribution. In Morris, the mean $\mu_i$ and the standard deviation $\sigma_i$ of $\mathcal{F}_i$ are computed. These two statistical measures together already allow for reasonable insight into the influence of the $i$th parameter $X_i$ which corresponds to the $i$th elementary effect $EE_i$:
+
+If $\mu_i$ deviates strongly from $0$, then this means that the elementary effect $EE_i$ generally takes on non-zero values and therefore that the model output changes notably when a step of $\Delta$ is performed along $X_i$. This then ultimately means, that changes in $X_i$ seem to generally affect the model output $Y$ considerably and $X_i$ therefore receives a high sensitivity score. Generally, the more $\mu_i$ deviates from zero, the larger the sensitivity of the model output towards $X_i$.
+
+If $\sigma_i$ is large, this means that the distribution $\mathcal{F}_i$ is spread out considerably over a larger range. This indicates, that the elementary effects $EE_i$ that were computed were generally different depending on their location in the unit cube. Meaning that in one area, the model might only yield small changes in output, when $X_i$ is varied while in other areas $X_i$ leads to strong changes in model output. This behaviour points either to nonlinearity regarding $X_i$ or to the fact that $X_i$ interacts with other input parameters. Which effect is responsible for the high standard deviation (or whether both are responsible for the effect at the same time) can not be determined. Which is a shortcoming of the method of Morris.
+
+Situations can occur, where $\mathcal{F}_i$ contains many extreme values however the distribution is symmetric around zero. Then computing the mean value $\mu_i$ will yield a value close to zero and we would assume, that the parameter $X_i$ therefore is noninfluential. This would be a faulty assumption, as the sampled elementary effects $EE_i$ are substantial in their magnitude but just cancel themselves out. This phenomenon can be spotted by always taking $\sigma_i$ into consideration, as in this scenario $\sigma_i$ is large, but it is more common to also sample an additional distribution $\mathcal{G}_i$ which captures the magnitude of the elementary effects $|EE_i|$. So $\mathcal{G}_i \sim |EE_i|$. We then compute the mean of this distribution $\mu^*_i$ which can be interpreted like $\mu_i$. The further away from zero, the more influential is the parameter. But since it is the magnitude, the distribution never features negative values and therefore cancellation effects can not occur.
+
+% Here a range of example parameter plots are needed to show how FF_i distributions can look like, how they can be skewed, how they can be symetric etc.
+
+
+\subsection{Coldwater Patches}
+
+Cold water patches are areas in rivers and streams that feature a colder water temperature than the temperature of the "hauptgerinne". The temperature difference varies in literature but is typically set to be between 0.5 and 3 degrees Celsius below the "hauptgerinne" temperatur, but this varies over the literature (z.B. Dugdale et al., 2013, 2015; Wawrzyniak et al., 2016; Casas-Mulet et al., 2020). Cold water patches are not automatically a cold water refugia. These are coldwater patches which are also used by coldwater organisms for thermal relief (Meja et all.). The importance of cold water refugia is expected to rise with the effects of climate change (IPCC, 2014)

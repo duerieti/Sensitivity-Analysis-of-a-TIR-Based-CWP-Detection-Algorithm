@@ -13,17 +13,11 @@ setwd("/home/etienne/Desktop/repos/Github_Enterprise/BSc_project/addjust_algo")
 
 
 
-ras_path <- file.path("../data/r_rounded.tiff")
-line_path <- file.path("../data/Centerlines_FINAL/Emme_V01.shp")
+ras_path <- file.path("../data/derived_data_products/mean_v01emme.tif")
+line_path <- file.path("../data/original_data/Centerlines_FINAL/Emme_V01.shp")
 
 
-
-
-ras_path
-line_path
-step_m            = 500
 buffer_px         = 3
-delta_C           = 1.0
 min_patch_area_m2 = 2
 round_to          = 0.1
 slab_halfwidth_m  = 60
@@ -120,16 +114,17 @@ slabs_buffer_sf
 }
 
 
-buffer_lengths <- runif(10, 0.1,1) * 2000
+slab_lengths <- runif(10,min = 500, max = 3000) %>% round()
 
 
 
-set_of_slabs <- map(buffer_lengths, ~ produce_slabs(ras_path, line_path, ., buffer_px = 6))
+set_of_slabs <- map(slab_lengths, ~ produce_slabs(ras_path, line_path, ., buffer_px = 6))
 
 set_of_slabs %>% length()
 
 
 compute_idw_points <- function(slabs, r) {
+
   median_function <- function(values, coverage) {
     median(values[coverage >= 0.5], na.rm = TRUE)
   }
@@ -142,6 +137,7 @@ compute_idw_points <- function(slabs, r) {
       center_point = st_centroid(geometry)                # sfc_POINT column
     )
 }
+
 
 
 idw_points <-map(set_of_slabs, ~compute_idw_points(., r)) %>% bind_rows()
@@ -220,14 +216,14 @@ temps <- idw_points$slab_medians
 
 
 # --- Block processing ---
-terraOptions(memmax = 8)  # smaller blocks
+terraOptions(memmax = 8)
 bs      <- blocks(r)
-out_con <- writeStart(r, "idw_out.tif", overwrite = TRUE)
+out <- rast(r)
+out_con <- writeStart(out, "idw_out.tif", overwrite = TRUE)
 
 cat("Total blocks:", bs$n, "\n")
 cat("Cells per block:", bs$nrows[1] * ncol(r), "\n")
 
-t_start <- Sys.time()
 
 for (i in seq_len(bs$n)) {
   print(i)
@@ -244,50 +240,12 @@ for (i in seq_len(bs$n)) {
     power        = 2.0,
     threads      = 12
   )
-  writeValues(r, vals, start = bs$row[i], nrows = bs$nrows[i])
+  writeValues(out, vals, start = bs$row[i], nrows = bs$nrows[i])
 }
 
-writeStop(r)
-
-for (i in seq_len(bs$n)) {
-  print(i)
-  first  <- cellFromRowCol(r, bs$row[i], 1)
-  last   <- cellFromRowCol(r, bs$row[i] + bs$nrows[i] - 1, ncol(r))
-  coords <- xyFromCell(r, first:last)
-
-  vals <- idw_all_cells(
-    cell_x       = coords[, 1],
-    cell_y       = coords[, 2],
-    idw_points   = pts,
-    temperatures = temps,
-    power        = 2.0,
-    threads      = 12
-  )
-  writeValues(r, vals, start = bs$row[i], nrows = bs$nrows[i])
-}
-
-class(out_con)
-
-writeStop(out_con)
-vals %>% class()
-
-# sample 100k cells from your raster
-sample_cells  <- sample(ncell(r), 1000000)
-sample_coords <- xyFromCell(r, sample_cells)
-
-system.time({
-  idw_all_cells(
-    cell_x       = sample_coords[, 1],
-    cell_y       = sample_coords[, 2],
-    idw_points   = pts,
-    temperatures = temps,
-    power        = 2.0,
-    threads      = 12
-  )
-})
+writeStop(out)
 
 mean_raster <- rast("idw_out.tif")
-
 
 
 
@@ -310,8 +268,113 @@ system(paste0(
 ))
 
 
-binary <- terra::rast("binary_out.tif")
+temperature_deltas <- runif(50, min = 0.5, max = 3) %>% round(1)
 
+cppFunction('
+
+  #include <Rcpp.h>
+
+  NumericVector flag_pixels(NumericVector pixels,
+                    NumericVector reference_pixels,
+                    NumericVector temperature_thresholds) {
+
+      int ncells =  pixels.size();
+
+      NumericVector flagged_pixels(ncells); 
+
+      for (int i = 0; i < ncells; i++) {
+        
+        double pixel = pixels(i);
+        double ref_pixel = reference_pixels(i);
+        bool empty_cell = ISNAN(pixel);
+
+        if (empty_cell == true) {
+          flagged_pixels(i) = R_NaN;
+        
+        }
+        
+        else {
+          double temp_dif = ref_pixel - pixel;
+
+
+          int flag_count = 0;
+          int length_comparison = temperature_thresholds.size();
+
+          for (int i = 0; i < length_comparison; i++) {
+            double threshold = temperature_thresholds(i);
+
+            if (temp_dif > threshold) {
+              flag_count++;
+              
+
+
+            }
+
+          
+          }
+          
+
+          if (flag_count > 25) {
+            flagged_pixels(i) = 1;
+          }
+          else {
+            flagged_pixels(i) = R_NaN; 
+          }
+          
+          
+          
+        }
+    }
+
+    return flagged_pixels;
+    
+  }
+')
+
+
+
+
+example_pixels <- c(13.4,NaN)
+ref_pixels <- c(15.7, 16.4)
+
+
+flag_pixels(example_pixels, ref_pixels, temperature_deltas)
+
+ref_r <- terra::rast("mean_raster.tif")
+r <- rast("../data/derived_data_products/mean_v01emme.tif")
+
+plot(ref_r)
+
+# --- Block processing ---
+bs_r      <- blocks(r)
+bs_ref_r  <- blocks(ref_r)
+
+out <- rast(r)
+out_con <- writeStart(out, "out_test.tif", overwrite = TRUE)
+
+cat("Total blocks:", bs_r$n, "\n")
+cat("Total blocks:", bs_ref_r$n, "\n")
+
+
+cat("Cells per block:", bs_r$nrows[1] * ncol(r), "\n")
+cat("Cells per block:", bs_ref_r$nrows[1] * ncol(r), "\n")
+
+
+for (i in seq_len(bs_r$n)) {
+
+  chunk <- terra::values(r, row = bs_r$row[i], nrows =  bs_r$nrows[i], col = 1)
+  ref_chunk <- terra::values(ref_r, row = bs_r$row[i], nrows =  bs_r$nrows[i], col = 1)
+
+  flagged_chunk <- flag_pixels(chunk,ref_chunk,temperature_deltas)
+  writeValues(out, flagged_chunk, start = bs_r$row[i], nrows = bs_r$nrows[i])
+}
+
+writeStop(out)
+
+
+
+
+binary <- terra::rast("out_test.tif")
 
 patches_v <- terra::as.polygons(binary, dissolve = TRUE, eight = TRUE)
 

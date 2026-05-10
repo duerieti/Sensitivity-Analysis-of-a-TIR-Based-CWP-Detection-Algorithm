@@ -1,0 +1,79 @@
+\documentclass[english,11pt,a4paper,oneside]{article}
+
+% Einstellen der Dokumenteigenschaften (Präambel)
+\input{Vorlage-Einrichten-Article}
+
+
+\title{\textbf{Sensitivity Analysis: Influence of Inflow Discharge on Water Depth and Flow Velocity in the Sandey Floodplain}}
+\author{Etienne Dürig}
+\date{\today}
+
+
+
+
+\begin{document}
+
+\include{Vorlage-Titelseite.tex}
+
+
+
+\include{Introduction}
+
+
+\include{Theoretical_background}
+
+% talk about cold water patches here. What are they, why are they interesting? Especially with respect to the salmanoid fish stuff. How are they defined. What is the critigue about the definition
+
+% Talk about the idea of sensitivity analysis with respect to parameters. Talk about Morris, how does morris work, what is the meaning of mu, sigma and mu.star. Talk about sobol indicees to, the advantages and disadvantages when compared to morris (sobol takes much more model evaluations, but it also provides secondary effects so maps out interactions). Morris is much cheaper but no secundary effects. So its not possible to differentiate between nonlinearity and interactive effects. Sigma can just give you a hint about it. Here I also need to state that variance analysis is generally well explored for models which have a onedimensional outputs. Spatial models are however inherently multidimensional due to the space and time dimensions which these models often occupy. This missmatch can be addressed suing two strategies. Some researchers produce index maps, where each pixel is beeing treated as an idependent model output and the sensitivity analysis is performed for every pixel. The result of this is a map showing model sensitivity in the spatial domain. This is very elegant but also features high computational costs, as perfoming a sensitivity analysis for every pixel in a raster can become very costly as the raster grows. (In my raster there are for instance 6 bilion pixles). Another approach is to lump the spatial output into a onedimensional metric, compute the senistivity of this lumped statistc. This is far easier and computationally less exaustive. But as a trade of the spatial information gets lost in the process. In this thesis, the later is taken into account and a lumped parameter statistic is beeing comptuted
+
+
+
+
+% Talk about compiled and interpreted languages. Provide intell why an interpreted language is more flexible and easier but also slower while a statically typed language such as c++ is faster but a more detailed decleration of types is needed.
+
+
+% Talk about gdal. Short introduction, what does it do, how is it connected to terra and oder geodata processing libraries.
+
+
+\include{Methods}
+
+% One mayor section will be performing morris
+
+
+%% Here I will first talk about the need to optimize the execution speed and the use of HPC, since at least 140 model runs need to be completed. Then I will describe the modes of speed up used -> Should I state profiling here or not? The allgorithm expressed as a set of gdal operations. GDAL can be directly called from R via the command line. This is fast because more time is spent in compiled down c++ code etc. But i feel I can not go to much down into detail here. Output of the new algorithm was compared to the output of the old algorithm for four different parameter combinations. The output is equivalent to the pixel level. This is of course not an exact mathematical proof that well proofs that the algorithms are exactly the same, but it shall suffice for an applied bachelor programme. Then also show some timing comparison for different parameter combinations, point out that the new version has a constant execution time while the old algorihtm is dependent on the number of slabs. But generally there is a timesave = > Quantify that save.
+
+
+%% Then I will talk about the parallelisation strategy. here again it would be great to include an overwiev diagram of the computation to make it  easier for the reader to understand what is going on -> So how a main process running gnu parallel is reading the text file, and is then distributing the parameter combinations to worker processes that then ultimately run the function.
+
+% Its an embaressingly parallel problem. So it can be distributed over many cores. 10 cores where choosen to farm out the model. Also mention all the other settings too => How much memory per core, etc. The moris parameters where derived using the sensitivity packaage and then written to a textfile from which gnu parallel pulls the rows. The results are stored in individual folders that follow ia specific naming convention. This naming convention is the following job_<id>_<slab_length>_<buffer pixel>.
+
+
+%% next I will describe on how I computed a an aggregative measure over all runs. This with the goal of deriving a visual product that gives intell wheter a specific coldwater patch is subject to change or not. Explain how this is done with another short workflow graph. Provide two example images of aggregated plots
+
+
+%% Then state how cold water patches where selected manualy. If different color heues are visible, then this indicates regions which are not always present and are changing depending on the parameter combination set. These are the interesting patches where a sensitivity analysis can be performed, the ones that do not show any change at all, these are also not of use for the analysis as there is not variability in the results to begin with. The selection followed a manual cirteria. First decide wheter change affected or not. Then decide wheter tributary effected or not. This was done by comparing the shape and location of the cold water patch to Openstreetmap. Also in an effort to spot potentially unmaped tributaries, the swissimage areal image was also used to double check when a coldwater patch potentially looked like a tributary cwp but no tributary was mapped. Then also the paper of tonolla et al was used as a reference guide, some tributary coldwater patches are also pointed out there. Again it would be best to provide a litte decission tree to make it more robust. Also point out that this selection process of course introduces subjectivity and therefore an automatet process would be recommended. It was however hard to automatize this task and due to time concerns it was therefore carried out manually. Also mention that it was performed in QGIS version. The bounding boxes where extracted with the bounding box plugin xy. Screenshots where also taken and can be found in the appendix. For each cwp it was also determined wheter the patch was tributary affected or not tributary affected. The rest with the dataset column and stuff is only for processing, so it does not realy need to be mentioned => Has no purpouse to the reader. Also explain that some patches are very small and in these cases multible patches where grouped into little groups for the computation => This makes labeling less time intensive and it also does not realy hurt the model evaluation, as the lumped statistic does only care about the change of the temperature or the change of the area but it is indiverent wheter the computed are stems form one or mutlible patches. Lastly it helps to remove bias. Toblers first law of geography. "Everyhting is related to everything but close things are more related than distant things in space". So if I sample one coldwater patch the and observe its sensitiviy with respect to input parameters, then the neighbouring coldwater patches are very likely to behave similarly just because they are at a similar location and not necessairly because their mode of origin. So sampling all these coldwater patches as indiviudal entities introduces a bias do to geographic closenes and toblers first law.
+
+
+
+%% Then lastly I got to explain the morris computation. I derived two lumped statistics. The total area of the patch and the total temperature of the patches. Then I again used the sensitivity package to carry out the moris computation for every patch group. Before comptuation I normalized patch size to a 0-1 range. This is because not doing this would let large patches dominate smaller patches in the comparison of the moris indices. After all we are not interested int knowing how large in terms of surface the different moris indices are but we are more interested in the proportion of change caused. Then after the moris computation i normalized the moris indices. We are not interested to compare total change introduced but which proportion of the change is introduced by which parameter. What proprotion of the total change is due to buffer_length, what proportion of total change can be trached back to buffer width.
+
+
+
+% Another will be addjusting the algorithm
+
+\include{Results}
+
+
+% Here I simply provide the resulting boxplot diagrams -> Should be four in total. For every parameter and for every lumped statistic. Additionally it could also be of interest to plot the results with respect to patch size and stuff like this, so digging a bit deeper to uncover patters that could be interestin
+
+\include{Discussion}
+
+%% This is about discussing the results and answering the hypothesis. In very brief: The hypothesis whas that for tributary affected, step length is more important etc. Of course the discussion kind of depends on the results I find. One thing I can say for certain howerer is that one critique will be the small sample size. And also the lack of large non tributary affected patches.
+
+
+\subsection{Usage of KI}
+
+Claude Opus 4.6 was used as an aid to ensure proper formulation, spelling and grammatical correctness. Further it was used to derive the LaTeX for Images and simulation protocol table.
+
+\end{document}
+

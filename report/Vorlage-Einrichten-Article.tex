@@ -1,0 +1,98 @@
+% =====================================================================================
+% Alle wichtigen Pakete zum Einrichten eines Dokumentes der Dokumentenklasse "Article"
+% Kann beliebig angepasst, ergänzt und erweitert werden.
+%
+% Datei am besten im Ordner des jeweiligen Hauptdokumentes ablegen (als Kopie), 
+% und nach der Definition der Dokumentklasse mit "input" einhängen
+% 
+% Beispiel:
+%
+% \documentclass[onepage,a4paper,11pt]{article}
+% \input{Vorlage-Einrichten-Article}
+%
+% =====================================================================================
+
+\usepackage[english]{babel}				% Deutsche Sprachpaket
+\usepackage[T1]{fontenc}				% Kodierung dt. Schriften
+\usepackage[utf8]{inputenc}				% Kodierung Zeicheneinlesung
+\usepackage{lmodern}
+
+% Pakete für Mathe und Formeln
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+% \usepackage{siunitx}
+
+% Pakete Grafiken
+\usepackage{graphicx}					% Grafiken und Abbildungen allgemein
+\usepackage{float}						% Bilder im Fliesstext
+\usepackage{subcaption}					% Subfigures für Bildgitter
+
+% Pakete für besondere Schriften
+\usepackage{listings}					% Programmier-Code in Text
+
+% Pakete für Tabellen
+\usepackage{longtable}					% Tabellen über mehrere Seiten
+\usepackage{tabularx}					% Tabellen mit fixer Breite der Spalten
+\usepackage{tabulary}					% Tabellen mit sich anpassenden Spalten über mehrere Zeilen
+\usepackage{booktabs}					% schöne Linien in Tabellen (z.B. Toprule)
+\usepackage{multirow}					% Multirow cells in tables
+
+% Anpassung von Aufzählungen
+\usepackage{paralist}					% kompakte Listen	
+\usepackage[inline]{enumitem}			% Beeinflussung Abstand in Aufzählungen
+%\setlist{noitemsep}					% kein Abstand in Aufzählungen
+%\setlist{itemsep=.1em}
+%\renewcommand{\labelitemi}{-}			% Bullets in Bindestriche umwandeln
+
+
+% Literatur (Bibliography)
+\usepackage[authoryear,round,sort&compress]{natbib}
+\renewcommand{\bibsection}{\section{Quellenverzeichnis}}	% trägt Verzeichnis in Inhaltsverzeichnis ein
+
+% ==> am Ende des Dokumentes ergänzen
+% \bibliographystyle{abbrvnat}
+% \bibliography{Literatur}					% Name der Bibtex-Datei
+%
+% Achtung: es dürfen keine Doppelpunkte im Bibtex-File sein
+% - ggf. eine Arbeitsdatei als *.bib machen, und neue Quellen in Literatur.bib kopiern
+
+% Anpassungen Textsatz
+\parindent0pt							% kein Einzug bei neuen Absatzbeginn
+\renewcommand{\baselinestretch}{1.05}	% Zeilenabstand (1.05 = 105%)
+\setlength{\parskip}{6pt}				% Absatzabstand
+
+
+% Anpassung der Nummerierung von Abbildungen
+\usepackage[font=small,labelfont=bf,format=hang]{caption}	% Beschriftungen
+\captionsetup[table]{name=Tab.}								% Tab. statt Tabelle
+\captionsetup[figure]{name=Abb.}							% Abb. statt Abb.
+
+\renewcommand{\figurename}{\footnotesize Abb.}
+\renewcommand{\tablename}{\footnotesize Tab.}
+\renewcommand{\contentsname}{Inhalt}
+
+\renewcommand{\thefigure}{\arabic{section}-\arabic{figure}}		% inkl. Section-Nr. (z.B. Abb. 1-1)
+\renewcommand{\thetable}{\arabic{section}-\arabic{table}}		% dito
+\renewcommand{\theequation}{\arabic{section}-\arabic{equation}} % dito
+
+% Anpassung des Seitenlayout
+\usepackage[left=3cm,right=3cm,top=2.5cm,bottom=2.5cm]{geometry}
+
+% Einrichten von Kopf- und Fusszeile
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhf{}								% leert erstmal alles (zurücksetzen)
+\cfoot{\thepage}						% Fusszeile (zentrum)
+\lhead{CMES -- Sensitivity Analysis}		% Linker Kopf
+\rhead{Etienne}							% Rechter Kopf
+
+% Anpassen von Hyperlinks
+% Achtung: sollte immer hier zum Schluss kommen, damit Hyperref ordentlich funktioniert
+\usepackage{hyperref}
+\hypersetup{%
+	colorlinks=true,		% Link farbig?
+	citecolor=blue,			% Veweis auf Quellen farbig?
+	linkcolor=blue,			% Farbe der Links
+	urlcolor=blue,			% Farbe von URL-Adressen
+	anchorcolor=blue}		% Farbe von Ankerlinks
