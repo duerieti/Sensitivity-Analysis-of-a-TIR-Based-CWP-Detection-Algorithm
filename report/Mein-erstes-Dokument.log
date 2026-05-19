@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2026.2.18)  11 MAY 2026 17:25
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2026.5.19)  19 MAY 2026 20:04
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -649,7 +649,7 @@ Package hyperref Info: Link coloring ON on input line 14.
 
 
 (./Vorlage-Titelseite.tex
-<Bilder/logo-zhaw.png, id=36, 197.73875pt x 235.88126pt>
+<Bilder/logo-zhaw.png, id=68, 197.73875pt x 235.88126pt>
 File: Bilder/logo-zhaw.png Graphic file (type png)
 <use Bilder/logo-zhaw.png>
 Package pdftex.def Info: Bilder/logo-zhaw.png  used on input line 7.
@@ -731,6 +731,18 @@ l.46
 
 {/usr/share/texmf/fonts/enc/dvips/lm/lm-mathit.enc}{/usr/share/texmf/fonts/enc/
 dvips/lm/lm-rm.enc}]
+<Bilder/morris_grid.png, id=86, 622.57594pt x 484.05844pt>
+File: Bilder/morris_grid.png Graphic file (type png)
+<use Bilder/morris_grid.png>
+Package pdftex.def Info: Bilder/morris_grid.png  used on input line 63.
+(pdftex.def)             Requested size: 298.75264pt x 232.28632pt.
+LaTeX Font Info:    External font `lmex10' loaded for size
+(Font)              <10> on input line 64.
+LaTeX Font Info:    External font `lmex10' loaded for size
+(Font)              <7> on input line 64.
+LaTeX Font Info:    External font `lmex10' loaded for size
+(Font)              <5> on input line 64.
+
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 13.59999pt, for example:
@@ -740,7 +752,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
 
 [2{/usr/share/texmf/fonts/enc/dvips/lm/lm-mathsy.enc}{/usr/share/texmf/fonts/en
-c/dvips/lm/lm-mathex.enc}])
+c/dvips/lm/lm-mathex.enc} <./Bilder/morris_grid.png>])
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 13.59999pt, for example:
@@ -750,6 +762,15 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
 
 [3]
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 13.59999pt, for example:
+(fancyhdr)                \setlength{\headheight}{13.59999pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+
+(fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
+
+[4]
 \openout2 = `Methods.aux'.
 
  (./Methods.tex)
@@ -761,7 +782,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
 
-[4
+[5
 
 
 
@@ -777,10 +798,6 @@ Package caption Warning: Unused \captionsetup[table] on input line 68.
 See the caption package documentation for explanation.
 
 
-Package caption Warning: Unused \captionsetup[figure] on input line 69.
-See the caption package documentation for explanation.
-
-
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 13.59999pt, for example:
 (fancyhdr)                \setlength{\headheight}{13.59999pt}.
@@ -788,7 +805,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
 
-[5
+[6
 
 
 
@@ -804,36 +821,30 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-01-22>
  ***********
-
-
-Package rerunfilecheck Warning: File `Mein-erstes-Dokument.out' has changed.
-(rerunfilecheck)                Rerun to get outlines right
-(rerunfilecheck)                or use package `bookmark'.
-
-Package rerunfilecheck Info: Checksums for `Mein-erstes-Dokument.out':
-(rerunfilecheck)             Before: 3B8116C1781E627038C6C0E31D6B6E90;1237
-(rerunfilecheck)             After:  8BA63FDB6964E95978B26964DEB880B1;3792.
+Package rerunfilecheck Info: File `Mein-erstes-Dokument.out' has not changed.
+(rerunfilecheck)             Checksum: 8BA63FDB6964E95978B26964DEB880B1;3792.
  ) 
 Here is how much of TeX's memory you used:
- 15945 strings out of 476182
- 252115 string characters out of 5795595
- 1936975 words of memory out of 5000000
- 37649 multiletter control sequences out of 15000+600000
- 600996 words of font info for 64 fonts, out of 8000000 for 9000
+ 16003 strings out of 476182
+ 252999 string characters out of 5795595
+ 1935975 words of memory out of 5000000
+ 37695 multiletter control sequences out of 15000+600000
+ 627833 words of font info for 84 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
- 80i,11n,82p,2781b,511s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 80i,12n,82p,2781b,511s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/share/texmf/fonts/type1/public/lm/lmbx10.pfb></usr/share/texmf/fonts/ty
 pe1/public/lm/lmbx12.pfb></usr/share/texmf/fonts/type1/public/lm/lmcsc10.pfb></
 usr/share/texmf/fonts/type1/public/lm/lmex10.pfb></usr/share/texmf/fonts/type1/
 public/lm/lmmi10.pfb></usr/share/texmf/fonts/type1/public/lm/lmmi8.pfb></usr/sh
 are/texmf/fonts/type1/public/lm/lmr10.pfb></usr/share/texmf/fonts/type1/public/
-lm/lmr12.pfb></usr/share/texmf/fonts/type1/public/lm/lmr8.pfb></usr/share/texmf
-/fonts/type1/public/lm/lmsy10.pfb></usr/share/texmf/fonts/type1/public/lm/lmsy8
-.pfb>
-Output written on Mein-erstes-Dokument.pdf (6 pages, 246147 bytes).
+lm/lmr12.pfb></usr/share/texmf/fonts/type1/public/lm/lmr7.pfb></usr/share/texmf
+/fonts/type1/public/lm/lmr8.pfb></usr/share/texmf/fonts/type1/public/lm/lmsy10.
+pfb></usr/share/texmf/fonts/type1/public/lm/lmsy7.pfb></usr/share/texmf/fonts/t
+ype1/public/lm/lmsy8.pfb>
+Output written on Mein-erstes-Dokument.pdf (7 pages, 393434 bytes).
 PDF statistics:
- 149 PDF objects out of 1000 (max. 8388607)
- 113 compressed objects within 2 object streams
- 24 named destinations out of 1000 (max. 500000)
- 70 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 193 PDF objects out of 1000 (max. 8388607)
+ 150 compressed objects within 2 object streams
+ 26 named destinations out of 1000 (max. 500000)
+ 139 words of extra memory for PDF output out of 10000 (max. 10000000)
 
