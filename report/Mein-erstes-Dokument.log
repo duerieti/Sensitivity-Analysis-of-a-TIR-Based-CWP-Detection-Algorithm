@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2026.2.18)  5 MAY 2026 10:51
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2026.2.18)  11 MAY 2026 17:25
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -649,7 +649,7 @@ Package hyperref Info: Link coloring ON on input line 14.
 
 
 (./Vorlage-Titelseite.tex
-<Bilder/logo-zhaw.png, id=32, 197.73875pt x 235.88126pt>
+<Bilder/logo-zhaw.png, id=36, 197.73875pt x 235.88126pt>
 File: Bilder/logo-zhaw.png Graphic file (type png)
 <use Bilder/logo-zhaw.png>
 Package pdftex.def Info: Bilder/logo-zhaw.png  used on input line 7.
@@ -811,14 +811,14 @@ Package rerunfilecheck Warning: File `Mein-erstes-Dokument.out' has changed.
 (rerunfilecheck)                or use package `bookmark'.
 
 Package rerunfilecheck Info: Checksums for `Mein-erstes-Dokument.out':
-(rerunfilecheck)             Before: 21D04C49A8A47540322F6D8511192E3B;1092
-(rerunfilecheck)             After:  3B8116C1781E627038C6C0E31D6B6E90;1237.
+(rerunfilecheck)             Before: 3B8116C1781E627038C6C0E31D6B6E90;1237
+(rerunfilecheck)             After:  8BA63FDB6964E95978B26964DEB880B1;3792.
  ) 
 Here is how much of TeX's memory you used:
- 15936 strings out of 476182
- 251987 string characters out of 5795595
+ 15945 strings out of 476182
+ 252115 string characters out of 5795595
  1936975 words of memory out of 5000000
- 37648 multiletter control sequences out of 15000+600000
+ 37649 multiletter control sequences out of 15000+600000
  600996 words of font info for 64 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
  80i,11n,82p,2781b,511s stack positions out of 10000i,1000n,20000p,200000b,200000s
@@ -830,10 +830,10 @@ are/texmf/fonts/type1/public/lm/lmr10.pfb></usr/share/texmf/fonts/type1/public/
 lm/lmr12.pfb></usr/share/texmf/fonts/type1/public/lm/lmr8.pfb></usr/share/texmf
 /fonts/type1/public/lm/lmsy10.pfb></usr/share/texmf/fonts/type1/public/lm/lmsy8
 .pfb>
-Output written on Mein-erstes-Dokument.pdf (6 pages, 242852 bytes).
+Output written on Mein-erstes-Dokument.pdf (6 pages, 246147 bytes).
 PDF statistics:
- 137 PDF objects out of 1000 (max. 8388607)
- 101 compressed objects within 2 object streams
- 16 named destinations out of 1000 (max. 500000)
- 62 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 149 PDF objects out of 1000 (max. 8388607)
+ 113 compressed objects within 2 object streams
+ 24 named destinations out of 1000 (max. 500000)
+ 70 words of extra memory for PDF output out of 10000 (max. 10000000)
 

@@ -91,13 +91,6 @@ results_normalized  %>% as.tibble() %>%
   geom_point(position = position_jitterdodge(jitter.width = 0.1, dodge.width = 0.75))
 
 
-
-results_normalized  %>% as.tibble() %>%
-  filter(Class != "Unshure", parameter == "slab_halfwidth_m") %>%
-  pivot_longer(names_to = "quantity", values_to = "value", cols = normalized_mu.star:normalized_sigma) %>%
-  ggplot(aes(y = value, x = quantity, fill = Class)) + geom_boxplot() +
-  geom_point(position = position_jitterdodge(jitter.width = 0.1, dodge.width = 0.75))
-
 results_normalized  %>% as.tibble() %>%
   filter(Class != "Unshure", parameter == "buffer_px") %>%
   pivot_longer(names_to = "quantity", values_to = "value", cols = normalized_mu.star:normalized_sigma) %>%

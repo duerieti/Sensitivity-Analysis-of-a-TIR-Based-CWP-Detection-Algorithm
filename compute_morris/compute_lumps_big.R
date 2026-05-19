@@ -134,8 +134,22 @@ lumped_stats_per_location_emme_v2_big <- map(
 ) %>% bind_rows()
 
 
+file_and_folder_names <- list.files("./results_obemme_big")
 
-lumped_stats_per_location <- bind_rows(lumped_stats_per_location_emme_v2_big, lumped_stats_per_location_emme_v1_big)
+folder_names <- file_and_folder_names %>%
+  .[str_detect(., ".txt", negate = TRUE)]
+
+obemme_data <- classified_cwp_data %>% filter(Dataset == "obemme")
+
+lumped_stats_per_location_obemme_big <- map(
+  folder_names,
+  ~process_polygon(., "results_obemme_big", obemme_data )
+) %>% bind_rows()
+
+
+
+
+lumped_stats_per_location <- bind_rows(lumped_stats_per_location_emme_v2_big, lumped_stats_per_location_emme_v1_big, lumped_stats_per_location_obemme_big)
 
 
 
