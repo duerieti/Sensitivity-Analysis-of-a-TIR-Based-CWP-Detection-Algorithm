@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2026.5.19)  19 MAY 2026 20:04
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2026.2.18)  20 MAY 2026 10:12
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -649,7 +649,7 @@ Package hyperref Info: Link coloring ON on input line 14.
 
 
 (./Vorlage-Titelseite.tex
-<Bilder/logo-zhaw.png, id=68, 197.73875pt x 235.88126pt>
+<Bilder/logo-zhaw.png, id=72, 197.73875pt x 235.88126pt>
 File: Bilder/logo-zhaw.png Graphic file (type png)
 <use Bilder/logo-zhaw.png>
 Package pdftex.def Info: Bilder/logo-zhaw.png  used on input line 7.
@@ -731,7 +731,7 @@ l.46
 
 {/usr/share/texmf/fonts/enc/dvips/lm/lm-mathit.enc}{/usr/share/texmf/fonts/enc/
 dvips/lm/lm-rm.enc}]
-<Bilder/morris_grid.png, id=86, 622.57594pt x 484.05844pt>
+<Bilder/morris_grid.png, id=90, 622.57594pt x 484.05844pt>
 File: Bilder/morris_grid.png Graphic file (type png)
 <use Bilder/morris_grid.png>
 Package pdftex.def Info: Bilder/morris_grid.png  used on input line 63.
@@ -752,7 +752,14 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
 
 [2{/usr/share/texmf/fonts/enc/dvips/lm/lm-mathsy.enc}{/usr/share/texmf/fonts/en
-c/dvips/lm/lm-mathex.enc} <./Bilder/morris_grid.png>])
+c/dvips/lm/lm-mathex.enc} <./Bilder/morris_grid.png>]
+<Bilder/example_grid_mu_sigma_vairation.png, id=107, 794.97pt x 505.89pt>
+File: Bilder/example_grid_mu_sigma_vairation.png Graphic file (type png)
+<use Bilder/example_grid_mu_sigma_vairation.png>
+Package pdftex.def Info: Bilder/example_grid_mu_sigma_vairation.png  used on in
+put line 89.
+(pdftex.def)             Requested size: 426.79135pt x 271.60179pt.
+
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 13.59999pt, for example:
@@ -762,6 +769,12 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
 
 [3]
+<Bilder/mu_mu_star.png, id=114, 722.7pt x 433.62pt>
+File: Bilder/mu_mu_star.png Graphic file (type png)
+<use Bilder/mu_mu_star.png>
+Package pdftex.def Info: Bilder/mu_mu_star.png  used on input line 99.
+(pdftex.def)             Requested size: 426.79135pt x 256.07838pt.
+
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 13.59999pt, for example:
@@ -770,7 +783,16 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
 
-[4]
+[4 <./Bilder/example_grid_mu_sigma_vairation.png>])
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 13.59999pt, for example:
+(fancyhdr)                \setlength{\headheight}{13.59999pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+
+(fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
+
+[5 <./Bilder/mu_mu_star.png>]
 \openout2 = `Methods.aux'.
 
  (./Methods.tex)
@@ -782,7 +804,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
 
-[5
+[6
 
 
 
@@ -805,7 +827,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
 
-[6
+[7
 
 
 
@@ -821,30 +843,41 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-01-22>
  ***********
-Package rerunfilecheck Info: File `Mein-erstes-Dokument.out' has not changed.
-(rerunfilecheck)             Checksum: 8BA63FDB6964E95978B26964DEB880B1;3792.
+
+
+Package rerunfilecheck Warning: File `Mein-erstes-Dokument.out' has changed.
+(rerunfilecheck)                Rerun to get outlines right
+(rerunfilecheck)                or use package `bookmark'.
+
+Package rerunfilecheck Info: Checksums for `Mein-erstes-Dokument.out':
+(rerunfilecheck)             Before: B30A44D54F8981BB3D7D9C87A74C40B5;3964
+(rerunfilecheck)             After:  8BA63FDB6964E95978B26964DEB880B1;3792.
  ) 
 Here is how much of TeX's memory you used:
- 16003 strings out of 476182
- 252999 string characters out of 5795595
- 1935975 words of memory out of 5000000
- 37695 multiletter control sequences out of 15000+600000
+ 16025 strings out of 476182
+ 253650 string characters out of 5795595
+ 1934975 words of memory out of 5000000
+ 37713 multiletter control sequences out of 15000+600000
  627833 words of font info for 84 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
  80i,12n,82p,2781b,511s stack positions out of 10000i,1000n,20000p,200000b,200000s
-</usr/share/texmf/fonts/type1/public/lm/lmbx10.pfb></usr/share/texmf/fonts/ty
-pe1/public/lm/lmbx12.pfb></usr/share/texmf/fonts/type1/public/lm/lmcsc10.pfb></
-usr/share/texmf/fonts/type1/public/lm/lmex10.pfb></usr/share/texmf/fonts/type1/
-public/lm/lmmi10.pfb></usr/share/texmf/fonts/type1/public/lm/lmmi8.pfb></usr/sh
-are/texmf/fonts/type1/public/lm/lmr10.pfb></usr/share/texmf/fonts/type1/public/
-lm/lmr12.pfb></usr/share/texmf/fonts/type1/public/lm/lmr7.pfb></usr/share/texmf
-/fonts/type1/public/lm/lmr8.pfb></usr/share/texmf/fonts/type1/public/lm/lmsy10.
-pfb></usr/share/texmf/fonts/type1/public/lm/lmsy7.pfb></usr/share/texmf/fonts/t
-ype1/public/lm/lmsy8.pfb>
-Output written on Mein-erstes-Dokument.pdf (7 pages, 393434 bytes).
+
+pdfTeX warning (dest): name{subsection.1.5} has been referenced but does not ex
+ist, replaced by a fixed one
+
+</usr/share/texmf/fonts/type1/public/lm/lmbx10.pfb></usr/share/texmf/fonts/type
+1/public/lm/lmbx12.pfb></usr/share/texmf/fonts/type1/public/lm/lmcsc10.pfb></us
+r/share/texmf/fonts/type1/public/lm/lmex10.pfb></usr/share/texmf/fonts/type1/pu
+blic/lm/lmmi10.pfb></usr/share/texmf/fonts/type1/public/lm/lmmi7.pfb></usr/shar
+e/texmf/fonts/type1/public/lm/lmmi8.pfb></usr/share/texmf/fonts/type1/public/lm
+/lmr10.pfb></usr/share/texmf/fonts/type1/public/lm/lmr12.pfb></usr/share/texmf/
+fonts/type1/public/lm/lmr7.pfb></usr/share/texmf/fonts/type1/public/lm/lmr8.pfb
+></usr/share/texmf/fonts/type1/public/lm/lmsy10.pfb></usr/share/texmf/fonts/typ
+e1/public/lm/lmsy7.pfb></usr/share/texmf/fonts/type1/public/lm/lmsy8.pfb>
+Output written on Mein-erstes-Dokument.pdf (8 pages, 702788 bytes).
 PDF statistics:
- 193 PDF objects out of 1000 (max. 8388607)
- 150 compressed objects within 2 object streams
- 26 named destinations out of 1000 (max. 500000)
- 139 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 211 PDF objects out of 1000 (max. 8388607)
+ 163 compressed objects within 2 object streams
+ 30 named destinations out of 1000 (max. 500000)
+ 157 words of extra memory for PDF output out of 10000 (max. 10000000)
 

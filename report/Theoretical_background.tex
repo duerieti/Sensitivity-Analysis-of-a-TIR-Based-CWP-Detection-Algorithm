@@ -81,9 +81,25 @@ Once the distributions $\mathcal{F}_i$ have been mapped out, statistical measure
 
 If $\mu_i$ deviates strongly from $0$, then this means that the elementary effect $EE_i$ generally takes on non-zero values and therefore that the model output changes notably when a step of $\Delta$ is performed along the dimension spanned by $X_i$. This then ultimately means, that changes in $X_i$ seem to generally affect the model output $Y$ considerably and $X_i$ therefore receives a high sensitivity score. Generally, the more $\mu_i$ deviates from zero, the larger the sensitivity of the model output towards $X_i$. 
 
-If $\sigma_i$ is large, this means that the distribution $\mathcal{F}_i$ is spread out considerably over a larger range. This indicates, that the elementary effects $EE_i$ that were computed were generally different depending on their location in the unit cube. Meaning that in one area, the model might only yield small changes in output, when $X_i$ is varied while in other areas $X_i$ leads to strong changes in model output. This behaviour points either to nonlinearity regarding $X_i$ or to the fact that $X_i$ interacts with other input parameters. Which effect is responsible for the high standard deviation (or whether both are responsible for the effect at the same time) can not be determined. Which is a shortcoming of the method of Morris.
+If $\sigma_i$ is large, this means that the distribution $\mathcal{F}_i$ is spread out considerably over a larger range. This indicates, that the elementary effects $EE_i$ that were computed were generally different depending on their location in the unit cube. Meaning that in one area, the model might only yield small changes in output, when $X_i$ is varied while in other areas $X_i$ leads to strong changes in model output. This behaviour points either to nonlinearity regarding $X_i$ or to the fact that $X_i$ interacts with other input parameters. Which effect is responsible for the high standard deviation (or whether both are responsible for the effect at the same time) can not be determined. Which is a shortcoming of the method of Morris. Figure \ref{fig:mu_sig_example} provides an visual example of possible F distributions of a Factor $X_i$ with the associated $\mu$ and $\sigma$ values and the corresponding interpretation.  
+
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=1\textwidth]{Bilder/example_grid_mu_sigma_vairation.png}
+	\caption{Different F distributions of a parameter $X_i$ are shown. Additionally, $\mu$ and $\sigma$ of each distribution is provided. An interpetation is provided}
+	\label{fig:mu_sig_example}
+\end{figure}
+
 
 Situations can occur, where $\mathcal{F}_i$ contains many extreme values however the distribution is symmetric around zero. Then computing the mean value $\mu_i$ will yield a value close to zero and we would assume, that the parameter $X_i$ therefore is noninfluential. This would be a faulty assumption, as the sampled elementary effects $EE_i$ are substantial in their magnitude but just cancel themselves out. This phenomenon can be spotted by always taking $\sigma_i$ into consideration, as in this scenario $\sigma_i$ is large, but it is more common to also sample an additional distribution $\mathcal{G}_i$ which captures the magnitude of the elementary effects $|EE_i|$. So $\mathcal{G}_i \sim |EE_i|$. We then compute the mean of this distribution $\mu^*_i$ which can be interpreted like $\mu_i$. The further away from zero, the more influential is the parameter. But since it is the magnitude, the distribution never features negative values and therefore cancellation effects can not occur.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=1\textwidth]{Bilder/mu_mu_star.png}
+	\caption{The difference of $\mu$ and c visualized with their underlying distribution $\mathcal{G}$ and $\mathcal{F}$. While the mean $\mu$ of the distributuion $\mathcal{F}$ lies at around zero, $\mu^{\star}$ significantly deviates from zero}
+	\label{fig:mu_mu_star}
+\end{figure}
 
 % Here a range of example parameter plots are needed to show how FF_i distributions can look like, how they can be skewed, how they can be symetric etc.
 
