@@ -1,23 +1,42 @@
 \section{Methods}
 
-Figure xy provides a high level overwiev of the methodology deployed to answer the research questions. The mehtod can be split up into two sequential segments, where segment 1 is setting the stage for segment 2. First morris experiment is set up to perform a sensitivity analysis by only varying the buffer width and the step length. The resulting parameter tuples are then deployed in model evaluation, each tuple beeing used to create one set of CWP. The resulting CWP are then used to create fuzzy representations, which allow for the visual determination which CWP are subject to change between parameter tupples. CWP that are subject to change and can be clearly be attributed to either beeing tributary cause or not tributary caused, are then 
 
-\subsection{Morris Experiment for pixel buffer and step length parameters}
+\subsection{Optimizationn of Existing Algorithm}
 
-\subsection{Model Evaluation along Parameter Combinations}
+% Existing algorithm has the following runtime
+% This is rather long. For sensitivity analysis the algorithm has to be executed 
+% 200 is times.
+% With the current runtime, this is hindring, especially since setting up computations involves debuging steps and revisions. These steps are then hard to execute given the long runtimes.
+% Therefore optimizing the algorithm for faster runtimes is a necessity.
+% The current setup relies on a series of computations executed using terra aswell as custom functions for polygonisation of cold water flagged pixels.
+% an effort was taken to reexpress large parts of the algorithm as a sequence of geoprocessing opperations that are supported by GDAL. This because executing processing steps using the GDAL CLI is often faster than relying on terra in R. 
+% The floowing pseudo code describes the workings of the new algorithm
+% 
 
 
-\subsection{Creation of a fuzzy overlay of CWP}
 
-\subsection{Selection of CWP}
+\subsection{Sensitivity Analysis using Morris}
 
-\subsection{Morris Experiment for pixel buffer, step length and temperature delta}
+Figure xy provides a high level overwiev of the methodology deployed to answer the research questions. The mehtod can be split up into two sequential segments, where segment 1 is setting the stage for segment 2. First, the morris parameters are sampled to then perform a sensitivity analysis by only varying the buffer width and the step length. The resulting parameter tuples are then deployed in model evaluation, each tuple beeing used to create one set of CWP. The resulting CWP are then used to create fuzzy representations, which allow for the visual determination which CWP are subject to change between parameter tupples. CWP that are subject to change and can be clearly be attributed to either beeing tributary cause or not tributary caused, their bounding box is then extracted. Next, another morris sampling is set up creating parameter tuples for buffer width, step length also the temperature difference. The model was again executed on these parameter touples. Then from each set of resulting cwp the bounding boxes are used to extract the cold water patches which where previously determined to vary due to either the step length or the buffer pixels used. For each of the selected patches, the total area is then computed. The total patch area is then used to perform the sensitivity analysis using the morris method.
 
-\subsection{Model Evaluation along Parameter Combinations}
 
-\subsection{Compute total area statistics for selected CWP}
 
-\subsection{Compute morris scores for pixel buffer, step length and temperature delta}
+\subsubsection{Morris Experiment for pixel buffer and step length parameters}
+
+\subsubsection{Model Evaluation along Parameter Combinations}
+
+
+\subsubsection{Creation of a fuzzy overlay of CWP}
+
+\subsubsection{Selection of CWP}
+
+\subsubsection{Morris Experiment for pixel buffer, step length and temperature delta}
+
+\subsubsection{Model Evaluation along Parameter Combinations}
+
+\subsubsection{Compute total area statistics for selected CWP}
+
+\subsubsection{Compute morris scores for pixel buffer, step length and temperature delta}
 
 % One mayor section will be performing morris
 

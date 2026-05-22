@@ -84,11 +84,17 @@ results_normalized <- results %>% as_tibble() %>% drop_na() %>%
 
 
 
-results_normalized  %>% as.tibble() %>%
+step_length_results <- results_normalized  %>% as.tibble() %>%
   filter(Class != "Unshure", parameter == "slab_halfwidth_m") %>%
   pivot_longer(names_to = "quantity", values_to = "value", cols = normalized_mu.star:normalized_sigma) %>%
   ggplot(aes(y = value, x = quantity, fill = Class)) + geom_boxplot() +
-  geom_point(position = position_jitterdodge(jitter.width = 0.1, dodge.width = 0.75))
+  geom_point(position = position_jitterdodge(jitter.width = 0.1, dodge.width = 0.75)) +
+  ggtitle("Sensitivity to Steplength")
+
+
+
+
+ggsave("step_length_results.png", step_length_results)
 
 
 results_normalized  %>% as.tibble() %>%
@@ -106,3 +112,12 @@ results_normalized  %>% as.tibble() %>%
   geom_point(position = position_jitterdodge(jitter.width = 0.1, dodge.width = 0.75))
 
 
+
+mu_star_res <- results_normalized %>% 
+  pivot_longer(names_to = "measure", values_to = "value", cols = mu:sigma) %>%
+  filter(measure == "mu.star" ) %>%
+  ggplot(aes(x = parameter, y = value)) + geom_boxplot() +
+  geom_point(position = position_jitterdodge(jitter.width = 0.1, dodge.width = 0.75)) +
+  ggtitle("mu.star over all CWP")
+
+ggsave("mu_star_res.png", mu_star_res)

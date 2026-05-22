@@ -1,26 +1,32 @@
-
+# detecting cold water patches in rivers
 detect_cwp_single <- function(
 
-    ras_path,
-    line_path,
-    rounded_ras_path,
-    step_m            = 500,
-    buffer_px         = 3,
-    delta_C           = 1.0,
-    min_patch_area_m2 = 2,
-    round_to          = 0.1,
-    slab_halfwidth_m  = 60,
-    connect_diagonals = TRUE,
-    union_chunk_size  = 50000L
+    ras_path, # path to the TIR raster of the river
+    line_path, # path to the centerline of the river
+    rounded_ras_path, # path to the rounded version of the TIR raster
+    step_m            = 500, # step lenght for producing the slabs following the river
+    buffer_px         = 3, # number of pixels for the buffer calculation
+    delta_C           = 1.0, # temperature delta for pixel flagging
+    min_patch_area_m2 = 2, # minimal surface area of the CWP's
+    round_to          = 0.1, # rounding precission for the raster
+    slab_halfwidth_m  = 60, # halfwidth of the slabs 
+    connect_diagonals = TRUE, # wheter to connect diagonally touching pixels in polygonisations to the same polygon
+    union_chunk_size  = 50000L # dont know wether this is even necessairy
 
 ) {
+
 # tiling creation options — no compression, just chunked layout
+# (tiling improves the performance of exact extract)
 co <- "--co TILED=YES --co BLOCKXSIZE=512 --co BLOCKYSIZE=512 --co BIGTIFF=YES"
-print(delta_C)
+
   # ── 0. READ INPUTS ────────────────────────────────────────────────────────
 
+# load the raster from the raster path
 r <- terra::rast(ras_path)
+
+# load the line from the line path
 line <- sf::st_read(line_path, quiet = TRUE) |> sf::st_zm(TRUE, "ZM")
+
 
 stopifnot(terra::nlyr(r) == 1)
 names(r) <- "T"
@@ -44,6 +50,7 @@ if (inherits(g, "sfc_MULTILINESTRING")) {
     g <- sf::st_collection_extract(g, "LINESTRING")
 }
 
+# creating the rounding factor
 rfactor <- if (!is.null(round_to) && round_to > 0) 1 / round_to else NA_real_
 
   # ── 1. BUILD SLABS ────────────────────────────────────────────────────────
@@ -74,6 +81,7 @@ slabs <- sf::st_buffer(subs,
                        endCapStyle = "FLAT",
                        joinStyle   = "MITRE",
                        mitreLimit  = 2)
+
 slabs_sf <- sf::st_sf(geometry = slabs)
 
 slabs_terra <- terra::vect(slabs_sf)
@@ -97,20 +105,28 @@ slabs <- sf::st_buffer(subs,
                        endCapStyle = "FLAT",
                        joinStyle   = "MITRE",
                        mitreLimit  = 2)
+  
 slabs_sf <- sf::st_sf(geometry = slabs) %>% mutate(slap_id = row_number())
 sf::write_sf(slabs_sf, "slabs_sf.shp")
 
   # ── 2. COMPUTE REFERENCE TEMPERATURES ────────────────────────────────────
 
-sf::st_layers("slabs_sf.shp")
-
+# get the extent from the TIR raster
 e <- ext(r)
+# create a string representation of the extent which can then be passed to GDAL
 ext_string <- paste(e$xmin, e$ymin, e$xmax, e$ymax, sep = ",")
+
+# get the resolution of the TIR raster
 resolution <- res(r)
+# create a string representation of the resolution which can then be passed to GDAL
 res_string <- paste(resolution, collapse = ",")
 
+## perform rasterisation of the slabs. ##
   
-tic("GDAL based rasterization:")
+# each slab-polygon gets rasterized. As a burn in value the slab id is used. This way it is 
+# determinable from which slab each pixel came from. if two slabs overlap the one with the
+# higher slab id will win.
+
 system(paste0(
   'gdal vector rasterize -i slabs_sf.shp -o zone_r_big_asc.tiff ',
   '--dialect SQLITE --sql "SELECT * FROM slabs_sf ORDER BY slap_id ASC" ',
@@ -119,8 +135,13 @@ system(paste0(
   co
 ))
 
-toc()
 
+## perform rasterisation of the slabs. ##
+  
+# each slab-polygon gets rasterized. As a burn in value the slab id is used. This way it is 
+# determinable from which slab each pixel came from. if two slabs overlap the one with the
+# lower slab id will win.
+  
 system(paste0(
   'gdal vector rasterize -i slabs_sf.shp -o zone_r_big_desc.tiff ',
   '--dialect SQLITE --sql "SELECT * FROM slabs_sf ORDER BY slap_id DESC" ',
@@ -129,16 +150,26 @@ system(paste0(
   co
 ))
 
+# note: These two operations will produce the exact same raster with the only difference that the issue of overlapping rasters
+# is handled in exactly opposing ways.
+# for one version of the reasterisation, the slab production is handled in a way where slab with the larger id will win in conflicing cases
+# for the other version, the slab witht the lower id will win.
+
+# load the rounded raster
 r_rounded <- terra::rast(rounded_ras_path)
 
+# extract the reference temperatures from the rounded raster using the buffer slabs
 slap_means <- exact_extract(r_rounded, slaps_buffer_sf, fun = function(values, coverage) {
   median(values[coverage >= 0.5], na.rm = TRUE)
 })
 
-
+# create a look up structure as a dataframe. One row holds the reference temperature and the other the slab id,
+# of the slab_buffer, the temperature was derived with.
 temp_look_up_df <- tibble(slap_id = slaps_buffer_sf$slap_id, slap_means = slap_means)
+  
 
-  # ── 5. BURN MEDIANS INTO ZONES ────────────────────────────────────────────
+# write the lookup table to disc as a text file. The structure has to be very specific, so that it can be used
+# in gdal for rasterisation.
 
 writeLines(
   paste0(
@@ -148,15 +179,25 @@ writeLines(
   "median_lookup_gdal.txt"
 )
 
+
+  # ── 5. BURN MEDIANS INTO ZONES ────────────────────────────────────────────
+
+# the slabs and the buffer_slabs shared the exact same IDs. Now the look up table can be used to reclassify the raster
+# each cell holds the ID, from the slab it was produced. By this makes it possible to assign the reference temperatures
+# computed with the buffer slab that corresponds to the slab to the pixels
+
+
+# read the string into memory
 lookup_str <- readLines("median_lookup_gdal.txt")
 
-# Tmean_raster: read once by raster calc → tile it
+# Reclassify the ascending version of the raster to hold the reference temperatures
 system(paste0(
   'gdal raster reclassify -i zone_r_big_asc.tiff -o Tmean_raster_asc.tiff ',
   '--datatype Float64 --overwrite -m "', lookup_str, '" ',
   co
 ))
 
+# reclassify the descending version of the raster to hold the reference temperatures
 system(paste0(
   'gdal raster reclassify -i zone_r_big_desc.tiff -o Tmean_raster_desc.tiff ',
   '--datatype Float64 --overwrite -m "', lookup_str, '" ',
@@ -164,9 +205,15 @@ system(paste0(
 ))
 
 
-print("Remove for the first time")
-# Do some cleaning up of raster files
+# Do some cleaning up of raster files. This is necessairy as these raster have quite a large size
+# especially when then running the function in parallel, this can lead to tremendous spikes in disk space (in the orders of hunderst of GB)
 file.remove(c("zone_r_big_asc.tiff", "zone_r_big_desc.tiff"))
+
+# this merges the two currently existing reference temperature rasters.
+# this is just for sorting out the overlapping regions.
+# for an overlapping region the the larger temperature value for a specific pixel will always be preffered. This is to make shure that
+# a pixel that belongs to two slabs will always be flagged as a cold water pixel if it has a sufficiently slower temperature to be accounted
+# to the cwp-pixels in at least one of the slabs.
 
 system(paste0(
   'gdal raster calc -i "A=Tmean_raster_desc.tiff" -i "B=Tmean_raster_asc.tiff" -o Tmean_raster.tiff ',
@@ -175,27 +222,42 @@ system(paste0(
   co
 ))
 
-tic()
+
+# perform the pixel flagging
+
+# for every pair of corresponding pixels in A and B:
+  # if the difference between the temperatures in the rounded raster and the temperature in the reference raster is larger than
+  # then (B - A) >= delta_C becomes true. 
+  # if the pixel in A is not -9999 (Na value), then (A != -9999) becomes true
+  # true * true is true, ture * false is false, false * true is false, false * false is false
+  # therefore only if the temperature difference is larger than delta_C and the value in A is not a Na value the pixel is flaged with 1
+  # else the pixel is set to NaN.
+
 system(paste0(
   'gdal raster calc ',
   '-i "A=', rounded_ras_path, '" ',
   '-i "B=Tmean_raster.tiff" ',
-  '--calc "((B - A) >= ', delta_C, ') * (A != -9999) ? 1 : NaN" ', # B has a bit of a larger extent than A, so in order to garantuee that everything works out (A != 0) is needed
+  '--calc "((B - A) >= ', delta_C, ') * (A != -9999) ? 1 : NaN" ', # B has a bit of a larger extent than A, so in order to garantuee that everything works out (A != -9999) is needed
   '-o binary_out.tif --overwrite --ot Float32 ',
   co
 ))
-toc()
-
+  
+# again remove some of the intermediate files which are no longer needed
 file.remove(c("Tmean_raster_desc.tiff", "Tmean_raster_asc.tiff"))
 
+# load the raster of flagged pixels
 binary <- terra::rast("binary_out.tif")
 
+# convert binary raster into polygons. 
+# dissolve = TRUE : neighboring pixels are fused to the same polygon (else each pixel would become its separate polygon)
 
 patches_v <- terra::as.polygons(binary, dissolve = TRUE, eight = TRUE)
 
 
 # ── 7. POLYGONIZE ─────────────────────────────────────────────────────────
 
+  
+# a small value 10% of the cell length/width
 eps <- if (connect_diagonals) cell_m * 0.1 else 0
 
 patches_sf <- patches_v %>%
@@ -209,23 +271,25 @@ patches_sf <- patches_v %>%
 
 
   # ── 8. AREA FILTER ────────────────────────────────────────────────────────
+
+# all cold water patches smaller than min_patch_area_m2 are filtered out
 patches_large <- patches_sf %>%
   mutate(area_m2 = st_area(.) %>% as.numeric()) %>%
-  filter(area_m2 >= 2) %>%
+  filter(area_m2 >= min_patch_area_m2) %>%
   mutate(ID = row_number())
 
   # ── 9. TEMPERATURE STATISTICS PER PATCH ──────────────────────────────────
 
-print("second exact_extract")
+# computing temperature statistics for the patches
 stats_matrix <- exact_extract(r, patches_large, c("mean", "min", "max", "median"))
 
-
+# adding the patch ID to the stats matrix
 stats_per_poly <- stats_matrix %>%
   as_tibble() %>%
   mutate(ID = patches_large$ID)
 
 
-
+# joining the patch statistics onto the patches using the id
 patches_large_w_stats <- patches_large %>%
   inner_join(
     stats_per_poly,
@@ -240,27 +304,21 @@ patches_large_w_stats <- patches_large %>%
 
   )
 
-
+# loading the reference temperature raster
 Tmean_raster <- terra::rast("Tmean_raster.tiff")
 
-print(nrow(patches_large_w_stats))  # how many polygons?
-print(terra::ncell(Tmean_raster))   # how many raster cells?
-print(gc()) 
-
-print("third exaxt_extract")
+# computing the refference temperature for every patch again 
 slap_means_per_poly <- exact_extract(Tmean_raster, patches_large_w_stats, fun = function(values, coverage) {
   median(values[coverage >= 0.5], na.rm = TRUE)
-},   max_cells_in_memory = 3e+06)
+})
   
-print("passed third extract")
 
+# creating a tibble of the reference temperature values together with the slab ID's
 slap_means_df <- tibble(Tmd_slb = slap_means_per_poly, ID = patches_large_w_stats$ID)
 
-print("slab_means")
-print(slap_means_df)
-print(slap_means_df$Tmd_slb)
-print("patches_large_w_stats")
-print(patches_large_w_stats)
+
+# joining the reference temperature values onto the patches using the id and filtering all
+# polygons that do not fullfill the filter condition
 patches_large_refiltered <- patches_large_w_stats %>%
   inner_join(
     slap_means_df,
@@ -271,7 +329,7 @@ patches_large_refiltered <- patches_large_w_stats %>%
   ) %>%
   filter(deltaT >= delta_C) 
 
-
+# remove the intermediate files
 file.remove(c("binary_out.tif","Tmean_raster.tiff"))
 
 return(patches_large_refiltered)
