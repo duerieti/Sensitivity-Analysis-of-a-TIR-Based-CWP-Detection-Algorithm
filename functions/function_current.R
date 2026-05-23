@@ -3,7 +3,7 @@ library(sf)
 library(dplyr)
 library(lwgeom)
 library(tidyverse)
-library(tictoc)
+
 library(tmap)
 
 
@@ -87,11 +87,10 @@ detect_cwp_single <- function(
     union_chunk_size  = 50000L     # max cells per dissolve chunk
 ) {
 
-  timings <- numeric()
-  tic <- function() proc.time()[["elapsed"]]
+
 
   # ── 0. READ INPUTS ────────────────────────────────────────────────────────
-  t0 <- tic()
+
 
   r <- terra::rast(ras_path)
   stopifnot(terra::nlyr(r) == 1)
@@ -119,10 +118,11 @@ detect_cwp_single <- function(
 
   rfactor <- if (!is.null(round_to) && round_to > 0) 1 / round_to else NA_real_
 
-  timings[["read_inputs"]] <- tic() - t0
+
 
   # ── 1. BUILD SLABS ────────────────────────────────────────────────────────
-  t0 <- tic()
+
+
 
   L   <- as.numeric(sf::st_length(line))
   S   <- step_m
@@ -147,10 +147,10 @@ detect_cwp_single <- function(
                           mitreLimit  = 2)
   slabs_sf <- sf::st_sf(geometry = slabs)
 
-  timings[["build_slabs"]] <- tic() - t0
+
 
   # ── 2. EXTRACT SLAB PIXELS ────────────────────────────────────────────────
-  t0 <- tic()
+
 
   slab_df <- terra::extract(r, terra::vect(slabs_sf), cells = TRUE)
   slab_df <- slab_df[!is.na(slab_df$T), , drop = FALSE]
@@ -158,10 +158,10 @@ detect_cwp_single <- function(
   if (!is.na(rfactor)) slab_df$T <- round(slab_df$T * rfactor) / rfactor
   by_slab <- split(slab_df[, c("ID", "cell", "T")], slab_df$ID)
 
-  timings[["extract_slab_pixels"]] <- tic() - t0
+
 
   # ── 3. COMPUTE REFERENCE TEMPERATURES (median per slab corridor) ───────
-  t0 <- tic()
+
 
   Rm <- buffer_px * cell_m
 
@@ -186,10 +186,8 @@ detect_cwp_single <- function(
     Tmed[j]  <- median_round(v)
   }
 
-  timings[["compute_ref_temps"]] <- tic() - t0
-
   # ── 4. FLAG COLD PIXELS ───────────────────────────────────────────────────
-  t0 <- tic()
+
 
   flagged <- integer(0L)
   for (j in seq_along(by_slab)) {
@@ -201,10 +199,9 @@ detect_cwp_single <- function(
   }
   flagged <- unique(flagged)
 
-  timings[["flag_pixels"]] <- tic() - t0
 
   # ── 5. POLYGONIZE FLAGGED CELLS ────────────────────────────────────────────
-  t0 <- tic()
+
 
   if (!length(flagged)) {
     pol_sf <- sf::st_sf(geometry = sf::st_sfc(), crs = sf::st_crs(line))
@@ -214,10 +211,9 @@ detect_cwp_single <- function(
                                          connect_diag = connect_diagonals)
   }
 
-  timings[["polygonize"]] <- tic() - t0
 
   # ── 6. AREA FILTER (drop small patches) ───────────────────────────────────
-  t0 <- tic()
+
 
   if (inherits(pol_sf, "sfc"))
     pol_sf <- sf::st_sf(geometry = pol_sf, crs = sf::st_crs(line))
@@ -231,10 +227,10 @@ detect_cwp_single <- function(
     pol_sf <- dplyr::filter(pol_sf, area_m2 >= min_patch_area_m2)
   }
 
-  timings[["area_filter"]] <- tic() - t0
+
 
   # ── 7. TEMPERATURE STATISTICS PER PATCH ────────────────────────────────────
-  t0 <- tic()
+
 
   if (nrow(pol_sf) > 0) {
     pol_v     <- terra::vect(pol_sf)
@@ -279,7 +275,6 @@ detect_cwp_single <- function(
     pol_sf <- dplyr::filter(pol_sf, deltaT >= delta_C)
   }
 
-  timings[["patch_stats"]] <- tic() - t0
 
   # ── TOTAL ──────────────────────────────────────────────────────────────────
   timings[["TOTAL"]] <- sum(timings)
