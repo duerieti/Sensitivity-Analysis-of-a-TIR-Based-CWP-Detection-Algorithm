@@ -17,6 +17,7 @@ detect_cwp_single <- function(
     zone_halfwidth_m  = 60,    # halfwidth of the wide zone slabs used for rasterisation
     round_to          = 0.1,   # rounding precision for the TIR raster (°C)
     delta_C           = 1.0,   # temperature delta threshold for pixel flagging
+    buffer_px         = 3,     # the number of pixels in the buffer strip to compute the reference temperature
     min_patch_area_m2 = 2,     # minimal surface area a CWP must have to be retained
     connect_diagonals = TRUE   # whether diagonally touching pixels form one polygon
 ) {
@@ -128,7 +129,7 @@ detect_cwp_single <- function(
 
   # buffer each segment into a narrow strip (~3 pixels wide) for reference
   # temperature extraction
-  strip_halfwidth_m <- cell_m * 3
+  strip_halfwidth_m <- cell_m * buffer_px
   ref_strips <- sf::st_buffer(segments,
                               dist        = strip_halfwidth_m,
                               endCapStyle = "FLAT",

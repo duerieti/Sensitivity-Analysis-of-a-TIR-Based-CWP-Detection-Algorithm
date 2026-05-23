@@ -6,7 +6,7 @@ library(tmap) # ploting data
 library(exactextractr) # extracting statistics from rasters based on polygon footprints
 
 # load the CWP detetion algorithm
-source("single_cwp.R")
+source("../functions/detect_cwp_v2.R")
 
 # parse the arguments passed to the R script and store in a vector
 args <- commandArgs(trailingOnly = TRUE)
@@ -15,7 +15,7 @@ args <- commandArgs(trailingOnly = TRUE)
 index 	  <- as.integer(args[1])
 # second argument is the number pixels in the buffer
 buffer_px <- as.numeric(args[2])
-# third argument is the step lenth in the slab productionprocess
+# third argument is the step length in the slab production process
 step_m    <- as.numeric(args[3])
 
 # set the memory terra is allowed to consume maximally
@@ -48,8 +48,8 @@ line_path <- file.path("../../../data/Centerlines_FINAL/Emme_V01.shp")
 # GNU parallel
 patches_new <- detect_cwp_single(
     ras_path, line_path, rounded_ras_path,
-    step_m           = step_m,
-    buffer_px        = buffer_px,
+    segment_length_m  = step_m,
+    buffer_px         = buffer_px
 )
 
 # write the result to the folder

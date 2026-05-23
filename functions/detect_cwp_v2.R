@@ -4,8 +4,6 @@ library(tidyverse)     # general data handling
 library(exactextractr) # extracting aggregated statistics from rasters based on polygons
 library(lwgeom)        # line substring operations on sf geometries
 
-# set the working directory (needs to be adjusted per machine)
-setwd("/home/etienne/Desktop/repos/Github_Enterprise/BSc_project/addjust_algo")
 
 
 # Detect cold water patches in a single TIR raster using zone rasterisation
@@ -17,6 +15,7 @@ detect_cwp_single <- function(
     segment_length_m  = 500,   # step length for segmenting the centerline
     zone_halfwidth_m  = 60,    # halfwidth of the wide zone slabs used for rasterisation
     delta_C           = 1.0,   # temperature delta threshold for pixel flagging
+    buffer_px 	      = 3,     # the number of pixels in the buffer strip to  compute the reference temperature
     min_patch_area_m2 = 2,     # minimal surface area a CWP must have to be retained
     connect_diagonals = TRUE   # whether diagonally touching pixels form one polygon
 ) {
@@ -52,7 +51,7 @@ detect_cwp_single <- function(
   g <- sf::st_union(line)
   # st_union can return a GEOMETRYCOLLECTION if the input contains mixed types;
   # extract only the LINESTRING parts in that case
-  if (inherits(g, "sfc_GEOMETRYCOLLECTION"))
+  if (inherits(g, "sfc_GEO/METRYCOLLECTION"))
     g <- sf::st_collection_extract(g, "LINESTRING")
   # if the result is a MULTILINESTRING, merge it into a single LINESTRING
   # where possible
@@ -106,9 +105,9 @@ detect_cwp_single <- function(
   # write the zone slabs to disk as a shapefile so GDAL can read them
   sf::write_sf(zone_slabs_sf, "zone_slabs.shp")
 
-  # buffer each segment into a narrow strip (~3 pixels wide) for reference
+  # buffer each segment into a narrow strip for reference
   # temperature extraction
-  strip_halfwidth_m <- cell_m * 3
+  strip_halfwidth_m <- cell_m * buffer_px
   ref_strips <- sf::st_buffer(segments,
                               dist        = strip_halfwidth_m,
                               endCapStyle = "FLAT",
