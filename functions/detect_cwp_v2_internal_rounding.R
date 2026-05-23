@@ -4,8 +4,7 @@ library(tidyverse)     # general data handling
 library(exactextractr) # extracting aggregated statistics from rasters based on polygons
 library(lwgeom)        # line substring operations on sf geometries
 
-# set the working directory (needs to be adjusted per machine)
-setwd("/home/etienne/Desktop/repos/Github_Enterprise/BSc_project/addjust_algo")
+
 
 
 # Detect cold water patches in a single TIR raster using zone rasterisation
@@ -346,3 +345,17 @@ detect_cwp_single <- function(
 
   return(patches_final)
 }
+
+
+ras_path  <- "./data/original_data/thermal_rasters_FINAL/mean_v01emme.tif"
+rounded_ras_path <- "./data/derived_data_products/r_rounded.tiff"
+line_path <- "./data/original_data/Centerlines_FINAL/Emme_V01.shp"
+
+cpw_test <- detect_cwp_single(
+  ras_path = ras_path,
+  line_path = line_path
+)
+
+library(tmap)
+tmap_mode("view")
+cpw_test %>% tm_shape() + tm_polygons()

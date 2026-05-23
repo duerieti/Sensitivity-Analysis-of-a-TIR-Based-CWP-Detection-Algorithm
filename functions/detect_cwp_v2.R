@@ -327,3 +327,5 @@ detect_cwp_single <- function(
 
   return(patches_final)
 }
+
+getwd()
