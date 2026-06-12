@@ -43,7 +43,7 @@ setwd(job_dir)
 ras_path         <- file.path("../../../data/original_data/thermal_rasters_FINAL/mean_v2obemme.tif")
 
 # Read a rounded version of the "obere emme" segment 
-rounded_ras_path <- file.path("../../../data/derived_data_products/r_rounded_obemme.tiff")
+rounded_ras_path <- file.path("../../../data/derived_data_products/mean_v2obemme_rounded.tif")
 
 # Read the centerline for the "obere emme" segment 
 line_path        <- file.path("../../../data/original_data/Centerlines_FINAL/Obere_Emme_V02.shp")

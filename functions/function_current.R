@@ -3,12 +3,8 @@ library(sf)
 library(dplyr)
 library(lwgeom)
 library(tidyverse)
-
+library(tictoc)
 library(tmap)
-
-
-path_raster <- "../data/thermal_rasters_FINAL/mean_v01emme.tif"
-path_line <- "../data/Centerlines_FINAL/Emme_V01.shp"
 
 
 polygonize_flagged_vector <- function(flagged_cells, r,
@@ -277,11 +273,7 @@ detect_cwp_single <- function(
 
 
   # ── TOTAL ──────────────────────────────────────────────────────────────────
-  timings[["TOTAL"]] <- sum(timings)
 
-  list(patches = pol_sf, timings = timings)
+  pol_sf
 }
-
-detect_cwp_single(path_raster,path_line)
-
 

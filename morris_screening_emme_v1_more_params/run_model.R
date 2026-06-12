@@ -48,7 +48,7 @@ ras_path         <- file.path("../../../data/original_data/thermal_rasters_FINAL
 # (this is a bit optimised for the scanning runs. The raster only needs to be rounded
 # once. Its not necessairy that every worker rounds the raster internally, when this can be
 # be done one a one-time-basis)
-rounded_ras_path <- file.path("../../../data/derived_data_products/r_rounded.tiff")
+rounded_ras_path <- file.path("../../../data/derived_data_products/mean_v01emme_rounded.tif")
 # define the path to the line
 line_path        <- file.path("../../../data/original_data/Centerlines_FINAL/Emme_V01.shp")
 

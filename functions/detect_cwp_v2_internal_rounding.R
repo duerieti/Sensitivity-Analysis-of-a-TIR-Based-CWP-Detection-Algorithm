@@ -4,9 +4,6 @@ library(tidyverse)     # general data handling
 library(exactextractr) # extracting aggregated statistics from rasters based on polygons
 library(lwgeom)        # line substring operations on sf geometries
 
-# set the working directory (needs to be adjusted per machine)
-setwd("/home/etienne/Desktop/repos/Github_Enterprise/BSc_project/addjust_algo")
-
 
 # Detect cold water patches in a single TIR raster using zone rasterisation
 # to construct a reference temperature surface.
@@ -23,7 +20,7 @@ detect_cwp_single <- function(
 ) {
 
   # GDAL creation options: tiling improves the performance of exact_extract
-  co <- "--co TILED=YES --co BLOCKXSIZE=512 --co BLOCKYSIZE=512 --co BIGTIFF=YES"
+  co <- "--co TILED=YES --co BLOCKXSIZE=512 --co BLOCKYSIZE=512 --co BIGTIFF=YES --co COMPRESS=DEFLATE --co PREDICTOR=2"
 
   # ── 0. READ INPUTS ────────────────────────────────────────────────────────
 
@@ -75,9 +72,9 @@ detect_cwp_single <- function(
   # using gdal as an external process: multiply by the rounding factor,
   # truncate, and divide back to achieve rounding. Write to r_tir_rounded.tif
   system(paste0(
-    'gdal raster calc -i "A=', ras_path, '" ',
-    '--calc "A*', round_factor, '/', round_factor, '" ',
-    '-o r_tir_rounded.tif --overwrite --ot Float32 ',
+     'gdal raster calc -i "A=', ras_path, '" ',
+     '--calc "rint(A*', round_factor, ')/', round_factor, '" ',
+     '-o r_tir_rounded.tif --overwrite --ot Float32 --nodata -9999 --propagate-nodata ',
     co
   ))
 
@@ -163,10 +160,25 @@ detect_cwp_single <- function(
 
   # get the extent of the TIR raster and create a string for GDAL
   e          <- terra::ext(r_tir)
-  ext_string <- paste(e$xmin, e$ymin, e$xmax, e$ymax, sep = ",")
-  # get the resolution of the TIR raster and create a string for GDAL
-  res_string <- paste(terra::res(r_tir), collapse = ",")
+  
+  ext_string <- paste(
+  formatC(e$xmin, format = "f", digits = 10),
+  formatC(e$ymin, format = "f", digits = 10),
+  formatC(e$xmax, format = "f", digits = 10),
+  formatC(e$ymax, format = "f", digits = 10),
+  sep = ","
+  )	
+  
+  print(ext_string)
+  
+  res_string <- paste(
+  formatC(terra::res(r_tir)[1], format = "f", digits = 10),
+  formatC(terra::res(r_tir)[2], format = "f", digits = 10),
+  sep = ","
+  )
 
+  print(res_string)
+  
   # rasterise the zone slabs in ascending order: higher zone_id wins
   system(paste0(
     'gdal vector rasterize -i zone_slabs.shp -o zone_r_asc.tif ',
@@ -233,6 +245,9 @@ detect_cwp_single <- function(
     co
   ))
 
+  # remove the per-direction reference rasters (merged r_ref.tif is kept)
+  file.remove(c("r_ref_desc.tif", "r_ref_asc.tif"))
+
   # ── 7. PIXEL-LEVEL FLAGGING ───────────────────────────────────────────────
   # For every pair of corresponding pixels in A (rounded TIR) and B (reference):
   #   - if (B - A) >= delta_C, the pixel is colder than the reference → true
@@ -241,6 +256,7 @@ detect_cwp_single <- function(
   # Only pixels that are both sufficiently cold AND have valid data are flagged.
   # B has a slightly larger extent than A, so the (A != -9999) check is needed
   # to guarantee that pixels outside A's valid extent are not falsely flagged.
+  
 
   system(paste0(
     'gdal raster calc ',
@@ -251,8 +267,6 @@ detect_cwp_single <- function(
     co
   ))
 
-  # remove the per-direction reference rasters (merged r_ref.tif is kept)
-  file.remove(c("r_ref_desc.tif", "r_ref_asc.tif"))
 
   # load the raster of flagged pixels
   r_binary <- terra::rast("r_binary.tif")
@@ -266,7 +280,9 @@ detect_cwp_single <- function(
 
   # a small tolerance value (10% of cell size) for morphological closing
   closing_tolerance <- if (connect_diagonals) cell_m * 0.1 else 0
+  
 
+  print("starting poly")
   # convert flagged pixels to polygons, then apply morphological closing:
   # expand → union → shrink. This merges patches that are separated by
   # sub-pixel gaps from the raster-to-vector conversion.
@@ -343,6 +359,6 @@ detect_cwp_single <- function(
 
   # clean up all intermediate files produced by the algorithm
   file.remove(c("r_binary.tif", "r_ref.tif", "r_tir_rounded.tif", "T_ref_lookup_gdal.txt"))
-
+  sf::st_delete("zone_slabs.shp")
   return(patches_final)
 }

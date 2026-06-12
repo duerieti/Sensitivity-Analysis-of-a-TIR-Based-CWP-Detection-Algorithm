@@ -17,7 +17,7 @@ step_m    <- as.numeric(args[3])
 delta_t   <- as.numeric(args[4])
 
 # set a quota to how much memory terra is allowed to use
-terraOptions(memmax = 14)
+terraOptions(memmax = 9)
 
 # create a id for the job. This is just a string containing the arguments that where passed to the script eg "1_7_760_1.5"
 job_id  <- paste(args, collapse = "_")
@@ -39,7 +39,7 @@ setwd(job_dir)
 ras_path         <- file.path("../../../data/original_data/thermal_rasters_FINAL/mean_v2emme.tif")
 
 # read the roundev version of the temperature raster
-rounded_ras_path <- file.path("../../../data/derived_data_products/r_rounded_v2_aligned.tiff")
+rounded_ras_path <- file.path("../../../data/derived_data_products/mean_v2emme_rounded.tif")
 
 # read the centerline for the "emme v2" segment
 line_path        <- file.path("../../../data/original_data/Centerlines_FINAL/Emme_V02.shp")

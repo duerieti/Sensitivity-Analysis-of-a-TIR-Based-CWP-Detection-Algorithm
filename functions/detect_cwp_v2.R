@@ -20,8 +20,8 @@ detect_cwp_single <- function(
     connect_diagonals = TRUE   # whether diagonally touching pixels form one polygon
 ) {
 
-  # GDAL creation options: tiling improves the performance of exact_extract
-  co <- "--co TILED=YES --co BLOCKXSIZE=512 --co BLOCKYSIZE=512 --co BIGTIFF=YES"
+  #OMPRESS=DEFLATE --co PREDICTOR=2
+  co <- "--co TILED=YES --co BLOCKXSIZE=512 --co BLOCKYSIZE=512 --co BIGTIFF=YES --co COMPRESS=DEFLATE --co PREDICTOR=2"
 
   # ── 0. READ INPUTS ────────────────────────────────────────────────────────
 
@@ -142,12 +142,27 @@ detect_cwp_single <- function(
   #   - ASC: rows burned in ascending order → higher zone_id wins (last write wins)
   #   - DESC: rows burned in descending order → lower zone_id wins
 
-  # get the extent of the TIR raster and create a string for GDAL
-  e          <- terra::ext(r_tir)
-  ext_string <- paste(e$xmin, e$ymin, e$xmax, e$ymax, sep = ",")
-  # get the resolution of the TIR raster and create a string for GDAL
-  res_string <- paste(terra::res(r_tir), collapse = ",")
 
+  # rasr::ext(r_tir)
+  e <- terra::ext(r_tir)  
+  ext_string <- paste(
+	formatC(e$xmin, format = "f", digits = 10),
+	formatC(e$ymin, format = "f", digits = 10),
+	formatC(e$xmax, format = "f", digits = 10),
+	formatC(e$ymax, format = "f", digits = 10),
+	sep = ","
+   )
+  
+  print(ext_string)
+    
+  res_string <- paste(
+	formatC(terra::res(r_tir)[1], format = "f", digits = 10),
+	formatC(terra::res(r_tir)[2], format = "f", digits = 10),
+	sep = ","
+	)
+    
+  print(res_string)
+     
   # rasterise the zone slabs in ascending order: higher zone_id wins
   system(paste0(
     'gdal vector rasterize -i zone_slabs.shp -o zone_r_asc.tif ',
@@ -213,7 +228,7 @@ detect_cwp_single <- function(
     '--overwrite --ot Float64 ',
     co
   ))
-
+  file.remove(c("r_ref_desc.tif", "r_ref_asc.tif"))
   # ── 6. PIXEL-LEVEL FLAGGING ───────────────────────────────────────────────
   # For every pair of corresponding pixels in A (rounded TIR) and B (reference):
   #   - if (B - A) >= delta_C, the pixel is colder than the reference → true
@@ -231,9 +246,6 @@ detect_cwp_single <- function(
     '-o r_binary.tif --overwrite --ot Float32 ',
     co
   ))
-
-  # remove the per-direction reference rasters (merged r_ref.tif is kept)
-  file.remove(c("r_ref_desc.tif", "r_ref_asc.tif"))
 
   # load the raster of flagged pixels
   r_binary <- terra::rast("r_binary.tif")
@@ -324,6 +336,7 @@ detect_cwp_single <- function(
 
   # clean up all intermediate files produced by the algorithm
   file.remove(c("r_binary.tif", "r_ref.tif"))
+  sf::st_delete("zone_slabs.shp")
 
   return(patches_final)
 }

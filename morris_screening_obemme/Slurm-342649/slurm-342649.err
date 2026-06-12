@@ -1,0 +1,543 @@
+sh: /dev/tty: No such device or address
+
+Computers / CPU cores / Max jobs to run
+1:local / 5 / 5
+
+Computer:jobs running/jobs completed/%of started jobs/Average seconds to complete
+ETA: 0s Left: 132 AVG: 0.00s  local:5/0/100%/0.0s ETA: 0s Left: 132 AVG: 0.00s  local:5/0/100%/0.0s ETA: 0s Left: 132 AVG: 0.00s  local:5/0/100%/0.0s ETA: 0s Left: 132 AVG: 0.00s  local:5/0/100%/0.0s ETA: 0s Left: 132 AVG: 0.00s  local:5/0/100%/0.0s ETA: 0s Left: 132 AVG: 0.00s  local:5/0/100%/0.0s ETA: 0s Left: 132 AVG: 0.00s  local:5/0/100%/0.0s ETA: 0s Left: 132 AVG: 0.00s  local:5/0/100%/0.0s ETA: 0s Left: 132 AVG: 0.00s  local:5/0/100%/0.0s ETA: 0s Left: 132 AVG: 0.00s  local:5/0/100%/0.0s ETA: 0s Left: 132 AVG: 0.00s  local:5/0/100%/0.0s ETA: 0s Left: 132 AVG: 0.00s  local:5/0/100%/0.0s ETA: 0s Left: 132 AVG: 0.00s  local:5/0/100%/0.0s ETA: 0s Left: 132 AVG: 0.00s  local:5/0/100%/0.0s ETA: 0s Left: 132 AVG: 0.00s  local:5/0/100%/0.0s ETA: 0s Left: 132 AVG: 0.00s  local:5/0/100%/0.0s ETA: 0s Left: 132 AVG: 0.00s  local:5/0/100%/0.0s ETA: 0s Left: 132 AVG: 0.00s  local:5/0/100%/0.0s ETA: 0s Left: 132 AVG: 0.00s  local:5/0/100%/0.0s ETA: 0s Left: 132 AVG: 0.00s  local:5/0/100%/0.0s ETA: 0s Left: 132 AVG: 0.00s  local:5/0/100%/0.0s ETA: 0s Left: 132 AVG: 0.00s  local:5/0/100%/0.0s ETA: 0s Left: 132 AVG: 0.00s  local:5/0/100%/0.0s ETA: 0s Left: 132 AVG: 0.00s  local:5/0/100%/0.0s ETA: 0s Left: 132 AVG: 0.00s  local:5/0/100%/0.0s ETA: 0s Left: 132 AVG: 0.00s  local:5/0/100%/0.0s ETA: 0s Left: 132 AVG: 0.00s  local:5/0/100%/0.0s ETA: 0s Left: 132 AVG: 0.00s  local:5/0/100%/0.0s ETA: 0s Left: 132 AVG: 0.00s  local:5/0/100%/0.0s ETA: 0s Left: 132 AVG: 0.00s  local:5/0/100%/0.0s ETA: 0s Left: 132 AVG: 0.00s  local:5/0/100%/0.0s ETA: 0s Left: 132 AVG: 0.00s  local:5/0/100%/0.0s ETA: 0s Left: 132 AVG: 0.00s  local:5/0/100%/0.0s ETA: 0s Left: 132 AVG: 0.00s  local:5/0/100%/0.0s ETA: 0s Left: 132 AVG: 0.00s  local:5/0/100%/0.0s ETA: 0s Left: 132 AVG: 0.00s  local:5/0/100%/0.0s ETA: 0s Left: 132 AVG: 0.00s  local:5/0/100%/0.0s ETA: 0s Left: 132 AVG: 0.00s  local:5/0/100%/0.0s ETA: 0s Left: 132 AVG: 0.00s  local:5/0/100%/0.0s ETA: 0s Left: 132 AVG: 0.00s  local:5/0/100%/0.0s ETA: 0s Left: 132 AVG: 0.00s  local:5/0/100%/0.0s ETA: 0s Left: 132 AVG: 0.00s  local:5/0/100%/0.0s ETA: 0s Left: 132 AVG: 0.00s  local:5/0/100%/0.0s ETA: 0s Left: 132 AVG: 0.00s  local:5/0/100%/0.0s ETA: 0s Left: 132 AVG: 0.00s  local:5/0/100%/0.0s ETA: 0s Left: 132 AVG: 0.00s  local:5/0/100%/0.0s ETA: 0s Left: 132 AVG: 0.00s  local:5/0/100%/0.0s ETA: 0s Left: 132 AVG: 0.00s  local:5/0/100%/0.0s ETA: 0s Left: 132 AVG: 0.00s  local:5/0/100%/0.0s ETA: 0s Left: 132 AVG: 0.00s  local:5/0/100%/0.0s ETA: 0s Left: 132 AVG: 0.00s  local:5/0/100%/0.0s ETA: 0s Left: 132 AVG: 0.00s  local:5/0/100%/0.0s ETA: 0s Left: 132 AVG: 0.00s  local:5/0/100%/0.0s ETA: 0s Left: 132 AVG: 0.00s  local:5/0/100%/0.0s ETA: 0s Left: 132 AVG: 0.00s  local:5/0/100%/0.0s ETA: 0s Left: 132 AVG: 0.00s  local:5/0/100%/0.0s ETA: 0s Left: 132 AVG: 0.00s  local:5/0/100%/0.0s ETA: 0s Left: 132 AVG: 0.00s  local:5/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 132 AVG: 0.00s  local:5/0/100%/0.0s ETA: 0s Left: 132 AVG: 0.00s  local:5/0/100%/0.0s ETA: 0s Left: 132 AVG: 0.00s  local:5/0/100%/0.0s ETA: 0s Left: 132 AVG: 0.00s  local:5/0/100%/0.0s ETA: 0s Left: 132 AVG: 0.00s  local:5/0/100%/0.0s ETA: 0s Left: 132 AVG: 0.00s  local:5/0/100%/0.0s ETA: 0s Left: 132 AVG: 0.00s  local:5/0/100%/0.0s ETA: 0s Left: 132 AVG: 0.00s  local:5/0/100%/0.0s ETA: 0s Left: 132 AVG: 0.00s  local:5/0/100%/0.0s ETA: 0s Left: 132 AVG: 0.00s  local:5/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 132 AVG: 0.00s  local:5/0/100%/0.0s ETA: 0s Left: 132 AVG: 0.00s  local:5/0/100%/0.0s ETA: 0s Left: 132 AVG: 0.00s  local:5/0/100%/0.0s ETA: 0s Left: 132 AVG: 0.00s  local:5/0/100%/0.0s ETA: 0s Left: 132 AVG: 0.00s  local:5/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 132 AVG: 0.00s  local:5/0/100%/0.0s ETA: 0s Left: 132 AVG: 0.00s  local:5/0/100%/0.0s ETA: 0s Left: 132 AVG: 0.00s  local:5/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 132 AVG: 0.00s  local:5/0/100%/0.0s ETA: 0s Left: 132 AVG: 0.00s  local:5/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 132 AVG: 0.00s  local:5/0/100%/0.0s ETA: 0s Left: 132 AVG: 0.00s  local:5/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 132 AVG: 0.00s  local:5/0/100%/0.0s ETA: 0s Left: 132 AVG: 0.00s  local:5/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 132 AVG: 0.00s  local:5/0/100%/0.0s ETA: 0s Left: 132 AVG: 0.00s  local:5/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 132 AVG: 0.00s  local:5/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 132 AVG: 0.00s  local:5/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 132 AVG: 0.00s  local:5/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 132 AVG: 0.00s  local:5/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 132 AVG: 0.00s  local:5/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 132 AVG: 0.00s  local:5/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 132 AVG: 0.00s  local:5/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 132 AVG: 0.00s  local:5/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 132 AVG: 0.00s  local:5/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 132 AVG: 0.00s  local:5/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 132 AVG: 0.00s  local:5/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 132 AVG: 0.00s  local:5/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 132 AVG: 0.00s  local:5/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 132 AVG: 0.00s  local:5/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 132 AVG: 0.00s  local:5/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 132 AVG: 0.00s  local:5/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 132 AVG: 0.00s  local:5/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 132 AVG: 0.00s  local:5/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 132 AVG: 0.00s  local:5/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 132 AVG: 0.00s  local:5/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 132 AVG: 0.00s  local:5/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 132 AVG: 0.00s  local:5/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 132 AVG: 0.00s  local:5/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 132 AVG: 0.00s  local:5/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 132 AVG: 0.00s  local:5/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 132 AVG: 0.00s  local:5/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 132 AVG: 0.00s  local:5/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 132 AVG: 0.00s  local:5/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 132 AVG: 0.00s  local:5/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 132 AVG: 0.00s  local:5/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 132 AVG: 0.00s  local:5/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 132 AVG: 0.00s  local:5/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 132 AVG: 0.00s  local:5/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 132 AVG: 0.00s  local:5/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 132 AVG: 0.00s  local:5/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 132 AVG: 0.00s  local:5/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 132 AVG: 0.00s  local:5/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 132 AVG: 0.00s  local:5/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 132 AVG: 0.00s  local:5/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 132 AVG: 0.00s  local:5/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 132 AVG: 0.00s  local:5/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 132 AVG: 0.00s  local:5/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 132 AVG: 0.00s  local:5/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 132 AVG: 0.00s  local:5/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 132 AVG: 0.00s  local:5/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 132 AVG: 0.00s  local:5/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 132 AVG: 0.00s  local:5/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 132 AVG: 0.00s  local:5/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 132 AVG: 0.00s  local:5/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 132 AVG: 0.00s  local:5/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 132 AVG: 0.00s  local:5/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 132 AVG: 0.00s  local:5/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 132 AVG: 0.00s  local:5/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 132 AVG: 0.00s  local:5/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 132 AVG: 0.00s  local:5/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 132 AVG: 0.00s  local:5/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 132 AVG: 0.00s  local:5/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 132 AVG: 0.00s  local:5/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 132 AVG: 0.00s  local:5/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 132 AVG: 0.00s  local:5/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 132 AVG: 0.00s  local:5/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 132 AVG: 0.00s  local:5/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 132 AVG: 0.00s  local:5/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 132 AVG: 0.00s  local:5/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 132 AVG: 0.00s  local:5/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 132 AVG: 0.00s  local:5/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 132 AVG: 0.00s  local:5/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 132 AVG: 0.00s  local:5/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 132 AVG: 0.00s  local:5/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 132 AVG: 0.00s  local:5/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 132 AVG: 0.00s  local:5/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 132 AVG: 0.00s  local:5/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 132 AVG: 0.00s  local:5/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 132 AVG: 0.00s  local:5/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 132 AVG: 0.00s  local:5/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 132 AVG: 0.00s  local:5/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 132 AVG: 0.00s  local:5/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 132 AVG: 0.00s  local:5/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 132 AVG: 0.00s  local:5/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 132 AVG: 0.00s  local:5/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 132 AVG: 0.00s  local:5/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 132 AVG: 0.00s  local:5/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 132 AVG: 0.00s  local:5/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 132 AVG: 0.00s  local:5/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 132 AVG: 0.00s  local:5/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 132 AVG: 0.00s  local:5/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 132 AVG: 0.00s  local:5/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 132 AVG: 0.00s  local:5/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 132 AVG: 0.00s  local:5/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 132 AVG: 0.00s  local:5/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 132 AVG: 0.00s  local:5/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 132 AVG: 0.00s  local:5/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 132 AVG: 0.00s  local:5/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 132 AVG: 0.00s  local:5/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 132 AVG: 0.00s  local:5/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 132 AVG: 0.00s  local:5/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 132 AVG: 0.00s  local:5/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 132 AVG: 0.00s  local:5/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 132 AVG: 0.00s  local:5/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 132 AVG: 0.00s  local:5/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 132 AVG: 0.00s  local:5/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 132 AVG: 0.00s  local:5/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 132 AVG: 0.00s  local:5/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 132 AVG: 0.00s  local:5/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 132 AVG: 0.00s  local:5/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 132 AVG: 0.00s  local:5/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 132 AVG: 0.00s  local:5/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 132 AVG: 0.00s  local:5/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 132 AVG: 0.00s  local:5/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 132 AVG: 0.00s  local:5/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 132 AVG: 0.00s  local:5/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 132 AVG: 0.00s  local:5/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 132 AVG: 0.00s  local:5/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 132 AVG: 0.00s  local:5/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 132 AVG: 0.00s  local:5/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 132 AVG: 0.00s  local:5/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 132 AVG: 0.00s  local:5/0/100%/0.0s sh: /dev/tty: No such device or address
+ETA: 0s Left: 132 AVG: 0.00s  local:5/0/100%/0.0s terra 1.9.1
+Linking to GEOS 3.14.1, GDAL 3.12.2, PROJ 9.7.1; sf_use_s2() is TRUE
+── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──
+✔ dplyr     1.2.0     ✔ readr     2.2.0
+✔ forcats   1.0.1     ✔ stringr   1.6.0
+✔ ggplot2   4.0.2     ✔ tibble    3.3.1
+✔ lubridate 1.9.5     ✔ tidyr     1.3.2
+✔ purrr     1.2.1     
+── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
+✖ tidyr::extract() masks terra::extract()
+✖ dplyr::filter()  masks stats::filter()
+✖ dplyr::lag()     masks stats::lag()
+ℹ Use the conflicted package (<http://conflicted.r-lib.org/>) to force all conflicts to become errors
+
+Attaching package: ‘tictoc’
+
+The following objects are masked from ‘package:terra’:
+
+    shift, size
+
+Linking to liblwgeom 3.0.0beta1 r16016, GEOS 3.14.1, PROJ 9.7.1
+
+Attaching package: ‘lwgeom’
+
+The following objects are masked from ‘package:sf’:
+
+    st_minimum_bounding_circle, st_perimeter
+
+ERROR 1: Failed to parse output value (expected number or NO_DATA)
+ERROR 1: Failed to parse output value (expected number or NO_DATA)
+ERROR 1: Failed to open r_ref_desc.tif
+ERROR 1: Failed to open r_ref.tif
+Error: [rast] file does not exist: r_binary.tif
+In addition: Warning messages:
+1: In file.remove(c("r_ref_desc.tif", "r_ref_asc.tif")) :
+  cannot remove file 'r_ref_desc.tif', reason 'No such file or directory'
+2: In file.remove(c("r_ref_desc.tif", "r_ref_asc.tif")) :
+  cannot remove file 'r_ref_asc.tif', reason 'No such file or directory'
+3: In new_CppObject_xp(fields$.module, fields$.pointer, ...) :
+  GDAL Error 4: r_binary.tif: No such file or directory
+Execution halted
+ETA: 0s Left: 131 AVG: 0.00s  local:4/1/100%/167.0s terra 1.9.1
+Linking to GEOS 3.14.1, GDAL 3.12.2, PROJ 9.7.1; sf_use_s2() is TRUE
+── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──
+✔ dplyr     1.2.0     ✔ readr     2.2.0
+✔ forcats   1.0.1     ✔ stringr   1.6.0
+✔ ggplot2   4.0.2     ✔ tibble    3.3.1
+✔ lubridate 1.9.5     ✔ tidyr     1.3.2
+✔ purrr     1.2.1     
+── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
+✖ tidyr::extract() masks terra::extract()
+✖ dplyr::filter()  masks stats::filter()
+✖ dplyr::lag()     masks stats::lag()
+ℹ Use the conflicted package (<http://conflicted.r-lib.org/>) to force all conflicts to become errors
+
+Attaching package: ‘tictoc’
+
+The following objects are masked from ‘package:terra’:
+
+    shift, size
+
+Linking to liblwgeom 3.0.0beta1 r16016, GEOS 3.14.1, PROJ 9.7.1
+
+Attaching package: ‘lwgeom’
+
+The following objects are masked from ‘package:sf’:
+
+    st_minimum_bounding_circle, st_perimeter
+
+ERROR 1: Failed to parse output value (expected number or NO_DATA)
+ERROR 1: Failed to parse output value (expected number or NO_DATA)
+ERROR 1: Failed to open r_ref_desc.tif
+ERROR 1: Failed to open r_ref.tif
+Error: [rast] file does not exist: r_binary.tif
+In addition: Warning messages:
+1: In file.remove(c("r_ref_desc.tif", "r_ref_asc.tif")) :
+  cannot remove file 'r_ref_desc.tif', reason 'No such file or directory'
+2: In file.remove(c("r_ref_desc.tif", "r_ref_asc.tif")) :
+  cannot remove file 'r_ref_asc.tif', reason 'No such file or directory'
+3: In new_CppObject_xp(fields$.module, fields$.pointer, ...) :
+  GDAL Error 4: r_binary.tif: No such file or directory
+Execution halted
+ETA: 0s Left: 130 AVG: 0.00s  local:3/2/100%/83.5s terra 1.9.1
+Linking to GEOS 3.14.1, GDAL 3.12.2, PROJ 9.7.1; sf_use_s2() is TRUE
+── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──
+✔ dplyr     1.2.0     ✔ readr     2.2.0
+✔ forcats   1.0.1     ✔ stringr   1.6.0
+✔ ggplot2   4.0.2     ✔ tibble    3.3.1
+✔ lubridate 1.9.5     ✔ tidyr     1.3.2
+✔ purrr     1.2.1     
+── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
+✖ tidyr::extract() masks terra::extract()
+✖ dplyr::filter()  masks stats::filter()
+✖ dplyr::lag()     masks stats::lag()
+ℹ Use the conflicted package (<http://conflicted.r-lib.org/>) to force all conflicts to become errors
+
+Attaching package: ‘tictoc’
+
+The following objects are masked from ‘package:terra’:
+
+    shift, size
+
+Linking to liblwgeom 3.0.0beta1 r16016, GEOS 3.14.1, PROJ 9.7.1
+
+Attaching package: ‘lwgeom’
+
+The following objects are masked from ‘package:sf’:
+
+    st_minimum_bounding_circle, st_perimeter
+
+ERROR 1: Failed to parse output value (expected number or NO_DATA)
+ERROR 1: Failed to parse output value (expected number or NO_DATA)
+ERROR 1: Failed to open r_ref_desc.tif
+ERROR 1: Failed to open r_ref.tif
+Error: [rast] file does not exist: r_binary.tif
+In addition: Warning messages:
+1: In file.remove(c("r_ref_desc.tif", "r_ref_asc.tif")) :
+  cannot remove file 'r_ref_desc.tif', reason 'No such file or directory'
+2: In file.remove(c("r_ref_desc.tif", "r_ref_asc.tif")) :
+  cannot remove file 'r_ref_asc.tif', reason 'No such file or directory'
+3: In new_CppObject_xp(fields$.module, fields$.pointer, ...) :
+  GDAL Error 4: r_binary.tif: No such file or directory
+Execution halted
+ETA: 0s Left: 129 AVG: 0.00s  local:2/3/100%/55.7s ETA: 0s Left: 129 AVG: 0.00s  local:2/3/100%/55.7s ETA: 0s Left: 129 AVG: 0.00s  local:3/3/100%/55.7s ETA: 0s Left: 129 AVG: 0.00s  local:4/3/100%/55.7s terra 1.9.1
+Linking to GEOS 3.14.1, GDAL 3.12.2, PROJ 9.7.1; sf_use_s2() is TRUE
+── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──
+✔ dplyr     1.2.0     ✔ readr     2.2.0
+✔ forcats   1.0.1     ✔ stringr   1.6.0
+✔ ggplot2   4.0.2     ✔ tibble    3.3.1
+✔ lubridate 1.9.5     ✔ tidyr     1.3.2
+✔ purrr     1.2.1     
+── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
+✖ tidyr::extract() masks terra::extract()
+✖ dplyr::filter()  masks stats::filter()
+✖ dplyr::lag()     masks stats::lag()
+ℹ Use the conflicted package (<http://conflicted.r-lib.org/>) to force all conflicts to become errors
+
+Attaching package: ‘tictoc’
+
+The following objects are masked from ‘package:terra’:
+
+    shift, size
+
+Linking to liblwgeom 3.0.0beta1 r16016, GEOS 3.14.1, PROJ 9.7.1
+
+Attaching package: ‘lwgeom’
+
+The following objects are masked from ‘package:sf’:
+
+    st_minimum_bounding_circle, st_perimeter
+
+ERROR 1: Failed to parse output value (expected number or NO_DATA)
+ERROR 1: Failed to parse output value (expected number or NO_DATA)
+ERROR 1: Failed to open r_ref_desc.tif
+ERROR 1: Failed to open r_ref.tif
+Error: [rast] file does not exist: r_binary.tif
+In addition: Warning messages:
+1: In file.remove(c("r_ref_desc.tif", "r_ref_asc.tif")) :
+  cannot remove file 'r_ref_desc.tif', reason 'No such file or directory'
+2: In file.remove(c("r_ref_desc.tif", "r_ref_asc.tif")) :
+  cannot remove file 'r_ref_asc.tif', reason 'No such file or directory'
+3: In new_CppObject_xp(fields$.module, fields$.pointer, ...) :
+  GDAL Error 4: r_binary.tif: No such file or directory
+Execution halted
+ETA: 0s Left: 128 AVG: 0.00s  local:4/4/100%/41.8s ETA: 0s Left: 128 AVG: 0.00s  local:5/4/100%/41.8s sh: /dev/tty: No such device or address
+ETA: 32s Left: 128 AVG: 0.25s  local:5/4/100%/42.0s terra 1.9.1
+Linking to GEOS 3.14.1, GDAL 3.12.2, PROJ 9.7.1; sf_use_s2() is TRUE
+── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──
+✔ dplyr     1.2.0     ✔ readr     2.2.0
+✔ forcats   1.0.1     ✔ stringr   1.6.0
+✔ ggplot2   4.0.2     ✔ tibble    3.3.1
+✔ lubridate 1.9.5     ✔ tidyr     1.3.2
+✔ purrr     1.2.1     
+── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
+✖ tidyr::extract() masks terra::extract()
+✖ dplyr::filter()  masks stats::filter()
+✖ dplyr::lag()     masks stats::lag()
+ℹ Use the conflicted package (<http://conflicted.r-lib.org/>) to force all conflicts to become errors
+
+Attaching package: ‘tictoc’
+
+The following objects are masked from ‘package:terra’:
+
+    shift, size
+
+Linking to liblwgeom 3.0.0beta1 r16016, GEOS 3.14.1, PROJ 9.7.1
+
+Attaching package: ‘lwgeom’
+
+The following objects are masked from ‘package:sf’:
+
+    st_minimum_bounding_circle, st_perimeter
+
+ERROR 1: Failed to parse output value (expected number or NO_DATA)
+ERROR 1: Failed to parse output value (expected number or NO_DATA)
+ERROR 1: Failed to open r_ref_desc.tif
+ERROR 1: Failed to open r_ref.tif
+Error: [rast] file does not exist: r_binary.tif
+In addition: Warning messages:
+1: In file.remove(c("r_ref_desc.tif", "r_ref_asc.tif")) :
+  cannot remove file 'r_ref_desc.tif', reason 'No such file or directory'
+2: In file.remove(c("r_ref_desc.tif", "r_ref_asc.tif")) :
+  cannot remove file 'r_ref_asc.tif', reason 'No such file or directory'
+3: In new_CppObject_xp(fields$.module, fields$.pointer, ...) :
+  GDAL Error 4: r_binary.tif: No such file or directory
+Execution halted
+ETA: 31s Left: 127 AVG: 0.20s  local:4/5/100%/33.6s ETA: 31s Left: 127 AVG: 0.20s  local:4/5/100%/33.6s ETA: 31s Left: 127 AVG: 0.20s  local:5/5/100%/33.6s ETA: 30s Left: 127 AVG: 0.20s  local:5/5/100%/33.6s ETA: 30s Left: 127 AVG: 0.20s  local:5/5/100%/33.6s ETA: 30s Left: 127 AVG: 0.20s  local:5/5/100%/33.6s ETA: 30s Left: 127 AVG: 0.20s  local:5/5/100%/33.6s ETA: 30s Left: 127 AVG: 0.20s  local:5/5/100%/33.6s ETA: 29s Left: 127 AVG: 0.20s  local:5/5/100%/33.6s ETA: 29s Left: 127 AVG: 0.20s  local:5/5/100%/33.6s ETA: 29s Left: 127 AVG: 0.20s  local:5/5/100%/33.6s ETA: 29s Left: 127 AVG: 0.20s  local:5/5/100%/33.6s ETA: 29s Left: 127 AVG: 0.20s  local:5/5/100%/33.6s ETA: 29s Left: 127 AVG: 0.20s  local:5/5/100%/33.6s ETA: 28s Left: 127 AVG: 0.20s  local:5/5/100%/33.6s ETA: 28s Left: 127 AVG: 0.20s  local:5/5/100%/33.6s ETA: 28s Left: 127 AVG: 0.20s  local:5/5/100%/33.6s ETA: 28s Left: 127 AVG: 0.20s  local:5/5/100%/33.6s ETA: 28s Left: 127 AVG: 0.20s  local:5/5/100%/33.6s ETA: 28s Left: 127 AVG: 0.20s  local:5/5/100%/33.6s ETA: 28s Left: 127 AVG: 0.20s  local:5/5/100%/33.6s ETA: 28s Left: 127 AVG: 0.20s  local:5/5/100%/33.6s ETA: 28s Left: 127 AVG: 0.20s  local:5/5/100%/33.6s sh: /dev/tty: No such device or address
+ETA: 28s Left: 127 AVG: 0.40s  local:5/5/100%/33.8s ETA: 28s Left: 127 AVG: 0.40s  local:5/5/100%/33.8s ETA: 28s Left: 127 AVG: 0.40s  local:5/5/100%/33.8s ETA: 28s Left: 127 AVG: 0.40s  local:5/5/100%/33.8s ETA: 32s Left: 127 AVG: 0.40s  local:5/5/100%/33.8s ETA: 32s Left: 127 AVG: 0.40s  local:5/5/100%/33.8s ETA: 32s Left: 127 AVG: 0.40s  local:5/5/100%/33.8s sh: /dev/tty: No such device or address
+ETA: 32s Left: 127 AVG: 0.60s  local:5/5/100%/34.0s ETA: 36s Left: 127 AVG: 0.60s  local:5/5/100%/34.0s ETA: 36s Left: 127 AVG: 0.60s  local:5/5/100%/34.0s sh: /dev/tty: No such device or address
+ETA: 40s Left: 127 AVG: 0.80s  local:5/5/100%/34.2s ETA: 40s Left: 127 AVG: 0.80s  local:5/5/100%/34.2s ETA: 45s Left: 127 AVG: 0.80s  local:5/5/100%/34.2s sh: /dev/tty: No such device or address
+ETA: 45s Left: 127 AVG: 1.00s  local:5/5/100%/34.4s ETA: 51s Left: 127 AVG: 1.00s  local:5/5/100%/34.4s sh: /dev/tty: No such device or address
+ETA: 51s Left: 127 AVG: 1.20s  local:5/5/100%/34.6s ETA: 58s Left: 127 AVG: 1.20s  local:5/5/100%/34.6s sh: /dev/tty: No such device or address
+ETA: 58s Left: 127 AVG: 1.40s  local:5/5/100%/34.8s ETA: 67s Left: 127 AVG: 1.40s  local:5/5/100%/34.8s sh: /dev/tty: No such device or address
+ETA: 67s Left: 127 AVG: 1.60s  local:5/5/100%/35.0s sh: /dev/tty: No such device or address
+ETA: 78s Left: 127 AVG: 1.80s  local:5/5/100%/35.2s ETA: 78s Left: 127 AVG: 1.80s  local:5/5/100%/35.2s sh: /dev/tty: No such device or address
+ETA: 90s Left: 127 AVG: 2.00s  local:5/5/100%/35.4s sh: /dev/tty: No such device or address
+ETA: 90s Left: 127 AVG: 2.20s  local:5/5/100%/35.6s sh: /dev/tty: No such device or address
+ETA: 105s Left: 127 AVG: 2.40s  local:5/5/100%/35.8s sh: /dev/tty: No such device or address
+ETA: 105s Left: 127 AVG: 2.60s  local:5/5/100%/36.2s sh: /dev/tty: No such device or address
+ETA: 123s Left: 127 AVG: 2.80s  local:5/5/100%/36.4s sh: /dev/tty: No such device or address
+ETA: 123s Left: 127 AVG: 3.20s  local:5/5/100%/36.6s sh: /dev/tty: No such device or address
+ETA: 145s Left: 127 AVG: 3.40s  local:5/5/100%/37.0s sh: /dev/tty: No such device or address
+ETA: 145s Left: 127 AVG: 3.80s  local:5/5/100%/37.2s sh: /dev/tty: No such device or address
+ETA: 171s Left: 127 AVG: 4.00s  local:5/5/100%/37.4s sh: /dev/tty: No such device or address
+ETA: 171s Left: 127 AVG: 4.20s  local:5/5/100%/37.8s sh: /dev/tty: No such device or address
+ETA: 200s Left: 127 AVG: 4.60s  local:5/5/100%/38.0s sh: /dev/tty: No such device or address
+ETA: 200s Left: 127 AVG: 4.80s  local:5/5/100%/38.2s sh: /dev/tty: No such device or address
+ETA: 232s Left: 127 AVG: 5.20s  local:5/5/100%/38.6s sh: /dev/tty: No such device or address
+ETA: 232s Left: 127 AVG: 5.40s  local:5/5/100%/38.8s sh: /dev/tty: No such device or address
+ETA: 267s Left: 127 AVG: 5.60s  local:5/5/100%/39.2s sh: /dev/tty: No such device or address
+ETA: 267s Left: 127 AVG: 6.00s  local:5/5/100%/39.4s sh: /dev/tty: No such device or address
+ETA: 304s Left: 127 AVG: 6.20s  local:5/5/100%/39.6s sh: /dev/tty: No such device or address
+ETA: 304s Left: 127 AVG: 6.40s  local:5/5/100%/40.0s sh: /dev/tty: No such device or address
+ETA: 344s Left: 127 AVG: 6.80s  local:5/5/100%/40.2s sh: /dev/tty: No such device or address
+ETA: 344s Left: 127 AVG: 7.00s  local:5/5/100%/40.4s sh: /dev/tty: No such device or address
+ETA: 386s Left: 127 AVG: 7.20s  local:5/5/100%/40.8s sh: /dev/tty: No such device or address
+ETA: 386s Left: 127 AVG: 7.60s  local:5/5/100%/41.0s sh: /dev/tty: No such device or address
+ETA: 430s Left: 127 AVG: 7.80s  local:5/5/100%/41.4s sh: /dev/tty: No such device or address
+ETA: 430s Left: 127 AVG: 8.20s  local:5/5/100%/41.6s sh: /dev/tty: No such device or address
+ETA: 430s Left: 127 AVG: 8.40s  local:5/5/100%/41.8s sh: /dev/tty: No such device or address
+ETA: 499s Left: 127 AVG: 8.60s  local:5/5/100%/42.2s sh: /dev/tty: No such device or address
+ETA: 499s Left: 127 AVG: 9.00s  local:5/5/100%/42.4s sh: /dev/tty: No such device or address
+ETA: 499s Left: 127 AVG: 9.20s  local:5/5/100%/42.6s sh: /dev/tty: No such device or address
+ETA: 572s Left: 127 AVG: 9.40s  local:5/5/100%/43.0s sh: /dev/tty: No such device or address
+ETA: 572s Left: 127 AVG: 9.80s  local:5/5/100%/43.2s sh: /dev/tty: No such device or address
+ETA: 572s Left: 127 AVG: 10.00s  local:5/5/100%/43.6s sh: /dev/tty: No such device or address
+ETA: 650s Left: 127 AVG: 10.40s  local:5/5/100%/43.8s sh: /dev/tty: No such device or address
+ETA: 650s Left: 127 AVG: 10.60s  local:5/5/100%/44.0s sh: /dev/tty: No such device or address
+ETA: 650s Left: 127 AVG: 10.80s  local:5/5/100%/44.4s sh: /dev/tty: No such device or address
+ETA: 730s Left: 127 AVG: 11.20s  local:5/5/100%/44.6s sh: /dev/tty: No such device or address
+ETA: 730s Left: 127 AVG: 11.40s  local:5/5/100%/44.8s sh: /dev/tty: No such device or address
+ETA: 730s Left: 127 AVG: 11.60s  local:5/5/100%/45.2s sh: /dev/tty: No such device or address
+ETA: 812s Left: 127 AVG: 12.00s  local:5/5/100%/45.4s sh: /dev/tty: No such device or address
+ETA: 812s Left: 127 AVG: 12.20s  local:5/5/100%/45.8s sh: /dev/tty: No such device or address
+ETA: 812s Left: 127 AVG: 12.60s  local:5/5/100%/46.0s sh: /dev/tty: No such device or address
+ETA: 812s Left: 127 AVG: 12.80s  local:5/5/100%/46.2s sh: /dev/tty: No such device or address
+ETA: 926s Left: 127 AVG: 13.00s  local:5/5/100%/46.6s sh: /dev/tty: No such device or address
+ETA: 926s Left: 127 AVG: 13.40s  local:5/5/100%/46.8s sh: /dev/tty: No such device or address
+ETA: 926s Left: 127 AVG: 13.60s  local:5/5/100%/47.0s sh: /dev/tty: No such device or address
+ETA: 926s Left: 127 AVG: 13.80s  local:5/5/100%/47.4s sh: /dev/tty: No such device or address
+ETA: 1043s Left: 127 AVG: 14.20s  local:5/5/100%/47.6s sh: /dev/tty: No such device or address
+ETA: 1043s Left: 127 AVG: 14.40s  local:5/5/100%/48.0s sh: /dev/tty: No such device or address
+ETA: 1043s Left: 127 AVG: 14.80s  local:5/5/100%/48.2s sh: /dev/tty: No such device or address
+ETA: 1043s Left: 127 AVG: 15.00s  local:5/5/100%/48.4s sh: /dev/tty: No such device or address
+ETA: 1164s Left: 127 AVG: 15.20s  local:5/5/100%/48.8s sh: /dev/tty: No such device or address
+ETA: 1164s Left: 127 AVG: 15.60s  local:5/5/100%/49.0s sh: /dev/tty: No such device or address
+ETA: 1164s Left: 127 AVG: 15.80s  local:5/5/100%/49.2s sh: /dev/tty: No such device or address
+ETA: 1164s Left: 127 AVG: 16.00s  local:5/5/100%/49.6s sh: /dev/tty: No such device or address
+ETA: 1164s Left: 127 AVG: 16.40s  local:5/5/100%/49.8s sh: /dev/tty: No such device or address
+ETA: 1319s Left: 127 AVG: 16.60s  local:5/5/100%/50.0s sh: /dev/tty: No such device or address
+ETA: 1319s Left: 127 AVG: 17.00s  local:5/5/100%/50.4s sh: /dev/tty: No such device or address
+ETA: 1319s Left: 127 AVG: 17.20s  local:5/5/100%/50.6s sh: /dev/tty: No such device or address
+ETA: 1319s Left: 127 AVG: 17.40s  local:5/5/100%/51.0s sh: /dev/tty: No such device or address
+ETA: 1319s Left: 127 AVG: 17.80s  local:5/5/100%/51.2s sh: /dev/tty: No such device or address
+ETA: 1477s Left: 127 AVG: 18.00s  local:5/5/100%/51.4s sh: /dev/tty: No such device or address
+ETA: 1477s Left: 127 AVG: 18.20s  local:5/5/100%/51.8s sh: /dev/tty: No such device or address
+ETA: 1477s Left: 127 AVG: 18.60s  local:5/5/100%/52.0s sh: /dev/tty: No such device or address
+ETA: 1477s Left: 127 AVG: 18.80s  local:5/5/100%/52.2s sh: /dev/tty: No such device or address
+ETA: 1477s Left: 127 AVG: 19.20s  local:5/5/100%/52.6s sh: /dev/tty: No such device or address
+ETA: 1477s Left: 127 AVG: 19.40s  local:5/5/100%/52.8s sh: /dev/tty: No such device or address
+ETA: 1671s Left: 127 AVG: 19.60s  local:5/5/100%/53.2s sh: /dev/tty: No such device or address
+ETA: 1671s Left: 127 AVG: 20.00s  local:5/5/100%/53.4s sh: /dev/tty: No such device or address
+ETA: 1671s Left: 127 AVG: 20.20s  local:5/5/100%/53.6s sh: /dev/tty: No such device or address
+ETA: 1671s Left: 127 AVG: 20.40s  local:5/5/100%/54.0s sh: /dev/tty: No such device or address
+ETA: 1671s Left: 127 AVG: 20.80s  local:5/5/100%/54.2s sh: /dev/tty: No such device or address
+ETA: 1671s Left: 127 AVG: 21.00s  local:5/5/100%/54.6s sh: /dev/tty: No such device or address
+ETA: 1868s Left: 127 AVG: 21.40s  local:5/5/100%/54.8s sh: /dev/tty: No such device or address
+ETA: 1868s Left: 127 AVG: 21.60s  local:5/5/100%/55.0s sh: /dev/tty: No such device or address
+ETA: 1868s Left: 127 AVG: 21.80s  local:5/5/100%/55.4s sh: /dev/tty: No such device or address
+ETA: 1868s Left: 127 AVG: 22.20s  local:5/5/100%/55.6s sh: /dev/tty: No such device or address
+ETA: 1868s Left: 127 AVG: 22.40s  local:5/5/100%/56.0s sh: /dev/tty: No such device or address
+ETA: 1868s Left: 127 AVG: 22.80s  local:5/5/100%/56.2s sh: /dev/tty: No such device or address
+ETA: 1868s Left: 127 AVG: 23.00s  local:5/5/100%/56.4s sh: /dev/tty: No such device or address
+ETA: 2101s Left: 127 AVG: 23.20s  local:5/5/100%/56.8s sh: /dev/tty: No such device or address
+ETA: 2101s Left: 127 AVG: 23.60s  local:5/5/100%/57.0s sh: /dev/tty: No such device or address
+ETA: 2101s Left: 127 AVG: 23.80s  local:5/5/100%/57.2s sh: /dev/tty: No such device or address
+ETA: 2101s Left: 127 AVG: 24.00s  local:5/5/100%/57.6s sh: /dev/tty: No such device or address
+ETA: 2101s Left: 127 AVG: 24.40s  local:5/5/100%/57.8s sh: /dev/tty: No such device or address
+ETA: 2101s Left: 127 AVG: 24.60s  local:5/5/100%/58.2s sh: /dev/tty: No such device or address
+ETA: 2101s Left: 127 AVG: 25.00s  local:5/5/100%/58.4s sh: /dev/tty: No such device or address
+ETA: 2338s Left: 127 AVG: 25.20s  local:5/5/100%/58.6s sh: /dev/tty: No such device or address
+ETA: 2338s Left: 127 AVG: 25.40s  local:5/5/100%/59.0s sh: /dev/tty: No such device or address
+ETA: 2338s Left: 127 AVG: 25.80s  local:5/5/100%/59.2s sh: /dev/tty: No such device or address
+ETA: 2338s Left: 127 AVG: 26.00s  local:5/5/100%/59.6s sh: /dev/tty: No such device or address
+ETA: 2338s Left: 127 AVG: 26.40s  local:5/5/100%/59.8s sh: /dev/tty: No such device or address
+ETA: 2338s Left: 127 AVG: 26.60s  local:5/5/100%/60.0s sh: /dev/tty: No such device or address
+ETA: 2338s Left: 127 AVG: 26.80s  local:5/5/100%/60.4s sh: /dev/tty: No such device or address
+ETA: 2338s Left: 127 AVG: 27.20s  local:5/5/100%/60.6s sh: /dev/tty: No such device or address
+ETA: 2611s Left: 127 AVG: 27.40s  local:5/5/100%/61.0s sh: /dev/tty: No such device or address
+ETA: 2611s Left: 127 AVG: 27.80s  local:5/5/100%/61.2s sh: /dev/tty: No such device or address
+ETA: 2611s Left: 127 AVG: 28.00s  local:5/5/100%/61.4s sh: /dev/tty: No such device or address
+ETA: 2611s Left: 127 AVG: 28.20s  local:5/5/100%/61.8s sh: /dev/tty: No such device or address
+ETA: 2611s Left: 127 AVG: 28.60s  local:5/5/100%/62.0s sh: /dev/tty: No such device or address
+ETA: 2611s Left: 127 AVG: 28.80s  local:5/5/100%/62.2s sh: /dev/tty: No such device or address
+ETA: 2611s Left: 127 AVG: 29.20s  local:5/5/100%/62.6s sh: /dev/tty: No such device or address
+ETA: 2611s Left: 127 AVG: 29.40s  local:5/5/100%/62.8s sh: /dev/tty: No such device or address
+ETA: 2611s Left: 127 AVG: 29.60s  local:5/5/100%/63.2s sh: /dev/tty: No such device or address
+ETA: 2922s Left: 127 AVG: 30.00s  local:5/5/100%/63.4s sh: /dev/tty: No such device or address
+ETA: 2922s Left: 127 AVG: 30.20s  local:5/5/100%/63.6s sh: /dev/tty: No such device or address
+ETA: 2922s Left: 127 AVG: 30.40s  local:5/5/100%/64.0s sh: /dev/tty: No such device or address
+ETA: 2922s Left: 127 AVG: 30.80s  local:5/5/100%/64.2s sh: /dev/tty: No such device or address
+ETA: 2922s Left: 127 AVG: 31.00s  local:5/5/100%/64.4s sh: /dev/tty: No such device or address
+ETA: 2922s Left: 127 AVG: 31.20s  local:5/5/100%/64.8s sh: /dev/tty: No such device or address
+ETA: 2922s Left: 127 AVG: 31.60s  local:5/5/100%/65.0s sh: /dev/tty: No such device or address
+ETA: 2922s Left: 127 AVG: 31.80s  local:5/5/100%/65.4s sh: /dev/tty: No such device or address
+ETA: 2922s Left: 127 AVG: 32.20s  local:5/5/100%/65.6s sh: /dev/tty: No such device or address
+ETA: 2922s Left: 127 AVG: 32.40s  local:5/5/100%/65.8s sh: /dev/tty: No such device or address
+ETA: 3268s Left: 127 AVG: 32.60s  local:5/5/100%/66.2s sh: /dev/tty: No such device or address
+ETA: 3268s Left: 127 AVG: 33.00s  local:5/5/100%/66.4s sh: /dev/tty: No such device or address
+ETA: 3268s Left: 127 AVG: 33.20s  local:5/5/100%/66.6s terra 1.9.1
+Linking to GEOS 3.14.1, GDAL 3.12.2, PROJ 9.7.1; sf_use_s2() is TRUE
+── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──
+✔ dplyr     1.2.0     ✔ readr     2.2.0
+✔ forcats   1.0.1     ✔ stringr   1.6.0
+✔ ggplot2   4.0.2     ✔ tibble    3.3.1
+✔ lubridate 1.9.5     ✔ tidyr     1.3.2
+✔ purrr     1.2.1     
+── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
+✖ tidyr::extract() masks terra::extract()
+✖ dplyr::filter()  masks stats::filter()
+✖ dplyr::lag()     masks stats::lag()
+ℹ Use the conflicted package (<http://conflicted.r-lib.org/>) to force all conflicts to become errors
+
+Attaching package: ‘tictoc’
+
+The following objects are masked from ‘package:terra’:
+
+    shift, size
+
+Linking to liblwgeom 3.0.0beta1 r16016, GEOS 3.14.1, PROJ 9.7.1
+
+Attaching package: ‘lwgeom’
+
+The following objects are masked from ‘package:sf’:
+
+    st_minimum_bounding_circle, st_perimeter
+
+ERROR 1: Failed to parse output value (expected number or NO_DATA)
+ERROR 1: Failed to parse output value (expected number or NO_DATA)
+ERROR 1: Failed to open r_ref_desc.tif
+ERROR 1: Failed to open r_ref.tif
+Error: [rast] file does not exist: r_binary.tif
+In addition: Warning messages:
+1: In file.remove(c("r_ref_desc.tif", "r_ref_asc.tif")) :
+  cannot remove file 'r_ref_desc.tif', reason 'No such file or directory'
+2: In file.remove(c("r_ref_desc.tif", "r_ref_asc.tif")) :
+  cannot remove file 'r_ref_asc.tif', reason 'No such file or directory'
+3: In new_CppObject_xp(fields$.module, fields$.pointer, ...) :
+  GDAL Error 4: r_binary.tif: No such file or directory
+Execution halted
+ETA: 3268s Left: 126 AVG: 27.67s  local:4/6/100%/55.5s ETA: 3268s Left: 126 AVG: 27.67s  local:4/6/100%/55.5s ETA: 3268s Left: 126 AVG: 27.67s  local:5/6/100%/55.5s terra 1.9.1
+Linking to GEOS 3.14.1, GDAL 3.12.2, PROJ 9.7.1; sf_use_s2() is TRUE
+── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──
+✔ dplyr     1.2.0     ✔ readr     2.2.0
+✔ forcats   1.0.1     ✔ stringr   1.6.0
+✔ ggplot2   4.0.2     ✔ tibble    3.3.1
+✔ lubridate 1.9.5     ✔ tidyr     1.3.2
+✔ purrr     1.2.1     
+── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
+✖ tidyr::extract() masks terra::extract()
+✖ dplyr::filter()  masks stats::filter()
+✖ dplyr::lag()     masks stats::lag()
+ℹ Use the conflicted package (<http://conflicted.r-lib.org/>) to force all conflicts to become errors
+
+Attaching package: ‘tictoc’
+
+The following objects are masked from ‘package:terra’:
+
+    shift, size
+
+Linking to liblwgeom 3.0.0beta1 r16016, GEOS 3.14.1, PROJ 9.7.1
+
+Attaching package: ‘lwgeom’
+
+The following objects are masked from ‘package:sf’:
+
+    st_minimum_bounding_circle, st_perimeter
+
+ERROR 1: Failed to parse output value (expected number or NO_DATA)
+ERROR 1: Failed to parse output value (expected number or NO_DATA)
+ERROR 1: Failed to open r_ref_desc.tif
+ERROR 1: Failed to open r_ref.tif
+Error: [rast] file does not exist: r_binary.tif
+In addition: Warning messages:
+1: In file.remove(c("r_ref_desc.tif", "r_ref_asc.tif")) :
+  cannot remove file 'r_ref_desc.tif', reason 'No such file or directory'
+2: In file.remove(c("r_ref_desc.tif", "r_ref_asc.tif")) :
+  cannot remove file 'r_ref_asc.tif', reason 'No such file or directory'
+3: In new_CppObject_xp(fields$.module, fields$.pointer, ...) :
+  GDAL Error 4: r_binary.tif: No such file or directory
+Execution halted
+ETA: 3268s Left: 125 AVG: 23.71s  local:4/7/100%/47.6s ETA: 3268s Left: 125 AVG: 23.71s  local:4/7/100%/47.6s ETA: 3256s Left: 125 AVG: 23.71s  local:5/7/100%/47.6s ETA: 3240s Left: 125 AVG: 23.71s  local:5/7/100%/47.6s ETA: 3225s Left: 125 AVG: 23.71s  local:5/7/100%/47.6s ETA: 3212s Left: 125 AVG: 23.71s  local:5/7/100%/47.6s slurmstepd: error: *** JOB 342649 ON node009 CANCELLED AT 2026-06-11T14:01:15 ***

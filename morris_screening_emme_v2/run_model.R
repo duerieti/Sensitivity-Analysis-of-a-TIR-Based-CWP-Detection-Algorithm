@@ -19,7 +19,7 @@ buffer_px <- as.numeric(args[2])
 step_m    <- as.numeric(args[3])
 
 # set the memory terra is allowed to consume maximally
-terraOptions(memmax=8.9)
+terraOptions(memmax=9)
 
 # job_id is simply the list of arguments passed seperated by _
 job_id <- paste(args, collapse = "_")
@@ -28,6 +28,12 @@ job_id <- paste(args, collapse = "_")
 # and the final result will be writen to
 job_dir <- file.path(getwd(), "results", paste0("job_", job_id))
 
+# if the directory path allready exists, then the job allready has been completed. => terminate the process
+if (dir.exists(job_dir)) {
+	  message("Job directory already exists, skipping: ", job_dir)
+  quit(save = "no", status = 0)
+}
+
 # create this directory
 dir.create(job_dir, recursive = TRUE, showWarnings = FALSE)
 
@@ -35,14 +41,14 @@ dir.create(job_dir, recursive = TRUE, showWarnings = FALSE)
 setwd(job_dir)
 
 # devine the path to the raster
-ras_path <- file.path("../../../data/thermal_rasters_FINAL/mean_v2emme.tif")
+ras_path <- file.path("../../../data/original_data/thermal_rasters_FINAL/mean_v2emme.tif")
 # define the path to the rounded version of the raster
 # (this is a bit optimised for the scanning runs. The raster only needs to be rounded
 # once. Its not necessairy that every worker rounds the raster internally, when this can be
 # be done one a one-time-basis)
-rounded_ras_path <- file.path("../../../data/r_rounded_aligned.tiff") # needs to be changed too
+rounded_ras_path <- file.path("../../../data/derived_data_products/mean_v2emme_rounded.tif") # needs to be changed too
 # define the path to the line
-line_path <- file.path("../../../data/Centerlines_FINAL/Emme_V02.shp")
+line_path <- file.path("../../../data/original_data/Centerlines_FINAL/Emme_V02.shp")
 
 # start the function with the arguments passed from GNU parallel
 patches_new <- detect_cwp_single(
