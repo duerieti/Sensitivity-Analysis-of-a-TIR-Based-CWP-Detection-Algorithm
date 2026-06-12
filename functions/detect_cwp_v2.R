@@ -51,7 +51,7 @@ detect_cwp_single <- function(
   g <- sf::st_union(line)
   # st_union can return a GEOMETRYCOLLECTION if the input contains mixed types;
   # extract only the LINESTRING parts in that case
-  if (inherits(g, "sfc_GEO/METRYCOLLECTION"))
+  if (inherits(g, "sfc_GEOMETRYCOLLECTION"))
     g <- sf::st_collection_extract(g, "LINESTRING")
   # if the result is a MULTILINESTRING, merge it into a single LINESTRING
   # where possible
@@ -340,3 +340,4 @@ detect_cwp_single <- function(
 
   return(patches_final)
 }
+

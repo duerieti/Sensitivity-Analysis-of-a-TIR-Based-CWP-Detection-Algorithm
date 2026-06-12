@@ -1,8 +1,0 @@
-Seq	Host	Starttime	JobRuntime	Send	Receive	Exitval	Signal	Command
-1	:	1781178943.066	   166.617	0	5541	1	0	Rscript run_model.R 1 7 880
-4	:	1781178943.072	   166.616	0	6661	1	0	Rscript run_model.R 4 6 720
-5	:	1781178943.074	   166.618	0	4101	1	0	Rscript run_model.R 5 6 1200
-3	:	1781178943.070	   166.909	0	11461	1	0	Rscript run_model.R 3 4 400
-2	:	1781178943.068	   167.155	0	5541	1	0	Rscript run_model.R 2 4 880
-8	:	1781179109.978	   165.294	0	6661	1	0	Rscript run_model.R 8 4 720
-9	:	1781179109.987	   165.463	0	6661	1	0	Rscript run_model.R 9 7 720

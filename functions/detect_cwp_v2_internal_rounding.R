@@ -71,10 +71,11 @@ detect_cwp_single <- function(
 
   # using gdal as an external process: multiply by the rounding factor,
   # truncate, and divide back to achieve rounding. Write to r_tir_rounded.tif
+
   system(paste0(
-     'gdal raster calc -i "A=', ras_path, '" ',
-     '--calc "rint(A*', round_factor, ')/', round_factor, '" ',
-     '-o r_tir_rounded.tif --overwrite --ot Float32 --nodata -9999 --propagate-nodata ',
+    'gdal raster calc -i "A=', ras_path, '" ',
+    '--calc "rint(A*', round_factor, ')/', round_factor, '" ',
+    '-o r_tir_rounded.tif --overwrite --ot Float32 --nodata -9999 --propagate-nodata ',
     co
   ))
 
@@ -362,3 +363,4 @@ detect_cwp_single <- function(
   sf::st_delete("zone_slabs.shp")
   return(patches_final)
 }
+

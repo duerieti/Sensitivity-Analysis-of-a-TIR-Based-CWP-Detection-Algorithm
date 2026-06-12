@@ -1,0 +1,1456 @@
+<VRTDataset rasterXSize="72434" rasterYSize="65676">
+  <SRS dataAxisToSRSAxisMapping="1,2">PROJCS["CH1903+ / LV95",GEOGCS["CH1903+",DATUM["CH1903+",SPHEROID["Bessel 1841",6377397.155,299.1528128,AUTHORITY["EPSG","7004"]],AUTHORITY["EPSG","6150"]],PRIMEM["Greenwich",0,AUTHORITY["EPSG","8901"]],UNIT["degree",0.0174532925199433,AUTHORITY["EPSG","9122"]],AUTHORITY["EPSG","4150"]],PROJECTION["Hotine_Oblique_Mercator_Azimuth_Center"],PARAMETER["latitude_of_center",46.9524055555556],PARAMETER["longitude_of_center",7.43958333333333],PARAMETER["azimuth",90],PARAMETER["rectified_grid_angle",90],PARAMETER["scale_factor",1],PARAMETER["false_easting",2600000],PARAMETER["false_northing",1200000],UNIT["metre",1,AUTHORITY["EPSG","9001"]],AXIS["Easting",EAST],AXIS["Northing",NORTH],AUTHORITY["EPSG","2056"]]</SRS>
+  <GeoTransform>  2.6233522944699898e+06,  2.0688999956500101e-01,  0.0000000000000000e+00,  1.1970931211000099e+06,  0.0000000000000000e+00, -2.0688999979799999e-01</GeoTransform>
+  <VRTRasterBand dataType="Byte" band="1">
+    <NoDataValue>0</NoDataValue>
+    <ComplexSource>
+      <SourceFilename relativeToVRT="1">./binary_rasters_obemme/rast_1.tif</SourceFilename>
+      <SourceBand>1</SourceBand>
+      <SourceProperties RasterXSize="72434" RasterYSize="65676" DataType="Byte" BlockXSize="72434" BlockYSize="1" />
+      <SrcRect xOff="0" yOff="0" xSize="72434" ySize="65676" />
+      <DstRect xOff="0" yOff="0" xSize="72434" ySize="65676" />
+      <NODATA>0</NODATA>
+    </ComplexSource>
+  </VRTRasterBand>
+  <VRTRasterBand dataType="Byte" band="2">
+    <NoDataValue>0</NoDataValue>
+    <ComplexSource>
+      <SourceFilename relativeToVRT="1">./binary_rasters_obemme/rast_10.tif</SourceFilename>
+      <SourceBand>1</SourceBand>
+      <SourceProperties RasterXSize="72434" RasterYSize="65676" DataType="Byte" BlockXSize="72434" BlockYSize="1" />
+      <SrcRect xOff="0" yOff="0" xSize="72434" ySize="65676" />
+      <DstRect xOff="0" yOff="0" xSize="72434" ySize="65676" />
+      <NODATA>0</NODATA>
+    </ComplexSource>
+  </VRTRasterBand>
+  <VRTRasterBand dataType="Byte" band="3">
+    <NoDataValue>0</NoDataValue>
+    <ComplexSource>
+      <SourceFilename relativeToVRT="1">./binary_rasters_obemme/rast_100.tif</SourceFilename>
+      <SourceBand>1</SourceBand>
+      <SourceProperties RasterXSize="72434" RasterYSize="65676" DataType="Byte" BlockXSize="72434" BlockYSize="1" />
+      <SrcRect xOff="0" yOff="0" xSize="72434" ySize="65676" />
+      <DstRect xOff="0" yOff="0" xSize="72434" ySize="65676" />
+      <NODATA>0</NODATA>
+    </ComplexSource>
+  </VRTRasterBand>
+  <VRTRasterBand dataType="Byte" band="4">
+    <NoDataValue>0</NoDataValue>
+    <ComplexSource>
+      <SourceFilename relativeToVRT="1">./binary_rasters_obemme/rast_101.tif</SourceFilename>
+      <SourceBand>1</SourceBand>
+      <SourceProperties RasterXSize="72434" RasterYSize="65676" DataType="Byte" BlockXSize="72434" BlockYSize="1" />
+      <SrcRect xOff="0" yOff="0" xSize="72434" ySize="65676" />
+      <DstRect xOff="0" yOff="0" xSize="72434" ySize="65676" />
+      <NODATA>0</NODATA>
+    </ComplexSource>
+  </VRTRasterBand>
+  <VRTRasterBand dataType="Byte" band="5">
+    <NoDataValue>0</NoDataValue>
+    <ComplexSource>
+      <SourceFilename relativeToVRT="1">./binary_rasters_obemme/rast_102.tif</SourceFilename>
+      <SourceBand>1</SourceBand>
+      <SourceProperties RasterXSize="72434" RasterYSize="65676" DataType="Byte" BlockXSize="72434" BlockYSize="1" />
+      <SrcRect xOff="0" yOff="0" xSize="72434" ySize="65676" />
+      <DstRect xOff="0" yOff="0" xSize="72434" ySize="65676" />
+      <NODATA>0</NODATA>
+    </ComplexSource>
+  </VRTRasterBand>
+  <VRTRasterBand dataType="Byte" band="6">
+    <NoDataValue>0</NoDataValue>
+    <ComplexSource>
+      <SourceFilename relativeToVRT="1">./binary_rasters_obemme/rast_103.tif</SourceFilename>
+      <SourceBand>1</SourceBand>
+      <SourceProperties RasterXSize="72434" RasterYSize="65676" DataType="Byte" BlockXSize="72434" BlockYSize="1" />
+      <SrcRect xOff="0" yOff="0" xSize="72434" ySize="65676" />
+      <DstRect xOff="0" yOff="0" xSize="72434" ySize="65676" />
+      <NODATA>0</NODATA>
+    </ComplexSource>
+  </VRTRasterBand>
+  <VRTRasterBand dataType="Byte" band="7">
+    <NoDataValue>0</NoDataValue>
+    <ComplexSource>
+      <SourceFilename relativeToVRT="1">./binary_rasters_obemme/rast_104.tif</SourceFilename>
+      <SourceBand>1</SourceBand>
+      <SourceProperties RasterXSize="72434" RasterYSize="65676" DataType="Byte" BlockXSize="72434" BlockYSize="1" />
+      <SrcRect xOff="0" yOff="0" xSize="72434" ySize="65676" />
+      <DstRect xOff="0" yOff="0" xSize="72434" ySize="65676" />
+      <NODATA>0</NODATA>
+    </ComplexSource>
+  </VRTRasterBand>
+  <VRTRasterBand dataType="Byte" band="8">
+    <NoDataValue>0</NoDataValue>
+    <ComplexSource>
+      <SourceFilename relativeToVRT="1">./binary_rasters_obemme/rast_105.tif</SourceFilename>
+      <SourceBand>1</SourceBand>
+      <SourceProperties RasterXSize="72434" RasterYSize="65676" DataType="Byte" BlockXSize="72434" BlockYSize="1" />
+      <SrcRect xOff="0" yOff="0" xSize="72434" ySize="65676" />
+      <DstRect xOff="0" yOff="0" xSize="72434" ySize="65676" />
+      <NODATA>0</NODATA>
+    </ComplexSource>
+  </VRTRasterBand>
+  <VRTRasterBand dataType="Byte" band="9">
+    <NoDataValue>0</NoDataValue>
+    <ComplexSource>
+      <SourceFilename relativeToVRT="1">./binary_rasters_obemme/rast_106.tif</SourceFilename>
+      <SourceBand>1</SourceBand>
+      <SourceProperties RasterXSize="72434" RasterYSize="65676" DataType="Byte" BlockXSize="72434" BlockYSize="1" />
+      <SrcRect xOff="0" yOff="0" xSize="72434" ySize="65676" />
+      <DstRect xOff="0" yOff="0" xSize="72434" ySize="65676" />
+      <NODATA>0</NODATA>
+    </ComplexSource>
+  </VRTRasterBand>
+  <VRTRasterBand dataType="Byte" band="10">
+    <NoDataValue>0</NoDataValue>
+    <ComplexSource>
+      <SourceFilename relativeToVRT="1">./binary_rasters_obemme/rast_107.tif</SourceFilename>
+      <SourceBand>1</SourceBand>
+      <SourceProperties RasterXSize="72434" RasterYSize="65676" DataType="Byte" BlockXSize="72434" BlockYSize="1" />
+      <SrcRect xOff="0" yOff="0" xSize="72434" ySize="65676" />
+      <DstRect xOff="0" yOff="0" xSize="72434" ySize="65676" />
+      <NODATA>0</NODATA>
+    </ComplexSource>
+  </VRTRasterBand>
+  <VRTRasterBand dataType="Byte" band="11">
+    <NoDataValue>0</NoDataValue>
+    <ComplexSource>
+      <SourceFilename relativeToVRT="1">./binary_rasters_obemme/rast_108.tif</SourceFilename>
+      <SourceBand>1</SourceBand>
+      <SourceProperties RasterXSize="72434" RasterYSize="65676" DataType="Byte" BlockXSize="72434" BlockYSize="1" />
+      <SrcRect xOff="0" yOff="0" xSize="72434" ySize="65676" />
+      <DstRect xOff="0" yOff="0" xSize="72434" ySize="65676" />
+      <NODATA>0</NODATA>
+    </ComplexSource>
+  </VRTRasterBand>
+  <VRTRasterBand dataType="Byte" band="12">
+    <NoDataValue>0</NoDataValue>
+    <ComplexSource>
+      <SourceFilename relativeToVRT="1">./binary_rasters_obemme/rast_109.tif</SourceFilename>
+      <SourceBand>1</SourceBand>
+      <SourceProperties RasterXSize="72434" RasterYSize="65676" DataType="Byte" BlockXSize="72434" BlockYSize="1" />
+      <SrcRect xOff="0" yOff="0" xSize="72434" ySize="65676" />
+      <DstRect xOff="0" yOff="0" xSize="72434" ySize="65676" />
+      <NODATA>0</NODATA>
+    </ComplexSource>
+  </VRTRasterBand>
+  <VRTRasterBand dataType="Byte" band="13">
+    <NoDataValue>0</NoDataValue>
+    <ComplexSource>
+      <SourceFilename relativeToVRT="1">./binary_rasters_obemme/rast_11.tif</SourceFilename>
+      <SourceBand>1</SourceBand>
+      <SourceProperties RasterXSize="72434" RasterYSize="65676" DataType="Byte" BlockXSize="72434" BlockYSize="1" />
+      <SrcRect xOff="0" yOff="0" xSize="72434" ySize="65676" />
+      <DstRect xOff="0" yOff="0" xSize="72434" ySize="65676" />
+      <NODATA>0</NODATA>
+    </ComplexSource>
+  </VRTRasterBand>
+  <VRTRasterBand dataType="Byte" band="14">
+    <NoDataValue>0</NoDataValue>
+    <ComplexSource>
+      <SourceFilename relativeToVRT="1">./binary_rasters_obemme/rast_110.tif</SourceFilename>
+      <SourceBand>1</SourceBand>
+      <SourceProperties RasterXSize="72434" RasterYSize="65676" DataType="Byte" BlockXSize="72434" BlockYSize="1" />
+      <SrcRect xOff="0" yOff="0" xSize="72434" ySize="65676" />
+      <DstRect xOff="0" yOff="0" xSize="72434" ySize="65676" />
+      <NODATA>0</NODATA>
+    </ComplexSource>
+  </VRTRasterBand>
+  <VRTRasterBand dataType="Byte" band="15">
+    <NoDataValue>0</NoDataValue>
+    <ComplexSource>
+      <SourceFilename relativeToVRT="1">./binary_rasters_obemme/rast_111.tif</SourceFilename>
+      <SourceBand>1</SourceBand>
+      <SourceProperties RasterXSize="72434" RasterYSize="65676" DataType="Byte" BlockXSize="72434" BlockYSize="1" />
+      <SrcRect xOff="0" yOff="0" xSize="72434" ySize="65676" />
+      <DstRect xOff="0" yOff="0" xSize="72434" ySize="65676" />
+      <NODATA>0</NODATA>
+    </ComplexSource>
+  </VRTRasterBand>
+  <VRTRasterBand dataType="Byte" band="16">
+    <NoDataValue>0</NoDataValue>
+    <ComplexSource>
+      <SourceFilename relativeToVRT="1">./binary_rasters_obemme/rast_112.tif</SourceFilename>
+      <SourceBand>1</SourceBand>
+      <SourceProperties RasterXSize="72434" RasterYSize="65676" DataType="Byte" BlockXSize="72434" BlockYSize="1" />
+      <SrcRect xOff="0" yOff="0" xSize="72434" ySize="65676" />
+      <DstRect xOff="0" yOff="0" xSize="72434" ySize="65676" />
+      <NODATA>0</NODATA>
+    </ComplexSource>
+  </VRTRasterBand>
+  <VRTRasterBand dataType="Byte" band="17">
+    <NoDataValue>0</NoDataValue>
+    <ComplexSource>
+      <SourceFilename relativeToVRT="1">./binary_rasters_obemme/rast_113.tif</SourceFilename>
+      <SourceBand>1</SourceBand>
+      <SourceProperties RasterXSize="72434" RasterYSize="65676" DataType="Byte" BlockXSize="72434" BlockYSize="1" />
+      <SrcRect xOff="0" yOff="0" xSize="72434" ySize="65676" />
+      <DstRect xOff="0" yOff="0" xSize="72434" ySize="65676" />
+      <NODATA>0</NODATA>
+    </ComplexSource>
+  </VRTRasterBand>
+  <VRTRasterBand dataType="Byte" band="18">
+    <NoDataValue>0</NoDataValue>
+    <ComplexSource>
+      <SourceFilename relativeToVRT="1">./binary_rasters_obemme/rast_114.tif</SourceFilename>
+      <SourceBand>1</SourceBand>
+      <SourceProperties RasterXSize="72434" RasterYSize="65676" DataType="Byte" BlockXSize="72434" BlockYSize="1" />
+      <SrcRect xOff="0" yOff="0" xSize="72434" ySize="65676" />
+      <DstRect xOff="0" yOff="0" xSize="72434" ySize="65676" />
+      <NODATA>0</NODATA>
+    </ComplexSource>
+  </VRTRasterBand>
+  <VRTRasterBand dataType="Byte" band="19">
+    <NoDataValue>0</NoDataValue>
+    <ComplexSource>
+      <SourceFilename relativeToVRT="1">./binary_rasters_obemme/rast_115.tif</SourceFilename>
+      <SourceBand>1</SourceBand>
+      <SourceProperties RasterXSize="72434" RasterYSize="65676" DataType="Byte" BlockXSize="72434" BlockYSize="1" />
+      <SrcRect xOff="0" yOff="0" xSize="72434" ySize="65676" />
+      <DstRect xOff="0" yOff="0" xSize="72434" ySize="65676" />
+      <NODATA>0</NODATA>
+    </ComplexSource>
+  </VRTRasterBand>
+  <VRTRasterBand dataType="Byte" band="20">
+    <NoDataValue>0</NoDataValue>
+    <ComplexSource>
+      <SourceFilename relativeToVRT="1">./binary_rasters_obemme/rast_116.tif</SourceFilename>
+      <SourceBand>1</SourceBand>
+      <SourceProperties RasterXSize="72434" RasterYSize="65676" DataType="Byte" BlockXSize="72434" BlockYSize="1" />
+      <SrcRect xOff="0" yOff="0" xSize="72434" ySize="65676" />
+      <DstRect xOff="0" yOff="0" xSize="72434" ySize="65676" />
+      <NODATA>0</NODATA>
+    </ComplexSource>
+  </VRTRasterBand>
+  <VRTRasterBand dataType="Byte" band="21">
+    <NoDataValue>0</NoDataValue>
+    <ComplexSource>
+      <SourceFilename relativeToVRT="1">./binary_rasters_obemme/rast_117.tif</SourceFilename>
+      <SourceBand>1</SourceBand>
+      <SourceProperties RasterXSize="72434" RasterYSize="65676" DataType="Byte" BlockXSize="72434" BlockYSize="1" />
+      <SrcRect xOff="0" yOff="0" xSize="72434" ySize="65676" />
+      <DstRect xOff="0" yOff="0" xSize="72434" ySize="65676" />
+      <NODATA>0</NODATA>
+    </ComplexSource>
+  </VRTRasterBand>
+  <VRTRasterBand dataType="Byte" band="22">
+    <NoDataValue>0</NoDataValue>
+    <ComplexSource>
+      <SourceFilename relativeToVRT="1">./binary_rasters_obemme/rast_118.tif</SourceFilename>
+      <SourceBand>1</SourceBand>
+      <SourceProperties RasterXSize="72434" RasterYSize="65676" DataType="Byte" BlockXSize="72434" BlockYSize="1" />
+      <SrcRect xOff="0" yOff="0" xSize="72434" ySize="65676" />
+      <DstRect xOff="0" yOff="0" xSize="72434" ySize="65676" />
+      <NODATA>0</NODATA>
+    </ComplexSource>
+  </VRTRasterBand>
+  <VRTRasterBand dataType="Byte" band="23">
+    <NoDataValue>0</NoDataValue>
+    <ComplexSource>
+      <SourceFilename relativeToVRT="1">./binary_rasters_obemme/rast_119.tif</SourceFilename>
+      <SourceBand>1</SourceBand>
+      <SourceProperties RasterXSize="72434" RasterYSize="65676" DataType="Byte" BlockXSize="72434" BlockYSize="1" />
+      <SrcRect xOff="0" yOff="0" xSize="72434" ySize="65676" />
+      <DstRect xOff="0" yOff="0" xSize="72434" ySize="65676" />
+      <NODATA>0</NODATA>
+    </ComplexSource>
+  </VRTRasterBand>
+  <VRTRasterBand dataType="Byte" band="24">
+    <NoDataValue>0</NoDataValue>
+    <ComplexSource>
+      <SourceFilename relativeToVRT="1">./binary_rasters_obemme/rast_12.tif</SourceFilename>
+      <SourceBand>1</SourceBand>
+      <SourceProperties RasterXSize="72434" RasterYSize="65676" DataType="Byte" BlockXSize="72434" BlockYSize="1" />
+      <SrcRect xOff="0" yOff="0" xSize="72434" ySize="65676" />
+      <DstRect xOff="0" yOff="0" xSize="72434" ySize="65676" />
+      <NODATA>0</NODATA>
+    </ComplexSource>
+  </VRTRasterBand>
+  <VRTRasterBand dataType="Byte" band="25">
+    <NoDataValue>0</NoDataValue>
+    <ComplexSource>
+      <SourceFilename relativeToVRT="1">./binary_rasters_obemme/rast_120.tif</SourceFilename>
+      <SourceBand>1</SourceBand>
+      <SourceProperties RasterXSize="72434" RasterYSize="65676" DataType="Byte" BlockXSize="72434" BlockYSize="1" />
+      <SrcRect xOff="0" yOff="0" xSize="72434" ySize="65676" />
+      <DstRect xOff="0" yOff="0" xSize="72434" ySize="65676" />
+      <NODATA>0</NODATA>
+    </ComplexSource>
+  </VRTRasterBand>
+  <VRTRasterBand dataType="Byte" band="26">
+    <NoDataValue>0</NoDataValue>
+    <ComplexSource>
+      <SourceFilename relativeToVRT="1">./binary_rasters_obemme/rast_121.tif</SourceFilename>
+      <SourceBand>1</SourceBand>
+      <SourceProperties RasterXSize="72434" RasterYSize="65676" DataType="Byte" BlockXSize="72434" BlockYSize="1" />
+      <SrcRect xOff="0" yOff="0" xSize="72434" ySize="65676" />
+      <DstRect xOff="0" yOff="0" xSize="72434" ySize="65676" />
+      <NODATA>0</NODATA>
+    </ComplexSource>
+  </VRTRasterBand>
+  <VRTRasterBand dataType="Byte" band="27">
+    <NoDataValue>0</NoDataValue>
+    <ComplexSource>
+      <SourceFilename relativeToVRT="1">./binary_rasters_obemme/rast_122.tif</SourceFilename>
+      <SourceBand>1</SourceBand>
+      <SourceProperties RasterXSize="72434" RasterYSize="65676" DataType="Byte" BlockXSize="72434" BlockYSize="1" />
+      <SrcRect xOff="0" yOff="0" xSize="72434" ySize="65676" />
+      <DstRect xOff="0" yOff="0" xSize="72434" ySize="65676" />
+      <NODATA>0</NODATA>
+    </ComplexSource>
+  </VRTRasterBand>
+  <VRTRasterBand dataType="Byte" band="28">
+    <NoDataValue>0</NoDataValue>
+    <ComplexSource>
+      <SourceFilename relativeToVRT="1">./binary_rasters_obemme/rast_123.tif</SourceFilename>
+      <SourceBand>1</SourceBand>
+      <SourceProperties RasterXSize="72434" RasterYSize="65676" DataType="Byte" BlockXSize="72434" BlockYSize="1" />
+      <SrcRect xOff="0" yOff="0" xSize="72434" ySize="65676" />
+      <DstRect xOff="0" yOff="0" xSize="72434" ySize="65676" />
+      <NODATA>0</NODATA>
+    </ComplexSource>
+  </VRTRasterBand>
+  <VRTRasterBand dataType="Byte" band="29">
+    <NoDataValue>0</NoDataValue>
+    <ComplexSource>
+      <SourceFilename relativeToVRT="1">./binary_rasters_obemme/rast_124.tif</SourceFilename>
+      <SourceBand>1</SourceBand>
+      <SourceProperties RasterXSize="72434" RasterYSize="65676" DataType="Byte" BlockXSize="72434" BlockYSize="1" />
+      <SrcRect xOff="0" yOff="0" xSize="72434" ySize="65676" />
+      <DstRect xOff="0" yOff="0" xSize="72434" ySize="65676" />
+      <NODATA>0</NODATA>
+    </ComplexSource>
+  </VRTRasterBand>
+  <VRTRasterBand dataType="Byte" band="30">
+    <NoDataValue>0</NoDataValue>
+    <ComplexSource>
+      <SourceFilename relativeToVRT="1">./binary_rasters_obemme/rast_125.tif</SourceFilename>
+      <SourceBand>1</SourceBand>
+      <SourceProperties RasterXSize="72434" RasterYSize="65676" DataType="Byte" BlockXSize="72434" BlockYSize="1" />
+      <SrcRect xOff="0" yOff="0" xSize="72434" ySize="65676" />
+      <DstRect xOff="0" yOff="0" xSize="72434" ySize="65676" />
+      <NODATA>0</NODATA>
+    </ComplexSource>
+  </VRTRasterBand>
+  <VRTRasterBand dataType="Byte" band="31">
+    <NoDataValue>0</NoDataValue>
+    <ComplexSource>
+      <SourceFilename relativeToVRT="1">./binary_rasters_obemme/rast_126.tif</SourceFilename>
+      <SourceBand>1</SourceBand>
+      <SourceProperties RasterXSize="72434" RasterYSize="65676" DataType="Byte" BlockXSize="72434" BlockYSize="1" />
+      <SrcRect xOff="0" yOff="0" xSize="72434" ySize="65676" />
+      <DstRect xOff="0" yOff="0" xSize="72434" ySize="65676" />
+      <NODATA>0</NODATA>
+    </ComplexSource>
+  </VRTRasterBand>
+  <VRTRasterBand dataType="Byte" band="32">
+    <NoDataValue>0</NoDataValue>
+    <ComplexSource>
+      <SourceFilename relativeToVRT="1">./binary_rasters_obemme/rast_127.tif</SourceFilename>
+      <SourceBand>1</SourceBand>
+      <SourceProperties RasterXSize="72434" RasterYSize="65676" DataType="Byte" BlockXSize="72434" BlockYSize="1" />
+      <SrcRect xOff="0" yOff="0" xSize="72434" ySize="65676" />
+      <DstRect xOff="0" yOff="0" xSize="72434" ySize="65676" />
+      <NODATA>0</NODATA>
+    </ComplexSource>
+  </VRTRasterBand>
+  <VRTRasterBand dataType="Byte" band="33">
+    <NoDataValue>0</NoDataValue>
+    <ComplexSource>
+      <SourceFilename relativeToVRT="1">./binary_rasters_obemme/rast_128.tif</SourceFilename>
+      <SourceBand>1</SourceBand>
+      <SourceProperties RasterXSize="72434" RasterYSize="65676" DataType="Byte" BlockXSize="72434" BlockYSize="1" />
+      <SrcRect xOff="0" yOff="0" xSize="72434" ySize="65676" />
+      <DstRect xOff="0" yOff="0" xSize="72434" ySize="65676" />
+      <NODATA>0</NODATA>
+    </ComplexSource>
+  </VRTRasterBand>
+  <VRTRasterBand dataType="Byte" band="34">
+    <NoDataValue>0</NoDataValue>
+    <ComplexSource>
+      <SourceFilename relativeToVRT="1">./binary_rasters_obemme/rast_129.tif</SourceFilename>
+      <SourceBand>1</SourceBand>
+      <SourceProperties RasterXSize="72434" RasterYSize="65676" DataType="Byte" BlockXSize="72434" BlockYSize="1" />
+      <SrcRect xOff="0" yOff="0" xSize="72434" ySize="65676" />
+      <DstRect xOff="0" yOff="0" xSize="72434" ySize="65676" />
+      <NODATA>0</NODATA>
+    </ComplexSource>
+  </VRTRasterBand>
+  <VRTRasterBand dataType="Byte" band="35">
+    <NoDataValue>0</NoDataValue>
+    <ComplexSource>
+      <SourceFilename relativeToVRT="1">./binary_rasters_obemme/rast_13.tif</SourceFilename>
+      <SourceBand>1</SourceBand>
+      <SourceProperties RasterXSize="72434" RasterYSize="65676" DataType="Byte" BlockXSize="72434" BlockYSize="1" />
+      <SrcRect xOff="0" yOff="0" xSize="72434" ySize="65676" />
+      <DstRect xOff="0" yOff="0" xSize="72434" ySize="65676" />
+      <NODATA>0</NODATA>
+    </ComplexSource>
+  </VRTRasterBand>
+  <VRTRasterBand dataType="Byte" band="36">
+    <NoDataValue>0</NoDataValue>
+    <ComplexSource>
+      <SourceFilename relativeToVRT="1">./binary_rasters_obemme/rast_130.tif</SourceFilename>
+      <SourceBand>1</SourceBand>
+      <SourceProperties RasterXSize="72434" RasterYSize="65676" DataType="Byte" BlockXSize="72434" BlockYSize="1" />
+      <SrcRect xOff="0" yOff="0" xSize="72434" ySize="65676" />
+      <DstRect xOff="0" yOff="0" xSize="72434" ySize="65676" />
+      <NODATA>0</NODATA>
+    </ComplexSource>
+  </VRTRasterBand>
+  <VRTRasterBand dataType="Byte" band="37">
+    <NoDataValue>0</NoDataValue>
+    <ComplexSource>
+      <SourceFilename relativeToVRT="1">./binary_rasters_obemme/rast_131.tif</SourceFilename>
+      <SourceBand>1</SourceBand>
+      <SourceProperties RasterXSize="72434" RasterYSize="65676" DataType="Byte" BlockXSize="72434" BlockYSize="1" />
+      <SrcRect xOff="0" yOff="0" xSize="72434" ySize="65676" />
+      <DstRect xOff="0" yOff="0" xSize="72434" ySize="65676" />
+      <NODATA>0</NODATA>
+    </ComplexSource>
+  </VRTRasterBand>
+  <VRTRasterBand dataType="Byte" band="38">
+    <NoDataValue>0</NoDataValue>
+    <ComplexSource>
+      <SourceFilename relativeToVRT="1">./binary_rasters_obemme/rast_132.tif</SourceFilename>
+      <SourceBand>1</SourceBand>
+      <SourceProperties RasterXSize="72434" RasterYSize="65676" DataType="Byte" BlockXSize="72434" BlockYSize="1" />
+      <SrcRect xOff="0" yOff="0" xSize="72434" ySize="65676" />
+      <DstRect xOff="0" yOff="0" xSize="72434" ySize="65676" />
+      <NODATA>0</NODATA>
+    </ComplexSource>
+  </VRTRasterBand>
+  <VRTRasterBand dataType="Byte" band="39">
+    <NoDataValue>0</NoDataValue>
+    <ComplexSource>
+      <SourceFilename relativeToVRT="1">./binary_rasters_obemme/rast_14.tif</SourceFilename>
+      <SourceBand>1</SourceBand>
+      <SourceProperties RasterXSize="72434" RasterYSize="65676" DataType="Byte" BlockXSize="72434" BlockYSize="1" />
+      <SrcRect xOff="0" yOff="0" xSize="72434" ySize="65676" />
+      <DstRect xOff="0" yOff="0" xSize="72434" ySize="65676" />
+      <NODATA>0</NODATA>
+    </ComplexSource>
+  </VRTRasterBand>
+  <VRTRasterBand dataType="Byte" band="40">
+    <NoDataValue>0</NoDataValue>
+    <ComplexSource>
+      <SourceFilename relativeToVRT="1">./binary_rasters_obemme/rast_15.tif</SourceFilename>
+      <SourceBand>1</SourceBand>
+      <SourceProperties RasterXSize="72434" RasterYSize="65676" DataType="Byte" BlockXSize="72434" BlockYSize="1" />
+      <SrcRect xOff="0" yOff="0" xSize="72434" ySize="65676" />
+      <DstRect xOff="0" yOff="0" xSize="72434" ySize="65676" />
+      <NODATA>0</NODATA>
+    </ComplexSource>
+  </VRTRasterBand>
+  <VRTRasterBand dataType="Byte" band="41">
+    <NoDataValue>0</NoDataValue>
+    <ComplexSource>
+      <SourceFilename relativeToVRT="1">./binary_rasters_obemme/rast_16.tif</SourceFilename>
+      <SourceBand>1</SourceBand>
+      <SourceProperties RasterXSize="72434" RasterYSize="65676" DataType="Byte" BlockXSize="72434" BlockYSize="1" />
+      <SrcRect xOff="0" yOff="0" xSize="72434" ySize="65676" />
+      <DstRect xOff="0" yOff="0" xSize="72434" ySize="65676" />
+      <NODATA>0</NODATA>
+    </ComplexSource>
+  </VRTRasterBand>
+  <VRTRasterBand dataType="Byte" band="42">
+    <NoDataValue>0</NoDataValue>
+    <ComplexSource>
+      <SourceFilename relativeToVRT="1">./binary_rasters_obemme/rast_17.tif</SourceFilename>
+      <SourceBand>1</SourceBand>
+      <SourceProperties RasterXSize="72434" RasterYSize="65676" DataType="Byte" BlockXSize="72434" BlockYSize="1" />
+      <SrcRect xOff="0" yOff="0" xSize="72434" ySize="65676" />
+      <DstRect xOff="0" yOff="0" xSize="72434" ySize="65676" />
+      <NODATA>0</NODATA>
+    </ComplexSource>
+  </VRTRasterBand>
+  <VRTRasterBand dataType="Byte" band="43">
+    <NoDataValue>0</NoDataValue>
+    <ComplexSource>
+      <SourceFilename relativeToVRT="1">./binary_rasters_obemme/rast_18.tif</SourceFilename>
+      <SourceBand>1</SourceBand>
+      <SourceProperties RasterXSize="72434" RasterYSize="65676" DataType="Byte" BlockXSize="72434" BlockYSize="1" />
+      <SrcRect xOff="0" yOff="0" xSize="72434" ySize="65676" />
+      <DstRect xOff="0" yOff="0" xSize="72434" ySize="65676" />
+      <NODATA>0</NODATA>
+    </ComplexSource>
+  </VRTRasterBand>
+  <VRTRasterBand dataType="Byte" band="44">
+    <NoDataValue>0</NoDataValue>
+    <ComplexSource>
+      <SourceFilename relativeToVRT="1">./binary_rasters_obemme/rast_19.tif</SourceFilename>
+      <SourceBand>1</SourceBand>
+      <SourceProperties RasterXSize="72434" RasterYSize="65676" DataType="Byte" BlockXSize="72434" BlockYSize="1" />
+      <SrcRect xOff="0" yOff="0" xSize="72434" ySize="65676" />
+      <DstRect xOff="0" yOff="0" xSize="72434" ySize="65676" />
+      <NODATA>0</NODATA>
+    </ComplexSource>
+  </VRTRasterBand>
+  <VRTRasterBand dataType="Byte" band="45">
+    <NoDataValue>0</NoDataValue>
+    <ComplexSource>
+      <SourceFilename relativeToVRT="1">./binary_rasters_obemme/rast_2.tif</SourceFilename>
+      <SourceBand>1</SourceBand>
+      <SourceProperties RasterXSize="72434" RasterYSize="65676" DataType="Byte" BlockXSize="72434" BlockYSize="1" />
+      <SrcRect xOff="0" yOff="0" xSize="72434" ySize="65676" />
+      <DstRect xOff="0" yOff="0" xSize="72434" ySize="65676" />
+      <NODATA>0</NODATA>
+    </ComplexSource>
+  </VRTRasterBand>
+  <VRTRasterBand dataType="Byte" band="46">
+    <NoDataValue>0</NoDataValue>
+    <ComplexSource>
+      <SourceFilename relativeToVRT="1">./binary_rasters_obemme/rast_20.tif</SourceFilename>
+      <SourceBand>1</SourceBand>
+      <SourceProperties RasterXSize="72434" RasterYSize="65676" DataType="Byte" BlockXSize="72434" BlockYSize="1" />
+      <SrcRect xOff="0" yOff="0" xSize="72434" ySize="65676" />
+      <DstRect xOff="0" yOff="0" xSize="72434" ySize="65676" />
+      <NODATA>0</NODATA>
+    </ComplexSource>
+  </VRTRasterBand>
+  <VRTRasterBand dataType="Byte" band="47">
+    <NoDataValue>0</NoDataValue>
+    <ComplexSource>
+      <SourceFilename relativeToVRT="1">./binary_rasters_obemme/rast_21.tif</SourceFilename>
+      <SourceBand>1</SourceBand>
+      <SourceProperties RasterXSize="72434" RasterYSize="65676" DataType="Byte" BlockXSize="72434" BlockYSize="1" />
+      <SrcRect xOff="0" yOff="0" xSize="72434" ySize="65676" />
+      <DstRect xOff="0" yOff="0" xSize="72434" ySize="65676" />
+      <NODATA>0</NODATA>
+    </ComplexSource>
+  </VRTRasterBand>
+  <VRTRasterBand dataType="Byte" band="48">
+    <NoDataValue>0</NoDataValue>
+    <ComplexSource>
+      <SourceFilename relativeToVRT="1">./binary_rasters_obemme/rast_22.tif</SourceFilename>
+      <SourceBand>1</SourceBand>
+      <SourceProperties RasterXSize="72434" RasterYSize="65676" DataType="Byte" BlockXSize="72434" BlockYSize="1" />
+      <SrcRect xOff="0" yOff="0" xSize="72434" ySize="65676" />
+      <DstRect xOff="0" yOff="0" xSize="72434" ySize="65676" />
+      <NODATA>0</NODATA>
+    </ComplexSource>
+  </VRTRasterBand>
+  <VRTRasterBand dataType="Byte" band="49">
+    <NoDataValue>0</NoDataValue>
+    <ComplexSource>
+      <SourceFilename relativeToVRT="1">./binary_rasters_obemme/rast_23.tif</SourceFilename>
+      <SourceBand>1</SourceBand>
+      <SourceProperties RasterXSize="72434" RasterYSize="65676" DataType="Byte" BlockXSize="72434" BlockYSize="1" />
+      <SrcRect xOff="0" yOff="0" xSize="72434" ySize="65676" />
+      <DstRect xOff="0" yOff="0" xSize="72434" ySize="65676" />
+      <NODATA>0</NODATA>
+    </ComplexSource>
+  </VRTRasterBand>
+  <VRTRasterBand dataType="Byte" band="50">
+    <NoDataValue>0</NoDataValue>
+    <ComplexSource>
+      <SourceFilename relativeToVRT="1">./binary_rasters_obemme/rast_24.tif</SourceFilename>
+      <SourceBand>1</SourceBand>
+      <SourceProperties RasterXSize="72434" RasterYSize="65676" DataType="Byte" BlockXSize="72434" BlockYSize="1" />
+      <SrcRect xOff="0" yOff="0" xSize="72434" ySize="65676" />
+      <DstRect xOff="0" yOff="0" xSize="72434" ySize="65676" />
+      <NODATA>0</NODATA>
+    </ComplexSource>
+  </VRTRasterBand>
+  <VRTRasterBand dataType="Byte" band="51">
+    <NoDataValue>0</NoDataValue>
+    <ComplexSource>
+      <SourceFilename relativeToVRT="1">./binary_rasters_obemme/rast_25.tif</SourceFilename>
+      <SourceBand>1</SourceBand>
+      <SourceProperties RasterXSize="72434" RasterYSize="65676" DataType="Byte" BlockXSize="72434" BlockYSize="1" />
+      <SrcRect xOff="0" yOff="0" xSize="72434" ySize="65676" />
+      <DstRect xOff="0" yOff="0" xSize="72434" ySize="65676" />
+      <NODATA>0</NODATA>
+    </ComplexSource>
+  </VRTRasterBand>
+  <VRTRasterBand dataType="Byte" band="52">
+    <NoDataValue>0</NoDataValue>
+    <ComplexSource>
+      <SourceFilename relativeToVRT="1">./binary_rasters_obemme/rast_26.tif</SourceFilename>
+      <SourceBand>1</SourceBand>
+      <SourceProperties RasterXSize="72434" RasterYSize="65676" DataType="Byte" BlockXSize="72434" BlockYSize="1" />
+      <SrcRect xOff="0" yOff="0" xSize="72434" ySize="65676" />
+      <DstRect xOff="0" yOff="0" xSize="72434" ySize="65676" />
+      <NODATA>0</NODATA>
+    </ComplexSource>
+  </VRTRasterBand>
+  <VRTRasterBand dataType="Byte" band="53">
+    <NoDataValue>0</NoDataValue>
+    <ComplexSource>
+      <SourceFilename relativeToVRT="1">./binary_rasters_obemme/rast_27.tif</SourceFilename>
+      <SourceBand>1</SourceBand>
+      <SourceProperties RasterXSize="72434" RasterYSize="65676" DataType="Byte" BlockXSize="72434" BlockYSize="1" />
+      <SrcRect xOff="0" yOff="0" xSize="72434" ySize="65676" />
+      <DstRect xOff="0" yOff="0" xSize="72434" ySize="65676" />
+      <NODATA>0</NODATA>
+    </ComplexSource>
+  </VRTRasterBand>
+  <VRTRasterBand dataType="Byte" band="54">
+    <NoDataValue>0</NoDataValue>
+    <ComplexSource>
+      <SourceFilename relativeToVRT="1">./binary_rasters_obemme/rast_28.tif</SourceFilename>
+      <SourceBand>1</SourceBand>
+      <SourceProperties RasterXSize="72434" RasterYSize="65676" DataType="Byte" BlockXSize="72434" BlockYSize="1" />
+      <SrcRect xOff="0" yOff="0" xSize="72434" ySize="65676" />
+      <DstRect xOff="0" yOff="0" xSize="72434" ySize="65676" />
+      <NODATA>0</NODATA>
+    </ComplexSource>
+  </VRTRasterBand>
+  <VRTRasterBand dataType="Byte" band="55">
+    <NoDataValue>0</NoDataValue>
+    <ComplexSource>
+      <SourceFilename relativeToVRT="1">./binary_rasters_obemme/rast_29.tif</SourceFilename>
+      <SourceBand>1</SourceBand>
+      <SourceProperties RasterXSize="72434" RasterYSize="65676" DataType="Byte" BlockXSize="72434" BlockYSize="1" />
+      <SrcRect xOff="0" yOff="0" xSize="72434" ySize="65676" />
+      <DstRect xOff="0" yOff="0" xSize="72434" ySize="65676" />
+      <NODATA>0</NODATA>
+    </ComplexSource>
+  </VRTRasterBand>
+  <VRTRasterBand dataType="Byte" band="56">
+    <NoDataValue>0</NoDataValue>
+    <ComplexSource>
+      <SourceFilename relativeToVRT="1">./binary_rasters_obemme/rast_3.tif</SourceFilename>
+      <SourceBand>1</SourceBand>
+      <SourceProperties RasterXSize="72434" RasterYSize="65676" DataType="Byte" BlockXSize="72434" BlockYSize="1" />
+      <SrcRect xOff="0" yOff="0" xSize="72434" ySize="65676" />
+      <DstRect xOff="0" yOff="0" xSize="72434" ySize="65676" />
+      <NODATA>0</NODATA>
+    </ComplexSource>
+  </VRTRasterBand>
+  <VRTRasterBand dataType="Byte" band="57">
+    <NoDataValue>0</NoDataValue>
+    <ComplexSource>
+      <SourceFilename relativeToVRT="1">./binary_rasters_obemme/rast_30.tif</SourceFilename>
+      <SourceBand>1</SourceBand>
+      <SourceProperties RasterXSize="72434" RasterYSize="65676" DataType="Byte" BlockXSize="72434" BlockYSize="1" />
+      <SrcRect xOff="0" yOff="0" xSize="72434" ySize="65676" />
+      <DstRect xOff="0" yOff="0" xSize="72434" ySize="65676" />
+      <NODATA>0</NODATA>
+    </ComplexSource>
+  </VRTRasterBand>
+  <VRTRasterBand dataType="Byte" band="58">
+    <NoDataValue>0</NoDataValue>
+    <ComplexSource>
+      <SourceFilename relativeToVRT="1">./binary_rasters_obemme/rast_31.tif</SourceFilename>
+      <SourceBand>1</SourceBand>
+      <SourceProperties RasterXSize="72434" RasterYSize="65676" DataType="Byte" BlockXSize="72434" BlockYSize="1" />
+      <SrcRect xOff="0" yOff="0" xSize="72434" ySize="65676" />
+      <DstRect xOff="0" yOff="0" xSize="72434" ySize="65676" />
+      <NODATA>0</NODATA>
+    </ComplexSource>
+  </VRTRasterBand>
+  <VRTRasterBand dataType="Byte" band="59">
+    <NoDataValue>0</NoDataValue>
+    <ComplexSource>
+      <SourceFilename relativeToVRT="1">./binary_rasters_obemme/rast_32.tif</SourceFilename>
+      <SourceBand>1</SourceBand>
+      <SourceProperties RasterXSize="72434" RasterYSize="65676" DataType="Byte" BlockXSize="72434" BlockYSize="1" />
+      <SrcRect xOff="0" yOff="0" xSize="72434" ySize="65676" />
+      <DstRect xOff="0" yOff="0" xSize="72434" ySize="65676" />
+      <NODATA>0</NODATA>
+    </ComplexSource>
+  </VRTRasterBand>
+  <VRTRasterBand dataType="Byte" band="60">
+    <NoDataValue>0</NoDataValue>
+    <ComplexSource>
+      <SourceFilename relativeToVRT="1">./binary_rasters_obemme/rast_33.tif</SourceFilename>
+      <SourceBand>1</SourceBand>
+      <SourceProperties RasterXSize="72434" RasterYSize="65676" DataType="Byte" BlockXSize="72434" BlockYSize="1" />
+      <SrcRect xOff="0" yOff="0" xSize="72434" ySize="65676" />
+      <DstRect xOff="0" yOff="0" xSize="72434" ySize="65676" />
+      <NODATA>0</NODATA>
+    </ComplexSource>
+  </VRTRasterBand>
+  <VRTRasterBand dataType="Byte" band="61">
+    <NoDataValue>0</NoDataValue>
+    <ComplexSource>
+      <SourceFilename relativeToVRT="1">./binary_rasters_obemme/rast_34.tif</SourceFilename>
+      <SourceBand>1</SourceBand>
+      <SourceProperties RasterXSize="72434" RasterYSize="65676" DataType="Byte" BlockXSize="72434" BlockYSize="1" />
+      <SrcRect xOff="0" yOff="0" xSize="72434" ySize="65676" />
+      <DstRect xOff="0" yOff="0" xSize="72434" ySize="65676" />
+      <NODATA>0</NODATA>
+    </ComplexSource>
+  </VRTRasterBand>
+  <VRTRasterBand dataType="Byte" band="62">
+    <NoDataValue>0</NoDataValue>
+    <ComplexSource>
+      <SourceFilename relativeToVRT="1">./binary_rasters_obemme/rast_35.tif</SourceFilename>
+      <SourceBand>1</SourceBand>
+      <SourceProperties RasterXSize="72434" RasterYSize="65676" DataType="Byte" BlockXSize="72434" BlockYSize="1" />
+      <SrcRect xOff="0" yOff="0" xSize="72434" ySize="65676" />
+      <DstRect xOff="0" yOff="0" xSize="72434" ySize="65676" />
+      <NODATA>0</NODATA>
+    </ComplexSource>
+  </VRTRasterBand>
+  <VRTRasterBand dataType="Byte" band="63">
+    <NoDataValue>0</NoDataValue>
+    <ComplexSource>
+      <SourceFilename relativeToVRT="1">./binary_rasters_obemme/rast_36.tif</SourceFilename>
+      <SourceBand>1</SourceBand>
+      <SourceProperties RasterXSize="72434" RasterYSize="65676" DataType="Byte" BlockXSize="72434" BlockYSize="1" />
+      <SrcRect xOff="0" yOff="0" xSize="72434" ySize="65676" />
+      <DstRect xOff="0" yOff="0" xSize="72434" ySize="65676" />
+      <NODATA>0</NODATA>
+    </ComplexSource>
+  </VRTRasterBand>
+  <VRTRasterBand dataType="Byte" band="64">
+    <NoDataValue>0</NoDataValue>
+    <ComplexSource>
+      <SourceFilename relativeToVRT="1">./binary_rasters_obemme/rast_37.tif</SourceFilename>
+      <SourceBand>1</SourceBand>
+      <SourceProperties RasterXSize="72434" RasterYSize="65676" DataType="Byte" BlockXSize="72434" BlockYSize="1" />
+      <SrcRect xOff="0" yOff="0" xSize="72434" ySize="65676" />
+      <DstRect xOff="0" yOff="0" xSize="72434" ySize="65676" />
+      <NODATA>0</NODATA>
+    </ComplexSource>
+  </VRTRasterBand>
+  <VRTRasterBand dataType="Byte" band="65">
+    <NoDataValue>0</NoDataValue>
+    <ComplexSource>
+      <SourceFilename relativeToVRT="1">./binary_rasters_obemme/rast_38.tif</SourceFilename>
+      <SourceBand>1</SourceBand>
+      <SourceProperties RasterXSize="72434" RasterYSize="65676" DataType="Byte" BlockXSize="72434" BlockYSize="1" />
+      <SrcRect xOff="0" yOff="0" xSize="72434" ySize="65676" />
+      <DstRect xOff="0" yOff="0" xSize="72434" ySize="65676" />
+      <NODATA>0</NODATA>
+    </ComplexSource>
+  </VRTRasterBand>
+  <VRTRasterBand dataType="Byte" band="66">
+    <NoDataValue>0</NoDataValue>
+    <ComplexSource>
+      <SourceFilename relativeToVRT="1">./binary_rasters_obemme/rast_39.tif</SourceFilename>
+      <SourceBand>1</SourceBand>
+      <SourceProperties RasterXSize="72434" RasterYSize="65676" DataType="Byte" BlockXSize="72434" BlockYSize="1" />
+      <SrcRect xOff="0" yOff="0" xSize="72434" ySize="65676" />
+      <DstRect xOff="0" yOff="0" xSize="72434" ySize="65676" />
+      <NODATA>0</NODATA>
+    </ComplexSource>
+  </VRTRasterBand>
+  <VRTRasterBand dataType="Byte" band="67">
+    <NoDataValue>0</NoDataValue>
+    <ComplexSource>
+      <SourceFilename relativeToVRT="1">./binary_rasters_obemme/rast_4.tif</SourceFilename>
+      <SourceBand>1</SourceBand>
+      <SourceProperties RasterXSize="72434" RasterYSize="65676" DataType="Byte" BlockXSize="72434" BlockYSize="1" />
+      <SrcRect xOff="0" yOff="0" xSize="72434" ySize="65676" />
+      <DstRect xOff="0" yOff="0" xSize="72434" ySize="65676" />
+      <NODATA>0</NODATA>
+    </ComplexSource>
+  </VRTRasterBand>
+  <VRTRasterBand dataType="Byte" band="68">
+    <NoDataValue>0</NoDataValue>
+    <ComplexSource>
+      <SourceFilename relativeToVRT="1">./binary_rasters_obemme/rast_40.tif</SourceFilename>
+      <SourceBand>1</SourceBand>
+      <SourceProperties RasterXSize="72434" RasterYSize="65676" DataType="Byte" BlockXSize="72434" BlockYSize="1" />
+      <SrcRect xOff="0" yOff="0" xSize="72434" ySize="65676" />
+      <DstRect xOff="0" yOff="0" xSize="72434" ySize="65676" />
+      <NODATA>0</NODATA>
+    </ComplexSource>
+  </VRTRasterBand>
+  <VRTRasterBand dataType="Byte" band="69">
+    <NoDataValue>0</NoDataValue>
+    <ComplexSource>
+      <SourceFilename relativeToVRT="1">./binary_rasters_obemme/rast_41.tif</SourceFilename>
+      <SourceBand>1</SourceBand>
+      <SourceProperties RasterXSize="72434" RasterYSize="65676" DataType="Byte" BlockXSize="72434" BlockYSize="1" />
+      <SrcRect xOff="0" yOff="0" xSize="72434" ySize="65676" />
+      <DstRect xOff="0" yOff="0" xSize="72434" ySize="65676" />
+      <NODATA>0</NODATA>
+    </ComplexSource>
+  </VRTRasterBand>
+  <VRTRasterBand dataType="Byte" band="70">
+    <NoDataValue>0</NoDataValue>
+    <ComplexSource>
+      <SourceFilename relativeToVRT="1">./binary_rasters_obemme/rast_42.tif</SourceFilename>
+      <SourceBand>1</SourceBand>
+      <SourceProperties RasterXSize="72434" RasterYSize="65676" DataType="Byte" BlockXSize="72434" BlockYSize="1" />
+      <SrcRect xOff="0" yOff="0" xSize="72434" ySize="65676" />
+      <DstRect xOff="0" yOff="0" xSize="72434" ySize="65676" />
+      <NODATA>0</NODATA>
+    </ComplexSource>
+  </VRTRasterBand>
+  <VRTRasterBand dataType="Byte" band="71">
+    <NoDataValue>0</NoDataValue>
+    <ComplexSource>
+      <SourceFilename relativeToVRT="1">./binary_rasters_obemme/rast_43.tif</SourceFilename>
+      <SourceBand>1</SourceBand>
+      <SourceProperties RasterXSize="72434" RasterYSize="65676" DataType="Byte" BlockXSize="72434" BlockYSize="1" />
+      <SrcRect xOff="0" yOff="0" xSize="72434" ySize="65676" />
+      <DstRect xOff="0" yOff="0" xSize="72434" ySize="65676" />
+      <NODATA>0</NODATA>
+    </ComplexSource>
+  </VRTRasterBand>
+  <VRTRasterBand dataType="Byte" band="72">
+    <NoDataValue>0</NoDataValue>
+    <ComplexSource>
+      <SourceFilename relativeToVRT="1">./binary_rasters_obemme/rast_44.tif</SourceFilename>
+      <SourceBand>1</SourceBand>
+      <SourceProperties RasterXSize="72434" RasterYSize="65676" DataType="Byte" BlockXSize="72434" BlockYSize="1" />
+      <SrcRect xOff="0" yOff="0" xSize="72434" ySize="65676" />
+      <DstRect xOff="0" yOff="0" xSize="72434" ySize="65676" />
+      <NODATA>0</NODATA>
+    </ComplexSource>
+  </VRTRasterBand>
+  <VRTRasterBand dataType="Byte" band="73">
+    <NoDataValue>0</NoDataValue>
+    <ComplexSource>
+      <SourceFilename relativeToVRT="1">./binary_rasters_obemme/rast_45.tif</SourceFilename>
+      <SourceBand>1</SourceBand>
+      <SourceProperties RasterXSize="72434" RasterYSize="65676" DataType="Byte" BlockXSize="72434" BlockYSize="1" />
+      <SrcRect xOff="0" yOff="0" xSize="72434" ySize="65676" />
+      <DstRect xOff="0" yOff="0" xSize="72434" ySize="65676" />
+      <NODATA>0</NODATA>
+    </ComplexSource>
+  </VRTRasterBand>
+  <VRTRasterBand dataType="Byte" band="74">
+    <NoDataValue>0</NoDataValue>
+    <ComplexSource>
+      <SourceFilename relativeToVRT="1">./binary_rasters_obemme/rast_46.tif</SourceFilename>
+      <SourceBand>1</SourceBand>
+      <SourceProperties RasterXSize="72434" RasterYSize="65676" DataType="Byte" BlockXSize="72434" BlockYSize="1" />
+      <SrcRect xOff="0" yOff="0" xSize="72434" ySize="65676" />
+      <DstRect xOff="0" yOff="0" xSize="72434" ySize="65676" />
+      <NODATA>0</NODATA>
+    </ComplexSource>
+  </VRTRasterBand>
+  <VRTRasterBand dataType="Byte" band="75">
+    <NoDataValue>0</NoDataValue>
+    <ComplexSource>
+      <SourceFilename relativeToVRT="1">./binary_rasters_obemme/rast_47.tif</SourceFilename>
+      <SourceBand>1</SourceBand>
+      <SourceProperties RasterXSize="72434" RasterYSize="65676" DataType="Byte" BlockXSize="72434" BlockYSize="1" />
+      <SrcRect xOff="0" yOff="0" xSize="72434" ySize="65676" />
+      <DstRect xOff="0" yOff="0" xSize="72434" ySize="65676" />
+      <NODATA>0</NODATA>
+    </ComplexSource>
+  </VRTRasterBand>
+  <VRTRasterBand dataType="Byte" band="76">
+    <NoDataValue>0</NoDataValue>
+    <ComplexSource>
+      <SourceFilename relativeToVRT="1">./binary_rasters_obemme/rast_48.tif</SourceFilename>
+      <SourceBand>1</SourceBand>
+      <SourceProperties RasterXSize="72434" RasterYSize="65676" DataType="Byte" BlockXSize="72434" BlockYSize="1" />
+      <SrcRect xOff="0" yOff="0" xSize="72434" ySize="65676" />
+      <DstRect xOff="0" yOff="0" xSize="72434" ySize="65676" />
+      <NODATA>0</NODATA>
+    </ComplexSource>
+  </VRTRasterBand>
+  <VRTRasterBand dataType="Byte" band="77">
+    <NoDataValue>0</NoDataValue>
+    <ComplexSource>
+      <SourceFilename relativeToVRT="1">./binary_rasters_obemme/rast_49.tif</SourceFilename>
+      <SourceBand>1</SourceBand>
+      <SourceProperties RasterXSize="72434" RasterYSize="65676" DataType="Byte" BlockXSize="72434" BlockYSize="1" />
+      <SrcRect xOff="0" yOff="0" xSize="72434" ySize="65676" />
+      <DstRect xOff="0" yOff="0" xSize="72434" ySize="65676" />
+      <NODATA>0</NODATA>
+    </ComplexSource>
+  </VRTRasterBand>
+  <VRTRasterBand dataType="Byte" band="78">
+    <NoDataValue>0</NoDataValue>
+    <ComplexSource>
+      <SourceFilename relativeToVRT="1">./binary_rasters_obemme/rast_5.tif</SourceFilename>
+      <SourceBand>1</SourceBand>
+      <SourceProperties RasterXSize="72434" RasterYSize="65676" DataType="Byte" BlockXSize="72434" BlockYSize="1" />
+      <SrcRect xOff="0" yOff="0" xSize="72434" ySize="65676" />
+      <DstRect xOff="0" yOff="0" xSize="72434" ySize="65676" />
+      <NODATA>0</NODATA>
+    </ComplexSource>
+  </VRTRasterBand>
+  <VRTRasterBand dataType="Byte" band="79">
+    <NoDataValue>0</NoDataValue>
+    <ComplexSource>
+      <SourceFilename relativeToVRT="1">./binary_rasters_obemme/rast_50.tif</SourceFilename>
+      <SourceBand>1</SourceBand>
+      <SourceProperties RasterXSize="72434" RasterYSize="65676" DataType="Byte" BlockXSize="72434" BlockYSize="1" />
+      <SrcRect xOff="0" yOff="0" xSize="72434" ySize="65676" />
+      <DstRect xOff="0" yOff="0" xSize="72434" ySize="65676" />
+      <NODATA>0</NODATA>
+    </ComplexSource>
+  </VRTRasterBand>
+  <VRTRasterBand dataType="Byte" band="80">
+    <NoDataValue>0</NoDataValue>
+    <ComplexSource>
+      <SourceFilename relativeToVRT="1">./binary_rasters_obemme/rast_51.tif</SourceFilename>
+      <SourceBand>1</SourceBand>
+      <SourceProperties RasterXSize="72434" RasterYSize="65676" DataType="Byte" BlockXSize="72434" BlockYSize="1" />
+      <SrcRect xOff="0" yOff="0" xSize="72434" ySize="65676" />
+      <DstRect xOff="0" yOff="0" xSize="72434" ySize="65676" />
+      <NODATA>0</NODATA>
+    </ComplexSource>
+  </VRTRasterBand>
+  <VRTRasterBand dataType="Byte" band="81">
+    <NoDataValue>0</NoDataValue>
+    <ComplexSource>
+      <SourceFilename relativeToVRT="1">./binary_rasters_obemme/rast_52.tif</SourceFilename>
+      <SourceBand>1</SourceBand>
+      <SourceProperties RasterXSize="72434" RasterYSize="65676" DataType="Byte" BlockXSize="72434" BlockYSize="1" />
+      <SrcRect xOff="0" yOff="0" xSize="72434" ySize="65676" />
+      <DstRect xOff="0" yOff="0" xSize="72434" ySize="65676" />
+      <NODATA>0</NODATA>
+    </ComplexSource>
+  </VRTRasterBand>
+  <VRTRasterBand dataType="Byte" band="82">
+    <NoDataValue>0</NoDataValue>
+    <ComplexSource>
+      <SourceFilename relativeToVRT="1">./binary_rasters_obemme/rast_53.tif</SourceFilename>
+      <SourceBand>1</SourceBand>
+      <SourceProperties RasterXSize="72434" RasterYSize="65676" DataType="Byte" BlockXSize="72434" BlockYSize="1" />
+      <SrcRect xOff="0" yOff="0" xSize="72434" ySize="65676" />
+      <DstRect xOff="0" yOff="0" xSize="72434" ySize="65676" />
+      <NODATA>0</NODATA>
+    </ComplexSource>
+  </VRTRasterBand>
+  <VRTRasterBand dataType="Byte" band="83">
+    <NoDataValue>0</NoDataValue>
+    <ComplexSource>
+      <SourceFilename relativeToVRT="1">./binary_rasters_obemme/rast_54.tif</SourceFilename>
+      <SourceBand>1</SourceBand>
+      <SourceProperties RasterXSize="72434" RasterYSize="65676" DataType="Byte" BlockXSize="72434" BlockYSize="1" />
+      <SrcRect xOff="0" yOff="0" xSize="72434" ySize="65676" />
+      <DstRect xOff="0" yOff="0" xSize="72434" ySize="65676" />
+      <NODATA>0</NODATA>
+    </ComplexSource>
+  </VRTRasterBand>
+  <VRTRasterBand dataType="Byte" band="84">
+    <NoDataValue>0</NoDataValue>
+    <ComplexSource>
+      <SourceFilename relativeToVRT="1">./binary_rasters_obemme/rast_55.tif</SourceFilename>
+      <SourceBand>1</SourceBand>
+      <SourceProperties RasterXSize="72434" RasterYSize="65676" DataType="Byte" BlockXSize="72434" BlockYSize="1" />
+      <SrcRect xOff="0" yOff="0" xSize="72434" ySize="65676" />
+      <DstRect xOff="0" yOff="0" xSize="72434" ySize="65676" />
+      <NODATA>0</NODATA>
+    </ComplexSource>
+  </VRTRasterBand>
+  <VRTRasterBand dataType="Byte" band="85">
+    <NoDataValue>0</NoDataValue>
+    <ComplexSource>
+      <SourceFilename relativeToVRT="1">./binary_rasters_obemme/rast_56.tif</SourceFilename>
+      <SourceBand>1</SourceBand>
+      <SourceProperties RasterXSize="72434" RasterYSize="65676" DataType="Byte" BlockXSize="72434" BlockYSize="1" />
+      <SrcRect xOff="0" yOff="0" xSize="72434" ySize="65676" />
+      <DstRect xOff="0" yOff="0" xSize="72434" ySize="65676" />
+      <NODATA>0</NODATA>
+    </ComplexSource>
+  </VRTRasterBand>
+  <VRTRasterBand dataType="Byte" band="86">
+    <NoDataValue>0</NoDataValue>
+    <ComplexSource>
+      <SourceFilename relativeToVRT="1">./binary_rasters_obemme/rast_57.tif</SourceFilename>
+      <SourceBand>1</SourceBand>
+      <SourceProperties RasterXSize="72434" RasterYSize="65676" DataType="Byte" BlockXSize="72434" BlockYSize="1" />
+      <SrcRect xOff="0" yOff="0" xSize="72434" ySize="65676" />
+      <DstRect xOff="0" yOff="0" xSize="72434" ySize="65676" />
+      <NODATA>0</NODATA>
+    </ComplexSource>
+  </VRTRasterBand>
+  <VRTRasterBand dataType="Byte" band="87">
+    <NoDataValue>0</NoDataValue>
+    <ComplexSource>
+      <SourceFilename relativeToVRT="1">./binary_rasters_obemme/rast_58.tif</SourceFilename>
+      <SourceBand>1</SourceBand>
+      <SourceProperties RasterXSize="72434" RasterYSize="65676" DataType="Byte" BlockXSize="72434" BlockYSize="1" />
+      <SrcRect xOff="0" yOff="0" xSize="72434" ySize="65676" />
+      <DstRect xOff="0" yOff="0" xSize="72434" ySize="65676" />
+      <NODATA>0</NODATA>
+    </ComplexSource>
+  </VRTRasterBand>
+  <VRTRasterBand dataType="Byte" band="88">
+    <NoDataValue>0</NoDataValue>
+    <ComplexSource>
+      <SourceFilename relativeToVRT="1">./binary_rasters_obemme/rast_59.tif</SourceFilename>
+      <SourceBand>1</SourceBand>
+      <SourceProperties RasterXSize="72434" RasterYSize="65676" DataType="Byte" BlockXSize="72434" BlockYSize="1" />
+      <SrcRect xOff="0" yOff="0" xSize="72434" ySize="65676" />
+      <DstRect xOff="0" yOff="0" xSize="72434" ySize="65676" />
+      <NODATA>0</NODATA>
+    </ComplexSource>
+  </VRTRasterBand>
+  <VRTRasterBand dataType="Byte" band="89">
+    <NoDataValue>0</NoDataValue>
+    <ComplexSource>
+      <SourceFilename relativeToVRT="1">./binary_rasters_obemme/rast_6.tif</SourceFilename>
+      <SourceBand>1</SourceBand>
+      <SourceProperties RasterXSize="72434" RasterYSize="65676" DataType="Byte" BlockXSize="72434" BlockYSize="1" />
+      <SrcRect xOff="0" yOff="0" xSize="72434" ySize="65676" />
+      <DstRect xOff="0" yOff="0" xSize="72434" ySize="65676" />
+      <NODATA>0</NODATA>
+    </ComplexSource>
+  </VRTRasterBand>
+  <VRTRasterBand dataType="Byte" band="90">
+    <NoDataValue>0</NoDataValue>
+    <ComplexSource>
+      <SourceFilename relativeToVRT="1">./binary_rasters_obemme/rast_60.tif</SourceFilename>
+      <SourceBand>1</SourceBand>
+      <SourceProperties RasterXSize="72434" RasterYSize="65676" DataType="Byte" BlockXSize="72434" BlockYSize="1" />
+      <SrcRect xOff="0" yOff="0" xSize="72434" ySize="65676" />
+      <DstRect xOff="0" yOff="0" xSize="72434" ySize="65676" />
+      <NODATA>0</NODATA>
+    </ComplexSource>
+  </VRTRasterBand>
+  <VRTRasterBand dataType="Byte" band="91">
+    <NoDataValue>0</NoDataValue>
+    <ComplexSource>
+      <SourceFilename relativeToVRT="1">./binary_rasters_obemme/rast_61.tif</SourceFilename>
+      <SourceBand>1</SourceBand>
+      <SourceProperties RasterXSize="72434" RasterYSize="65676" DataType="Byte" BlockXSize="72434" BlockYSize="1" />
+      <SrcRect xOff="0" yOff="0" xSize="72434" ySize="65676" />
+      <DstRect xOff="0" yOff="0" xSize="72434" ySize="65676" />
+      <NODATA>0</NODATA>
+    </ComplexSource>
+  </VRTRasterBand>
+  <VRTRasterBand dataType="Byte" band="92">
+    <NoDataValue>0</NoDataValue>
+    <ComplexSource>
+      <SourceFilename relativeToVRT="1">./binary_rasters_obemme/rast_62.tif</SourceFilename>
+      <SourceBand>1</SourceBand>
+      <SourceProperties RasterXSize="72434" RasterYSize="65676" DataType="Byte" BlockXSize="72434" BlockYSize="1" />
+      <SrcRect xOff="0" yOff="0" xSize="72434" ySize="65676" />
+      <DstRect xOff="0" yOff="0" xSize="72434" ySize="65676" />
+      <NODATA>0</NODATA>
+    </ComplexSource>
+  </VRTRasterBand>
+  <VRTRasterBand dataType="Byte" band="93">
+    <NoDataValue>0</NoDataValue>
+    <ComplexSource>
+      <SourceFilename relativeToVRT="1">./binary_rasters_obemme/rast_63.tif</SourceFilename>
+      <SourceBand>1</SourceBand>
+      <SourceProperties RasterXSize="72434" RasterYSize="65676" DataType="Byte" BlockXSize="72434" BlockYSize="1" />
+      <SrcRect xOff="0" yOff="0" xSize="72434" ySize="65676" />
+      <DstRect xOff="0" yOff="0" xSize="72434" ySize="65676" />
+      <NODATA>0</NODATA>
+    </ComplexSource>
+  </VRTRasterBand>
+  <VRTRasterBand dataType="Byte" band="94">
+    <NoDataValue>0</NoDataValue>
+    <ComplexSource>
+      <SourceFilename relativeToVRT="1">./binary_rasters_obemme/rast_64.tif</SourceFilename>
+      <SourceBand>1</SourceBand>
+      <SourceProperties RasterXSize="72434" RasterYSize="65676" DataType="Byte" BlockXSize="72434" BlockYSize="1" />
+      <SrcRect xOff="0" yOff="0" xSize="72434" ySize="65676" />
+      <DstRect xOff="0" yOff="0" xSize="72434" ySize="65676" />
+      <NODATA>0</NODATA>
+    </ComplexSource>
+  </VRTRasterBand>
+  <VRTRasterBand dataType="Byte" band="95">
+    <NoDataValue>0</NoDataValue>
+    <ComplexSource>
+      <SourceFilename relativeToVRT="1">./binary_rasters_obemme/rast_65.tif</SourceFilename>
+      <SourceBand>1</SourceBand>
+      <SourceProperties RasterXSize="72434" RasterYSize="65676" DataType="Byte" BlockXSize="72434" BlockYSize="1" />
+      <SrcRect xOff="0" yOff="0" xSize="72434" ySize="65676" />
+      <DstRect xOff="0" yOff="0" xSize="72434" ySize="65676" />
+      <NODATA>0</NODATA>
+    </ComplexSource>
+  </VRTRasterBand>
+  <VRTRasterBand dataType="Byte" band="96">
+    <NoDataValue>0</NoDataValue>
+    <ComplexSource>
+      <SourceFilename relativeToVRT="1">./binary_rasters_obemme/rast_66.tif</SourceFilename>
+      <SourceBand>1</SourceBand>
+      <SourceProperties RasterXSize="72434" RasterYSize="65676" DataType="Byte" BlockXSize="72434" BlockYSize="1" />
+      <SrcRect xOff="0" yOff="0" xSize="72434" ySize="65676" />
+      <DstRect xOff="0" yOff="0" xSize="72434" ySize="65676" />
+      <NODATA>0</NODATA>
+    </ComplexSource>
+  </VRTRasterBand>
+  <VRTRasterBand dataType="Byte" band="97">
+    <NoDataValue>0</NoDataValue>
+    <ComplexSource>
+      <SourceFilename relativeToVRT="1">./binary_rasters_obemme/rast_67.tif</SourceFilename>
+      <SourceBand>1</SourceBand>
+      <SourceProperties RasterXSize="72434" RasterYSize="65676" DataType="Byte" BlockXSize="72434" BlockYSize="1" />
+      <SrcRect xOff="0" yOff="0" xSize="72434" ySize="65676" />
+      <DstRect xOff="0" yOff="0" xSize="72434" ySize="65676" />
+      <NODATA>0</NODATA>
+    </ComplexSource>
+  </VRTRasterBand>
+  <VRTRasterBand dataType="Byte" band="98">
+    <NoDataValue>0</NoDataValue>
+    <ComplexSource>
+      <SourceFilename relativeToVRT="1">./binary_rasters_obemme/rast_68.tif</SourceFilename>
+      <SourceBand>1</SourceBand>
+      <SourceProperties RasterXSize="72434" RasterYSize="65676" DataType="Byte" BlockXSize="72434" BlockYSize="1" />
+      <SrcRect xOff="0" yOff="0" xSize="72434" ySize="65676" />
+      <DstRect xOff="0" yOff="0" xSize="72434" ySize="65676" />
+      <NODATA>0</NODATA>
+    </ComplexSource>
+  </VRTRasterBand>
+  <VRTRasterBand dataType="Byte" band="99">
+    <NoDataValue>0</NoDataValue>
+    <ComplexSource>
+      <SourceFilename relativeToVRT="1">./binary_rasters_obemme/rast_69.tif</SourceFilename>
+      <SourceBand>1</SourceBand>
+      <SourceProperties RasterXSize="72434" RasterYSize="65676" DataType="Byte" BlockXSize="72434" BlockYSize="1" />
+      <SrcRect xOff="0" yOff="0" xSize="72434" ySize="65676" />
+      <DstRect xOff="0" yOff="0" xSize="72434" ySize="65676" />
+      <NODATA>0</NODATA>
+    </ComplexSource>
+  </VRTRasterBand>
+  <VRTRasterBand dataType="Byte" band="100">
+    <NoDataValue>0</NoDataValue>
+    <ComplexSource>
+      <SourceFilename relativeToVRT="1">./binary_rasters_obemme/rast_7.tif</SourceFilename>
+      <SourceBand>1</SourceBand>
+      <SourceProperties RasterXSize="72434" RasterYSize="65676" DataType="Byte" BlockXSize="72434" BlockYSize="1" />
+      <SrcRect xOff="0" yOff="0" xSize="72434" ySize="65676" />
+      <DstRect xOff="0" yOff="0" xSize="72434" ySize="65676" />
+      <NODATA>0</NODATA>
+    </ComplexSource>
+  </VRTRasterBand>
+  <VRTRasterBand dataType="Byte" band="101">
+    <NoDataValue>0</NoDataValue>
+    <ComplexSource>
+      <SourceFilename relativeToVRT="1">./binary_rasters_obemme/rast_70.tif</SourceFilename>
+      <SourceBand>1</SourceBand>
+      <SourceProperties RasterXSize="72434" RasterYSize="65676" DataType="Byte" BlockXSize="72434" BlockYSize="1" />
+      <SrcRect xOff="0" yOff="0" xSize="72434" ySize="65676" />
+      <DstRect xOff="0" yOff="0" xSize="72434" ySize="65676" />
+      <NODATA>0</NODATA>
+    </ComplexSource>
+  </VRTRasterBand>
+  <VRTRasterBand dataType="Byte" band="102">
+    <NoDataValue>0</NoDataValue>
+    <ComplexSource>
+      <SourceFilename relativeToVRT="1">./binary_rasters_obemme/rast_71.tif</SourceFilename>
+      <SourceBand>1</SourceBand>
+      <SourceProperties RasterXSize="72434" RasterYSize="65676" DataType="Byte" BlockXSize="72434" BlockYSize="1" />
+      <SrcRect xOff="0" yOff="0" xSize="72434" ySize="65676" />
+      <DstRect xOff="0" yOff="0" xSize="72434" ySize="65676" />
+      <NODATA>0</NODATA>
+    </ComplexSource>
+  </VRTRasterBand>
+  <VRTRasterBand dataType="Byte" band="103">
+    <NoDataValue>0</NoDataValue>
+    <ComplexSource>
+      <SourceFilename relativeToVRT="1">./binary_rasters_obemme/rast_72.tif</SourceFilename>
+      <SourceBand>1</SourceBand>
+      <SourceProperties RasterXSize="72434" RasterYSize="65676" DataType="Byte" BlockXSize="72434" BlockYSize="1" />
+      <SrcRect xOff="0" yOff="0" xSize="72434" ySize="65676" />
+      <DstRect xOff="0" yOff="0" xSize="72434" ySize="65676" />
+      <NODATA>0</NODATA>
+    </ComplexSource>
+  </VRTRasterBand>
+  <VRTRasterBand dataType="Byte" band="104">
+    <NoDataValue>0</NoDataValue>
+    <ComplexSource>
+      <SourceFilename relativeToVRT="1">./binary_rasters_obemme/rast_73.tif</SourceFilename>
+      <SourceBand>1</SourceBand>
+      <SourceProperties RasterXSize="72434" RasterYSize="65676" DataType="Byte" BlockXSize="72434" BlockYSize="1" />
+      <SrcRect xOff="0" yOff="0" xSize="72434" ySize="65676" />
+      <DstRect xOff="0" yOff="0" xSize="72434" ySize="65676" />
+      <NODATA>0</NODATA>
+    </ComplexSource>
+  </VRTRasterBand>
+  <VRTRasterBand dataType="Byte" band="105">
+    <NoDataValue>0</NoDataValue>
+    <ComplexSource>
+      <SourceFilename relativeToVRT="1">./binary_rasters_obemme/rast_74.tif</SourceFilename>
+      <SourceBand>1</SourceBand>
+      <SourceProperties RasterXSize="72434" RasterYSize="65676" DataType="Byte" BlockXSize="72434" BlockYSize="1" />
+      <SrcRect xOff="0" yOff="0" xSize="72434" ySize="65676" />
+      <DstRect xOff="0" yOff="0" xSize="72434" ySize="65676" />
+      <NODATA>0</NODATA>
+    </ComplexSource>
+  </VRTRasterBand>
+  <VRTRasterBand dataType="Byte" band="106">
+    <NoDataValue>0</NoDataValue>
+    <ComplexSource>
+      <SourceFilename relativeToVRT="1">./binary_rasters_obemme/rast_75.tif</SourceFilename>
+      <SourceBand>1</SourceBand>
+      <SourceProperties RasterXSize="72434" RasterYSize="65676" DataType="Byte" BlockXSize="72434" BlockYSize="1" />
+      <SrcRect xOff="0" yOff="0" xSize="72434" ySize="65676" />
+      <DstRect xOff="0" yOff="0" xSize="72434" ySize="65676" />
+      <NODATA>0</NODATA>
+    </ComplexSource>
+  </VRTRasterBand>
+  <VRTRasterBand dataType="Byte" band="107">
+    <NoDataValue>0</NoDataValue>
+    <ComplexSource>
+      <SourceFilename relativeToVRT="1">./binary_rasters_obemme/rast_76.tif</SourceFilename>
+      <SourceBand>1</SourceBand>
+      <SourceProperties RasterXSize="72434" RasterYSize="65676" DataType="Byte" BlockXSize="72434" BlockYSize="1" />
+      <SrcRect xOff="0" yOff="0" xSize="72434" ySize="65676" />
+      <DstRect xOff="0" yOff="0" xSize="72434" ySize="65676" />
+      <NODATA>0</NODATA>
+    </ComplexSource>
+  </VRTRasterBand>
+  <VRTRasterBand dataType="Byte" band="108">
+    <NoDataValue>0</NoDataValue>
+    <ComplexSource>
+      <SourceFilename relativeToVRT="1">./binary_rasters_obemme/rast_77.tif</SourceFilename>
+      <SourceBand>1</SourceBand>
+      <SourceProperties RasterXSize="72434" RasterYSize="65676" DataType="Byte" BlockXSize="72434" BlockYSize="1" />
+      <SrcRect xOff="0" yOff="0" xSize="72434" ySize="65676" />
+      <DstRect xOff="0" yOff="0" xSize="72434" ySize="65676" />
+      <NODATA>0</NODATA>
+    </ComplexSource>
+  </VRTRasterBand>
+  <VRTRasterBand dataType="Byte" band="109">
+    <NoDataValue>0</NoDataValue>
+    <ComplexSource>
+      <SourceFilename relativeToVRT="1">./binary_rasters_obemme/rast_78.tif</SourceFilename>
+      <SourceBand>1</SourceBand>
+      <SourceProperties RasterXSize="72434" RasterYSize="65676" DataType="Byte" BlockXSize="72434" BlockYSize="1" />
+      <SrcRect xOff="0" yOff="0" xSize="72434" ySize="65676" />
+      <DstRect xOff="0" yOff="0" xSize="72434" ySize="65676" />
+      <NODATA>0</NODATA>
+    </ComplexSource>
+  </VRTRasterBand>
+  <VRTRasterBand dataType="Byte" band="110">
+    <NoDataValue>0</NoDataValue>
+    <ComplexSource>
+      <SourceFilename relativeToVRT="1">./binary_rasters_obemme/rast_79.tif</SourceFilename>
+      <SourceBand>1</SourceBand>
+      <SourceProperties RasterXSize="72434" RasterYSize="65676" DataType="Byte" BlockXSize="72434" BlockYSize="1" />
+      <SrcRect xOff="0" yOff="0" xSize="72434" ySize="65676" />
+      <DstRect xOff="0" yOff="0" xSize="72434" ySize="65676" />
+      <NODATA>0</NODATA>
+    </ComplexSource>
+  </VRTRasterBand>
+  <VRTRasterBand dataType="Byte" band="111">
+    <NoDataValue>0</NoDataValue>
+    <ComplexSource>
+      <SourceFilename relativeToVRT="1">./binary_rasters_obemme/rast_8.tif</SourceFilename>
+      <SourceBand>1</SourceBand>
+      <SourceProperties RasterXSize="72434" RasterYSize="65676" DataType="Byte" BlockXSize="72434" BlockYSize="1" />
+      <SrcRect xOff="0" yOff="0" xSize="72434" ySize="65676" />
+      <DstRect xOff="0" yOff="0" xSize="72434" ySize="65676" />
+      <NODATA>0</NODATA>
+    </ComplexSource>
+  </VRTRasterBand>
+  <VRTRasterBand dataType="Byte" band="112">
+    <NoDataValue>0</NoDataValue>
+    <ComplexSource>
+      <SourceFilename relativeToVRT="1">./binary_rasters_obemme/rast_80.tif</SourceFilename>
+      <SourceBand>1</SourceBand>
+      <SourceProperties RasterXSize="72434" RasterYSize="65676" DataType="Byte" BlockXSize="72434" BlockYSize="1" />
+      <SrcRect xOff="0" yOff="0" xSize="72434" ySize="65676" />
+      <DstRect xOff="0" yOff="0" xSize="72434" ySize="65676" />
+      <NODATA>0</NODATA>
+    </ComplexSource>
+  </VRTRasterBand>
+  <VRTRasterBand dataType="Byte" band="113">
+    <NoDataValue>0</NoDataValue>
+    <ComplexSource>
+      <SourceFilename relativeToVRT="1">./binary_rasters_obemme/rast_81.tif</SourceFilename>
+      <SourceBand>1</SourceBand>
+      <SourceProperties RasterXSize="72434" RasterYSize="65676" DataType="Byte" BlockXSize="72434" BlockYSize="1" />
+      <SrcRect xOff="0" yOff="0" xSize="72434" ySize="65676" />
+      <DstRect xOff="0" yOff="0" xSize="72434" ySize="65676" />
+      <NODATA>0</NODATA>
+    </ComplexSource>
+  </VRTRasterBand>
+  <VRTRasterBand dataType="Byte" band="114">
+    <NoDataValue>0</NoDataValue>
+    <ComplexSource>
+      <SourceFilename relativeToVRT="1">./binary_rasters_obemme/rast_82.tif</SourceFilename>
+      <SourceBand>1</SourceBand>
+      <SourceProperties RasterXSize="72434" RasterYSize="65676" DataType="Byte" BlockXSize="72434" BlockYSize="1" />
+      <SrcRect xOff="0" yOff="0" xSize="72434" ySize="65676" />
+      <DstRect xOff="0" yOff="0" xSize="72434" ySize="65676" />
+      <NODATA>0</NODATA>
+    </ComplexSource>
+  </VRTRasterBand>
+  <VRTRasterBand dataType="Byte" band="115">
+    <NoDataValue>0</NoDataValue>
+    <ComplexSource>
+      <SourceFilename relativeToVRT="1">./binary_rasters_obemme/rast_83.tif</SourceFilename>
+      <SourceBand>1</SourceBand>
+      <SourceProperties RasterXSize="72434" RasterYSize="65676" DataType="Byte" BlockXSize="72434" BlockYSize="1" />
+      <SrcRect xOff="0" yOff="0" xSize="72434" ySize="65676" />
+      <DstRect xOff="0" yOff="0" xSize="72434" ySize="65676" />
+      <NODATA>0</NODATA>
+    </ComplexSource>
+  </VRTRasterBand>
+  <VRTRasterBand dataType="Byte" band="116">
+    <NoDataValue>0</NoDataValue>
+    <ComplexSource>
+      <SourceFilename relativeToVRT="1">./binary_rasters_obemme/rast_84.tif</SourceFilename>
+      <SourceBand>1</SourceBand>
+      <SourceProperties RasterXSize="72434" RasterYSize="65676" DataType="Byte" BlockXSize="72434" BlockYSize="1" />
+      <SrcRect xOff="0" yOff="0" xSize="72434" ySize="65676" />
+      <DstRect xOff="0" yOff="0" xSize="72434" ySize="65676" />
+      <NODATA>0</NODATA>
+    </ComplexSource>
+  </VRTRasterBand>
+  <VRTRasterBand dataType="Byte" band="117">
+    <NoDataValue>0</NoDataValue>
+    <ComplexSource>
+      <SourceFilename relativeToVRT="1">./binary_rasters_obemme/rast_85.tif</SourceFilename>
+      <SourceBand>1</SourceBand>
+      <SourceProperties RasterXSize="72434" RasterYSize="65676" DataType="Byte" BlockXSize="72434" BlockYSize="1" />
+      <SrcRect xOff="0" yOff="0" xSize="72434" ySize="65676" />
+      <DstRect xOff="0" yOff="0" xSize="72434" ySize="65676" />
+      <NODATA>0</NODATA>
+    </ComplexSource>
+  </VRTRasterBand>
+  <VRTRasterBand dataType="Byte" band="118">
+    <NoDataValue>0</NoDataValue>
+    <ComplexSource>
+      <SourceFilename relativeToVRT="1">./binary_rasters_obemme/rast_86.tif</SourceFilename>
+      <SourceBand>1</SourceBand>
+      <SourceProperties RasterXSize="72434" RasterYSize="65676" DataType="Byte" BlockXSize="72434" BlockYSize="1" />
+      <SrcRect xOff="0" yOff="0" xSize="72434" ySize="65676" />
+      <DstRect xOff="0" yOff="0" xSize="72434" ySize="65676" />
+      <NODATA>0</NODATA>
+    </ComplexSource>
+  </VRTRasterBand>
+  <VRTRasterBand dataType="Byte" band="119">
+    <NoDataValue>0</NoDataValue>
+    <ComplexSource>
+      <SourceFilename relativeToVRT="1">./binary_rasters_obemme/rast_87.tif</SourceFilename>
+      <SourceBand>1</SourceBand>
+      <SourceProperties RasterXSize="72434" RasterYSize="65676" DataType="Byte" BlockXSize="72434" BlockYSize="1" />
+      <SrcRect xOff="0" yOff="0" xSize="72434" ySize="65676" />
+      <DstRect xOff="0" yOff="0" xSize="72434" ySize="65676" />
+      <NODATA>0</NODATA>
+    </ComplexSource>
+  </VRTRasterBand>
+  <VRTRasterBand dataType="Byte" band="120">
+    <NoDataValue>0</NoDataValue>
+    <ComplexSource>
+      <SourceFilename relativeToVRT="1">./binary_rasters_obemme/rast_88.tif</SourceFilename>
+      <SourceBand>1</SourceBand>
+      <SourceProperties RasterXSize="72434" RasterYSize="65676" DataType="Byte" BlockXSize="72434" BlockYSize="1" />
+      <SrcRect xOff="0" yOff="0" xSize="72434" ySize="65676" />
+      <DstRect xOff="0" yOff="0" xSize="72434" ySize="65676" />
+      <NODATA>0</NODATA>
+    </ComplexSource>
+  </VRTRasterBand>
+  <VRTRasterBand dataType="Byte" band="121">
+    <NoDataValue>0</NoDataValue>
+    <ComplexSource>
+      <SourceFilename relativeToVRT="1">./binary_rasters_obemme/rast_89.tif</SourceFilename>
+      <SourceBand>1</SourceBand>
+      <SourceProperties RasterXSize="72434" RasterYSize="65676" DataType="Byte" BlockXSize="72434" BlockYSize="1" />
+      <SrcRect xOff="0" yOff="0" xSize="72434" ySize="65676" />
+      <DstRect xOff="0" yOff="0" xSize="72434" ySize="65676" />
+      <NODATA>0</NODATA>
+    </ComplexSource>
+  </VRTRasterBand>
+  <VRTRasterBand dataType="Byte" band="122">
+    <NoDataValue>0</NoDataValue>
+    <ComplexSource>
+      <SourceFilename relativeToVRT="1">./binary_rasters_obemme/rast_9.tif</SourceFilename>
+      <SourceBand>1</SourceBand>
+      <SourceProperties RasterXSize="72434" RasterYSize="65676" DataType="Byte" BlockXSize="72434" BlockYSize="1" />
+      <SrcRect xOff="0" yOff="0" xSize="72434" ySize="65676" />
+      <DstRect xOff="0" yOff="0" xSize="72434" ySize="65676" />
+      <NODATA>0</NODATA>
+    </ComplexSource>
+  </VRTRasterBand>
+  <VRTRasterBand dataType="Byte" band="123">
+    <NoDataValue>0</NoDataValue>
+    <ComplexSource>
+      <SourceFilename relativeToVRT="1">./binary_rasters_obemme/rast_90.tif</SourceFilename>
+      <SourceBand>1</SourceBand>
+      <SourceProperties RasterXSize="72434" RasterYSize="65676" DataType="Byte" BlockXSize="72434" BlockYSize="1" />
+      <SrcRect xOff="0" yOff="0" xSize="72434" ySize="65676" />
+      <DstRect xOff="0" yOff="0" xSize="72434" ySize="65676" />
+      <NODATA>0</NODATA>
+    </ComplexSource>
+  </VRTRasterBand>
+  <VRTRasterBand dataType="Byte" band="124">
+    <NoDataValue>0</NoDataValue>
+    <ComplexSource>
+      <SourceFilename relativeToVRT="1">./binary_rasters_obemme/rast_91.tif</SourceFilename>
+      <SourceBand>1</SourceBand>
+      <SourceProperties RasterXSize="72434" RasterYSize="65676" DataType="Byte" BlockXSize="72434" BlockYSize="1" />
+      <SrcRect xOff="0" yOff="0" xSize="72434" ySize="65676" />
+      <DstRect xOff="0" yOff="0" xSize="72434" ySize="65676" />
+      <NODATA>0</NODATA>
+    </ComplexSource>
+  </VRTRasterBand>
+  <VRTRasterBand dataType="Byte" band="125">
+    <NoDataValue>0</NoDataValue>
+    <ComplexSource>
+      <SourceFilename relativeToVRT="1">./binary_rasters_obemme/rast_92.tif</SourceFilename>
+      <SourceBand>1</SourceBand>
+      <SourceProperties RasterXSize="72434" RasterYSize="65676" DataType="Byte" BlockXSize="72434" BlockYSize="1" />
+      <SrcRect xOff="0" yOff="0" xSize="72434" ySize="65676" />
+      <DstRect xOff="0" yOff="0" xSize="72434" ySize="65676" />
+      <NODATA>0</NODATA>
+    </ComplexSource>
+  </VRTRasterBand>
+  <VRTRasterBand dataType="Byte" band="126">
+    <NoDataValue>0</NoDataValue>
+    <ComplexSource>
+      <SourceFilename relativeToVRT="1">./binary_rasters_obemme/rast_93.tif</SourceFilename>
+      <SourceBand>1</SourceBand>
+      <SourceProperties RasterXSize="72434" RasterYSize="65676" DataType="Byte" BlockXSize="72434" BlockYSize="1" />
+      <SrcRect xOff="0" yOff="0" xSize="72434" ySize="65676" />
+      <DstRect xOff="0" yOff="0" xSize="72434" ySize="65676" />
+      <NODATA>0</NODATA>
+    </ComplexSource>
+  </VRTRasterBand>
+  <VRTRasterBand dataType="Byte" band="127">
+    <NoDataValue>0</NoDataValue>
+    <ComplexSource>
+      <SourceFilename relativeToVRT="1">./binary_rasters_obemme/rast_94.tif</SourceFilename>
+      <SourceBand>1</SourceBand>
+      <SourceProperties RasterXSize="72434" RasterYSize="65676" DataType="Byte" BlockXSize="72434" BlockYSize="1" />
+      <SrcRect xOff="0" yOff="0" xSize="72434" ySize="65676" />
+      <DstRect xOff="0" yOff="0" xSize="72434" ySize="65676" />
+      <NODATA>0</NODATA>
+    </ComplexSource>
+  </VRTRasterBand>
+  <VRTRasterBand dataType="Byte" band="128">
+    <NoDataValue>0</NoDataValue>
+    <ComplexSource>
+      <SourceFilename relativeToVRT="1">./binary_rasters_obemme/rast_95.tif</SourceFilename>
+      <SourceBand>1</SourceBand>
+      <SourceProperties RasterXSize="72434" RasterYSize="65676" DataType="Byte" BlockXSize="72434" BlockYSize="1" />
+      <SrcRect xOff="0" yOff="0" xSize="72434" ySize="65676" />
+      <DstRect xOff="0" yOff="0" xSize="72434" ySize="65676" />
+      <NODATA>0</NODATA>
+    </ComplexSource>
+  </VRTRasterBand>
+  <VRTRasterBand dataType="Byte" band="129">
+    <NoDataValue>0</NoDataValue>
+    <ComplexSource>
+      <SourceFilename relativeToVRT="1">./binary_rasters_obemme/rast_96.tif</SourceFilename>
+      <SourceBand>1</SourceBand>
+      <SourceProperties RasterXSize="72434" RasterYSize="65676" DataType="Byte" BlockXSize="72434" BlockYSize="1" />
+      <SrcRect xOff="0" yOff="0" xSize="72434" ySize="65676" />
+      <DstRect xOff="0" yOff="0" xSize="72434" ySize="65676" />
+      <NODATA>0</NODATA>
+    </ComplexSource>
+  </VRTRasterBand>
+  <VRTRasterBand dataType="Byte" band="130">
+    <NoDataValue>0</NoDataValue>
+    <ComplexSource>
+      <SourceFilename relativeToVRT="1">./binary_rasters_obemme/rast_97.tif</SourceFilename>
+      <SourceBand>1</SourceBand>
+      <SourceProperties RasterXSize="72434" RasterYSize="65676" DataType="Byte" BlockXSize="72434" BlockYSize="1" />
+      <SrcRect xOff="0" yOff="0" xSize="72434" ySize="65676" />
+      <DstRect xOff="0" yOff="0" xSize="72434" ySize="65676" />
+      <NODATA>0</NODATA>
+    </ComplexSource>
+  </VRTRasterBand>
+  <VRTRasterBand dataType="Byte" band="131">
+    <NoDataValue>0</NoDataValue>
+    <ComplexSource>
+      <SourceFilename relativeToVRT="1">./binary_rasters_obemme/rast_98.tif</SourceFilename>
+      <SourceBand>1</SourceBand>
+      <SourceProperties RasterXSize="72434" RasterYSize="65676" DataType="Byte" BlockXSize="72434" BlockYSize="1" />
+      <SrcRect xOff="0" yOff="0" xSize="72434" ySize="65676" />
+      <DstRect xOff="0" yOff="0" xSize="72434" ySize="65676" />
+      <NODATA>0</NODATA>
+    </ComplexSource>
+  </VRTRasterBand>
+  <VRTRasterBand dataType="Byte" band="132">
+    <NoDataValue>0</NoDataValue>
+    <ComplexSource>
+      <SourceFilename relativeToVRT="1">./binary_rasters_obemme/rast_99.tif</SourceFilename>
+      <SourceBand>1</SourceBand>
+      <SourceProperties RasterXSize="72434" RasterYSize="65676" DataType="Byte" BlockXSize="72434" BlockYSize="1" />
+      <SrcRect xOff="0" yOff="0" xSize="72434" ySize="65676" />
+      <DstRect xOff="0" yOff="0" xSize="72434" ySize="65676" />
+      <NODATA>0</NODATA>
+    </ComplexSource>
+  </VRTRasterBand>
+</VRTDataset>
