@@ -230,7 +230,7 @@ detect_cwp <- function(
   # truncate, and divide back to achieve rounding. Write to r_tir_rounded.tif
   system(paste0(
     'gdal raster calc -i "A=', ras_path, '" ',
-    '--calc "A*', round_factor, '/', round_factor, '" ',
+    '--calc "rint(A*', round_factor, ')/', round_factor, '" ',
     '-o r_tir_rounded.tif --overwrite --ot Float32 ',
     co
   ))
