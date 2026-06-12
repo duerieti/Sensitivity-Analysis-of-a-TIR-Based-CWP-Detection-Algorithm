@@ -84,23 +84,23 @@ compute_fuzzy_cwp <- function(
 # ── RUN FOR EACH RIVER SECTION ────────────────────────────────────────────────
 
 compute_fuzzy_cwp(
-  results_dir = "./results_obemme",
-  tir_path    = "../data/thermal_rasters_FINAL/mean_v2obemme.tif",
+  results_dir = "../morris_screening_obemme/results_obemme",
+  tir_path    = "../data/original_data/thermal_rasters_FINAL/mean_v2obemme.tif",
   binary_dir  = "./binary_rasters_obemme",
   vrt_path    = "stacked_raster_obemme.vrt",
   output_path = "fuzzy_cwp_obemme.tif"
 )
 
 compute_fuzzy_cwp(
-  results_dir = "./results_upper_emme",
-  tir_path    = "../data/thermal_rasters_FINAL/mean_v2emme.tif",
+  results_dir = "../morris_screening_emme_v2/results_emmev2",
+  tir_path    = "../data/original_data/thermal_rasters_FINAL/mean_v2emme.tif",
   binary_dir  = "./binary_rasters_upper_emme",
   vrt_path    = "stacked_raster_upper_emme.vrt",
   output_path = "fuzzy_cwp_upper_emme.tif"
 )
 
 compute_fuzzy_cwp(
-  results_dir = "../../morris_screening_emme_v1/results",
+  results_dir = "../morris_screening_emme_v1/results_emmev1",
   tir_path    = "../data/original_data/thermal_rasters_FINAL/mean_v01emme.tif",
   binary_dir  = "./binary_rasters_emme_v1",
   vrt_path    = "stacked_raster_emme_v1.vrt",

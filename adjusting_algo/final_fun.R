@@ -230,7 +230,7 @@ rfactor <- if (!is.null(round_to) && round_to > 0) 1 / round_to else NA_real_
 
 system(paste0(
   'gdal raster calc -i "A=', ras_path, '" ',
-  '--calc "A*', rfactor, '/', rfactor, '" ',
+  '--calc "rint( A*', rfactor, ')/', rfactor, '" ',
   '-o r_rounded.tiff --overwrite --ot Float32 ',
   co
 ))

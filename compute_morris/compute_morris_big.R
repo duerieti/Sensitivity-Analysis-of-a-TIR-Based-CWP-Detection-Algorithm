@@ -87,14 +87,6 @@ results <- bind_rows(results_list)
 # to compare the relative importance of parameters across CWP locations that
 # may have very different absolute sensitivities.
 
-results_normalized <- results %>%
-  as_tibble() %>%
-  drop_na() %>%
-  group_by(identifier) %>%
-  mutate(
-    normalized_mu.star = mu.star / sum(mu.star),
-    normalized_sigma   = sigma   / sum(sigma)
-  )
 
 
 # ── 4. PLOT SENSITIVITY INDICES ───────────────────────────────────────────────
@@ -103,28 +95,31 @@ results_normalized <- results %>%
 # Locations classified as "Unshure" are excluded from the plots.
 
 # sensitivity to slab halfwidth — stratified by CWP class
-step_length_results <- results_normalized %>%
+step_length_results <- results %>%
   filter(Class != "Unshure", parameter == "slab_halfwidth_m") %>%
-  pivot_longer(names_to = "quantity", values_to = "value", cols = normalized_mu.star:normalized_sigma) %>%
+  pivot_longer(names_to = "quantity", values_to = "value", cols = mu.star:sigma) %>%
   ggplot(aes(y = value, x = quantity, fill = Class)) +
   geom_boxplot() +
   geom_point(position = position_jitterdodge(jitter.width = 0.1, dodge.width = 0.75)) +
   ggtitle("Sensitivity to Slab Halfwidth")
 
+
+step_length_results
+
 ggsave("step_length_results.png", step_length_results)
 
 # sensitivity to buffer pixel count — stratified by CWP class
-results_normalized %>%
+results %>%
   filter(Class != "Unshure", parameter == "buffer_px") %>%
-  pivot_longer(names_to = "quantity", values_to = "value", cols = normalized_mu.star:normalized_sigma) %>%
+  pivot_longer(names_to = "quantity", values_to = "value", cols = mu.star:sigma) %>%
   ggplot(aes(y = value, x = quantity, fill = Class)) +
   geom_boxplot() +
   geom_point(position = position_jitterdodge(jitter.width = 0.1, dodge.width = 0.75))
 
 # sensitivity to temperature delta threshold — stratified by CWP class
-results_normalized %>%
+results %>%
   filter(Class != "Unshure", parameter == "delta_T") %>%
-  pivot_longer(names_to = "quantity", values_to = "value", cols = normalized_mu.star:normalized_sigma) %>%
+  pivot_longer(names_to = "quantity", values_to = "value", cols = mu.star:sigma) %>%
   ggplot(aes(y = value, x = quantity, fill = Class)) +
   geom_boxplot() +
   geom_point(position = position_jitterdodge(jitter.width = 0.1, dodge.width = 0.75))
@@ -139,4 +134,6 @@ mu_star_res <- results_normalized %>%
   geom_point(position = position_jitterdodge(jitter.width = 0.1, dodge.width = 0.75)) +
   ggtitle("mu.star across all annotated CWP locations")
 
+
+mu_star_res
 ggsave("mu_star_res.png", mu_star_res)

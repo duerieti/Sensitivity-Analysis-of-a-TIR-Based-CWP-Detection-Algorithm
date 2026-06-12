@@ -140,7 +140,7 @@ process_polygon <- function(folder_name, base_path, df) {
 # ── emme v1 ───────────────────────────────────────────────────────────────────
 
 # list all result folders for emme v1, excluding the joblist.txt file
-folder_names <- list.files("./morris_screening_emme_v1_more_params/results") %>%
+folder_names <- list.files("./morris_screening_emme_v1_more_params/results_emmev1_big") %>%
   .[str_detect(., ".txt", negate = TRUE)]
 
 # filter annotation data to emme v1 bounding boxes
@@ -149,31 +149,31 @@ emme_v1_data<- classified_cwp_data %>% filter(Dataset == "emme_v1")
 # process all parameter tuples for emme v1
 lumped_stats_emme_v1 <- map(
   folder_names,
-  ~ process_polygon(., "./morris_screening_emme_v1_more_params/results", emme_v1_data)
+  ~ process_polygon(., "./morris_screening_emme_v1_more_params/results_emmev1_big", emme_v1_data)
 ) %>% bind_rows()
 
 # ── emme v2 ───────────────────────────────────────────────────────────────────
 
-folder_names <- list.files("./morris_screening_emme_v2_more_params/results") %>%
+folder_names <- list.files("./morris_screening_emme_v2_more_params/results_emmev2_big") %>%
   .[str_detect(., ".txt", negate = TRUE)]
 
 emme_v2_data <- classified_cwp_data %>% filter(Dataset == "emme_v2")
 
 lumped_stats_emme_v2 <- map(
   folder_names,
-  ~ process_polygon(., "./morris_screening_emme_v2_more_params/results", emme_v2_data)
+  ~ process_polygon(., "./morris_screening_emme_v2_more_params/results_emmev2_big", emme_v2_data)
 ) %>% bind_rows()
 
 # ── obere emme ────────────────────────────────────────────────────────────────
 
-folder_names <- list.files("./morris_screening_obemme_more_params/results") %>%
+folder_names <- list.files("./morris_screening_obemme_more_params/results_obemme_big") %>%
   .[str_detect(., ".txt", negate = TRUE)]
 
 obemme_data <- classified_cwp_data %>% filter(Dataset == "obemme")
 
 lumped_stats_obemme <- map(
   folder_names,
-  ~ process_polygon(., "./morris_screening_obemme_more_params/results", obemme_data)
+  ~ process_polygon(., "./morris_screening_obemme_more_params/results_obemme_big", obemme_data)
 ) %>% bind_rows()
 
 
