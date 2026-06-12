@@ -5,11 +5,12 @@ library(exactextractr) # extracting aggregated statistics from rasters based on 
 library(polylabelr)    # computing the pole of inaccessibility ("visual center") of polygons
 library(lwgeom)        # line substring operations on sf geometries
 
+
+
 # load the inverse distance weighting function written in C++ and make it available in R
 Rcpp::sourceCpp("idw.cpp")
 
 # set the working directory (needs to be adjusted per machine)
-setwd("/home/etienne/Desktop/repos/Github_Enterprise/BSc_project/addjust_algo")
 
 # ── HELPERS ───────────────────────────────────────────────────────────────────
 
@@ -348,7 +349,4 @@ detect_cwp <- function(
 
 # ── RUN ───────────────────────────────────────────────────────────────────────
 
-ras_path  <- "../data/derived_data_products/mean_v01emme.tif"
-line_path <- "../data/original_data/Centerlines_FINAL/Emme_V01.shp"
 
-detect_cwp(ras_path, line_path, n_cores = 12)
