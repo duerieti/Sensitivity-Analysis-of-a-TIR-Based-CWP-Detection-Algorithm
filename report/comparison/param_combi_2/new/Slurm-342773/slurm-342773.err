@@ -1,0 +1,34 @@
+terra 1.9.1
+Linking to GEOS 3.14.1, GDAL 3.12.2, PROJ 9.7.1; sf_use_s2() is TRUE
+── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──
+✔ dplyr     1.2.0     ✔ readr     2.2.0
+✔ forcats   1.0.1     ✔ stringr   1.6.0
+✔ ggplot2   4.0.2     ✔ tibble    3.3.1
+✔ lubridate 1.9.5     ✔ tidyr     1.3.2
+✔ purrr     1.2.1     
+── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
+✖ tidyr::extract() masks terra::extract()
+✖ dplyr::filter()  masks stats::filter()
+✖ dplyr::lag()     masks stats::lag()
+ℹ Use the conflicted package (<http://conflicted.r-lib.org/>) to force all conflicts to become errors
+
+Attaching package: ‘tictoc’
+
+The following objects are masked from ‘package:terra’:
+
+    shift, size
+
+Linking to liblwgeom 3.0.0beta1 r16016, GEOS 3.14.1, PROJ 9.7.1
+
+Attaching package: ‘lwgeom’
+
+The following objects are masked from ‘package:sf’:
+
+    st_minimum_bounding_circle, st_perimeter
+
+Cannot preload entire working area of 6559723170 cells with max_cells_in_memory = 3e+07. Raster values will be read for each feature individually.
+Cannot preload entire working area of 6280829184 cells with max_cells_in_memory = 3e+07. Raster values will be read for each feature individually.
+Cannot preload entire working area of 6280929312 cells with max_cells_in_memory = 3e+07. Raster values will be read for each feature individually.
+Warning message:
+In st_cast.sf(., "POLYGON") :
+  repeating attributes for all sub-geometries for which they may not be constant

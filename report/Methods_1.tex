@@ -1,0 +1,151 @@
+\chapter{Methods}
+
+
+% an overwiev paragraph of what is beeing done in this chapter allong with a graph representation of the methods workflow. Actually the methods chapter features 3 sections. One featuring the optimisation step, a second one featuring the morris analysis and the third one featuring the second reimplementation featuring factor fixing.
+
+
+% also the overwiev paragraph has to state that all the function optimisation was performed on the emme unterlauf, while the sensitivity analysis was perfromed on the complete captured basement of the emme
+
+\section{Optimizationn of Existing Algorithm}
+
+%gdal version
+
+
+% most sensitivity analysis methods feature a high cost when it comes to model executions. Morris, is one of the cheaper methods but still reqires <formula> executions to be precise. Generally to perform these executions in a feasonable timespan optimisation of the computations is needed. Additionally parallel execution of the algorithm should be performed.
+
+% For the latter the zhaws High perfomance cluster is beeing used. To enshure that the code optimisation also carries over to the infrastructure (e.g. the underlying distributed file system) of the hpc, the optimisation and benchmarking is performed directly on the hpc system.
+
+
+\subsection{Reimplementation of the CWP algorithm based on GDAL and system calls}
+
+
+
+% the current algorithm focuses on per slab processing of the raster using a set of R loops and relying on terra and sf functions to implement the logic. The reworked algorithm is disk/file based and deployes GDAL over its command line interface directly. This decission was choosen, as terra operations are are somethimes not to performant and GDAL offers a often faster set of geocomputational tools which can be called from R using system() or sf::gdal_utils()  https://r.geocompx.org/geometry-operations.  Further, empirical testing also shows, that in a range of usecases, GDAL offers a significent speedup in computation compared to terra. This was allready tested in a coursework (gh pages link). Genreally GDAL is written in C++ and provided a battle tested and optimized api to perform geocomputations, therefore an effort was taken to express as much of the cwp algorithm as possible in GDAL. Additionally the GDAL approach was also choosen, as it enables easy chunk processing with reading and writing to disk, which helps to keep memory foodprint small. This can be beneficiial in a HPC setting, where not only the number of available cores but also the available memory can be comme an issue in performing computations. The draw back of this decission is that writing intermediate results to disk causes large spikes in disk space consumption, as intermediate reasters of the algorithm can be up to 25 GB large. This was counteracted by deploying compression during writing and decompression during reading, a strategy that only produced little computational overhead but greatly reduced the size of the intermediate results. < here the thenical is important. Which compression is deployed, which flag>. Lastly it should also be pointed out that heavily relying on gdal introduces a lot of I/O activity, which can significantly hurt performance on distributed file systems. 
+
+% why exact extract choosen. Accorind to it is often faster for large rasters, however this was not tested in an isolated setting (https://tmieno2.github.io/R-as-GIS-for-Economists/spatial-data-structure.html)
+
+
+
+\begin{table}[ht]
+	\centering
+	\caption{High-level overview of the reworked CWP detection algorithm, including the primary tool or function used for each step.}
+	\label{tab:cwp_pseudocode}
+	\begin{tabular}{@{}c p{7.5cm} p{4cm}@{}}
+		\toprule
+		\textbf{Step} & \textbf{Description} & \textbf{Tool / Function} \\
+		\midrule
+		1 & Divide the river reach into $n$ centerline segments; construct a wide zone polygon and a narrow reference-strip polygon for each segment. & \texttt{sf::st\_buffer} \\
+		\addlinespace
+		2 & Rasterize the zone polygons to a raster matching the TIR raster resolution, using the segment id as burn-in value. & \texttt{gdal vector rasterize} \\
+		\addlinespace
+		3 & Round the TIR raster using a fixed rounding factor. & \texttt{gdal raster calc} \\
+		\addlinespace
+		4 & Extract the median temperature per segment from the rounded TIR raster within each reference strip; store in a look-up table keyed by segment id. & \texttt{exactextractr::exact\_extract} \\
+		\addlinespace
+		5 & Reclassify the zone raster, replacing each segment id with its reference temperature from the look-up table, yielding the reference raster. & \texttt{gdal raster reclassify} \\
+		\addlinespace
+		6 & Subtract the rounded TIR raster from the reference raster; flag pixels where the difference exceeds $\Delta T$, producing a binary CWP raster. & \texttt{gdal raster calc} \\
+		\addlinespace
+		7 & Polygonize the binary CWP raster into patch polygons. & \texttt{terra::as.polygons} \\
+		\addlinespace
+		8 & Filter patches by minimum area, compute per-patch temperature statistics, and apply a patch-level threshold check against the reference temperature. & \texttt{exactextractr::exact\_extract} \\
+		\bottomrule
+	\end{tabular}
+\end{table}
+
+\subsection{Output eqivalence and Runtime Comparison}
+
+% The resulting reimplementation was tested for equivalence in output by comparing the produced cwp to the cwp of the old algorithm when beeing deployed with the exact same set of parameters. Table x shows the parameter combinations deployed in testing. Further, the runtime between the new algorithm and the existing version was compared with respect to the step length parameter. This was done by executing both algorithms on the exact same parameter set only varying the step lenth parameter This is shown in table y.
+
+%Runtime was compared across three segment lengths (400, 800, and 1200 m), with all other parameters held constant (zone halfwidth = 60 m, buffer = 3 px, ΔC = 1.0 °C, minimum patch area = 2 m², rounding = 0.1 °C, 8-connectivity enabled).
+
+
+\begin{table}[ht]
+	\centering
+	\caption{Parameter combinations used for the output equivalence comparison between v1 and v2.}
+	\label{tab:validation_params}
+	\begin{tabular}{@{}l c c c@{}}
+		\toprule
+		\textbf{Parameter} & \textbf{Test 1} & \textbf{Test 2} & \textbf{Test 3} \\
+		\midrule
+		\texttt{segment\_length\_m}  & 200  & 800  & 1200 \\
+		\texttt{zone\_halfwidth\_m}  & 60   & 60   & 60   \\
+		\texttt{buffer\_px}          & 4    & 3    & 3    \\
+		\texttt{delta\_C}            & 0.5  & 1.0  & 1.0  \\
+		\texttt{min\_patch\_area\_m2}& 2    & 2    & 2    \\
+		\texttt{round\_to}           & 0.1  & 0.1  & 0.1  \\
+		\texttt{connect\_diagonals}  & TRUE & TRUE & TRUE \\
+		\bottomrule
+	\end{tabular}
+\end{table}
+
+\section{Sensitivity Analysis using Morris}
+
+Figure xy provides a high level overwiev of the methodology deployed to answer the research questions. The mehtod can be split up into two sequential segments, where segment 1 is setting the stage for segment 2. First, the morris parameters are sampled to then perform a sensitivity analysis by only varying the buffer width and the step length. The resulting parameter tuples are then deployed in model evaluation, each tuple beeing used to create one set of CWP. The resulting CWP are then used to create fuzzy representations, which allow for the visual determination which CWP are subject to change between parameter tupples. CWP that are subject to change and can be clearly be attributed to either beeing tributary cause or not tributary caused, their bounding box is then extracted. Next, another morris sampling is set up creating parameter tuples for buffer width, step length also the temperature difference. The model was again executed on these parameter touples. Then from each set of resulting cwp the bounding boxes are used to extract the cold water patches which where previously determined to vary due to either the step length or the buffer pixels used. For each of the selected patches, the total area is then computed. The total patch area is then used to perform the sensitivity analysis using the morris method.
+
+
+
+\subsection{Morris Experiment for pixel buffer and step length parameters}
+
+
+% not every cold water pixel displaying variablilty between model runs might show variablity with respect to the step lenght parameter. This because there is a range of different parameters determining the output of the model. It is therefore first of interest to determine which cwp actually show variablility with respect to the step length parameter. For this the model was executed on a set of parameter tuples each holding different values for step length and buffer px. The other parameters where held constant
+
+% the step length variable cwp will be closer investiaged using morris method of sensitivity analysis. Therefore the parameter tuples where derived using morris parameter sampling so that the derived variablility product represents the morris process and therefore cwp that will then also translate to morris screening will be choosen
+
+% For sampling the parameter tuples over a morris grid, the R package sensitivity was used, as it allready implements methods for morris sampling. A total of xyz parameter touples where sampled.
+
+
+\subsubsection{Model Evaluation along Parameter Combinations}
+
+% the model was then executed on these parameter tuples, while keeping the other parameters set to constant values. To speed up the execution process, different instances of the cwp algorithm where run in parallel. For this, the open source soft ware Gnu parallel was used. => then a description what gnu parallel can. Spawning processes which then execute a programme, in this case the cwp detection algorithm. Additionally gnu prallel reads the paremeter touples from a file and passes it to the processes which will then execute upon these. Each algorithm instace writes its intermediate results aswell as its final results to a designated folder created by the process. The folder holds a unique identifier aswell as the parameter values for step length and buffer px in its name.
+
+% An image that ilustrates how gnu parallel is deploing sub processes and the different subprocesses read files create folders ect.
+
+
+
+
+\subsubsection{Creation of a fuzzy overlay of CWP}
+
+% the resulting cwp polygon layers where then processed into an singular raster over a series of processing steps. Firs each polygon layer was rasterized using the same pixle size as the TIR rasters. Then these different raster representations of the cwp where staked into a multy layer raster and a pixel whise mean calculation was performed. This aggregates the threee dimensional raster stack into a two dimensional raster. The pixel whise mean computation produces a pixel score between 0 and 1 which can be interpreted the following way. A pixel value of 1 indicates that this area of the emme basement, was part of a cwp during each of the runs. A pixel value near zero indicates that the area covered by the pixel almost never was part of a cwp in the model outputs. The resultign raster can be understood as a fuzzy membership representation of the CWPs in the emme where each pixel has a probability score of belonging to a cwp. From these fuzzy cwps it can also be read which cwps are variable with respect to the step lengt (or the buffer pix => which hoverwer has a neglectable influence as seen in the results). CPWs which show a lot of differnt shades in their colourling, hold pixels which are generally variable in their identiy as cwp pixel or non cwp pixel. These are then cwp that seem to vary with respect to bla bla
+
+\subsubsection{Selection of CWP}
+
+
+% From this fuzzy cwp raster, cwp pixels which where clearly variable and which mode of creation could clearly be attributed to tribuaries or not tribuatries where then selected and classified into groups tributary-caused and non tributary-caused. The selection and classificaiton process was not carried out algorithmically due to time constraints but was based on a visual interpretation of the patches. First patches where judeges based on their coloring as beeing variable or non variable. For this patches where generally determined as variable, when their colloring held a significant amount of grey and black pixels. These cwp then undervent classification. For a cwp to be tributary caused, the closenes to a tributary inflow aswell the shape of the cwp where taken into account. Cwp clarling originating in their shape from a tributary inflow and beeing close to the inflwo where determined as tributary caused. To detect the tributaries open streat map aswell as the swiss image where deployed. The open streat map faccilicated the possibility to spot tributaries which might be obscured by forest or buildings on the swiss images, while the swissimage provided the oportunity to spot tribuaries which might not be mapped on open streat map as open streat map is based on volunteered geographic content and therefore can not be assumed as beeing complete. A total of xyz cwp patches which are variable and can be clearly attributed to beeing tributary caused or non tributary caused where selected and classified. In the process their bounding box was extracted and an image was taken.
+
+% an image of a clearly tributary-caused cwp and a clealy non tributary caused cwp.
+% also a decission tree like structure showing the decission and classification process
+% a verweis to the appendix, where a grid of all the cwp and their classification is provided
+
+
+
+\subsubsection{Morris Experiment for pixel buffer, step length and temperature delta}
+
+% with these cwps classified, a second morris experiment was set up this time also varying the temperature delta parameter next to the buffer px and the step length. (The buffer px and the temperature delta are also very interesting to know the sensitivity of for the second research question. Not quite shure where to put this. But Imma just jott it down here so that i got that covered). A total of xxx parameter  combinations where created this time. Then the model was again executed in prallel on the different parameter tuples with the remaining parameter held constant. The resulting cwp polygons where again written to folders uniquely identified by an id, aswell as the parameter values.
+
+
+\subsubsection{Compute total area statistics for selected CWP}
+
+% i think this computation is rather convoluted, so it might be a good idea to provide a graphical representation of the computation too.
+
+% In the next step the the cwp corresponding to the boundin boxes extracted in the previous subsection where extracted from the result and for each cwp or group of cwp contained in the bounding box, the total cwp area was computed for every run. The result is a list of cwp area measures, where each mesure corresponds to a specific bounding box (location of the classified cwp) and a specific realisation of the cwp algorithm (which parameter values where used)
+
+% here a table showing the firs view rows as an exmple so that the reader can understand better
+
+% As visible in the table, do the area measures generally differ for the same cwp location due to the different parameters used. Therefore the cwp area is a suited scalar statistic to determine the variablity of the cwp patches with respect to the input parameters.
+
+% To later on make the calculated morris indices comparable to each other normalisation of the patch area was needed. This since without normalisation, large patches would dominate smaller patches just due to their size. So for every location/bounding box Min max scaling into the zero one range was performed. where the largest area value ever produced for this bounding box over all computational runs corresponds to 1 and zero corresponds to the case when the bounding box is completely empty in a specific run. 
+
+% Computation of the morris indices was then performed with respect to these total area measures by again utilising the sensitivity package. As introduced in the theoretical background does morris produce one ensitivity index (mu, mu.star or sigma). for each parameter that was varied in the experiment. So for every location/ bounding box recorded two sensitivity values (mu.star and sigma) are produced for every parameter. So a total fo 6 parameters. 
+
+% these sensitivity parameters where then lastly collected and displayed against each other
+
+% How is this compuation beeing done => On a high level quickly
+
+% generally only the mu star aswell as the sigma indices where computed, as the mu value sufferes from the balancing out effect as mentioned in the introduction. The resulting. 
+
+
+
+
+
+% Another will be addjusting the algorithm
