@@ -9,11 +9,13 @@ library(tidyverse)
 # the model outputs via tell() to compute the sensitivity indices.
 sa <- readRDS("compute_morris/sa_object_big.rds")
 
+sa$X
+
 # load the lumped statistics produced by the post-processing script.
 # each row represents one annotated CWP location under one Morris parameter
 # tuple, with the total detected area as the scalar model output.
-lumped_statistics <- read.csv("compute_morris/lumped_stats_emme_big.csv")
 
+lumped_statistics <- read.csv("compute_morris/lumped_stats_emme_big.csv")
 
 # ── 1. NORMALISE MODEL OUTPUT ─────────────────────────────────────────────────
 # Normalise the total detected area per annotated CWP location by dividing by
@@ -38,6 +40,12 @@ normalized_lumped_statistics <- lumped_statistics %>%
 #   - sigma:   standard deviation of elementary effects (nonlinearity / interactions)
 
 identifiers  <- normalized_lumped_statistics$identifier %>% unique()
+
+lumped_statistics 
+
+
+
+
 results_list <- vector("list", length(identifiers))
 
 for (i in seq_along(identifiers)) {
@@ -51,14 +59,18 @@ for (i in seq_along(identifiers)) {
     arrange(morris_row_index) %>%
     pull(normalized_total_area)
 
+  y
+
   # pass the model output vector to the Morris object.
   # tell() computes the elementary effects from y and the sampled parameter tuples.
   tell(sa, y)
+  
 
   # extract the three Morris sensitivity indices from the elementary effects matrix
   mu      <- apply(sa$ee, 2, mean)
   mu.star <- apply(sa$ee, 2, function(x) mean(abs(x)))
   sigma   <- apply(sa$ee, 2, sd)
+
 
   # retrieve the class (Tributary / Non-Tributary) and mean detected area
   # for this CWP location — used for stratified plotting later
@@ -70,27 +82,19 @@ for (i in seq_along(identifiers)) {
     identifier = id,
     parameter  = colnames(sa$ee), # one row per parameter
     mu         = mu,
-    mu.star    = mu.star,
-    sigma      = sigma,
-    Class      = Class,
     mean_area  = mean_area
   )
 }
 
+
 # combine results from all annotated CWP locations into one table
-results <- bind_rows(results_list)
+results <- bind_rows(results_list) %>%
+    mutate(
+      Class = ifelse(Class == "NT", "non tributary-caused", "tributar-caused")
+    )
 
 
-# ── 3. NORMALISE SENSITIVITY INDICES ─────────────────────────────────────────
-# Normalise mu.star and sigma within each CWP location by dividing by their
-# sum across parameters. This converts absolute sensitivity indices into
-# relative parameter contributions (shares summing to 1), making it possible
-# to compare the relative importance of parameters across CWP locations that
-# may have very different absolute sensitivities.
-
-
-
-# ── 4. PLOT SENSITIVITY INDICES ───────────────────────────────────────────────
+# ── 3. PLOT SENSITIVITY INDICES ───────────────────────────────────────────────
 # Visualise the normalised sensitivity indices stratified by CWP class
 # (Tributary / Non-Tributary). Each point is one annotated CWP location.
 # Locations classified as "Unshure" are excluded from the plots.
@@ -98,43 +102,118 @@ results <- bind_rows(results_list)
 # sensitivity to slab halfwidth — stratified by CWP class
 step_length_results <- results %>%
   filter(Class != "Unshure", parameter == "slab_halfwidth_m") %>%
-  pivot_longer(names_to = "quantity", values_to = "value", cols = mu.star:sigma) %>%
-  ggplot(aes(y = value, x = quantity, fill = Class)) +
+  pivot_longer(names_to = "quantity", values_to = "value", cols = mu.star:sigma)
+
+# compute n per class based on distinct locations (for the info box)
+n_per_class <- step_length_results %>%
+  distinct(Class, identifier) %>%
+  count(Class)
+
+# build the annotation text for the info box
+annotation_text <- paste0(
+  "Morris trajectories: r = 64\n",
+  paste0("N ", n_per_class$Class, " : ", n_per_class$n, collapse = "\n")
+)
+
+sensitivity_to_step_length <- ggplot(step_length_results, aes(y = value, x = quantity, fill = Class)) +
   geom_boxplot() +
   geom_point(position = position_jitterdodge(jitter.width = 0.1, dodge.width = 0.75)) +
-  ggtitle("Sensitivity to Slab Halfwidth")
+  ggtitle("Sensitivity of CWP area to Step Length") +
+  annotate("label",
+    x = -Inf, y = Inf, hjust = 0, vjust = 1,
+    label = annotation_text,
+    size = 3
+  ) +
+  xlab("Morris sensitivity indices") +
+  ylab("Index value") +
+  scale_x_discrete(labels = c("mu.star" = expression(mu*"*"), "sigma" = expression(sigma)))
 
+sensitivity_to_step_length
 
-step_length_results
+ggsave("./report/Bilder/step_length_results.png", sensitivity_to_step_length, 
+       width = 6, height = 4, units = "in", dpi = 300)
 
-ggsave("step_length_results.png", step_length_results)
 
 # sensitivity to buffer pixel count — stratified by CWP class
-results %>%
+buffer_px_results <- results %>%
   filter(Class != "Unshure", parameter == "buffer_px") %>%
-  pivot_longer(names_to = "quantity", values_to = "value", cols = mu.star:sigma) %>%
-  ggplot(aes(y = value, x = quantity, fill = Class)) +
-  geom_boxplot() +
-  geom_point(position = position_jitterdodge(jitter.width = 0.1, dodge.width = 0.75))
+  pivot_longer(names_to = "quantity", values_to = "value", cols = mu.star:sigma)
 
-# sensitivity to temperature delta threshold — stratified by CWP class
-results %>%
-  filter(Class != "Unshure", parameter == "delta_T") %>%
-  pivot_longer(names_to = "quantity", values_to = "value", cols = mu.star:sigma) %>%
-  ggplot(aes(y = value, x = quantity, fill = Class)) +
-  geom_boxplot() +
-  geom_point(position = position_jitterdodge(jitter.width = 0.1, dodge.width = 0.75))
+n_per_class_buffer <- buffer_px_results %>%
+  distinct(Class, identifier) %>%
+  count(Class)
 
-# mu.star across all annotated CWP locations and parameters — gives an overall
-# picture of which parameters drive the most variation in detected CWP area
-mu_star_res <- results_normalized %>%
-  pivot_longer(names_to = "measure", values_to = "value", cols = mu:sigma) %>%
-  filter(measure == "mu.star") %>%
-  ggplot(aes(x = parameter, y = value)) +
+annotation_text_buffer <- paste0(
+  "Morris trajectories: r = 64\n",
+  paste0("N ", n_per_class_buffer$Class, " : ", n_per_class_buffer$n, collapse = "\n")
+)
+
+sensitivity_to_buffer_px <- ggplot(buffer_px_results, aes(y = value, x = quantity, fill = Class)) +
   geom_boxplot() +
   geom_point(position = position_jitterdodge(jitter.width = 0.1, dodge.width = 0.75)) +
-  ggtitle("mu.star across all annotated CWP locations")
+  ggtitle("Sensitivity of CWP area to Buffer Pixel Count") +
+  annotate("label",
+    x = -Inf, y = Inf, hjust = 0, vjust = 1,
+    label = annotation_text_buffer,
+    size = 3
+  ) +
+  xlab("Morris sensitivity indices") +
+  ylab("Index value") +
+  scale_x_discrete(labels = c("mu.star" = expression(mu*"*"), "sigma" = expression(sigma)))
+
+sensitivity_to_buffer_px
+
+ggsave("./report/Bilder/buffer_px_results.png", sensitivity_to_buffer_px,
+       width = 6, height = 4, units = "in", dpi = 300)
 
 
-mu_star_res
-ggsave("mu_star_res.png", mu_star_res)
+# sensitivity to temperature delta threshold — stratified by CWP class
+delta_T_results <- results %>%
+  filter(Class != "Unshure", parameter == "delta_T") %>%
+  pivot_longer(names_to = "quantity", values_to = "value", cols = mu.star:sigma)
+
+n_per_class_delta <- delta_T_results %>%
+  distinct(Class, identifier) %>%
+  count(Class)
+
+annotation_text_delta <- paste0(
+  "Morris trajectories: r = 64\n",
+  paste0("N ", n_per_class_delta$Class, " : ", n_per_class_delta$n, collapse = "\n")
+)
+
+sensitivity_to_delta_T <- ggplot(delta_T_results, aes(y = value, x = quantity, fill = Class)) +
+  geom_boxplot() +
+  geom_point(position = position_jitterdodge(jitter.width = 0.1, dodge.width = 0.75)) +
+  ggtitle("Sensitivity of CWP area to Temperature Delta Threshold") +
+  annotate("label",
+    x = -Inf, y = Inf, hjust = 0, vjust = 1,
+    label = annotation_text_delta,
+    size = 3
+  ) +
+  xlab("Morris sensitivity indices") +
+  ylab("Index value") +
+  scale_x_discrete(labels = c("mu.star" = expression(mu*"*"), "sigma" = expression(sigma)))
+
+sensitivity_to_delta_T
+
+ggsave("./report/Bilder/delta_T_results.png", sensitivity_to_delta_T,
+       width = 6, height = 4, units = "in", dpi = 300)
+
+mu_star_vs_area <- results %>%
+  filter(parameter == "slab_halfwidth_m") %>%
+  ggplot(aes(x = mean_area, y = mu.star, color = Class)) +
+  geom_point() +
+  xlab(expression("Mean CWP area ("*m^2*")")) +
+  ylab(expression(mu*"* (step length)")) +
+  ggtitle(expression(mu*"* (step length) vs. mean CWP area")) +
+  annotate("label",
+    x = -Inf, y = Inf, hjust = 0, vjust = 1,
+    label = annotation_text,
+    size = 3
+  )
+
+mu_star_vs_area
+
+
+ggsave("./report/Bilder/mu_star_vs_area.png", mu_star_vs_area,
+       width = 6, height = 4, units = "in", dpi = 300)

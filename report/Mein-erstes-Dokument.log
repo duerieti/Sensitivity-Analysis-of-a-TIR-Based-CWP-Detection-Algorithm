@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.28 (TeX Live 2025/Debian) (preloaded format=pdflatex 2026.6.11)  12 JUN 2026 14:16
+This is pdfTeX, Version 3.141592653-2.6-1.40.28 (TeX Live 2025/Debian) (preloaded format=pdflatex 2026.6.13)  13 JUN 2026 18:07
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -44,7 +44,7 @@ on input line 2086.
 LaTeX Encoding Info:    Ignoring declaration for text command \SS (encoding ?) 
 on input line 2111.
 \U@D=\dimen149
-\l@unhyphenated=\language3
+\l@unhyphenated=\language7
 
 (/usr/share/texlive/texmf-dist/tex/generic/babel/txtbabel.def)
 \bbl@readstream=\read2
@@ -561,7 +561,7 @@ File: l3backend-pdftex.def 2025-10-09 L3 backend support: PDF output (pdfTeX)
 )
 (./Mein-erstes-Dokument.aux (./Vorlage-Titelseite.aux) (./Introduction.aux)
 (./Theoretical_background.aux) (./Methods_1.aux) (./Results_1.aux)
-(./Discussion_1.aux))
+(./Discussion_1.aux) (./Methods_2.aux) (./Results_2.aux))
 \openout1 = `Mein-erstes-Dokument.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 14.
@@ -669,7 +669,7 @@ Package hyperref Info: Link coloring ON on input line 14.
 
 
 (./Vorlage-Titelseite.tex
-<Bilder/logo-zhaw.png, id=52, 197.73875pt x 235.88126pt>
+<Bilder/logo-zhaw.png, id=108, 197.73875pt x 235.88126pt>
 File: Bilder/logo-zhaw.png Graphic file (type png)
 <use Bilder/logo-zhaw.png>
 Package pdftex.def Info: Bilder/logo-zhaw.png  used on input line 7.
@@ -750,7 +750,7 @@ l.37
 
 {/usr/share/texmf/fonts/enc/dvips/lm/lm-mathit.enc}{/usr/share/texmf/fonts/enc/
 dvips/lm/lm-rm.enc}]
-<Bilder/morris_grid.png, id=70, 622.57594pt x 484.05844pt>
+<Bilder/morris_grid.png, id=126, 622.57594pt x 484.05844pt>
 File: Bilder/morris_grid.png Graphic file (type png)
 <use Bilder/morris_grid.png>
 Package pdftex.def Info: Bilder/morris_grid.png  used on input line 54.
@@ -771,7 +771,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 [2{/usr/share/texmf/fonts/enc/dvips/lm/lm-mathsy.enc}{/usr/share/texmf/fonts/en
 c/dvips/lm/lm-mathex.enc} <./Bilder/morris_grid.png>]
-<Bilder/example_grid_mu_sigma_vairation.png, id=88, 794.97pt x 505.89pt>
+<Bilder/example_grid_mu_sigma_vairation.png, id=144, 794.97pt x 505.89pt>
 File: Bilder/example_grid_mu_sigma_vairation.png Graphic file (type png)
 <use Bilder/example_grid_mu_sigma_vairation.png>
 Package pdftex.def Info: Bilder/example_grid_mu_sigma_vairation.png  used on in
@@ -786,7 +786,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
 
 [3]
-<Bilder/mu_mu_star.png, id=95, 722.7pt x 433.62pt>
+<Bilder/mu_mu_star.png, id=151, 722.7pt x 433.62pt>
 File: Bilder/mu_mu_star.png Graphic file (type png)
 <use Bilder/mu_mu_star.png>
 Package pdftex.def Info: Bilder/mu_mu_star.png  used on input line 90.
@@ -812,41 +812,48 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
  (./Methods_1.tex
 Chapter 1.
+<Bilder/methods_high_level_overview.png, id=163, 1054.94125pt x 310.15875pt>
+File: Bilder/methods_high_level_overview.png Graphic file (type png)
+<use Bilder/methods_high_level_overview.png>
+Package pdftex.def Info: Bilder/methods_high_level_overview.png  used on input 
+line 9.
+(pdftex.def)             Requested size: 426.79135pt x 125.47635pt.
+[6
+
+
+
+
+ <./Bilder/methods_high_level_overview.png>]
 LaTeX Font Info:    Trying to load font information for T1+lmtt on input line 3
-7.
+3.
+
 (/usr/share/texmf/tex/latex/lm/t1lmtt.fd
 File: t1lmtt.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
-Underfull \hbox (badness 1365) in paragraph at lines 39--39
+Underfull \hbox (badness 1365) in paragraph at lines 48--48
 []|\T1/lmr/m/n/10.95 Rasterize the zone poly-gons to a raster
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 39--40
+Underfull \hbox (badness 10000) in paragraph at lines 48--49
 []|\T1/lmtt/m/n/10.95 gdal vector
  []
 
 
-Overfull \hbox (47.15352pt too wide) in paragraph at lines 43--44
+Overfull \hbox (47.15352pt too wide) in paragraph at lines 52--53
 []|\T1/lmtt/m/n/10.95 exactextractr::exact_extract| 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 45--46
+Underfull \hbox (badness 10000) in paragraph at lines 54--55
 []|\T1/lmtt/m/n/10.95 gdal raster
  []
 
 
-Overfull \hbox (47.15352pt too wide) in paragraph at lines 51--52
+Overfull \hbox (47.15352pt too wide) in paragraph at lines 60--61
 []|\T1/lmtt/m/n/10.95 exactextractr::exact_extract| 
  []
 
-) [6
-
-
-
-
-]
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 13.59999pt, for example:
@@ -863,12 +870,13 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
 
 [8]
-\openout2 = `Results_1.aux'.
+<Bilder/first_execution_run.png, id=204, 1241.63875pt x 218.8175pt>
+File: Bilder/first_execution_run.png Graphic file (type png)
+<use Bilder/first_execution_run.png>
+Package pdftex.def Info: Bilder/first_execution_run.png  used on input line 102
+.
+(pdftex.def)             Requested size: 426.79135pt x 75.21498pt.
 
- (./Results_1.tex)
-\openout2 = `Discussion_1.aux'.
-
- (./Discussion_1.tex)
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 13.59999pt, for example:
@@ -876,10 +884,144 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller:
 (fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
 
-[9
+[9 <./Bilder/first_execution_run.png>]
+<Bilder/GNU.png, id=214, 1282.7925pt x 766.865pt>
+File: Bilder/GNU.png Graphic file (type png)
+<use Bilder/GNU.png>
+Package pdftex.def Info: Bilder/GNU.png  used on input line 139.
+(pdftex.def)             Requested size: 426.79135pt x 255.13737pt.
+
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 13.59999pt, for example:
+(fancyhdr)                \setlength{\headheight}{13.59999pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
+
+[10]
+<Bilder/second_execution_run.png, id=224, 1244.65pt x 168.63pt>
+File: Bilder/second_execution_run.png Graphic file (type png)
+<use Bilder/second_execution_run.png>
+Package pdftex.def Info: Bilder/second_execution_run.png  used on input line 16
+6.
+(pdftex.def)             Requested size: 341.43437pt x 46.25888pt.
+)
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 13.59999pt, for example:
+(fancyhdr)                \setlength{\headheight}{13.59999pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
+
+[11 <./Bilder/GNU.png> <./Bilder/second_execution_run.png>]
+\openout2 = `Results_1.aux'.
+
+ (./Results_1.tex
+<Bilder/speed_comparison.png, id=234, 433.62pt x 289.08pt>
+File: Bilder/speed_comparison.png Graphic file (type png)
+<use Bilder/speed_comparison.png>
+Package pdftex.def Info: Bilder/speed_comparison.png  used on input line 26.
+(pdftex.def)             Requested size: 341.43437pt x 227.63405pt.
+
+Underfull \hbox (badness 2435) in paragraph at lines 27--27
+[][]|\T1/lmr/m/n/10 Ex-e-cu-tion time of the orig-i-nal (v1) and op-ti-mized (v
+2) im-ple-men-ta-tions of
+ []
+
+<Bilder/step_length_results.png, id=235, 433.62pt x 289.08pt>
+File: Bilder/step_length_results.png Graphic file (type png)
+<use Bilder/step_length_results.png>
+Package pdftex.def Info: Bilder/step_length_results.png  used on input line 42.
+
+(pdftex.def)             Requested size: 341.43437pt x 227.63405pt.
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 13.59999pt, for example:
+(fancyhdr)                \setlength{\headheight}{13.59999pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
+
+[12
 
 
 
+ <./Bilder/speed_comparison.png>]
+<Bilder/mu_star_res.png, id=242, 433.62pt x 289.08pt>
+File: Bilder/mu_star_res.png Graphic file (type png)
+<use Bilder/mu_star_res.png>
+Package pdftex.def Info: Bilder/mu_star_res.png  used on input line 60.
+(pdftex.def)             Requested size: 341.43437pt x 227.63405pt.
+<Bilder/mu_star_vs_area.png, id=243, 433.62pt x 289.08pt>
+File: Bilder/mu_star_vs_area.png Graphic file (type png)
+<use Bilder/mu_star_vs_area.png>
+Package pdftex.def Info: Bilder/mu_star_vs_area.png  used on input line 72.
+(pdftex.def)             Requested size: 341.43437pt x 227.63405pt.
+)
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 13.59999pt, for example:
+(fancyhdr)                \setlength{\headheight}{13.59999pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
+
+[13 <./Bilder/step_length_results.png>]
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 13.59999pt, for example:
+(fancyhdr)                \setlength{\headheight}{13.59999pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
+
+[14 <./Bilder/mu_star_res.png> <./Bilder/mu_star_vs_area.png>]
+\openout2 = `Discussion_1.aux'.
+
+
+(./Discussion_1.tex)
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 13.59999pt, for example:
+(fancyhdr)                \setlength{\headheight}{13.59999pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
+
+[15
+
+
+
+]
+\openout2 = `Methods_2.aux'.
+
+ (./Methods_2.tex
+Chapter 2.
+) [16
+
+
+
+
+]
+\openout2 = `Results_2.aux'.
+
+ (./Results_2.tex) (./Mein-erstes-Dokument.bbl
+Underfull \hbox (badness 4181) in paragraph at lines 9--14
+[]\T1/lmr/m/n/10.95 E. Dürig.  Raster deep-dive, 2026.  URL [][]$\T1/lmtt/m/n/1
+0.95 https : / / stds-[]handin . github . io /
+ []
+
+
+Underfull \hbox (badness 5189) in paragraph at lines 28--31
+[]\T1/lmr/m/n/10.95 ISciences, LLC.  ex-ac-tex-tract, 2026.  URL [][]$\T1/lmtt/
+m/n/10.95 https : / / isciences . github . io /
+ []
+
+)
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 13.59999pt, for example:
+(fancyhdr)                \setlength{\headheight}{13.59999pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
+
+[17
 
 
 
@@ -887,22 +1029,22 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 ] (./Mein-erstes-Dokument.aux (./Vorlage-Titelseite.aux) (./Introduction.aux) (
 ./Theoretical_background.aux) (./Methods_1.aux) (./Results_1.aux)
-(./Discussion_1.aux))
+(./Discussion_1.aux) (./Methods_2.aux) (./Results_2.aux))
  ***********
 LaTeX2e <2025-11-01>
 L3 programming layer <2026-01-19>
  ***********
 Package rerunfilecheck Info: File `Mein-erstes-Dokument.out' has not changed.
-(rerunfilecheck)             Checksum: DA9CDD560A5C36892B367F8A2A00DE78;2664.
+(rerunfilecheck)             Checksum: F570C5918AB8B50571847C07A90760A3;6198.
  ) 
 Here is how much of TeX's memory you used:
- 16395 strings out of 469514
- 260328 string characters out of 5470072
- 683823 words of memory out of 5000000
- 44727 multiletter control sequences out of 15000+600000
- 706815 words of font info for 92 fonts, out of 8000000 for 9000
- 14 hyphenation exceptions out of 8191
- 80i,12n,82p,2763b,521s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 16597 strings out of 469438
+ 265288 string characters out of 5468410
+ 689737 words of memory out of 5000000
+ 44883 multiletter control sequences out of 15000+600000
+ 711397 words of font info for 94 fonts, out of 8000000 for 9000
+ 59 hyphenation exceptions out of 8191
+ 80i,12n,82p,3174b,521s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/share/texmf/fonts/type1/public/lm/lmbx10.pfb></usr/share/texmf/fonts/ty
 pe1/public/lm/lmbx12.pfb></usr/share/texmf/fonts/type1/public/lm/lmcsc10.pfb></
 usr/share/texmf/fonts/type1/public/lm/lmex10.pfb></usr/share/texmf/fonts/type1/
@@ -910,13 +1052,14 @@ public/lm/lmmi10.pfb></usr/share/texmf/fonts/type1/public/lm/lmmi7.pfb></usr/sh
 are/texmf/fonts/type1/public/lm/lmmi8.pfb></usr/share/texmf/fonts/type1/public/
 lm/lmr10.pfb></usr/share/texmf/fonts/type1/public/lm/lmr12.pfb></usr/share/texm
 f/fonts/type1/public/lm/lmr7.pfb></usr/share/texmf/fonts/type1/public/lm/lmr8.p
-fb></usr/share/texmf/fonts/type1/public/lm/lmsy10.pfb></usr/share/texmf/fonts/t
-ype1/public/lm/lmsy7.pfb></usr/share/texmf/fonts/type1/public/lm/lmsy8.pfb></us
-r/share/texmf/fonts/type1/public/lm/lmtt10.pfb>
-Output written on Mein-erstes-Dokument.pdf (10 pages, 734926 bytes).
+fb></usr/share/texmf/fonts/type1/public/lm/lmri10.pfb></usr/share/texmf/fonts/t
+ype1/public/lm/lmsy10.pfb></usr/share/texmf/fonts/type1/public/lm/lmsy7.pfb></u
+sr/share/texmf/fonts/type1/public/lm/lmsy8.pfb></usr/share/texmf/fonts/type1/pu
+blic/lm/lmtt10.pfb>
+Output written on Mein-erstes-Dokument.pdf (18 pages, 1202297 bytes).
 PDF statistics:
- 213 PDF objects out of 1000 (max. 8388607)
- 161 compressed objects within 2 object streams
- 35 named destinations out of 1000 (max. 500000)
- 117 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 373 PDF objects out of 1000 (max. 8388607)
+ 298 compressed objects within 3 object streams
+ 72 named destinations out of 1000 (max. 500000)
+ 269 words of extra memory for PDF output out of 10000 (max. 10000000)
 

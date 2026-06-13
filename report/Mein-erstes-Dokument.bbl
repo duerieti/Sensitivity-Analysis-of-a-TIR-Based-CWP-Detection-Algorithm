@@ -1,0 +1,51 @@
+\begin{thebibliography}{7}
+\providecommand{\natexlab}[1]{#1}
+\providecommand{\url}[1]{\texttt{#1}}
+\expandafter\ifx\csname urlstyle\endcsname\relax
+  \providecommand{\doi}[1]{doi: #1}\else
+  \providecommand{\doi}{doi: \begingroup \urlstyle{rm}\Url}\fi
+
+\bibitem[D\"urig(2026)]{duerr_raster_deepdive}
+E.~D\"urig.
+\newblock Raster deepdive, 2026.
+\newblock URL \url{https://stds-handin.github.io/Raster-Deepdive/}.
+\newblock Coursework submission; not peer-reviewed, cited as supporting
+  empirical observation only.
+
+\bibitem[{GDAL/OGR contributors}(2026)]{gdal_gtiff_driver}
+{GDAL/OGR contributors}.
+\newblock {GTiff} -- {GeoTIFF} file format, 2026.
+\newblock URL \url{https://gdal.org/en/stable/drivers/raster/gtiff.html}.
+
+\bibitem[Hijmans et~al.(2024)Hijmans, Brown, and
+  Barbosa]{hijmans_terra_extract}
+R.~J. Hijmans, A.~Brown, and M.~Barbosa.
+\newblock extract: Extract values from a {SpatRaster}, 2024.
+\newblock URL \url{https://rspatial.github.io/terra/reference/extract.html}.
+\newblock \texttt{terra} package documentation.
+
+\bibitem[{ISciences, LLC}(2026)]{isciences_exactextract}
+{ISciences, LLC}.
+\newblock exactextract, 2026.
+\newblock URL \url{https://isciences.github.io/exactextract/index.html}.
+
+\bibitem[Lovelace et~al.(2019)Lovelace, Nowosad, and
+  Muenchow]{lovelace2019geocomputation}
+R.~Lovelace, J.~Nowosad, and J.~Muenchow.
+\newblock \emph{Geocomputation with R}.
+\newblock CRC Press, 2019.
+\newblock ISBN 9780203730058.
+
+\bibitem[Mieno(2022)]{mieno_rgis_2022}
+T.~Mieno.
+\newblock {R} as {GIS} for economists: Extraction speed comparison, 2022.
+\newblock URL
+  \url{https://tmieno2.github.io/R-as-GIS-for-Economists/extract-speed.html}.
+
+\bibitem[Tange(2024)]{tange_2024_gnu_parallel}
+O.~Tange.
+\newblock {GNU Parallel} 20240222.
+\newblock Zenodo, Software, Feb. 2024.
+\newblock URL \url{https://doi.org/10.5281/zenodo.10719803}.
+
+\end{thebibliography}

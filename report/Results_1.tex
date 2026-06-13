@@ -1,2 +1,78 @@
 % Here I simply provide the resulting boxplot diagrams -> Should be four in total. For every parameter and for every lumped statistic. Additionally it could also be of interest to plot the results with respect to patch size and stuff like this, so digging a bit deeper to uncover patters that could be interestin
 
+
+\subsection{Comparison of outputs}
+
+% this should show images showing the new version and the old version of the cwp algorithm and how the outputs generally allign but are not pixel perfect. Tree images are sufficient. Just to provide some interpretation. 
+
+% somewhere the jackard similarity should also be stated. I just do not know where yet. Maybe in the plot description, maybe somewhere else in a table
+
+
+% the jaccard similarities are
+% 0.936, 0.9555, 0.9563
+
+
+
+
+\subsection{Speed comparison in execution}
+
+% a simple line plot showing two lines with different collor. On the x-axis the step length, on the y axis execution time. One line is the execution speed of the optimized algorithm, the other line is the execution speed of the non optimized algorithm.
+
+% It should be visible that the execution time of the new algorithm is shorter and generally constant over the step length parameter. The older version is slower and scales to longer execution speeds for smaller step lengths.
+
+
+\begin{figure}[ht]
+	\centering
+	\includegraphics[width=0.8\textwidth]{Bilder/speed_comparison.png}
+	\caption{Execution time of the original (v1) and optimized (v2) implementations of \texttt{detect\_cwp\_single} as a function of segment length. The optimized implementation shows execution times that are both shorter and largely constant across segment lengths, whereas the original implementation scales disproportionately with decreasing segment length (i.e., increasing number of segments).}
+	\label{fig:speed_comparison}
+\end{figure}
+
+
+
+
+\subsection{Sensitiviy scores for step length parameter}
+
+% include a plot of mu star and sigma for the non tributary caused and the tributary caused cold water patches. Also briefly introduce what is visible on the plot. 
+
+% the plot shows boxplots of the mu.star and sigma sensitivity parameters for the xyz classified cold water patches. Red shows the tributary caused, blue the non tributary caused cold water patches. On the
+
+\begin{figure}[ht]
+	\centering
+	\includegraphics[width=0.8\textwidth]{Bilder/step_length_results.png}
+	\caption{Morris sensitivity indices ($\mu^*$ and $\sigma$) for the \texttt{step\_length} parameter with respect to cold water patch area, stratified by patch class (red: tributary-caused; blue: non-tributary-caused). Boxplots show the distribution across bounding boxes, with sample sizes ($n$) given below each box.}
+	\label{fig:step_length_sensitivity}
+\end{figure}
+
+\newpage
+
+\subsection{Mu star for all parameters over all CWP}
+
+% inlclude a plot of mu star for buffer bixels delta_T and also the step length for all cwp. Describe what the plot shows.
+
+% the plot shows boxplots if mu star for the three different parameters buffer px, delta_T and also step length for all classified cwp. Each boxplot shows the distribution of the different mu.star values per location/area.
+
+
+% further subsections are needed here for shure. Because in the discussion for instance i am also going to address the fact, that i think only the large tributary cwp are realy affected by this issue.
+
+\begin{figure}[ht]
+	\centering
+	\includegraphics[width=0.8\textwidth]{Bilder/mu_star_res.png}
+	\caption{Overall $\mu^*$ sensitivity indices for \texttt{buffer\_px}, \texttt{delta\_T}, and \texttt{step\_length} across all classified cold water patches ($N = 24$ locations, $r = 64$ trajectories).}
+	\label{fig:mu_star_overall}
+\end{figure}
+
+
+\subsection{Mu.star and size for every cwp}
+
+% include a plot showing mu.star in one axis and on the other axis the size of the cwp. Color the dots after the group membership. The large tributary caused patches should also have a large mu.star where smaller tributary caused patches might have a smaller mu star.
+
+\begin{figure}[ht]
+	\centering
+	\includegraphics[width=0.8\textwidth]{Bilder/mu_star_vs_area.png}
+	\caption{$\mu^*$ (step length) versus mean CWP area for each annotated location, colored by patch class.}
+	\label{fig:mu_star_vs_area}
+\end{figure}
+
+
+
