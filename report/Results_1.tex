@@ -1,7 +1,8 @@
+\chapter{Results}
 % Here I simply provide the resulting boxplot diagrams -> Should be four in total. For every parameter and for every lumped statistic. Additionally it could also be of interest to plot the results with respect to patch size and stuff like this, so digging a bit deeper to uncover patters that could be interestin
 
 
-\subsection{Comparison of outputs}
+\section{Comparison of outputs}
 
 % this should show images showing the new version and the old version of the cwp algorithm and how the outputs generally allign but are not pixel perfect. Tree images are sufficient. Just to provide some interpretation. 
 
@@ -14,7 +15,7 @@
 
 
 
-\subsection{Speed comparison in execution}
+\section{Speed comparison in execution}
 
 % a simple line plot showing two lines with different collor. On the x-axis the step length, on the y axis execution time. One line is the execution speed of the optimized algorithm, the other line is the execution speed of the non optimized algorithm.
 
@@ -31,7 +32,7 @@
 
 
 
-\subsection{Sensitiviy scores for step length parameter}
+\section{Sensitiviy scores for step length parameter}
 
 % include a plot of mu star and sigma for the non tributary caused and the tributary caused cold water patches. Also briefly introduce what is visible on the plot. 
 
@@ -46,7 +47,7 @@
 
 \newpage
 
-\subsection{Mu star for all parameters over all CWP}
+\section{Mu star for all parameters over all CWP}
 
 % inlclude a plot of mu star for buffer bixels delta_T and also the step length for all cwp. Describe what the plot shows.
 
@@ -63,36 +64,35 @@
 \end{figure}
 
 
-\subsection{Mu.star and size for every cwp}
+\section{Mu.star and size for every cwp}
 
 % include a plot showing mu.star in one axis and on the other axis the size of the cwp. Color the dots after the group membership. The large tributary caused patches should also have a large mu.star where smaller tributary caused patches might have a smaller mu star.
 
 \begin{figure}[ht]
 	\centering
-	\includegraphics[width=0.8\textwidth]{Bilder/mu_star_vs_area.png}
+	\includegraphics[width=0.8\textwidth]{Bilder/mu_star_vs_area_vs_deltaT.png}
 	\caption{$\mu^*$ (step length) versus mean CWP area for each annotated location, colored by patch class.}
 	\label{fig:mu_star_vs_area}
 \end{figure}
 
 
-Call:
-lm(formula = mu.star ~ mean_area + mean_deltaT, data = lm_data)
+% Call:
+% lm(formula = mu.star ~ mean_area + mean_deltaT, data = lm_data)
 
-Residuals:
-Min       1Q   Median       3Q      Max 
--0.18045 -0.04872  0.01746  0.06581  0.14253 
+% Residuals:
+% Min       1Q   Median       3Q      Max 
+% -0.18045 -0.04872  0.01746  0.06581  0.14253 
 
-Coefficients:
-Estimate Std. Error t value Pr(>|t|)    
-(Intercept)  9.024e-02  3.094e-02   2.917  0.00853 ** 
-mean_area    1.578e-04  2.839e-05   5.557 1.94e-05 ***
-mean_deltaT -1.041e-02  1.739e-02  -0.599  0.55594    
----
-Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+% Coefficients:
+% Estimate Std. Error t value Pr(>|t|)    
+% (Intercept)  9.024e-02  3.094e-02   2.917  0.00853 ** 
+% mean_area    1.578e-04  2.839e-05   5.557 1.94e-05 ***
+% mean_deltaT -1.041e-02  1.739e-02  -0.599  0.55594    
+% ---
+% Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
 
-Residual standard error: 0.08826 on 20 degrees of freedom
-(1 observation deleted due to missingness)
-Multiple R-squared:  0.6113,	Adjusted R-squared:  0.5724 
-F-statistic: 15.73 on 2 and 20 DF,  p-value: 7.877e-05
-
+% Residual standard error: 0.08826 on 20 degrees of freedom
+% (1 observation deleted due to missingness)
+% Multiple R-squared:  0.6113,	Adjusted R-squared:  0.5724 
+% F-statistic: 15.73 on 2 and 20 DF,  p-value: 7.877e-05
 
