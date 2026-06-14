@@ -76,9 +76,9 @@ The resulting reimplementation was tested for equivalence in output by comparing
 		\midrule
 		\texttt{segment\_length\_m}  & 200  & 800  & 1200 \\
 		\texttt{zone\_halfwidth\_m}  & 60   & 60   & 60   \\
-		\texttt{buffer\_px}          & 4    & 3    & 3    \\
-		\texttt{delta\_C}            & 0.5  & 1.0  & 1.0  \\
-		\texttt{min\_patch\_area\_m2}& 2    & 2    & 2    \\
+		\texttt{buffer\_px}          & 4    & 3    & 5    \\
+		\texttt{delta\_C}            & 0.5  & 1.0  & 1.5  \\
+		\texttt{min\_patch\_area\_m2}& 2    & 3    & 2    \\
 		\texttt{round\_to}           & 0.1  & 0.1  & 0.1  \\
 		\texttt{connect\_diagonals}  & TRUE & TRUE & TRUE \\
 		\bottomrule
@@ -213,6 +213,9 @@ As visible in the table, do the area measures generally differ for the same cwp 
 
 \subsubsection{Computing morris sensitivity indices}
 
+
+Lastly, the morris sensitivity indices mu.star, mu and sigma are computed with respect to the total CWP areas for each bounding box.
+
 To later on make the calculated morris indices comparable to each other normalisation of the patch area was needed. This since without normalisation, large patches would dominate smaller patches just due to their size. So for every location/bounding box Min max scaling into the zero one range was performed. where the largest area value ever produced for this bounding box over all computational runs corresponds to 1 and zero corresponds to the case when the bounding box is completely empty in a specific run. 
 
 Computation of the morris indices was then performed with respect to these total area measures by again utilising the sensitivity package. As introduced in the theoretical background does morris produce one ensitivity index (mu, mu.star or sigma). for each parameter that was varied in the experiment. So for every location/ bounding box recorded two sensitivity values (mu.star and sigma) are produced for every parameter. So a total fo 6 parameters. 
@@ -223,6 +226,14 @@ these sensitivity parameters where then lastly collected and displayed against e
 
 % generally only the mu star aswell as the sigma indices where computed, as the mu value sufferes from the balancing out effect as mentioned in the introduction. The resulting. 
 
+
+\subsubsection{Visualisation and statistical modeling}
+
+A set of boxplot visualisations displaying mu star and sigma with regards to different parameters where produced. the plots differentiate the two groups tributary-caused and non tributary-caused as seperate boxplots.
+
+Additionally poxplots of the mu.star distirbution with regards to all three parameters buffer pixel, step length and temperature delta where produced whithout differentiating between the classes.
+
+A linear model based the mean area of all CWP realisation of a boundinbox and the mean temperatue delta of all cwp realisations of a boundingbox was then fitted to predict the sensitivity value mu.star with respect to the step length parameter. This was done to gain insight into wheter the area of the patch and the temperature difference of the patch relate and therefore might explain the sensitivity to the step lenght parameter.
 
 
 

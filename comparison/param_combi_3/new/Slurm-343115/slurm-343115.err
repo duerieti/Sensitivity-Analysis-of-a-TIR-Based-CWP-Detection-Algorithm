@@ -26,9 +26,9 @@ The following objects are masked from ‘package:sf’:
 
     st_minimum_bounding_circle, st_perimeter
 
-Cannot preload entire working area of 6559723170 cells with max_cells_in_memory = 3e+07. Raster values will be read for each feature individually.
-Cannot preload entire working area of 6281707376 cells with max_cells_in_memory = 3e+07. Raster values will be read for each feature individually.
-Cannot preload entire working area of 6281807518 cells with max_cells_in_memory = 3e+07. Raster values will be read for each feature individually.
+Cannot preload entire working area of 6560184076 cells with max_cells_in_memory = 3e+07. Raster values will be read for each feature individually.
+Cannot preload entire working area of 6279762808 cells with max_cells_in_memory = 3e+07. Raster values will be read for each feature individually.
+Cannot preload entire working area of 6279862919 cells with max_cells_in_memory = 3e+07. Raster values will be read for each feature individually.
 Warning message:
 In st_cast.sf(., "POLYGON") :
   repeating attributes for all sub-geometries for which they may not be constant

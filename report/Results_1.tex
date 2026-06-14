@@ -1,6 +1,4 @@
 \chapter{Results}
-% Here I simply provide the resulting boxplot diagrams -> Should be four in total. For every parameter and for every lumped statistic. Additionally it could also be of interest to plot the results with respect to patch size and stuff like this, so digging a bit deeper to uncover patters that could be interestin
-
 
 \section{Comparison of outputs}
 
@@ -13,6 +11,39 @@
 % 0.936, 0.9555, 0.9563
 
 
+% Here I simply provide the resulting boxplot diagrams -> Should be four in total. For every parameter and for every lumped statistic. Additionally it could also be of interest to plot the results with respect to patch size and stuff like this, so digging a bit deeper to uncover patters that could be interestin
+
+The three comparison runs achieved outputs that are in general aggrement of the cwp location and shape but are not on a pixel perfect basis. The jaccard similarities for the three runs are 0.936, 0.956 and 0.976 which shows generally good agreement between the methods. 
+
+Figure \ref{fig:param_combi_3_general_agreement} shows the cwps generated during trial run 3. In red the polygons of the speed optimized algorithm, in red the polygons of the original algorithm. It can be seen that for the displayed cwps, the two algorithms are in generall agreement, however do not fully agree on the pixel level. Figure xzz shows a more pronounced version of this disagreement.
+
+
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=\textwidth]{Bilder/param_combi_3_general_agreement.png}
+	\caption{CWPs generated during trial run 3. Polygons of the speed-optimized algorithm are shown in red, and polygons of the original algorithm are shown in blue. The two algorithms are in general agreement, but do not fully agree at the pixel level.}
+	\label{fig:param_combi_3_general_agreement}
+\end{figure}
+
+Figure \ref{fig:trial_run_1_more_pronounced_dis} shows an example of more pronounced disagreement between the two functions for trial run 1, figure \ref{fig:trial_run_perfect_agreement} shows an example set of cwps with perfect agreement between the two methods
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=\textwidth]{Bilder/trial_run_1_more_pronounced_dis.png}
+	\caption{TODO}
+	\label{fig:trial_run_1_more_pronounced_dis}
+\end{figure}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=\textwidth]{Bilder/trial_run_perfect_agreement.png}
+	\caption{TODO}
+	\label{fig:trial_run_perfect_agreement}
+\end{figure}
+
+
+
 
 
 \section{Speed comparison in execution}
@@ -20,6 +51,8 @@
 % a simple line plot showing two lines with different collor. On the x-axis the step length, on the y axis execution time. One line is the execution speed of the optimized algorithm, the other line is the execution speed of the non optimized algorithm.
 
 % It should be visible that the execution time of the new algorithm is shorter and generally constant over the step length parameter. The older version is slower and scales to longer execution speeds for smaller step lengths.
+
+Figure \ref{fig:speed_comparison} shows the execution speed of the original aswell as the speed optimized cwp function. On the y-axis the execution speed in hours is ploted, on the x-axis the step-length parameter is ploted in meters. Execution speed is a constant half hour for teh speed optimized version where the original function ranges between 2 and 1.25 hours for the three runs whith hihger exeuction times for shorter step lengths.
 
 
 \begin{figure}[ht]
@@ -37,6 +70,9 @@
 % include a plot of mu star and sigma for the non tributary caused and the tributary caused cold water patches. Also briefly introduce what is visible on the plot. 
 
 % the plot shows boxplots of the mu.star and sigma sensitivity parameters for the xyz classified cold water patches. Red shows the tributary caused, blue the non tributary caused cold water patches. On the
+
+
+Figure \ref{fig:step_length_sensitivity} shows morris sensitivity indices sigma and mustar with regards to the step length parameter. It can be seen that all non tributary caues CWP have a sensitivity index below 0.2. The spread in mu star for the sensitivity caused cwp is larger with some cwp featuring a similar sensitivity as the non tributary caused cwp and some featuing a substantially larger sensitivity value ( 0.3 and 0.6). The mean of both mu.star boxplots are very similar for both classes. 
 
 \begin{figure}[ht]
 	\centering
@@ -56,6 +92,8 @@
 
 % further subsections are needed here for shure. Because in the discussion for instance i am also going to address the fact, that i think only the large tributary cwp are realy affected by this issue.
 
+Figure \ref{fig:mu_star_overall} displays the mu.star values of all cwp with respect to the three different parameters varied during the morris experiment. The buffer pixel count continuously scores very low mu.star values while the step length and the temperature delta deviate from zero. Especially the temperature delta seems to highly influence the cwp with respect to their area.
+
 \begin{figure}[ht]
 	\centering
 	\includegraphics[width=0.8\textwidth]{Bilder/mu_star_res.png}
@@ -68,6 +106,9 @@
 
 % include a plot showing mu.star in one axis and on the other axis the size of the cwp. Color the dots after the group membership. The large tributary caused patches should also have a large mu.star where smaller tributary caused patches might have a smaller mu star.
 
+
+Figure  \ref{fig:mu_star_vs_area} shows the 24 selected cpw along 3 different dimensions. On the x axis, the averaged cwp area over all morris runs is depicted, on the y axis the sensitivty against the step length parameter is depicted. The color is used to indicate the average temperature delta to the surrounding environment averaged over all morris runs is depicted. The shape is indicating the class of the cwp.
+
 \begin{figure}[ht]
 	\centering
 	\includegraphics[width=0.8\textwidth]{Bilder/mu_star_vs_area_vs_deltaT.png}
@@ -76,23 +117,21 @@
 \end{figure}
 
 
-% Call:
-% lm(formula = mu.star ~ mean_area + mean_deltaT, data = lm_data)
-
-% Residuals:
-% Min       1Q   Median       3Q      Max 
-% -0.18045 -0.04872  0.01746  0.06581  0.14253 
-
-% Coefficients:
-% Estimate Std. Error t value Pr(>|t|)    
-% (Intercept)  9.024e-02  3.094e-02   2.917  0.00853 ** 
-% mean_area    1.578e-04  2.839e-05   5.557 1.94e-05 ***
-% mean_deltaT -1.041e-02  1.739e-02  -0.599  0.55594    
-% ---
-% Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
-
-% Residual standard error: 0.08826 on 20 degrees of freedom
-% (1 observation deleted due to missingness)
-% Multiple R-squared:  0.6113,	Adjusted R-squared:  0.5724 
-% F-statistic: 15.73 on 2 and 20 DF,  p-value: 7.877e-05
-
+\begin{table}[h]
+	\centering
+	\caption{Regression results for $\mu^*$ predicted by mean area and mean $\Delta T$}
+	\label{tab:regression_mustar}
+	\begin{tabular}{lrrrr}
+		\toprule
+		Predictor & Estimate & SE & $t$ & $p$ \\
+		\midrule
+		(Intercept)        & $9.024 \times 10^{-2}$  & $3.094 \times 10^{-2}$ & 2.92  & 0.009 \\
+		Mean area          & $1.578 \times 10^{-4}$  & $2.839 \times 10^{-5}$ & 5.56  & $<0.001$ \\
+		Mean $\Delta T$    & $-1.041 \times 10^{-2}$ & $1.739 \times 10^{-2}$ & $-0.60$ & 0.556 \\
+		\bottomrule
+	\end{tabular}
+	
+	\vspace{0.5em}
+	\footnotesize
+	\textit{Note.} $R^2 = 0.611$, Adjusted $R^2 = 0.572$, $F(2, 20) = 15.73$, $p < 0.001$. Residual standard error $= 0.088$ on 20 degrees of freedom (one observation deleted due to missingness).
+\end{table}

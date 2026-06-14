@@ -17,7 +17,7 @@ patches_new <- detect_cwp_single(
     zone_halfwidth_m  = 60,    # halfwidth of the wide zone slabs used for rasterisation
     buffer_px         = 3,
     delta_C           = 1.0,
-    min_patch_area_m2 = 2,
+    min_patch_area_m2 = 3,
     round_to          = 0.1,   # rounding precision for the TIR raster (°C)
     connect_diagonals = TRUE   # whether diagonally touching pixels form one polygon
 )

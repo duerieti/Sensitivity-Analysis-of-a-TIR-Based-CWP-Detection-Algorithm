@@ -17,7 +17,7 @@ patches_new <- detect_cwp_single(
     slab_halfwidth_m  = 60,
     buffer_px         = 3,         # corridor half-width for reference T (pixels)
     delta_C           = 1.0,       # temperature anomaly threshold (deg C)
-    min_patch_area_m2 = 2,         # drop patches smaller than this
+    min_patch_area_m2 = 3,         # drop patches smaller than this
     round_to          = 0.1,       # round temperatures to this precision
     connect_diagonals = TRUE      # 8-connectivity when dissolving patch
     )

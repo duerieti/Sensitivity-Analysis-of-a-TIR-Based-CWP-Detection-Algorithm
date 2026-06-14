@@ -2,28 +2,28 @@
 
 \section{Deploying insight from the morris screening}
 
-% The results of the morris sensitivity analysis have shown that the buffer pixel seems to be largely non influential on the area of cwp. Therefore the strategy of factor fixing can be performed, and the buffer pixel parameter can be internalized and be set to a constant value which in this case was choosen to be 3 which lies within the range of the morris screening grid. 
+The results of the morris sensitivity analysis have shown that the buffer pixel seems to be largely non influential on the area of cwp. Therefore the strategy of factor fixing can be performed, and the buffer pixel parameter can be internalized and be set to a constant value which in this case was choosen to be 3 which lies within the range of the morris screening grid. 
 
-% Further it is evidential, that the step length seems to have a reasonable influence on the computed patch area both for the tributary caused and non-tributary caused cwp. It is therefore of interest to remove the dependency of the algorithm on this parameter aswell.
+Further it is evidential, that the step length seems to have a reasonable influence on the computed patch area both for the tributary caused and non-tributary caused cwp. It is therefore of interest to remove the dependency of the algorithm on this parameter aswell.
 
-% Laslty the temperature delta parameter seems to have the strongest effect of all tested parameters. This parameter however can not be simply reduced away, as it has to be set by the user. This because in litterature different temperature deltas for the definition of a cwp exist and therefore a user needs to be able to pick the one that is corresponding with his or heres definition.
+Laslty the temperature delta parameter seems to have the strongest effect of all tested parameters. This parameter however can not be simply reduced away, as it has to be set by the user. This because in literature different temperature deltas for the definition of a cwp exist and therefore a user needs to be able to pick the one that is corresponding with his or heres definition.
 
 
-% So summing up the new algorithm can remove the buffer pixel parameter by factor fixing and has to provide a new approach of detecting ecologically reasonable cwp without relying on a step length parameter.
+ So summing up the new algorithm can remove the buffer pixel parameter by factor fixing and has to provide a new approach of detecting ecologically reasonable cwp without relying on a step length parameter.
 
 
 \section{Operationalisation of Surrounding Stream temperature}
 
-% The later was achieved by rethinking the operationalsiation of the idea of surrounding stream temperature as given by the ecological definition. Instead of relying on the mean temperature of fixed slabs, the new algorithm deploys a inverse distance weighting scheme to compute a reference temperature for each cell by deploying a inverse distance weighting scheme. This guarantees that the reference temperature for pixel flagging is always a mutliperspective decission taking surrounding temerature values of different locations into account to provide a surrounding temperature. This strategy as the added benefit that the deployed reference temperature is a spatially continuous phenomenon unlike the older purely slab based approach. Therefore sharp cutoffs of cwps at slab boundaries can no longer occur unlike in the old algorithm 
+The later was achieved by rethinking the operationalsiation of the idea of surrounding stream temperature as given by the ecological definition. Instead of relying on the mean temperature of fixed slabs, the new algorithm deploys a inverse distance weighting scheme to compute a reference temperature for each cell by deploying a inverse distance weighting scheme. This guarantees that the reference temperature for pixel flagging is always a mutliperspective decission taking surrounding temerature values of different locations into account to provide a surrounding temperature. This strategy as the added benefit that the deployed reference temperature is a spatially continuous phenomenon unlike the older purely slab based approach. Therefore sharp cutoffs of cwps at slab boundaries can no longer occur unlike in the old algorithm 
 
 % => here an image of this sharp cut of
 
 
 \section{Implementation Detail}
 
-% generally the implementation to a large degree follows the implementation of the time optimized cwp algorithm only differing from said function in the computation of the reference temperature step.
+generally the implementation to a large degree follows the implementation of the time optimized cwp algorithm only differing from said function in the computation of the reference temperature step.
 
-% the following pseudo code provides a detailed overiev of this new reference temperature computation
+the following pseudo code provides a detailed overiev of this new reference temperature computation
 
 % 1. From a uniform distribution with bounds 500-3000 meters, sample 20 values as
 %    candidate step lengths.
@@ -53,14 +53,13 @@
 %    statistics, and apply a patch-level threshold check against the
 %    reference temperature.
 
-
-% Step 4. is thereby written in C++ and imported into R using the package Rcpp. This, as it was identified as a computationally intensive step which is best implemented in an compiled language. To further increase the execution speed of this step, parallelisation on the thread level was deployed, as the inverse distance computation for very pixel is an embarisingly parlallel computation. For the parallelisation stepup, the OpenMP library was deployed.
+ Step 4. is thereby written in C++ and imported into R using the package Rcpp. This, as it was identified as a computationally intensive step which is best implemented in an compiled language. To further increase the execution speed of this step, parallelisation on the thread level was deployed, as the inverse distance computation for very pixel is an embarisingly parlallel computation. For the parallelisation stepup, the OpenMP library was deployed.
 
 
 
 \section{Reduction of parameters}
 
-% as mentioned, the buffer px parameter was fixed. Due to the distributed reference points and the inverse distance weighting, no zone slab length is needed anymore. Additionally, since the extent of the reference raster is allways mached to the extend of nodata pixels in the TIR raster due to 5.1, a slab half width also does not have to be set. This however also means, that the algorithm can only be applied to exact water masks of rivers and the shore needs to be cut out. The remaining parameters are the paths to the raster and the centerline, the minimal patch area, the rounding factor, the temperature delta, wheter diagonal pixels should be counted as neighbours in rasterisation. Additionally a new parameter was introduced, which lets a user set the number of cores used for internal parallelisation.
+as mentioned, the buffer px parameter was fixed. Due to the distributed reference points and the inverse distance weighting, no zone slab length is needed anymore. Additionally, since the extent of the reference raster is allways mached to the extend of nodata pixels in the TIR raster due to 5.1, a slab half width also does not have to be set. This however also means, that the algorithm can only be applied to exact water masks of rivers and the shore needs to be cut out. The remaining parameters are the paths to the raster and the centerline, the minimal patch area, the rounding factor, the temperature delta, wheter diagonal pixels should be counted as neighbours in rasterisation. Additionally a new parameter was introduced, which lets a user set the number of cores used for internal parallelisation.
 
 
 

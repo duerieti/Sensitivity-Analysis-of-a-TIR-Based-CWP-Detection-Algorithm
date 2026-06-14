@@ -1,4 +1,4 @@
-\begin{thebibliography}{7}
+\begin{thebibliography}{13}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax
@@ -29,6 +29,17 @@ R.~J. Hijmans, A.~Brown, and M.~Barbosa.
 \newblock exactextract, 2026.
 \newblock URL \url{https://isciences.github.io/exactextract/index.html}.
 
+\bibitem[Ligmann-Zielinska(2013)]{ligmann-zielinska_spatially-explicit_2013}
+A.~Ligmann-Zielinska.
+\newblock Spatially-explicit sensitivity analysis of an agent-based model of
+  land use change.
+\newblock \emph{International Journal of Geographical Information Science},
+  27\penalty0 (9):\penalty0 1764--1781, Sept. 2013.
+\newblock ISSN 1365-8816, 1362-3087.
+\newblock \doi{10.1080/13658816.2013.782613}.
+\newblock URL
+  \url{http://www.tandfonline.com/doi/abs/10.1080/13658816.2013.782613}.
+
 \bibitem[Lovelace et~al.(2019)Lovelace, Nowosad, and
   Muenchow]{lovelace2019geocomputation}
 R.~Lovelace, J.~Nowosad, and J.~Muenchow.
@@ -42,10 +53,51 @@ T.~Mieno.
 \newblock URL
   \url{https://tmieno2.github.io/R-as-GIS-for-Economists/extract-speed.html}.
 
+\bibitem[Saltelli(2004)]{saltelli_sensitivity_2004}
+A.~Saltelli, editor.
+\newblock \emph{Sensitivity analysis in practice: a guide to assessing
+  scientific models}.
+\newblock Wiley, Hoboken, NJ, 2004.
+\newblock ISBN 978-0-470-87093-8.
+
+\bibitem[Saltelli and Annoni(2010)]{saltelli_how_2010}
+A.~Saltelli and P.~Annoni.
+\newblock How to avoid a perfunctory sensitivity analysis.
+\newblock \emph{Environmental Modelling \& Software}, 25\penalty0
+  (12):\penalty0 1508--1517, Dec. 2010.
+\newblock ISSN 13648152.
+\newblock \doi{10.1016/j.envsoft.2010.04.012}.
+\newblock URL
+  \url{https://linkinghub.elsevier.com/retrieve/pii/S1364815210001180}.
+
+\bibitem[Saltelli et~al.(2007)Saltelli, Ratto, Andres, Campolongo, Cariboni,
+  Gatelli, Saisana, and Tarantola]{saltelli_global_2007}
+A.~Saltelli, M.~Ratto, T.~Andres, F.~Campolongo, J.~Cariboni, D.~Gatelli,
+  M.~Saisana, and S.~Tarantola.
+\newblock \emph{Global {Sensitivity} {Analysis}. {The} {Primer}}.
+\newblock Wiley, 1 edition, Dec. 2007.
+\newblock ISBN 978-0-470-05997-5 978-0-470-72518-4.
+\newblock \doi{10.1002/9780470725184}.
+\newblock URL
+  \url{https://onlinelibrary.wiley.com/doi/book/10.1002/9780470725184}.
+
 \bibitem[Tange(2024)]{tange_2024_gnu_parallel}
 O.~Tange.
 \newblock {GNU Parallel} 20240222.
 \newblock Zenodo, Software, Feb. 2024.
 \newblock URL \url{https://doi.org/10.5281/zenodo.10719803}.
+
+\bibitem[Tonolla and
+  Antonetti(2021)]{tonolla_tonolla_etal_2021_schlussbericht_zhaw_thermoemme_2021}
+D.~Tonolla and M.~Antonetti.
+\newblock Tonolla\_etal\_2021\_schlussbericht\_zhaw\_thermoemme.
+\newblock Technical report, ZHAW, Wädenswil, June 2021.
+
+\bibitem[Tonolla and Antonetti(2026)]{tonolla_thermische-kartographie_2026}
+D.~Tonolla and M.~Antonetti.
+\newblock Thermische-{Kartographie} zur {Detektion} und {Charakterisierung} von
+  {Kaltwasserbereichen} an der {Emme} und drei ausgewählten {Zuflüssen}
+  ({Grüene}, {Ilfis}, {Urtene}).
+\newblock Technical report, ZHAW, Wädenswil, Feb. 2026.
 
 \end{thebibliography}

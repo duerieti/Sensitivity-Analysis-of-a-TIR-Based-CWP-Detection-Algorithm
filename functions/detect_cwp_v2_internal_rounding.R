@@ -4,6 +4,13 @@ library(tidyverse)     # general data handling
 library(exactextractr) # extracting aggregated statistics from rasters based on polygons
 library(lwgeom)        # line substring operations on sf geometries
 
+getwd()
+
+rast <- terra::rast("../../Downloads/output_compressedV01.tif")
+
+tmap_mode("view")
+
+tm_shape(rast) + tm_raster()
 
 # Detect cold water patches in a single TIR raster using zone rasterisation
 # to construct a reference temperature surface.
