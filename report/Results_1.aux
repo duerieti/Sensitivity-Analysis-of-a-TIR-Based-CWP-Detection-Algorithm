@@ -1,31 +1,31 @@
 \relax 
 \providecommand\hyper@newdestlabel[2]{}
-\@writefile{toc}{\contentsline {chapter}{\numberline {4}Results}{19}{chapter.4}\protected@file@percent }
+\@writefile{toc}{\contentsline {chapter}{\numberline {4}Results}{25}{chapter.4}\protected@file@percent }
 \@writefile{lof}{\addvspace {10\p@ }}
 \@writefile{lot}{\addvspace {10\p@ }}
-\@writefile{toc}{\contentsline {section}{\numberline {4.1}Comparison of outputs}{19}{section.4.1}\protected@file@percent }
-\@writefile{lof}{\contentsline {figure}{\numberline {1-1}{\ignorespaces CWPs generated during trial run 3. Polygons of the speed-optimized algorithm are shown in red, and polygons of the original algorithm are shown in blue. The two algorithms are in general agreement, but do not fully agree at the pixel level.}}{19}{figure.caption.21}\protected@file@percent }
-\newlabel{fig:param_combi_3_general_agreement}{{1-1}{19}{CWPs generated during trial run 3. Polygons of the speed-optimized algorithm are shown in red, and polygons of the original algorithm are shown in blue. The two algorithms are in general agreement, but do not fully agree at the pixel level}{figure.caption.21}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {1-2}{\ignorespaces TODO}}{20}{figure.caption.22}\protected@file@percent }
-\newlabel{fig:trial_run_1_more_pronounced_dis}{{1-2}{20}{TODO}{figure.caption.22}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {1-3}{\ignorespaces TODO}}{20}{figure.caption.23}\protected@file@percent }
-\newlabel{fig:trial_run_perfect_agreement}{{1-3}{20}{TODO}{figure.caption.23}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {4.2}Speed comparison in execution}{20}{section.4.2}\protected@file@percent }
-\@writefile{lof}{\contentsline {figure}{\numberline {2-4}{\ignorespaces Execution time of the original (v1) and optimized (v2) implementations of \texttt  {detect\_cwp\_single} as a function of segment length. The optimized implementation shows execution times that are both shorter and largely constant across segment lengths, whereas the original implementation scales disproportionately with decreasing segment length (i.e., increasing number of segments).}}{21}{figure.caption.24}\protected@file@percent }
-\newlabel{fig:speed_comparison}{{2-4}{21}{Execution time of the original (v1) and optimized (v2) implementations of \texttt {detect\_cwp\_single} as a function of segment length. The optimized implementation shows execution times that are both shorter and largely constant across segment lengths, whereas the original implementation scales disproportionately with decreasing segment length (i.e., increasing number of segments)}{figure.caption.24}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {4.3}Sensitiviy scores for step length parameter}{21}{section.4.3}\protected@file@percent }
-\@writefile{lof}{\contentsline {figure}{\numberline {3-5}{\ignorespaces Morris sensitivity indices ($\mu ^*$ and $\sigma $) for the \texttt  {step\_length} parameter with respect to cold water patch area, stratified by patch class (red: tributary-caused; blue: non-tributary-caused). Boxplots show the distribution across bounding boxes, with sample sizes ($n$) given below each box.}}{22}{figure.caption.25}\protected@file@percent }
-\newlabel{fig:step_length_sensitivity}{{3-5}{22}{Morris sensitivity indices ($\mu ^*$ and $\sigma $) for the \texttt {step\_length} parameter with respect to cold water patch area, stratified by patch class (red: tributary-caused; blue: non-tributary-caused). Boxplots show the distribution across bounding boxes, with sample sizes ($n$) given below each box}{figure.caption.25}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {4.4}Mu star for all parameters over all CWP}{22}{section.4.4}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {4.5}Mu.star and size for every cwp}{22}{section.4.5}\protected@file@percent }
-\@writefile{lot}{\contentsline {table}{\numberline {5-1}{\ignorespaces Regression results for $\mu ^*$ predicted by mean area and mean $\Delta T$}}{22}{table.caption.28}\protected@file@percent }
-\newlabel{tab:regression_mustar}{{5-1}{22}{Regression results for $\mu ^*$ predicted by mean area and mean $\Delta T$}{table.caption.28}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {4-6}{\ignorespaces Overall $\mu ^*$ sensitivity indices for \texttt  {buffer\_px}, \texttt  {delta\_T}, and \texttt  {step\_length} across all classified cold water patches ($N = 24$ locations, $r = 64$ trajectories).}}{23}{figure.caption.26}\protected@file@percent }
-\newlabel{fig:mu_star_overall}{{4-6}{23}{Overall $\mu ^*$ sensitivity indices for \texttt {buffer\_px}, \texttt {delta\_T}, and \texttt {step\_length} across all classified cold water patches ($N = 24$ locations, $r = 64$ trajectories)}{figure.caption.26}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {5-7}{\ignorespaces $\mu ^*$ (step length) versus mean CWP area for each annotated location, colored by patch class.}}{23}{figure.caption.27}\protected@file@percent }
-\newlabel{fig:mu_star_vs_area}{{5-7}{23}{$\mu ^*$ (step length) versus mean CWP area for each annotated location, colored by patch class}{figure.caption.27}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {4.1}Comparison of outputs}{25}{section.4.1}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {1-1}{\ignorespaces CWPs generated during trial run 3 (Jaccard similarity = 0.976). Polygons of the speed-optimized algorithm (v2) are shown in red, and polygons of the original algorithm (v1) are shown in blue. The two algorithms are in general agreement, but do not fully agree at the pixel level.}}{25}{figure.caption.30}\protected@file@percent }
+\newlabel{fig:param_combi_3_general_agreement}{{1-1}{25}{CWPs generated during trial run 3 (Jaccard similarity = 0.976). Polygons of the speed-optimized algorithm (v2) are shown in red, and polygons of the original algorithm (v1) are shown in blue. The two algorithms are in general agreement, but do not fully agree at the pixel level}{figure.caption.30}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {1-2}{\ignorespaces Example of more pronounced pixel-level disagreement between v1 and v2 for trial run 1 (Jaccard similarity = 0.936). Polygons of v2 are shown in red, polygons of v1 in blue.}}{26}{figure.caption.31}\protected@file@percent }
+\newlabel{fig:trial_run_1_more_pronounced_dis}{{1-2}{26}{Example of more pronounced pixel-level disagreement between v1 and v2 for trial run 1 (Jaccard similarity = 0.936). Polygons of v2 are shown in red, polygons of v1 in blue}{figure.caption.31}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {1-3}{\ignorespaces Example of complete spatial agreement between v1 and v2 for trial run 2 (Jaccard similarity = 0.956). Where polygons overlap perfectly, only the red v2 polygons are visible.}}{26}{figure.caption.32}\protected@file@percent }
+\newlabel{fig:trial_run_perfect_agreement}{{1-3}{26}{Example of complete spatial agreement between v1 and v2 for trial run 2 (Jaccard similarity = 0.956). Where polygons overlap perfectly, only the red v2 polygons are visible}{figure.caption.32}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {4.2}Speed comparison in execution}{26}{section.4.2}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {2-4}{\ignorespaces Execution time of the original (v1) and optimized (v2) implementations of \texttt  {detect\_cwp\_single} as a function of segment length. The optimized implementation shows execution times that are both shorter and largely constant across segment lengths, whereas the original implementation scales disproportionately with decreasing segment length (i.e., increasing number of segments).}}{27}{figure.caption.33}\protected@file@percent }
+\newlabel{fig:speed_comparison}{{2-4}{27}{Execution time of the original (v1) and optimized (v2) implementations of \texttt {detect\_cwp\_single} as a function of segment length. The optimized implementation shows execution times that are both shorter and largely constant across segment lengths, whereas the original implementation scales disproportionately with decreasing segment length (i.e., increasing number of segments)}{figure.caption.33}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {4.3}Sensitivity scores for step length parameter}{27}{section.4.3}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {3-5}{\ignorespaces Morris sensitivity indices ($\mu ^*$ and $\sigma $) for the \texttt  {step\_length} parameter with respect to cold water patch area, stratified by patch class (red: tributary-caused, $n=10$; blue: non-tributary-caused, $n=14$). Boxplots show the distribution across bounding boxes.}}{28}{figure.caption.34}\protected@file@percent }
+\newlabel{fig:step_length_sensitivity}{{3-5}{28}{Morris sensitivity indices ($\mu ^*$ and $\sigma $) for the \texttt {step\_length} parameter with respect to cold water patch area, stratified by patch class (red: tributary-caused, $n=10$; blue: non-tributary-caused, $n=14$). Boxplots show the distribution across bounding boxes}{figure.caption.34}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {4.4}Overall $\mu ^*$ across all parameters}{28}{section.4.4}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {4.5}$\mu ^*$ (step length) versus CWP area}{28}{section.4.5}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {4-6}{\ignorespaces Overall $\mu ^*$ sensitivity indices for \texttt  {buffer\_px}, \texttt  {delta\_T}, and \texttt  {step\_length} across all classified cold water patches ($N = 24$ locations, $r = 64$ trajectories).}}{29}{figure.caption.35}\protected@file@percent }
+\newlabel{fig:mu_star_overall}{{4-6}{29}{Overall $\mu ^*$ sensitivity indices for \texttt {buffer\_px}, \texttt {delta\_T}, and \texttt {step\_length} across all classified cold water patches ($N = 24$ locations, $r = 64$ trajectories)}{figure.caption.35}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {5-1}{\ignorespaces Regression results for $\mu ^*$ (step length) predicted by mean CWP area and mean $\Delta T$, fitted across all 24 annotated locations.}}{29}{table.caption.37}\protected@file@percent }
+\newlabel{tab:regression_mustar}{{5-1}{29}{Regression results for $\mu ^*$ (step length) predicted by mean CWP area and mean $\Delta T$, fitted across all 24 annotated locations}{table.caption.37}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {5-7}{\ignorespaces $\mu ^*$ (step length) versus mean CWP area for each of the 24 annotated locations. Color indicates the mean temperature delta to the surrounding river ($\overline  {\Delta T}$, averaged across all Morris runs); shape indicates CWP class (circle: non-tributary-caused; triangle: tributary-caused).}}{29}{figure.caption.36}\protected@file@percent }
+\newlabel{fig:mu_star_vs_area}{{5-7}{29}{$\mu ^*$ (step length) versus mean CWP area for each of the 24 annotated locations. Color indicates the mean temperature delta to the surrounding river ($\overline {\Delta T}$, averaged across all Morris runs); shape indicates CWP class (circle: non-tributary-caused; triangle: tributary-caused)}{figure.caption.36}{}}
 \@setckpt{Results_1}{
-\setcounter{page}{24}
+\setcounter{page}{30}
 \setcounter{equation}{0}
 \setcounter{enumi}{0}
 \setcounter{enumii}{0}
@@ -55,6 +55,6 @@
 \setcounter{section@level}{1}
 \setcounter{Item}{0}
 \setcounter{Hfootnote}{0}
-\setcounter{bookmark@seq@number}{22}
+\setcounter{bookmark@seq@number}{26}
 \setcounter{lstlisting}{0}
 }

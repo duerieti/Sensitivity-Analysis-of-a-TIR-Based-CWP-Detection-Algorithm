@@ -2,58 +2,35 @@
 
 \section{Comparison of outputs}
 
-% this should show images showing the new version and the old version of the cwp algorithm and how the outputs generally allign but are not pixel perfect. Tree images are sufficient. Just to provide some interpretation. 
+The three comparison runs achieved outputs that are in general agreement with respect to CWP location and shape, but are not identical at the pixel level. The Jaccard similarities for the three runs are 0.936, 0.956, and 0.976, indicating generally good agreement between v1 and v2.
 
-% somewhere the jackard similarity should also be stated. I just do not know where yet. Maybe in the plot description, maybe somewhere else in a table
-
-
-% the jaccard similarities are
-% 0.936, 0.9555, 0.9563
-
-
-% Here I simply provide the resulting boxplot diagrams -> Should be four in total. For every parameter and for every lumped statistic. Additionally it could also be of interest to plot the results with respect to patch size and stuff like this, so digging a bit deeper to uncover patters that could be interestin
-
-The three comparison runs achieved outputs that are in general aggrement of the cwp location and shape but are not on a pixel perfect basis. The jaccard similarities for the three runs are 0.936, 0.956 and 0.976 which shows generally good agreement between the methods. 
-
-Figure \ref{fig:param_combi_3_general_agreement} shows the cwps generated during trial run 3. In red the polygons of the speed optimized algorithm, in red the polygons of the original algorithm. It can be seen that for the displayed cwps, the two algorithms are in generall agreement, however do not fully agree on the pixel level. Figure xzz shows a more pronounced version of this disagreement.
-
-
+Figure~\ref{fig:param_combi_3_general_agreement} shows the CWPs generated during trial run 3, with polygons of the speed-optimized algorithm (v2) shown in red and polygons of the original algorithm (v1) shown in blue. The two algorithms are in general agreement, however do not fully agree at the pixel level. Figure~\ref{fig:trial_run_1_more_pronounced_dis} shows a more pronounced example of this pixel-level disagreement for trial run 1, while Figure~\ref{fig:trial_run_perfect_agreement} shows an example of perfect agreement between the two methods.
 
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=\textwidth]{Bilder/param_combi_3_general_agreement.png}
-	\caption{CWPs generated during trial run 3. Polygons of the speed-optimized algorithm are shown in red, and polygons of the original algorithm are shown in blue. The two algorithms are in general agreement, but do not fully agree at the pixel level.}
+	\caption{CWPs generated during trial run 3 (Jaccard similarity = 0.976). Polygons of the speed-optimized algorithm (v2) are shown in red, and polygons of the original algorithm (v1) are shown in blue. The two algorithms are in general agreement, but do not fully agree at the pixel level.}
 	\label{fig:param_combi_3_general_agreement}
 \end{figure}
-
-Figure \ref{fig:trial_run_1_more_pronounced_dis} shows an example of more pronounced disagreement between the two functions for trial run 1, figure \ref{fig:trial_run_perfect_agreement} shows an example set of cwps with perfect agreement between the two methods
 
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=\textwidth]{Bilder/trial_run_1_more_pronounced_dis.png}
-	\caption{TODO}
+	\caption{Example of more pronounced pixel-level disagreement between v1 and v2 for trial run 1 (Jaccard similarity = 0.936). Polygons of v2 are shown in red, polygons of v1 in blue.}
 	\label{fig:trial_run_1_more_pronounced_dis}
 \end{figure}
 
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=\textwidth]{Bilder/trial_run_perfect_agreement.png}
-	\caption{TODO}
+	\caption{Example of complete spatial agreement between v1 and v2 for trial run 2 (Jaccard similarity = 0.956). Where polygons overlap perfectly, only the red v2 polygons are visible.}
 	\label{fig:trial_run_perfect_agreement}
 \end{figure}
 
 
-
-
-
 \section{Speed comparison in execution}
 
-% a simple line plot showing two lines with different collor. On the x-axis the step length, on the y axis execution time. One line is the execution speed of the optimized algorithm, the other line is the execution speed of the non optimized algorithm.
-
-% It should be visible that the execution time of the new algorithm is shorter and generally constant over the step length parameter. The older version is slower and scales to longer execution speeds for smaller step lengths.
-
-Figure \ref{fig:speed_comparison} shows the execution speed of the original aswell as the speed optimized cwp function. On the y-axis the execution speed in hours is ploted, on the x-axis the step-length parameter is ploted in meters. Execution speed is a constant half hour for teh speed optimized version where the original function ranges between 2 and 1.25 hours for the three runs whith hihger exeuction times for shorter step lengths.
-
+Figure~\ref{fig:speed_comparison} shows the execution time of v1 and v2 as a function of segment length. The execution time of v2 is approximately 0.5 hours across all three tested segment lengths, remaining largely constant. In contrast, v1 shows execution times ranging from approximately 2 hours at a segment length of 400~m to approximately 1.25 hours at 1200~m, with execution time increasing as segment length decreases (i.e., as the number of segments increases).
 
 \begin{figure}[ht]
 	\centering
@@ -63,36 +40,22 @@ Figure \ref{fig:speed_comparison} shows the execution speed of the original aswe
 \end{figure}
 
 
+\section{Sensitivity scores for step length parameter}
 
-
-\section{Sensitiviy scores for step length parameter}
-
-% include a plot of mu star and sigma for the non tributary caused and the tributary caused cold water patches. Also briefly introduce what is visible on the plot. 
-
-% the plot shows boxplots of the mu.star and sigma sensitivity parameters for the xyz classified cold water patches. Red shows the tributary caused, blue the non tributary caused cold water patches. On the
-
-
-Figure \ref{fig:step_length_sensitivity} shows morris sensitivity indices sigma and mustar with regards to the step length parameter. It can be seen that all non tributary caues CWP have a sensitivity index below 0.2. The spread in mu star for the sensitivity caused cwp is larger with some cwp featuring a similar sensitivity as the non tributary caused cwp and some featuing a substantially larger sensitivity value ( 0.3 and 0.6). The mean of both mu.star boxplots are very similar for both classes. 
+Figure~\ref{fig:step_length_sensitivity} shows the Morris sensitivity indices $\mu^*$ and $\sigma$ with respect to the step length parameter, stratified by CWP class ($n = 10$ tributary-caused, $n = 14$ non-tributary-caused). All non-tributary-caused CWP show $\mu^*$ values below 0.2, indicating low sensitivity to the step length parameter across this class. The tributary-caused CWP show a wider spread in $\mu^*$: some tributary-caused CWP have sensitivity values comparable to the non-tributary-caused group, while others show substantially higher values of up to 0.3--0.6. The median $\mu^*$ values of the two classes are similar, with the primary difference lying in the upper tail of the tributary-caused distribution. The $\sigma$ values show a comparable pattern, with greater spread in the tributary-caused group.
 
 \begin{figure}[ht]
 	\centering
 	\includegraphics[width=0.8\textwidth]{Bilder/step_length_results.png}
-	\caption{Morris sensitivity indices ($\mu^*$ and $\sigma$) for the \texttt{step\_length} parameter with respect to cold water patch area, stratified by patch class (red: tributary-caused; blue: non-tributary-caused). Boxplots show the distribution across bounding boxes, with sample sizes ($n$) given below each box.}
+	\caption{Morris sensitivity indices ($\mu^*$ and $\sigma$) for the \texttt{step\_length} parameter with respect to cold water patch area, stratified by patch class (red: tributary-caused, $n=10$; blue: non-tributary-caused, $n=14$). Boxplots show the distribution across bounding boxes.}
 	\label{fig:step_length_sensitivity}
 \end{figure}
 
 \newpage
 
-\section{Mu star for all parameters over all CWP}
+\section{Overall $\mu^*$ across all parameters}
 
-% inlclude a plot of mu star for buffer bixels delta_T and also the step length for all cwp. Describe what the plot shows.
-
-% the plot shows boxplots if mu star for the three different parameters buffer px, delta_T and also step length for all classified cwp. Each boxplot shows the distribution of the different mu.star values per location/area.
-
-
-% further subsections are needed here for shure. Because in the discussion for instance i am also going to address the fact, that i think only the large tributary cwp are realy affected by this issue.
-
-Figure \ref{fig:mu_star_overall} displays the mu.star values of all cwp with respect to the three different parameters varied during the morris experiment. The buffer pixel count continuously scores very low mu.star values while the step length and the temperature delta deviate from zero. Especially the temperature delta seems to highly influence the cwp with respect to their area.
+Figure~\ref{fig:mu_star_overall} displays the $\mu^*$ values for all 24 CWP locations with respect to the three parameters varied in the second Morris experiment. The buffer pixel count shows consistently low $\mu^*$ values across all locations, with the entire distribution concentrated near zero. In contrast, both step length and temperature delta show distributions that deviate clearly from zero. The temperature delta parameter shows the highest $\mu^*$ values overall, suggesting it has the strongest influence on the detected CWP area across the set of annotated locations.
 
 \begin{figure}[ht]
 	\centering
@@ -102,32 +65,30 @@ Figure \ref{fig:mu_star_overall} displays the mu.star values of all cwp with res
 \end{figure}
 
 
-\section{Mu.star and size for every cwp}
+\section{$\mu^*$ (step length) versus CWP area}
 
-% include a plot showing mu.star in one axis and on the other axis the size of the cwp. Color the dots after the group membership. The large tributary caused patches should also have a large mu.star where smaller tributary caused patches might have a smaller mu star.
+Figure~\ref{fig:mu_star_vs_area} shows the 24 selected CWP along three dimensions simultaneously: mean CWP area averaged across all Morris runs (x-axis), $\mu^*$ with respect to the step length parameter (y-axis), mean temperature delta to the surrounding environment averaged across all Morris runs (color), and CWP class (shape). The data suggest a positive relationship between mean CWP area and sensitivity to the step length parameter: locations with larger mean CWP area tend to show higher $\mu^*$ values. This pattern appears across both classes. No clear relationship between mean temperature delta and $\mu^*$ is visible from the coloring.
 
-
-Figure  \ref{fig:mu_star_vs_area} shows the 24 selected cpw along 3 different dimensions. On the x axis, the averaged cwp area over all morris runs is depicted, on the y axis the sensitivty against the step length parameter is depicted. The color is used to indicate the average temperature delta to the surrounding environment averaged over all morris runs is depicted. The shape is indicating the class of the cwp.
+Table~\ref{tab:regression_mustar} shows the results of the linear model fitted to predict $\mu^*$ (step length) from mean CWP area and mean temperature delta. The mean area predictor is highly significant ($p < 0.001$) with a positive slope, consistent with the visual pattern in Figure~\ref{fig:mu_star_vs_area}. The mean temperature delta predictor is not significant ($p = 0.556$), indicating no detectable linear relationship between temperature delta and sensitivity to the step length parameter after accounting for area. The model explains a substantial proportion of variance ($R^2 = 0.611$, Adjusted $R^2 = 0.572$).
 
 \begin{figure}[ht]
 	\centering
 	\includegraphics[width=0.8\textwidth]{Bilder/mu_star_vs_area_vs_deltaT.png}
-	\caption{$\mu^*$ (step length) versus mean CWP area for each annotated location, colored by patch class.}
+	\caption{$\mu^*$ (step length) versus mean CWP area for each of the 24 annotated locations. Color indicates the mean temperature delta to the surrounding river ($\overline{\Delta T}$, averaged across all Morris runs); shape indicates CWP class (circle: non-tributary-caused; triangle: tributary-caused).}
 	\label{fig:mu_star_vs_area}
 \end{figure}
 
-
 \begin{table}[h]
 	\centering
-	\caption{Regression results for $\mu^*$ predicted by mean area and mean $\Delta T$}
+	\caption{Regression results for $\mu^*$ (step length) predicted by mean CWP area and mean $\Delta T$, fitted across all 24 annotated locations.}
 	\label{tab:regression_mustar}
 	\begin{tabular}{lrrrr}
 		\toprule
 		Predictor & Estimate & SE & $t$ & $p$ \\
 		\midrule
-		(Intercept)        & $9.024 \times 10^{-2}$  & $3.094 \times 10^{-2}$ & 2.92  & 0.009 \\
-		Mean area          & $1.578 \times 10^{-4}$  & $2.839 \times 10^{-5}$ & 5.56  & $<0.001$ \\
-		Mean $\Delta T$    & $-1.041 \times 10^{-2}$ & $1.739 \times 10^{-2}$ & $-0.60$ & 0.556 \\
+		(Intercept)        & $9.024 \times 10^{-2}$  & $3.094 \times 10^{-2}$ & 2.92    & 0.009    \\
+		Mean area          & $1.578 \times 10^{-4}$  & $2.839 \times 10^{-5}$ & 5.56    & $<0.001$ \\
+		Mean $\Delta T$    & $-1.041 \times 10^{-2}$ & $1.739 \times 10^{-2}$ & $-0.60$ & 0.556    \\
 		\bottomrule
 	\end{tabular}
 	

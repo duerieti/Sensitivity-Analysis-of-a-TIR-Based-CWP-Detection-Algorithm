@@ -19,45 +19,45 @@ Warning--entry type for "isciences_exactextract" isn't style-file defined
 --line 34 of file references.bib
 Warning--entry type for "hijmans_terra_extract" isn't style-file defined
 --line 42 of file references.bib
-You've used 13 entries,
+You've used 17 entries,
             2773 wiz_defined-function locations,
-            682 strings with 7250 characters,
-and the built_in function-call counts, 5076 in all, are:
-= -- 458
-> -- 269
-< -- 10
-+ -- 94
-- -- 81
-* -- 373
-:= -- 817
-add.period$ -- 53
-call.type$ -- 13
-change.case$ -- 66
-chr.to.int$ -- 13
-cite$ -- 26
-duplicate$ -- 225
-empty$ -- 427
-format.name$ -- 100
-if$ -- 1053
+            721 strings with 8685 characters,
+and the built_in function-call counts, 7304 in all, are:
+= -- 669
+> -- 414
+< -- 11
++ -- 143
+- -- 126
+* -- 591
+:= -- 1178
+add.period$ -- 77
+call.type$ -- 17
+change.case$ -- 93
+chr.to.int$ -- 17
+cite$ -- 34
+duplicate$ -- 308
+empty$ -- 581
+format.name$ -- 149
+if$ -- 1507
 int.to.chr$ -- 1
 int.to.str$ -- 1
-missing$ -- 7
-newline$ -- 87
-num.names$ -- 53
-pop$ -- 140
+missing$ -- 11
+newline$ -- 119
+num.names$ -- 69
+pop$ -- 175
 preamble$ -- 1
-purify$ -- 53
+purify$ -- 76
 quote$ -- 0
-skip$ -- 180
+skip$ -- 239
 stack$ -- 0
-substring$ -- 88
-swap$ -- 17
+substring$ -- 164
+swap$ -- 25
 text.length$ -- 0
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 128
+type$ -- 172
 warning$ -- 0
-while$ -- 43
+while$ -- 61
 width$ -- 0
-write$ -- 199
+write$ -- 275
 (There were 4 warnings)

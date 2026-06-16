@@ -4,39 +4,48 @@
 \contentsline {section}{\numberline {2.1}Model - Working Definition}{5}{section.2.1}%
 \contentsline {section}{\numberline {2.2}Model Input Sensitivity Analysis}{5}{section.2.2}%
 \contentsline {section}{\numberline {2.3}Sensitivity Analysis}{5}{section.2.3}%
-\contentsline {subsection}{\numberline {2.3.1}The Morris Method}{6}{subsection.2.3.1}%
-\contentsline {section}{\numberline {2.4}Coldwater Patches}{9}{section.2.4}%
-\contentsline {section}{\numberline {2.5}Data}{9}{section.2.5}%
-\contentsline {chapter}{\numberline {3}Methods}{10}{chapter.3}%
-\contentsline {section}{\numberline {3.1}Optimizationn of Existing Algorithm}{10}{section.3.1}%
-\contentsline {subsection}{\numberline {3.1.1}Reimplementation of the CWP algorithm based on GDAL and system calls}{11}{subsection.3.1.1}%
-\contentsline {subsection}{\numberline {3.1.2}Output eqivalence and Runtime Comparison}{12}{subsection.3.1.2}%
-\contentsline {section}{\numberline {3.2}Sensitivity Analysis using Morris}{13}{section.3.2}%
-\contentsline {subsection}{\numberline {3.2.1}Determining and classifying step length sensitive CWP}{13}{subsection.3.2.1}%
-\contentsline {subsubsection}{Setting up first Morris experiment}{14}{section*.9}%
-\contentsline {subsubsection}{Model Evaluation along Parameter Combinations}{14}{section*.10}%
-\contentsline {subsubsection}{Creation of a fuzzy overlay of CWP}{14}{section*.12}%
-\contentsline {subsubsection}{Selection and Classificatio of CWP}{15}{section*.13}%
-\contentsline {subsection}{\numberline {3.2.2}Computing morris sensitivity indices with respect to CWP area}{16}{subsection.3.2.2}%
-\contentsline {subsubsection}{Setting up second sampling Grid and executing Algorithm}{16}{section*.16}%
-\contentsline {subsubsection}{Computing specially lumped statistics for the selected CWPs}{17}{section*.17}%
-\contentsline {subsubsection}{Computing morris sensitivity indices}{17}{section*.19}%
-\contentsline {subsubsection}{Visualisation and statistical modeling}{18}{section*.20}%
-\contentsline {section}{\numberline {3.3}Usage of KI}{18}{section.3.3}%
-\contentsline {chapter}{\numberline {4}Results}{19}{chapter.4}%
-\contentsline {section}{\numberline {4.1}Comparison of outputs}{19}{section.4.1}%
-\contentsline {section}{\numberline {4.2}Speed comparison in execution}{20}{section.4.2}%
-\contentsline {section}{\numberline {4.3}Sensitiviy scores for step length parameter}{21}{section.4.3}%
-\contentsline {section}{\numberline {4.4}Mu star for all parameters over all CWP}{22}{section.4.4}%
-\contentsline {section}{\numberline {4.5}Mu.star and size for every cwp}{22}{section.4.5}%
-\contentsline {chapter}{\numberline {5}Discussion}{24}{chapter.5}%
-\contentsline {section}{\numberline {5.1}Difference in cwp polygons between old and new function}{24}{section.5.1}%
-\contentsline {section}{\numberline {5.2}Speed comparison}{24}{section.5.2}%
-\contentsline {section}{\numberline {5.3}Answering research question 1}{25}{section.5.3}%
-\contentsline {section}{\numberline {5.4}Overall Sensitivity to the different Paramters}{26}{section.5.4}%
-\contentsline {chapter}{\numberline {6}Optimisation of the CWP algorithm based on the morris sensitivity analysis}{27}{chapter.6}%
-\contentsline {section}{\numberline {6.1}Deploying insight from the morris screening}{27}{section.6.1}%
-\contentsline {section}{\numberline {6.2}Operationalisation of Surrounding Stream temperature}{27}{section.6.2}%
-\contentsline {section}{\numberline {6.3}Implementation Detail}{28}{section.6.3}%
-\contentsline {section}{\numberline {6.4}Reduction of parameters}{28}{section.6.4}%
-\contentsline {section}{\numberline {6.5}Quellenverzeichnis}{29}{section.6.5}%
+\contentsline {subsection}{\numberline {2.3.1}Local methods}{6}{subsection.2.3.1}%
+\contentsline {subsection}{\numberline {2.3.2}Global methods}{6}{subsection.2.3.2}%
+\contentsline {subsection}{\numberline {2.3.3}The Morris Method}{6}{subsection.2.3.3}%
+\contentsline {subsubsection}{Elementary Effects and the Sampling Grid}{6}{section*.2}%
+\contentsline {subsubsection}{Trajectory-Based Sampling}{7}{section*.4}%
+\contentsline {subsubsection}{Sensitivity Measures: $\mu $, $\sigma $, and $\mu ^*$}{8}{section*.6}%
+\contentsline {section}{\numberline {2.4}Coldwater Patches}{10}{section.2.4}%
+\contentsline {chapter}{\numberline {3}Methods}{11}{chapter.3}%
+\contentsline {section}{\numberline {3.1}Data}{11}{section.3.1}%
+\contentsline {section}{\numberline {3.2}Operationalisation of the Research Question}{11}{section.3.2}%
+\contentsline {section}{\numberline {3.3}Optimizationn of Existing Algorithm}{12}{section.3.3}%
+\contentsline {subsection}{\numberline {3.3.1}Reimplementation of the CWP algorithm based on GDAL and system calls}{12}{subsection.3.3.1}%
+\contentsline {paragraph}{Performance.}{13}{section*.10}%
+\contentsline {paragraph}{Memory footprint and HPC suitability.}{13}{section*.11}%
+\contentsline {paragraph}{Raster value extraction.}{14}{section*.12}%
+\contentsline {subsection}{\numberline {3.3.2}Output eqivalence and Runtime Comparison}{14}{subsection.3.3.2}%
+\contentsline {section}{\numberline {3.4}Sensitivity Analysis using Morris}{15}{section.3.4}%
+\contentsline {subsection}{\numberline {3.4.1}Determining and classifying step length sensitive CWP}{17}{subsection.3.4.1}%
+\contentsline {subsubsection}{Setting up first Morris experiment}{17}{section*.15}%
+\contentsline {subsubsection}{Model Evaluation along Parameter Combinations}{17}{section*.17}%
+\contentsline {subsubsection}{Creation of a fuzzy overlay of CWP}{19}{section*.20}%
+\contentsline {subsubsection}{Selection and Classification of CWP}{20}{section*.22}%
+\contentsline {subsection}{\numberline {3.4.2}Computing morris sensitivity indices with respect to CWP area}{21}{subsection.3.4.2}%
+\contentsline {subsubsection}{Setting up second sampling Grid and executing Algorithm}{21}{section*.24}%
+\contentsline {subsubsection}{Computing lumped statistics for the selected CWPs}{22}{section*.26}%
+\contentsline {subsubsection}{Computing Morris sensitivity indices}{23}{section*.29}%
+\contentsline {section}{\numberline {3.5}Visualisation and Statistical Modeling}{24}{section.3.5}%
+\contentsline {section}{\numberline {3.6}Usage of KI}{24}{section.3.6}%
+\contentsline {chapter}{\numberline {4}Results}{25}{chapter.4}%
+\contentsline {section}{\numberline {4.1}Comparison of outputs}{25}{section.4.1}%
+\contentsline {section}{\numberline {4.2}Speed comparison in execution}{26}{section.4.2}%
+\contentsline {section}{\numberline {4.3}Sensitivity scores for step length parameter}{27}{section.4.3}%
+\contentsline {section}{\numberline {4.4}Overall $\mu ^*$ across all parameters}{28}{section.4.4}%
+\contentsline {section}{\numberline {4.5}$\mu ^*$ (step length) versus CWP area}{28}{section.4.5}%
+\contentsline {chapter}{\numberline {5}Discussion}{30}{chapter.5}%
+\contentsline {section}{\numberline {5.1}Difference in CWP polygons between v1 and v2}{30}{section.5.1}%
+\contentsline {section}{\numberline {5.2}Speed comparison}{30}{section.5.2}%
+\contentsline {section}{\numberline {5.3}Answering research question 1}{31}{section.5.3}%
+\contentsline {section}{\numberline {5.4}Overall Sensitivity to the Different Parameters}{33}{section.5.4}%
+\contentsline {chapter}{\numberline {6}Optimisation of the CWP algorithm based on the morris sensitivity analysis}{34}{chapter.6}%
+\contentsline {section}{\numberline {6.1}Deploying insight from the morris screening}{34}{section.6.1}%
+\contentsline {section}{\numberline {6.2}Operationalisation of Surrounding Stream temperature}{34}{section.6.2}%
+\contentsline {section}{\numberline {6.3}Implementation Detail}{35}{section.6.3}%
+\contentsline {section}{\numberline {6.4}Reduction of parameters}{35}{section.6.4}%
+\contentsline {section}{\numberline {6.5}Quellenverzeichnis}{36}{section.6.5}%

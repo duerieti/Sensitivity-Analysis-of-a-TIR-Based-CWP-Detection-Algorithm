@@ -1,30 +1,21 @@
 \chapter{Introduction}
 
-
-Thermal heterogenity in river systems is a vital component of aquatic biodiversity. Specifically, the presence of cold-water refugia is essential for the survival of thermally sensitive fish species, as river temperatures in Switzerland are expected to rise due to climate change. Currently there is no comprehensive and extensive information about the presence, scale and location of such cold-water patches in water bodies available in Switzerland. This data, however, is critical for river management in the context of climate change \citep{tonolla_thermische-kartographie_2026, tonolla_tonolla_etal_2021_schlussbericht_zhaw_thermoemme_2021}
-
+In recent years, thermal infrared (TIR) remote sensing from uncrewed aerial vehicles (UAVs) and other airborne platforms has become an established approach for mapping thermal heterogeneity in river systems, with a growing body of work covering both data acquisition campaigns and the associated processing pipelines \citep{casas-mulet_unmanned_2020,kuhn_assessing_2021,torgersen_airborne_2001,dugdale_practitioners_2016}. Mapping this heterogeneity is ecologically important: the cold-water patches it reveals can act as refugia that are essential for the survival of thermally sensitive fish species, particularly as river temperatures in Switzerland are expected to rise due to climate change. Despite this importance, there is currently no comprehensive information about the presence, scale, and location of such cold-water patches in Swiss water bodies. This data however is critical for river management in the context of climate change \citep{tonolla_thermische-kartographie_2026, tonolla_thermoscanning_2021}.
 
 
-As part of a cantonal project aiming to quantify the temperature heterogenity and detect cold-water patches in the Emme River and its tributaries, TIR imagery covering over a 100 km river transect where collected in a helicopter-based survey. These  TIR images where then processes to extract longitudinal and transveral temperature gradients, as well as to detect cold-water spots. The current processing workflow involves stitching highly overlapping TIR images into orthophotos and performing thermal corrections using in-situ temperature loggers. Then, longitudinal and transversal temperature gradients are derived. Additionally, a newly developed algorithm for the automatic detection of cold-water patches is deployed with the goal of mapping these patches.
+As part of a cantonal project aiming to quantify the temperature heterogeneity and detect cold-water patches in the Emme River and its tributaries, TIR imagery covering over a 100 km river transect were collected in a helicopter-based survey. These TIR images were then processed to extract longitudinal and transversal temperature gradients, as well as to detect cold-water spots. The current processing workflow involves stitching highly overlapping TIR images into orthophotos and performing thermal corrections using in-situ temperature loggers. Then, longitudinal and transversal temperature gradients are derived. Additionally, a newly developed algorithm for the automatic detection of cold-water patches is deployed with the goal of mapping these patches.
 
+The current method for the automated detection of cold-water patches (CWPs) relies on externally configured parameters. Sensitivity analyses performed in \citep{tonolla_thermische-kartographie_2026} indicate that the detection results of the CWP method can vary significantly based on the chosen parameter values, with the step length and the temperature delta parameters having a particularly strong influence on the variance of the algorithm's output. The aim of this thesis is twofold: first, to systematically investigate the algorithm's variance with respect to these two parameters, with particular focus on how the presence of tributary inflows interacts with this variance. And second, to derive adjustments to the detection algorithm that could reduce this variance while maintaining ecologically plausible detection results.
 
-The current method for the automated detection of cold-water patches (CWPs) relies on four externally configured hyperparameters: step length, buffer width, temperature delta , and minimum area. Sensitivity analyses from previous studies indicate that the detection results vary significantly based on the chosen parameter values, with step length and  having a particularly strong influence on the variance of the algorithm's output. The primary aim of this thesis is to systematically investigate the algorithm's variance with respect to its hyperparameters, specifically focusing on how tributary inflows and adjustments to the processing workflow changes interact with the variance caused by specific hyperparameters.
+The algorithm defines a CWP by comparing individual pixel temperatures against a local median reference temperature calculated over a defined segment (step length). It is hypothesised that the choice of step length introduces significant variance near the inflow of tributaries. This is because cold-water tributaries introduce sharp longitudinal temperature gradients which can skew the calculation if the step size is chosen sub-optimally.
 
+Building on this reasoning and the twofold aim outlined above, this thesis addresses the following two research questions:
 
-The algorithm defines a CWP by comparing individual pixel temperatures against a local median reference temperature calculated over a defined segment (step length). It is hypothesised that the choice of step length introduces significant variance near the inflow of tributaries. This, because cold- or warm-water tributaries introduce sharp longitudinal temperature gradients which can skew the calculation if the step size is chosen sub-optimally
+% the research question and the operationalisation are kind of out of sinc a bit => I got to address this in the Limitations.
 
-
-Research question 1: How does the step length contribute to the algorithms variance in river sections containing a tributary with significantly differing water temperatures, compared to sections without such tributaries?
-
-H0: The variance introduced by the step length parameter is not influenced by the presence of a tributary with a substantially different temperature.
-
-H1: The variance introduced by the step length parameter is significantly influenced (increased or decreased) by the presence of a tributary with a substantially different temperature.
-
-
-Research question 2: What adjustments could be made to the detection-algorithm to reduce variability with respect to parameters while also achieving plausible detection results?
-
-
-
-
-% the two hypothesises must be stated of course
-% then also the cwp algorithm must be introduced somewhere. But I assume this is better donn the theorretical backgroudn
+\begin{description}
+	\item[Research question 1] How does the step length contribute to the algorithm's variance in river sections containing a tributary with significantly differing water temperatures, compared to sections without such tributaries?
+	\item[$H_0$] The variance introduced by the step length parameter is not influenced by the presence of a tributary with a substantially different temperature.
+	\item[$H_1$] The variance introduced by the step length parameter is significantly influenced (increased or decreased) by the presence of a tributary with a substantially different temperature.
+	\item[Research question 2] Building on the findings from research question 1: what adjustments could be made to the detection algorithm to reduce variability with respect to its parameters while also achieving plausible detection results?
+\end{description}

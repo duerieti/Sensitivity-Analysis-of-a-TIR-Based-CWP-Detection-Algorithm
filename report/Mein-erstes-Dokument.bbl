@@ -1,9 +1,32 @@
-\begin{thebibliography}{13}
+\begin{thebibliography}{17}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax
   \providecommand{\doi}[1]{doi: #1}\else
   \providecommand{\doi}{doi: \begingroup \urlstyle{rm}\Url}\fi
+
+\bibitem[Casas-Mulet et~al.(2020)Casas-Mulet, Pander, Ryu, Stewardson, and
+  Geist]{casas-mulet_unmanned_2020}
+R.~Casas-Mulet, J.~Pander, D.~Ryu, M.~J. Stewardson, and J.~Geist.
+\newblock Unmanned {Aerial} {Vehicle} ({UAV})-{Based} {Thermal} {Infra}-{Red}
+  ({TIR}) and {Optical} {Imagery} {Reveals} {Multi}-{Spatial} {Scale}
+  {Controls} of {Cold}-{Water} {Areas} {Over} a {Groundwater}-{Dominated}
+  {Riverscape}.
+\newblock \emph{Frontiers in Environmental Science}, 8:\penalty0 64, May 2020.
+\newblock ISSN 2296-665X.
+\newblock \doi{10.3389/fenvs.2020.00064}.
+\newblock URL
+  \url{https://www.frontiersin.org/article/10.3389/fenvs.2020.00064/full}.
+
+\bibitem[Dugdale(2016)]{dugdale_practitioners_2016}
+S.~J. Dugdale.
+\newblock A practitioner's guide to thermal infrared remote sensing of rivers
+  and streams: recent advances, precautions and considerations.
+\newblock \emph{WIREs Water}, 3\penalty0 (2):\penalty0 251--268, Mar. 2016.
+\newblock ISSN 2049-1948, 2049-1948.
+\newblock \doi{10.1002/wat2.1135}.
+\newblock URL
+  \url{https://wires.onlinelibrary.wiley.com/doi/10.1002/wat2.1135}.
 
 \bibitem[D\"urig(2026)]{duerr_raster_deepdive}
 E.~D\"urig.
@@ -28,6 +51,17 @@ R.~J. Hijmans, A.~Brown, and M.~Barbosa.
 {ISciences, LLC}.
 \newblock exactextract, 2026.
 \newblock URL \url{https://isciences.github.io/exactextract/index.html}.
+
+\bibitem[Kuhn et~al.(2021)Kuhn, Casas-Mulet, Pander, and
+  Geist]{kuhn_assessing_2021}
+J.~Kuhn, R.~Casas-Mulet, J.~Pander, and J.~Geist.
+\newblock Assessing {Stream} {Thermal} {Heterogeneity} and {Cold}-{Water}
+  {Patches} from {UAV}-{Based} {Imagery}: {A} {Matter} of {Classification}
+  {Methods} and {Metrics}.
+\newblock \emph{Remote Sensing}, 13\penalty0 (7):\penalty0 1379, Apr. 2021.
+\newblock ISSN 2072-4292.
+\newblock \doi{10.3390/rs13071379}.
+\newblock URL \url{https://www.mdpi.com/2072-4292/13/7/1379}.
 
 \bibitem[Ligmann-Zielinska(2013)]{ligmann-zielinska_spatially-explicit_2013}
 A.~Ligmann-Zielinska.
@@ -87,10 +121,9 @@ O.~Tange.
 \newblock Zenodo, Software, Feb. 2024.
 \newblock URL \url{https://doi.org/10.5281/zenodo.10719803}.
 
-\bibitem[Tonolla and
-  Antonetti(2021)]{tonolla_tonolla_etal_2021_schlussbericht_zhaw_thermoemme_2021}
+\bibitem[Tonolla and Antonetti(2021)]{tonolla_thermoscanning_2021}
 D.~Tonolla and M.~Antonetti.
-\newblock Tonolla\_etal\_2021\_schlussbericht\_zhaw\_thermoemme.
+\newblock Thermoscanning {Fliessgewässer} {Part} {II}.
 \newblock Technical report, ZHAW, Wädenswil, June 2021.
 
 \bibitem[Tonolla and Antonetti(2026)]{tonolla_thermische-kartographie_2026}
@@ -99,5 +132,17 @@ D.~Tonolla and M.~Antonetti.
   {Kaltwasserbereichen} an der {Emme} und drei ausgewählten {Zuflüssen}
   ({Grüene}, {Ilfis}, {Urtene}).
 \newblock Technical report, ZHAW, Wädenswil, Feb. 2026.
+
+\bibitem[Torgersen et~al.(2001)Torgersen, Faux, McIntosh, Poage, and
+  Norton]{torgersen_airborne_2001}
+C.~E. Torgersen, R.~N. Faux, B.~A. McIntosh, N.~J. Poage, and D.~J. Norton.
+\newblock Airborne thermal remote sensing for water temperature assessment in
+  rivers and streams.
+\newblock \emph{Remote Sensing of Environment}, 76\penalty0 (3):\penalty0
+  386--398, June 2001.
+\newblock ISSN 00344257.
+\newblock \doi{10.1016/S0034-4257(01)00186-9}.
+\newblock URL
+  \url{https://linkinghub.elsevier.com/retrieve/pii/S0034425701001869}.
 
 \end{thebibliography}

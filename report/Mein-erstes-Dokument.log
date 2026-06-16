@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.28 (TeX Live 2025/Debian) (preloaded format=pdflatex 2026.6.13)  14 JUN 2026 20:43
+This is pdfTeX, Version 3.141592653-2.6-1.40.28 (TeX Live 2025/Debian) (preloaded format=pdflatex 2026.6.13)  16 JUN 2026 17:14
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -562,7 +562,7 @@ File: l3backend-pdftex.def 2025-10-09 L3 backend support: PDF output (pdfTeX)
 (./Mein-erstes-Dokument.aux (./Vorlage-Titelseite.aux) (./Introduction.aux)
 (./Theoretical_background.aux) (./Methods_1.aux
 
-LaTeX Warning: Label `fig:second_execution_run' multiply defined.
+LaTeX Warning: Label `fig:morris_grid' multiply defined.
 
 ) (./Results_1.aux) (./Discussion_1.aux) (./Methods_2.aux) (./Results_2.aux))
 \openout1 = `Mein-erstes-Dokument.aux'.
@@ -672,7 +672,7 @@ Package hyperref Info: Link coloring ON on input line 14.
 
 
 (./Vorlage-Titelseite.tex
-<Bilder/logo-zhaw.png, id=136, 197.73875pt x 235.88126pt>
+<Bilder/logo-zhaw.png, id=152, 197.73875pt x 235.88126pt>
 File: Bilder/logo-zhaw.png Graphic file (type png)
 <use Bilder/logo-zhaw.png>
 Package pdftex.def Info: Bilder/logo-zhaw.png  used on input line 7.
@@ -726,7 +726,7 @@ pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has
 been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.35 ...ring research question 1}{25}{section.5.3}
+l.40 ... length) versus CWP area}{28}{section.4.5}
                                                   % [1
 
 
@@ -743,7 +743,8 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller:
 (fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
 
-[2]
+[2{/usr/share/texmf/fonts/enc/dvips/lm/lm-mathit.enc}{/usr/share/texmf/fonts/en
+c/dvips/lm/lm-mathsy.enc}]
 \openout2 = `Introduction.aux'.
 
  (./Introduction.tex
@@ -759,323 +760,13 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller:
 (fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
 
-[4]
+[4{/usr/share/texmf/fonts/enc/dvips/lm/lm-rm.enc}]
 \openout2 = `Theoretical_background.aux'.
 
- (./Theoretical_background.tex
+
+(./Theoretical_background.tex
 Chapter 2.
 [5
-
-
-
-
-{/usr/share/texmf/fonts/enc/dvips/lm/lm-mathit.enc}{/usr/share/texmf/fonts/enc/
-dvips/lm/lm-rm.enc}]
-<Bilder/morris_grid.png, id=234, 622.57594pt x 484.05844pt>
-File: Bilder/morris_grid.png Graphic file (type png)
-<use Bilder/morris_grid.png>
-Package pdftex.def Info: Bilder/morris_grid.png  used on input line 54.
-(pdftex.def)             Requested size: 298.75264pt x 232.28632pt.
-LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <10> on input line 55.
-LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <7> on input line 55.
-LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <5> on input line 55.
-
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 13.59999pt, for example:
-(fancyhdr)                \setlength{\headheight}{13.59999pt}.
-(fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
-
-[6{/usr/share/texmf/fonts/enc/dvips/lm/lm-mathsy.enc}{/usr/share/texmf/fonts/en
-c/dvips/lm/lm-mathex.enc}]
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 13.59999pt, for example:
-(fancyhdr)                \setlength{\headheight}{13.59999pt}.
-(fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
-
-[7 <./Bilder/morris_grid.png>]
-<Bilder/example_grid_mu_sigma_vairation.png, id=258, 794.97pt x 505.89pt>
-File: Bilder/example_grid_mu_sigma_vairation.png Graphic file (type png)
-<use Bilder/example_grid_mu_sigma_vairation.png>
-Package pdftex.def Info: Bilder/example_grid_mu_sigma_vairation.png  used on in
-put line 80.
-(pdftex.def)             Requested size: 426.79135pt x 271.60179pt.
-<Bilder/mu_mu_star.png, id=259, 722.7pt x 433.62pt>
-File: Bilder/mu_mu_star.png Graphic file (type png)
-<use Bilder/mu_mu_star.png>
-Package pdftex.def Info: Bilder/mu_mu_star.png  used on input line 90.
-(pdftex.def)             Requested size: 426.79135pt x 256.07838pt.
-
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 13.59999pt, for example:
-(fancyhdr)                \setlength{\headheight}{13.59999pt}.
-(fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
-
-[8 <./Bilder/example_grid_mu_sigma_vairation.png>])
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 13.59999pt, for example:
-(fancyhdr)                \setlength{\headheight}{13.59999pt}.
-(fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
-
-[9 <./Bilder/mu_mu_star.png>]
-\openout2 = `Methods_1.aux'.
-
- (./Methods_1.tex
-Chapter 3.
-<Bilder/methods_high_level_overview.png, id=272, 1054.94125pt x 310.15875pt>
-File: Bilder/methods_high_level_overview.png Graphic file (type png)
-<use Bilder/methods_high_level_overview.png>
-Package pdftex.def Info: Bilder/methods_high_level_overview.png  used on input 
-line 8.
-(pdftex.def)             Requested size: 426.79135pt x 125.47635pt.
-[10
-
-
-
-
- <./Bilder/methods_high_level_overview.png>]
-LaTeX Font Info:    Trying to load font information for T1+lmtt on input line 3
-2.
-
-(/usr/share/texmf/tex/latex/lm/t1lmtt.fd
-File: t1lmtt.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
-)
-Underfull \hbox (badness 1365) in paragraph at lines 47--47
-[]|\T1/lmr/m/n/10.95 Rasterize the zone poly-gons to a raster
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 47--48
-[]|\T1/lmtt/m/n/10.95 gdal vector
- []
-
-
-Overfull \hbox (47.15352pt too wide) in paragraph at lines 51--52
-[]|\T1/lmtt/m/n/10.95 exactextractr::exact_extract| 
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 53--54
-[]|\T1/lmtt/m/n/10.95 gdal raster
- []
-
-
-Overfull \hbox (47.15352pt too wide) in paragraph at lines 59--60
-[]|\T1/lmtt/m/n/10.95 exactextractr::exact_extract| 
- []
-
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 13.59999pt, for example:
-(fancyhdr)                \setlength{\headheight}{13.59999pt}.
-(fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
-
-[11]
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 13.59999pt, for example:
-(fancyhdr)                \setlength{\headheight}{13.59999pt}.
-(fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
-
-[12]
-<Bilder/first_execution_run.png, id=312, 1241.63875pt x 218.8175pt>
-File: Bilder/first_execution_run.png Graphic file (type png)
-<use Bilder/first_execution_run.png>
-Package pdftex.def Info: Bilder/first_execution_run.png  used on input line 101
-.
-(pdftex.def)             Requested size: 426.79135pt x 75.21498pt.
-
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 13.59999pt, for example:
-(fancyhdr)                \setlength{\headheight}{13.59999pt}.
-(fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
-
-[13 <./Bilder/first_execution_run.png>]
-<Bilder/GNU.png, id=323, 1282.7925pt x 766.865pt>
-File: Bilder/GNU.png Graphic file (type png)
-<use Bilder/GNU.png>
-Package pdftex.def Info: Bilder/GNU.png  used on input line 139.
-(pdftex.def)             Requested size: 426.79135pt x 255.13737pt.
-
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 13.59999pt, for example:
-(fancyhdr)                \setlength{\headheight}{13.59999pt}.
-(fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
-
-[14]
-<Bilder/decission_tree_classification.png, id=333, 630.355pt x 618.31pt>
-File: Bilder/decission_tree_classification.png Graphic file (type png)
-<use Bilder/decission_tree_classification.png>
-Package pdftex.def Info: Bilder/decission_tree_classification.png  used on inpu
-t line 158.
-(pdftex.def)             Requested size: 341.43437pt x 334.9108pt.
-<Bilder/second_execution_run.png, id=334, 1244.65pt x 168.63pt>
-File: Bilder/second_execution_run.png Graphic file (type png)
-<use Bilder/second_execution_run.png>
-Package pdftex.def Info: Bilder/second_execution_run.png  used on input line 17
-5.
-(pdftex.def)             Requested size: 341.43437pt x 46.25888pt.
-
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 13.59999pt, for example:
-(fancyhdr)                \setlength{\headheight}{13.59999pt}.
-(fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
-
-[15 <./Bilder/GNU.png>]
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 13.59999pt, for example:
-(fancyhdr)                \setlength{\headheight}{13.59999pt}.
-(fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
-
-[16 <./Bilder/decission_tree_classification.png> <./Bilder/second_execution_run
-.png>]
-<Bilder/high_level_cwp_lumping.png, id=352, 1055.945pt x 648.4225pt>
-File: Bilder/high_level_cwp_lumping.png Graphic file (type png)
-<use Bilder/high_level_cwp_lumping.png>
-Package pdftex.def Info: Bilder/high_level_cwp_lumping.png  used on input line 
-203.
-(pdftex.def)             Requested size: 341.43437pt x 209.65636pt.
-
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 13.59999pt, for example:
-(fancyhdr)                \setlength{\headheight}{13.59999pt}.
-(fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
-
-[17 <./Bilder/high_level_cwp_lumping.png>])
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 13.59999pt, for example:
-(fancyhdr)                \setlength{\headheight}{13.59999pt}.
-(fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
-
-[18]
-\openout2 = `Results_1.aux'.
-
- (./Results_1.tex
-Chapter 4.
-<Bilder/param_combi_3_general_agreement.png, id=368, 1543.7675pt x 876.27374pt>
-
-File: Bilder/param_combi_3_general_agreement.png Graphic file (type png)
-<use Bilder/param_combi_3_general_agreement.png>
-Package pdftex.def Info: Bilder/param_combi_3_general_agreement.png  used on in
-put line 24.
-(pdftex.def)             Requested size: 426.79135pt x 242.25293pt.
-<Bilder/trial_run_1_more_pronounced_dis.png, id=371, 1543.7675pt x 876.27374pt>
-
-File: Bilder/trial_run_1_more_pronounced_dis.png Graphic file (type png)
-<use Bilder/trial_run_1_more_pronounced_dis.png>
-Package pdftex.def Info: Bilder/trial_run_1_more_pronounced_dis.png  used on in
-put line 33.
-(pdftex.def)             Requested size: 426.79135pt x 242.25293pt.
-[19
-
-
-
-
- <./Bilder/param_combi_3_general_agreement.png>]
-<Bilder/trial_run_perfect_agreement.png, id=380, 1543.7675pt x 876.27374pt>
-File: Bilder/trial_run_perfect_agreement.png Graphic file (type png)
-<use Bilder/trial_run_perfect_agreement.png>
-Package pdftex.def Info: Bilder/trial_run_perfect_agreement.png  used on input 
-line 40.
-(pdftex.def)             Requested size: 426.79135pt x 242.25293pt.
-<Bilder/speed_comparison.png, id=382, 433.62pt x 289.08pt>
-File: Bilder/speed_comparison.png Graphic file (type png)
-<use Bilder/speed_comparison.png>
-Package pdftex.def Info: Bilder/speed_comparison.png  used on input line 60.
-(pdftex.def)             Requested size: 341.43437pt x 227.63405pt.
-
-Underfull \hbox (badness 2435) in paragraph at lines 61--61
-[][]|\T1/lmr/m/n/10 Ex-e-cu-tion time of the orig-i-nal (v1) and op-ti-mized (v
-2) im-ple-men-ta-tions of
- []
-
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 13.59999pt, for example:
-(fancyhdr)                \setlength{\headheight}{13.59999pt}.
-(fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
-
-[20 <./Bilder/trial_run_1_more_pronounced_dis.png> <./Bilder/trial_run_perfect_
-agreement.png>]
-<Bilder/step_length_results.png, id=391, 433.62pt x 289.08pt>
-File: Bilder/step_length_results.png Graphic file (type png)
-<use Bilder/step_length_results.png>
-Package pdftex.def Info: Bilder/step_length_results.png  used on input line 79.
-
-(pdftex.def)             Requested size: 341.43437pt x 227.63405pt.
-
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 13.59999pt, for example:
-(fancyhdr)                \setlength{\headheight}{13.59999pt}.
-(fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
-
-[21 <./Bilder/speed_comparison.png>]
-<Bilder/mu_star_res.png, id=398, 433.62pt x 289.08pt>
-File: Bilder/mu_star_res.png Graphic file (type png)
-<use Bilder/mu_star_res.png>
-Package pdftex.def Info: Bilder/mu_star_res.png  used on input line 99.
-(pdftex.def)             Requested size: 341.43437pt x 227.63405pt.
-<Bilder/mu_star_vs_area_vs_deltaT.png, id=400, 433.62pt x 289.08pt>
-File: Bilder/mu_star_vs_area_vs_deltaT.png Graphic file (type png)
-<use Bilder/mu_star_vs_area_vs_deltaT.png>
-Package pdftex.def Info: Bilder/mu_star_vs_area_vs_deltaT.png  used on input li
-ne 114.
-(pdftex.def)             Requested size: 341.43437pt x 227.63405pt.
-LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <9> on input line 136.
-)
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 13.59999pt, for example:
-(fancyhdr)                \setlength{\headheight}{13.59999pt}.
-(fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
-
-[22 <./Bilder/step_length_results.png>]
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 13.59999pt, for example:
-(fancyhdr)                \setlength{\headheight}{13.59999pt}.
-(fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
-
-[23 <./Bilder/mu_star_res.png> <./Bilder/mu_star_vs_area_vs_deltaT.png>]
-\openout2 = `Discussion_1.aux'.
-
-
-(./Discussion_1.tex
-Chapter 5.
-[24
 
 
 
@@ -1088,7 +779,19 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller:
 (fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
 
-[25])
+[6]
+<Bilder/morris_grid.png, id=281, 622.57594pt x 484.05844pt>
+File: Bilder/morris_grid.png Graphic file (type png)
+<use Bilder/morris_grid.png>
+Package pdftex.def Info: Bilder/morris_grid.png  used on input line 58.
+(pdftex.def)             Requested size: 298.75264pt x 232.28632pt.
+LaTeX Font Info:    External font `lmex10' loaded for size
+(Font)              <10> on input line 59.
+LaTeX Font Info:    External font `lmex10' loaded for size
+(Font)              <7> on input line 59.
+LaTeX Font Info:    External font `lmex10' loaded for size
+(Font)              <5> on input line 59.
+
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 13.59999pt, for example:
@@ -1096,12 +799,440 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller:
 (fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
 
-[26]
+[7{/usr/share/texmf/fonts/enc/dvips/lm/lm-mathex.enc} <./Bilder/morris_grid.png
+>]
+<Bilder/satteli_trajectory_grid.png, id=298, 782.925pt x 691.58376pt>
+File: Bilder/satteli_trajectory_grid.png Graphic file (type png)
+<use Bilder/satteli_trajectory_grid.png>
+Package pdftex.def Info: Bilder/satteli_trajectory_grid.png  used on input line
+ 81.
+(pdftex.def)             Requested size: 298.75264pt x 263.90204pt.
+
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 13.59999pt, for example:
+(fancyhdr)                \setlength{\headheight}{13.59999pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
+
+[8 <./Bilder/satteli_trajectory_grid.png>]
+<Bilder/example_grid_mu_sigma_vairation.png, id=314, 794.97pt x 505.89pt>
+File: Bilder/example_grid_mu_sigma_vairation.png Graphic file (type png)
+<use Bilder/example_grid_mu_sigma_vairation.png>
+Package pdftex.def Info: Bilder/example_grid_mu_sigma_vairation.png  used on in
+put line 108.
+(pdftex.def)             Requested size: 426.79135pt x 271.60179pt.
+
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 13.59999pt, for example:
+(fancyhdr)                \setlength{\headheight}{13.59999pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
+
+[9 <./Bilder/example_grid_mu_sigma_vairation.png>]
+<Bilder/mu_mu_star.png, id=324, 722.7pt x 433.62pt>
+File: Bilder/mu_mu_star.png Graphic file (type png)
+<use Bilder/mu_mu_star.png>
+Package pdftex.def Info: Bilder/mu_mu_star.png  used on input line 117.
+(pdftex.def)             Requested size: 426.79135pt x 256.07838pt.
+)
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 13.59999pt, for example:
+(fancyhdr)                \setlength{\headheight}{13.59999pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
+
+[10 <./Bilder/mu_mu_star.png>]
+\openout2 = `Methods_1.aux'.
+
+ (./Methods_1.tex
+Chapter 3.
+[11
+
+
+
+
+]
+LaTeX Font Info:    Trying to load font information for T1+lmtt on input line 2
+7.
+ (/usr/share/texmf/tex/latex/lm/t1lmtt.fd
+File: t1lmtt.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
+)
+Underfull \hbox (badness 1365) in paragraph at lines 39--39
+[]|\T1/lmr/m/n/10.95 Rasterize the zone poly-gons to a raster
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 39--40
+[]|\T1/lmtt/m/n/10.95 gdal vector
+ []
+
+
+Overfull \hbox (47.15352pt too wide) in paragraph at lines 43--44
+[]|\T1/lmtt/m/n/10.95 exactextractr::exact_extract| 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 45--46
+[]|\T1/lmtt/m/n/10.95 gdal raster
+ []
+
+
+Overfull \hbox (47.15352pt too wide) in paragraph at lines 51--52
+[]|\T1/lmtt/m/n/10.95 exactextractr::exact_extract| 
+ []
+
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 13.59999pt, for example:
+(fancyhdr)                \setlength{\headheight}{13.59999pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
+
+[12]
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 13.59999pt, for example:
+(fancyhdr)                \setlength{\headheight}{13.59999pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
+
+[13]
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 13.59999pt, for example:
+(fancyhdr)                \setlength{\headheight}{13.59999pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
+
+[14]
+<Bilder/big_overview_methods.png, id=382, 376.40625pt x 779.91376pt>
+File: Bilder/big_overview_methods.png Graphic file (type png)
+<use Bilder/big_overview_methods.png>
+Package pdftex.def Info: Bilder/big_overview_methods.png  used on input line 98
+.
+(pdftex.def)             Requested size: 298.75264pt x 619.06456pt.
+
+
+LaTeX Warning: Reference `sec:cwp_classification' on page 15 undefined on input
+ line 99.
+
+
+LaTeX Warning: Reference `sec:morris_indices' on page 15 undefined on input lin
+e 99.
+
+
+LaTeX Warning: Reference `sec:morris_viz_model' on page 15 undefined on input l
+ine 99.
+
+
+LaTeX Warning: Reference `sec:cwp_classification' on page 15 undefined on input
+ line 99.
+
+
+LaTeX Warning: Reference `sec:morris_indices' on page 15 undefined on input lin
+e 99.
+
+
+LaTeX Warning: Reference `sec:morris_viz_model' on page 15 undefined on input l
+ine 99.
+
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 13.59999pt, for example:
+(fancyhdr)                \setlength{\headheight}{13.59999pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
+
+[15]
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 13.59999pt, for example:
+(fancyhdr)                \setlength{\headheight}{13.59999pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
+
+[16 <./Bilder/big_overview_methods.png>]
+<Bilder/morris_grid_image.png, id=394, 105.96774pt x 86.62863pt>
+File: Bilder/morris_grid_image.png Graphic file (type png)
+<use Bilder/morris_grid_image.png>
+Package pdftex.def Info: Bilder/morris_grid_image.png  used on input line 120.
+(pdftex.def)             Requested size: 341.43437pt x 279.20131pt.
+
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 13.59999pt, for example:
+(fancyhdr)                \setlength{\headheight}{13.59999pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
+
+[17]
+<Bilder/GNU.png, id=408, 1177.39874pt x 854.19125pt>
+File: Bilder/GNU.png Graphic file (type png)
+<use Bilder/GNU.png>
+Package pdftex.def Info: Bilder/GNU.png  used on input line 155.
+(pdftex.def)             Requested size: 426.79135pt x 309.63315pt.
+
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 13.59999pt, for example:
+(fancyhdr)                \setlength{\headheight}{13.59999pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
+
+[18 <./Bilder/morris_grid_image.png>]
+<Bilder/overlay.png, id=419, 118.4754pt x 92.76625pt>
+File: Bilder/overlay.png Graphic file (type png)
+<use Bilder/overlay.png>
+Package pdftex.def Info: Bilder/overlay.png  used on input line 171.
+(pdftex.def)             Requested size: 341.43437pt x 267.35626pt.
+
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 13.59999pt, for example:
+(fancyhdr)                \setlength{\headheight}{13.59999pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
+
+[19 <./Bilder/GNU.png>]
+
+LaTeX Warning: Reference `sec:???' on page 20 undefined on input line 182.
+
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 13.59999pt, for example:
+(fancyhdr)                \setlength{\headheight}{13.59999pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
+
+[20 <./Bilder/overlay.png>]
+<Bilder/decission_tree_classification.png, id=435, 630.355pt x 618.31pt>
+File: Bilder/decission_tree_classification.png Graphic file (type png)
+<use Bilder/decission_tree_classification.png>
+Package pdftex.def Info: Bilder/decission_tree_classification.png  used on inpu
+t line 189.
+(pdftex.def)             Requested size: 341.43437pt x 334.9108pt.
+
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 13.59999pt, for example:
+(fancyhdr)                \setlength{\headheight}{13.59999pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
+
+[21 <./Bilder/decission_tree_classification.png>]
+<Bilder/large_moris_grid_image.png, id=444, 160.95769pt x 150.17352pt>
+File: Bilder/large_moris_grid_image.png Graphic file (type png)
+<use Bilder/large_moris_grid_image.png>
+Package pdftex.def Info: Bilder/large_moris_grid_image.png  used on input line 
+227.
+(pdftex.def)             Requested size: 341.43437pt x 318.59546pt.
+<Bilder/cropping_strat_img.png, id=446, 529.45055pt x 260.22495pt>
+File: Bilder/cropping_strat_img.png Graphic file (type png)
+<use Bilder/cropping_strat_img.png>
+Package pdftex.def Info: Bilder/cropping_strat_img.png  used on input line 241.
+
+(pdftex.def)             Requested size: 426.79135pt x 209.77248pt.
+
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 13.59999pt, for example:
+(fancyhdr)                \setlength{\headheight}{13.59999pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
+
+[22 <./Bilder/large_moris_grid_image.png>]
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 13.59999pt, for example:
+(fancyhdr)                \setlength{\headheight}{13.59999pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
+
+[23 <./Bilder/cropping_strat_img.png>])
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 13.59999pt, for example:
+(fancyhdr)                \setlength{\headheight}{13.59999pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
+
+[24]
+\openout2 = `Results_1.aux'.
+
+ (./Results_1.tex
+Chapter 4.
+<Bilder/param_combi_3_general_agreement.png, id=473, 1543.7675pt x 876.27374pt>
+
+File: Bilder/param_combi_3_general_agreement.png Graphic file (type png)
+<use Bilder/param_combi_3_general_agreement.png>
+Package pdftex.def Info: Bilder/param_combi_3_general_agreement.png  used on in
+put line 11.
+(pdftex.def)             Requested size: 426.79135pt x 242.25293pt.
+<Bilder/trial_run_1_more_pronounced_dis.png, id=474, 1543.7675pt x 876.27374pt>
+
+File: Bilder/trial_run_1_more_pronounced_dis.png Graphic file (type png)
+<use Bilder/trial_run_1_more_pronounced_dis.png>
+Package pdftex.def Info: Bilder/trial_run_1_more_pronounced_dis.png  used on in
+put line 18.
+(pdftex.def)             Requested size: 426.79135pt x 242.25293pt.
+[25
+
+
+
+
+ <./Bilder/param_combi_3_general_agreement.png>]
+<Bilder/trial_run_perfect_agreement.png, id=483, 1543.7675pt x 876.27374pt>
+File: Bilder/trial_run_perfect_agreement.png Graphic file (type png)
+<use Bilder/trial_run_perfect_agreement.png>
+Package pdftex.def Info: Bilder/trial_run_perfect_agreement.png  used on input 
+line 25.
+(pdftex.def)             Requested size: 426.79135pt x 242.25293pt.
+
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 13.59999pt, for example:
+(fancyhdr)                \setlength{\headheight}{13.59999pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
+
+[26 <./Bilder/trial_run_1_more_pronounced_dis.png> <./Bilder/trial_run_perfect_
+agreement.png>]
+<Bilder/speed_comparison.png, id=492, 433.62pt x 289.08pt>
+File: Bilder/speed_comparison.png Graphic file (type png)
+<use Bilder/speed_comparison.png>
+Package pdftex.def Info: Bilder/speed_comparison.png  used on input line 37.
+(pdftex.def)             Requested size: 341.43437pt x 227.63405pt.
+
+Underfull \hbox (badness 2435) in paragraph at lines 38--38
+[][]|\T1/lmr/m/n/10 Ex-e-cu-tion time of the orig-i-nal (v1) and op-ti-mized (v
+2) im-ple-men-ta-tions of
+ []
+
+<Bilder/step_length_results.png, id=494, 433.62pt x 289.08pt>
+File: Bilder/step_length_results.png Graphic file (type png)
+<use Bilder/step_length_results.png>
+Package pdftex.def Info: Bilder/step_length_results.png  used on input line 49.
+
+(pdftex.def)             Requested size: 341.43437pt x 227.63405pt.
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 13.59999pt, for example:
+(fancyhdr)                \setlength{\headheight}{13.59999pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
+
+[27 <./Bilder/speed_comparison.png>]
+LaTeX Font Info:    External font `lmex10' loaded for size
+(Font)              <14.4> on input line 56.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 56.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\mu' on input line 56.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `superscript' on input line 56.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 56.
+
+<Bilder/mu_star_res.png, id=501, 433.62pt x 289.08pt>
+File: Bilder/mu_star_res.png Graphic file (type png)
+<use Bilder/mu_star_res.png>
+Package pdftex.def Info: Bilder/mu_star_res.png  used on input line 62.
+(pdftex.def)             Requested size: 341.43437pt x 227.63405pt.
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 68.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\mu' on input line 68.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `superscript' on input line 68.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 68.
+
+<Bilder/mu_star_vs_area_vs_deltaT.png, id=505, 433.62pt x 289.08pt>
+File: Bilder/mu_star_vs_area_vs_deltaT.png Graphic file (type png)
+<use Bilder/mu_star_vs_area_vs_deltaT.png>
+Package pdftex.def Info: Bilder/mu_star_vs_area_vs_deltaT.png  used on input li
+ne 76.
+(pdftex.def)             Requested size: 341.43437pt x 227.63405pt.
+LaTeX Font Info:    External font `lmex10' loaded for size
+(Font)              <9> on input line 97.
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+)
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 13.59999pt, for example:
+(fancyhdr)                \setlength{\headheight}{13.59999pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
+
+[28 <./Bilder/step_length_results.png>]
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 13.59999pt, for example:
+(fancyhdr)                \setlength{\headheight}{13.59999pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
+
+[29 <./Bilder/mu_star_res.png> <./Bilder/mu_star_vs_area_vs_deltaT.png>]
+\openout2 = `Discussion_1.aux'.
+
+
+(./Discussion_1.tex
+Chapter 5.
+[30
+
+
+
+
+]
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 13.59999pt, for example:
+(fancyhdr)                \setlength{\headheight}{13.59999pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
+
+[31]
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 13.59999pt, for example:
+(fancyhdr)                \setlength{\headheight}{13.59999pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
+
+[32])
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 13.59999pt, for example:
+(fancyhdr)                \setlength{\headheight}{13.59999pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
+
+[33]
 \openout2 = `Methods_2.aux'.
 
  (./Methods_2.tex
 Chapter 6.
-[27
+[34
 
 
 
@@ -1114,22 +1245,21 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller:
 (fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
 
-[28]
+[35]
 \openout2 = `Results_2.aux'.
 
  (./Results_2.tex) (./Mein-erstes-Dokument.bbl
-Underfull \hbox (badness 4181) in paragraph at lines 9--14
+Underfull \hbox (badness 4181) in paragraph at lines 32--37
 []\T1/lmr/m/n/10.95 E. Dürig.  Raster deep-dive, 2026.  URL [][]$\T1/lmtt/m/n/1
 0.95 https : / / stds-[]handin . github . io /
  []
 
 
-Underfull \hbox (badness 5189) in paragraph at lines 28--31
+Underfull \hbox (badness 5189) in paragraph at lines 51--54
 []\T1/lmr/m/n/10.95 ISciences, LLC.  ex-ac-tex-tract, 2026.  URL [][]$\T1/lmtt/
 m/n/10.95 https : / / isciences . github . io /
  []
 
-)
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 13.59999pt, for example:
@@ -1137,14 +1267,22 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller:
 (fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
 
-[29
+[36
 
 
 
 
 
-] (./Mein-erstes-Dokument.aux (./Vorlage-Titelseite.aux) (./Introduction.aux) (
-./Theoretical_background.aux) (./Methods_1.aux) (./Results_1.aux)
+])
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 13.59999pt, for example:
+(fancyhdr)                \setlength{\headheight}{13.59999pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
+
+[37] (./Mein-erstes-Dokument.aux (./Vorlage-Titelseite.aux) (./Introduction.aux
+) (./Theoretical_background.aux) (./Methods_1.aux) (./Results_1.aux)
 (./Discussion_1.aux) (./Methods_2.aux) (./Results_2.aux))
  ***********
 LaTeX2e <2025-11-01>
@@ -1152,36 +1290,40 @@ L3 programming layer <2026-01-19>
  ***********
 
 
+LaTeX Warning: There were undefined references.
+
+
 LaTeX Warning: There were multiply-defined labels.
 
 Package rerunfilecheck Info: File `Mein-erstes-Dokument.out' has not changed.
-(rerunfilecheck)             Checksum: EF38A440EC7DDB46A3E09838152D17A6;7169.
+(rerunfilecheck)             Checksum: FD7F727FC38CE6A8F1CC78EDFFF6AF7C;7884.
  ) 
 Here is how much of TeX's memory you used:
- 16723 strings out of 469438
- 268754 string characters out of 5468410
- 691015 words of memory out of 5000000
- 44966 multiletter control sequences out of 15000+600000
- 728630 words of font info for 103 fonts, out of 8000000 for 9000
+ 16806 strings out of 469438
+ 270274 string characters out of 5468410
+ 693297 words of memory out of 5000000
+ 45017 multiletter control sequences out of 15000+600000
+ 741573 words of font info for 111 fonts, out of 8000000 for 9000
  59 hyphenation exceptions out of 8191
- 80i,11n,82p,3174b,601s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 80i,11n,82p,2763b,614s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/share/texmf/fonts/type1/public/lm/lmbx10.pfb></usr/share/texmf/fonts/ty
 pe1/public/lm/lmbx12.pfb></usr/share/texmf/fonts/type1/public/lm/lmcsc10.pfb></
 usr/share/texmf/fonts/type1/public/lm/lmex10.pfb></usr/share/texmf/fonts/type1/
-public/lm/lmmi10.pfb></usr/share/texmf/fonts/type1/public/lm/lmmi7.pfb></usr/sh
-are/texmf/fonts/type1/public/lm/lmmi8.pfb></usr/share/texmf/fonts/type1/public/
-lm/lmmi9.pfb></usr/share/texmf/fonts/type1/public/lm/lmr10.pfb></usr/share/texm
-f/fonts/type1/public/lm/lmr12.pfb></usr/share/texmf/fonts/type1/public/lm/lmr6.
-pfb></usr/share/texmf/fonts/type1/public/lm/lmr7.pfb></usr/share/texmf/fonts/ty
-pe1/public/lm/lmr8.pfb></usr/share/texmf/fonts/type1/public/lm/lmr9.pfb></usr/s
-hare/texmf/fonts/type1/public/lm/lmri10.pfb></usr/share/texmf/fonts/type1/publi
-c/lm/lmri9.pfb></usr/share/texmf/fonts/type1/public/lm/lmsy10.pfb></usr/share/t
-exmf/fonts/type1/public/lm/lmsy7.pfb></usr/share/texmf/fonts/type1/public/lm/lm
-sy8.pfb></usr/share/texmf/fonts/type1/public/lm/lmtt10.pfb>
-Output written on Mein-erstes-Dokument.pdf (30 pages, 8144119 bytes).
+public/lm/lmmi10.pfb></usr/share/texmf/fonts/type1/public/lm/lmmi12.pfb></usr/s
+hare/texmf/fonts/type1/public/lm/lmmi7.pfb></usr/share/texmf/fonts/type1/public
+/lm/lmmi8.pfb></usr/share/texmf/fonts/type1/public/lm/lmmi9.pfb></usr/share/tex
+mf/fonts/type1/public/lm/lmr10.pfb></usr/share/texmf/fonts/type1/public/lm/lmr1
+2.pfb></usr/share/texmf/fonts/type1/public/lm/lmr6.pfb></usr/share/texmf/fonts/
+type1/public/lm/lmr7.pfb></usr/share/texmf/fonts/type1/public/lm/lmr8.pfb></usr
+/share/texmf/fonts/type1/public/lm/lmr9.pfb></usr/share/texmf/fonts/type1/publi
+c/lm/lmri10.pfb></usr/share/texmf/fonts/type1/public/lm/lmri9.pfb></usr/share/t
+exmf/fonts/type1/public/lm/lmsy10.pfb></usr/share/texmf/fonts/type1/public/lm/l
+msy7.pfb></usr/share/texmf/fonts/type1/public/lm/lmsy8.pfb></usr/share/texmf/fo
+nts/type1/public/lm/lmtt10.pfb>
+Output written on Mein-erstes-Dokument.pdf (38 pages, 8855124 bytes).
 PDF statistics:
- 578 PDF objects out of 1000 (max. 8388607)
- 470 compressed objects within 5 object streams
- 106 named destinations out of 1000 (max. 500000)
- 350 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 721 PDF objects out of 1000 (max. 8388607)
+ 596 compressed objects within 6 object streams
+ 133 named destinations out of 1000 (max. 500000)
+ 392 words of extra memory for PDF output out of 10000 (max. 10000000)
 
