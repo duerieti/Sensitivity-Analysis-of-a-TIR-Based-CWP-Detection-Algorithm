@@ -96,3 +96,76 @@ Table~\ref{tab:regression_mustar} shows the results of the linear model fitted t
 	\footnotesize
 	\textit{Note.} $R^2 = 0.611$, Adjusted $R^2 = 0.572$, $F(2, 20) = 15.73$, $p < 0.001$. Residual standard error $= 0.088$ on 20 degrees of freedom (one observation deleted due to missingness).
 \end{table}
+
+
+\chapter{Algorithm Modification based on Morris Screening Results}
+
+\section{Insights from the Morris Screening}
+
+The Morris sensitivity analysis yielded three actionable findings with respect to the parameters of the CWP detection algorithm. First, the buffer pixel count was found to be non-influential with respect to detected CWP area, with $\mu^*$ values close to zero across all 24 annotated locations and low $\sigma$ values indicating an absence of meaningful interactions with the other parameters. This justifies the application of factor fixing: the buffer pixel count is internalized and set to a constant value of 3, which lies within the range of the Morris screening grid, effectively removing it as a free parameter. Second, the step length parameter was found to have a non-negligible influence on detected CWP area, with the mechanistic analysis suggesting that this sensitivity arises from the possibility of a CWP spanning a slab boundary and therefore being compared against inconsistent reference temperatures. This motivates a redesign of the reference temperature computation that does not rely on a fixed slab length. Third, the temperature delta parameter was found to be the most influential of the three parameters. This parameter cannot be removed, as different temperature delta thresholds are used in the literature to define CWPs, and the user must therefore retain the ability to set it according to their chosen definition.
+
+Taken together, these findings motivate a modified algorithm -- referred to hereafter as v3 -- that removes the buffer pixel parameter by factor fixing and replaces the slab-based reference temperature computation with an approach that does not depend on a step length parameter.
+
+\section{Operationalisation of Surrounding Stream Temperature}
+
+The step-length dependency was addressed by rethinking the operationalisation of the surrounding stream temperature used as the reference for pixel flagging. In v1 and v2, the reference temperature for each pixel is determined by the median temperature of the slab segment to which that pixel belongs. This approach has two consequences: it requires a user-defined step length, and it produces a reference temperature field that is piecewise constant -- uniform within each slab and discontinuous at slab boundaries. CWPs that happen to span a slab boundary are therefore compared against two different reference temperatures, which can produce artificial cutoffs in the detected patch extent.
+
+In v3, this is replaced by an inverse distance weighting (IDW) scheme. Rather than dividing the reach into fixed slabs, reference temperature sample points are obtained by sampling multiple step length values from a uniform distribution and extracting the median temperature at each resulting segment's visual center. These sample points, pooled across all sampled step lengths, are then used to compute a spatially continuous reference temperature raster via IDW, where each cell's reference temperature is a distance-weighted average of the surrounding sample point temperatures. This guarantees that the reference temperature is a spatially continuous field, and that no sharp cutoffs at slab boundaries can occur. Figure~\ref{fig:idw_cutoff_comparison} illustrates the difference between the slab-based and IDW-based approaches for a CWP that is affected by a slab boundary cutoff in v1.
+
+% TODO: figure showing side-by-side comparison of a slab-boundary-cutoff CWP in v1/v2
+% and the same location in v3 where the patch is contiguous
+\begin{figure}[ht]
+	\centering
+	% \includegraphics[width=\textwidth]{Bilder/idw_cutoff_comparison.png}
+	\caption{Comparison of CWP detection results at a location affected by a slab boundary cutoff. Left: v1/v2 output, showing the patch artificially split at the slab boundary. Right: v3 output using the IDW-based reference temperature, showing a contiguous patch.}
+	\label{fig:idw_cutoff_comparison}
+\end{figure}
+
+\section{Implementation Detail}
+
+The implementation of v3 follows the structure of v2 closely, differing only in the computation of the reference temperature raster (steps 1--5 below, replacing steps 1--5 of Table~\ref{tab:cwp_pseudocode}). The full reference temperature computation proceeds as follows:
+
+\begin{enumerate}
+	\item From a uniform distribution with bounds 500--3000 metres, sample 20 candidate step length values.
+	\item For each of the 20 step length values:
+	\begin{enumerate}
+		\item Divide the river reach into $n$ centerline segments based on the step length.
+		\item Construct a narrow 3-pixel-wide reference strip polygon for each segment.
+		\item Extract the median temperature of each segment from the (unrounded) TIR raster using the reference strip polygon.
+		\item Compute the visual center of each strip polygon and assign the corresponding median temperature to this point.
+	\end{enumerate}
+	\item Pool the reference points (location + temperature) from all 20 step length values into a single combined set of IDW sample points.
+	\item Initialise a new raster to be populated with reference temperature values.
+	\item For each cell in this raster:
+	\begin{enumerate}
+		\item If the corresponding cell in the TIR raster is \texttt{NaN}, set the cell to \texttt{NaN} and proceed to the next cell.
+		\item Otherwise, compute a weighted temperature value for this cell using IDW over the pooled reference points.
+	\end{enumerate}
+	\item Round the TIR raster using a fixed rounding factor.
+	\item Subtract the rounded TIR raster from the reference raster; flag pixels where the difference exceeds $\Delta T$, producing a binary CWP raster.
+	\item Polygonize the binary CWP raster into patch polygons.
+	\item Filter patches by minimum area, compute per-patch temperature statistics, and apply a patch-level threshold check against the reference temperature.
+\end{enumerate}
+
+Step 5b is implemented in C++ and imported into R via the \texttt{Rcpp} package, as the per-pixel IDW computation was identified as the primary computational bottleneck. Since the IDW computation for each pixel is independent of all other pixels, the problem is embarrassingly parallel; thread-level parallelisation was therefore deployed using the OpenMP library to further reduce execution time.
+
+\section{Reduction of Parameters}
+
+The modifications described above result in a reduction of the algorithm's free parameters. The buffer pixel count is fixed internally at a value of 3. The step length parameter is no longer required, as the IDW reference temperature computation samples reference points across a range of step lengths rather than relying on a single user-defined value. The zone halfwidth parameter is likewise no longer needed, as the extent of the reference raster is matched to the extent of valid pixels in the TIR raster. It should be noted that this implies a constraint on the input data: v3 can only be applied to TIR rasters that contain an exact water mask of the river channel, with non-river pixels set to \texttt{NaN}.
+
+The remaining free parameters of v3 are: the paths to the TIR raster and the river centerline, the minimum patch area, the rounding factor, the temperature delta threshold, whether diagonal pixels are counted as neighbours during polygonization, and the number of CPU cores to use for internal parallelisation -- the last of these being a new parameter introduced by the thread-level parallelisation in step 5b.
+
+\section{Evaluation of the Modified Algorithm}
+
+\subsection{Output comparison}
+
+The CWP polygons produced by v3 were compared against those of v1 using the same Jaccard similarity metric applied in Section~\ref{sec:modeleval}. The Jaccard similarities obtained were \texttt{PLACEHOLDER\_1}, \texttt{PLACEHOLDER\_2}, and \texttt{PLACEHOLDER\_3} for the three validation parameter combinations. % TODO: insert Jaccard values
+
+These values are \texttt{[higher/lower/comparable]} to those obtained for v2 versus v1 (0.936, 0.956, and 0.976), indicating that the IDW-based reference temperature computation produces outputs that are \texttt{[more/less/similarly]} consistent with the original algorithm. % TODO: complete comparison once values are available
+
+As noted above, a key qualitative improvement of v3 over v1 and v2 is the elimination of slab-boundary cutoffs in detected CWP. Figure~\ref{fig:idw_cutoff_comparison} illustrates a concrete example of this improvement at a location where a CWP is artificially split at a slab boundary in v1 but detected as a contiguous patch in v3.
+
+\subsection{Runtime}
+
+% TODO: insert runtime comparison once timing results are available
+The runtime of v3 relative to v2 will be reported here once timing results are available. Given the C++/OpenMP implementation of the per-pixel IDW computation, execution time is expected to depend on the number of cores allocated and the spatial extent of the TIR raster.

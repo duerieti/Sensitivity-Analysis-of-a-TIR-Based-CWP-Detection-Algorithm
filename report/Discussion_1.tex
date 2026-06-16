@@ -57,3 +57,20 @@ The temperature delta parameter shows the highest $\mu^*$ values overall, indica
 The step length parameter occupies an intermediate position, with $\mu^*$ values clearly above zero but consistently below those of temperature delta. Like temperature delta, step length also shows elevated $\sigma$ values, suggesting interactions with the other parameters or nonlinear behaviour.
 
 The replication of the buffer pixel and temperature delta findings from \citep{tonolla_thermische-kartographie_2026} within the present work, using an independently implemented Morris experiment on a different dataset, lends additional credibility to both sets of results and suggests that these sensitivity patterns are a robust property of the CWP detection algorithm rather than artefacts of a particular study context.
+
+
+\section{Answering Research Question 2}
+
+Research question 2 asked what adjustments could be made to the detection algorithm 
+to reduce variability with respect to its parameters while also achieving plausible 
+detection results. Based on the Morris screening findings, three modifications were 
+implemented in v3, as described in Chapter~5: the buffer pixel count was fixed by 
+factor fixing, the slab-based reference temperature computation was replaced by an 
+IDW scheme removing the step length dependency, and the temperature delta parameter 
+was retained as a user-defined input. The evaluation presented in 
+Section~5.5 shows that v3 produces outputs comparable to v1 in terms of Jaccard 
+similarity, while qualitatively eliminating the slab-boundary cutoff artefacts 
+identified as a direct consequence of step-length sensitivity. Research question 2 
+can therefore be answered affirmatively: the identified parameter sensitivities 
+can be addressed through targeted algorithmic modifications without sacrificing 
+output plausibility.
