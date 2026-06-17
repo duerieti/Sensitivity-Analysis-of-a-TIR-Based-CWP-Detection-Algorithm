@@ -142,8 +142,7 @@ detect_cwp <- function(
     min_patch_area_m2 = 2,   # minimal area a CWP must have to be retained
     round_to          = 0.1, # rounding precision for the TIR raster (°C)
     delta_C           = 1.0, # temperature delta threshold for pixel flagging
-    connect_diagonals = TRUE, # whether diagonally touching pixels form one polygon
-    n_cores           = 4    # number of cores for OpenMP parallelism in IDW
+    connect_diagonals = TRUE # whether diagonally touching pixels form one polygon
 ) {
 
   # load the TIR raster
@@ -208,8 +207,7 @@ detect_cwp <- function(
       cell_vals    = cell_vals,       # temperature values (only used for NaN check)
       idw_points   = ref_coords,      # coordinates of the IDW reference points
       temperatures = ref_temps,       # temperatures of the IDW reference points
-      power        = 2.0,            # decay power of the inverse distance weighting
-      threads      = n_cores         # number of OpenMP threads
+      power        = 2.0              # decay power of the inverse distance weighting
     )
 
     # write the interpolated values for this block to the output raster
