@@ -22,22 +22,26 @@
 \newlabel{fig:mu_star_overall}{{4-6}{30}{Overall $\mu ^*$ sensitivity indices for \texttt {buffer\_px}, \texttt {delta\_T}, and \texttt {step\_length} across all classified cold water patches ($N = 24$ locations, $r = 64$ trajectories)}{figure.caption.35}{}}
 \@writefile{lot}{\contentsline {table}{\numberline {5-1}{\ignorespaces Regression results for $\mu ^*$ (step length) predicted by mean CWP area and mean $\Delta T$, fitted across all 24 annotated locations.}}{30}{table.caption.37}\protected@file@percent }
 \newlabel{tab:regression_mustar}{{5-1}{30}{Regression results for $\mu ^*$ (step length) predicted by mean CWP area and mean $\Delta T$, fitted across all 24 annotated locations}{table.caption.37}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {5-7}{\ignorespaces $\mu ^*$ (step length) versus mean CWP area for each of the 24 annotated locations. Color indicates the mean temperature delta to the surrounding river ($\overline  {\Delta T}$, averaged across all Morris runs); shape indicates CWP class (circle: non-tributary-caused; triangle: tributary-caused).}}{30}{figure.caption.36}\protected@file@percent }
-\newlabel{fig:mu_star_vs_area}{{5-7}{30}{$\mu ^*$ (step length) versus mean CWP area for each of the 24 annotated locations. Color indicates the mean temperature delta to the surrounding river ($\overline {\Delta T}$, averaged across all Morris runs); shape indicates CWP class (circle: non-tributary-caused; triangle: tributary-caused)}{figure.caption.36}{}}
-\@writefile{toc}{\contentsline {chapter}{\numberline {5}Algorithm Modification based on Morris Screening Results}{31}{chapter.5}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {5-7}{\ignorespaces $\mu ^*$ (step length) versus mean CWP area for each of the 24 annotated locations. Color indicates the mean temperature delta to the surrounding river ($\overline  {\Delta T}$, averaged across all Morris runs); shape indicates CWP class (circle: non-tributary-caused; triangle: tributary-caused).}}{31}{figure.caption.36}\protected@file@percent }
+\newlabel{fig:mu_star_vs_area}{{5-7}{31}{$\mu ^*$ (step length) versus mean CWP area for each of the 24 annotated locations. Color indicates the mean temperature delta to the surrounding river ($\overline {\Delta T}$, averaged across all Morris runs); shape indicates CWP class (circle: non-tributary-caused; triangle: tributary-caused)}{figure.caption.36}{}}
+\@writefile{toc}{\contentsline {chapter}{\numberline {5}Algorithm Modification based on Morris Screening Results}{32}{chapter.5}\protected@file@percent }
 \@writefile{lof}{\addvspace {10\p@ }}
 \@writefile{lot}{\addvspace {10\p@ }}
-\@writefile{toc}{\contentsline {section}{\numberline {5.1}Insights from the Morris Screening}{31}{section.5.1}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {5.2}Operationalisation of Surrounding Stream Temperature}{31}{section.5.2}\protected@file@percent }
-\@writefile{lof}{\contentsline {figure}{\numberline {2-1}{\ignorespaces Comparison of CWP detection results at a location affected by a slab boundary cutoff. Left: v1/v2 output, showing the patch artificially split at the slab boundary. Right: v3 output using the IDW-based reference temperature, showing a contiguous patch.}}{32}{figure.caption.38}\protected@file@percent }
-\newlabel{fig:idw_cutoff_comparison}{{2-1}{32}{Comparison of CWP detection results at a location affected by a slab boundary cutoff. Left: v1/v2 output, showing the patch artificially split at the slab boundary. Right: v3 output using the IDW-based reference temperature, showing a contiguous patch}{figure.caption.38}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {5.3}Implementation Detail}{32}{section.5.3}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {5.4}Reduction of Parameters}{33}{section.5.4}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {5.5}Evaluation of the Modified Algorithm}{33}{section.5.5}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {5.5.1}Output comparison}{33}{subsection.5.5.1}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {5.5.2}Runtime}{34}{subsection.5.5.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {5.1}Insights from the Morris Screening}{32}{section.5.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {5.2}Operationalisation of Surrounding Stream Temperature}{32}{section.5.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {5.3}Implementation Detail}{33}{section.5.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {5.4}Reduction of Parameters}{34}{section.5.4}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {5.5}Evaluation of the Modified Algorithm}{34}{section.5.5}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.5.1}Output comparison}{34}{subsection.5.5.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.5.2}Runtime}{35}{subsection.5.5.2}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {5-1}{\ignorespaces Elimination of an artificial slab-boundary truncation. Left: v1 output, showing the CWP extent truncated abruptly at a slab boundary due to the discontinuous piecewise-constant reference temperature field. Right: v3 output, showing the patch extending naturally beyond the former boundary location, with the detected extent tapering gradually in accordance with the underlying temperature gradient.}}{36}{figure.caption.38}\protected@file@percent }
+\newlabel{fig:idw_cutoff_eliminated}{{5-1}{36}{Elimination of an artificial slab-boundary truncation. Left: v1 output, showing the CWP extent truncated abruptly at a slab boundary due to the discontinuous piecewise-constant reference temperature field. Right: v3 output, showing the patch extending naturally beyond the former boundary location, with the detected extent tapering gradually in accordance with the underlying temperature gradient}{figure.caption.38}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {5-2}{\ignorespaces Merger of previously severed CWP fragments. Left: v1 output, showing two separate CWP polygons on either side of a slab boundary. Right: v3 output, showing the same thermal anomaly detected as a single contiguous patch.}}{37}{figure.caption.39}\protected@file@percent }
+\newlabel{fig:idw_merged_cwp}{{5-2}{37}{Merger of previously severed CWP fragments. Left: v1 output, showing two separate CWP polygons on either side of a slab boundary. Right: v3 output, showing the same thermal anomaly detected as a single contiguous patch}{figure.caption.39}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {5-3}{\ignorespaces Example of a CWP detected by v3 but absent in v1 and v2. The detection is consistent with the hypothesis that the corresponding thermal anomaly was split into sub-threshold fragments by a slab boundary in v1 and v2, and subsequently removed by the minimum area filter.}}{38}{figure.caption.40}\protected@file@percent }
+\newlabel{fig:idw_new_cwp}{{5-3}{38}{Example of a CWP detected by v3 but absent in v1 and v2. The detection is consistent with the hypothesis that the corresponding thermal anomaly was split into sub-threshold fragments by a slab boundary in v1 and v2, and subsequently removed by the minimum area filter}{figure.caption.40}{}}
 \@setckpt{Results_1}{
-\setcounter{page}{35}
+\setcounter{page}{39}
 \setcounter{equation}{0}
 \setcounter{enumi}{9}
 \setcounter{enumii}{2}
@@ -52,7 +56,7 @@
 \setcounter{subsubsection}{0}
 \setcounter{paragraph}{0}
 \setcounter{subparagraph}{0}
-\setcounter{figure}{1}
+\setcounter{figure}{3}
 \setcounter{table}{0}
 \setcounter{parentequation}{0}
 \setcounter{float@type}{8}
