@@ -7,8 +7,6 @@ A level-1 auxiliary file: Theoretical_background.aux
 A level-1 auxiliary file: Methods_1.aux
 A level-1 auxiliary file: Results_1.aux
 A level-1 auxiliary file: Discussion_1.aux
-A level-1 auxiliary file: Methods_2.aux
-A level-1 auxiliary file: Results_2.aux
 The style file: abbrvnat.bst
 Database file #1: references.bib
 Warning--entry type for "gdal_gtiff_driver" isn't style-file defined
@@ -19,45 +17,49 @@ Warning--entry type for "isciences_exactextract" isn't style-file defined
 --line 34 of file references.bib
 Warning--entry type for "hijmans_terra_extract" isn't style-file defined
 --line 42 of file references.bib
-You've used 17 entries,
+Repeated entry---line 317 of file references.bib
+ : @article{casas-mulet_unmanned_2020
+ :                                   ,
+I'm skipping whatever remains of this entry
+You've used 20 entries,
             2773 wiz_defined-function locations,
-            721 strings with 8685 characters,
-and the built_in function-call counts, 7304 in all, are:
-= -- 669
-> -- 414
+            747 strings with 10265 characters,
+and the built_in function-call counts, 10282 in all, are:
+= -- 916
+> -- 738
 < -- 11
-+ -- 143
-- -- 126
-* -- 591
-:= -- 1178
-add.period$ -- 77
-call.type$ -- 17
-change.case$ -- 93
-chr.to.int$ -- 17
-cite$ -- 34
-duplicate$ -- 308
-empty$ -- 581
-format.name$ -- 149
-if$ -- 1507
++ -- 251
+- -- 231
+* -- 913
+:= -- 1674
+add.period$ -- 95
+call.type$ -- 20
+change.case$ -- 137
+chr.to.int$ -- 20
+cite$ -- 40
+duplicate$ -- 371
+empty$ -- 707
+format.name$ -- 257
+if$ -- 2087
 int.to.chr$ -- 1
 int.to.str$ -- 1
-missing$ -- 11
-newline$ -- 119
-num.names$ -- 69
-pop$ -- 175
+missing$ -- 14
+newline$ -- 143
+num.names$ -- 81
+pop$ -- 248
 preamble$ -- 1
-purify$ -- 76
+purify$ -- 117
 quote$ -- 0
-skip$ -- 239
+skip$ -- 307
 stack$ -- 0
-substring$ -- 164
-swap$ -- 25
+substring$ -- 257
+swap$ -- 31
 text.length$ -- 0
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 172
+type$ -- 205
 warning$ -- 0
-while$ -- 61
+while$ -- 76
 width$ -- 0
-write$ -- 275
-(There were 4 warnings)
+write$ -- 332
+(There was 1 error message)

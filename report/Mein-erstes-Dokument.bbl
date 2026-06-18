@@ -1,4 +1,4 @@
-\begin{thebibliography}{17}
+\begin{thebibliography}{20}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax
@@ -63,6 +63,18 @@ J.~Kuhn, R.~Casas-Mulet, J.~Pander, and J.~Geist.
 \newblock \doi{10.3390/rs13071379}.
 \newblock URL \url{https://www.mdpi.com/2072-4292/13/7/1379}.
 
+\bibitem[Kurylyk et~al.(2015)Kurylyk, MacQuarrie, Linnansaari, Cunjak, and
+  Curry]{kurylyk_preserving_2015}
+B.~L. Kurylyk, K.~T.~B. MacQuarrie, T.~Linnansaari, R.~A. Cunjak, and R.~A.
+  Curry.
+\newblock Preserving, augmenting, and creating cold‐water thermal refugia in
+  rivers: concepts derived from research on the {Miramichi} {River}, {New}
+  {Brunswick} ({Canada}).
+\newblock \emph{Ecohydrology}, 8\penalty0 (6):\penalty0 1095--1108, Sept. 2015.
+\newblock ISSN 1936-0584, 1936-0592.
+\newblock \doi{10.1002/eco.1566}.
+\newblock URL \url{https://onlinelibrary.wiley.com/doi/10.1002/eco.1566}.
+
 \bibitem[Ligmann-Zielinska(2013)]{ligmann-zielinska_spatially-explicit_2013}
 A.~Ligmann-Zielinska.
 \newblock Spatially-explicit sensitivity analysis of an agent-based model of
@@ -80,6 +92,23 @@ R.~Lovelace, J.~Nowosad, and J.~Muenchow.
 \newblock \emph{Geocomputation with R}.
 \newblock CRC Press, 2019.
 \newblock ISBN 9780203730058.
+
+\bibitem[Mejia et~al.(2023)Mejia, Ouellet, Briggs, Carlson, Casas‐Mulet,
+  Chapman, Collins, Dugdale, Ebersole, Frechette, Fullerton, Gillis, Johnson,
+  Kelleher, Kurylyk, Lave, Letcher, Myrvold, Nadeau, Neville, Piégay, Smith,
+  Tonolla, and Torgersen]{mejia_closing_2023}
+F.~H. Mejia, V.~Ouellet, M.~A. Briggs, S.~M. Carlson, R.~Casas‐Mulet,
+  M.~Chapman, M.~J. Collins, S.~J. Dugdale, J.~L. Ebersole, D.~M. Frechette,
+  A.~H. Fullerton, C.~Gillis, Z.~C. Johnson, C.~Kelleher, B.~L. Kurylyk,
+  R.~Lave, B.~H. Letcher, K.~M. Myrvold, T.~Nadeau, H.~Neville, H.~Piégay,
+  K.~A. Smith, D.~Tonolla, and C.~E. Torgersen.
+\newblock Closing the gap between science and management of cold‐water
+  refuges in rivers and streams.
+\newblock \emph{Global Change Biology}, 29\penalty0 (19):\penalty0 5482--5508,
+  Oct. 2023.
+\newblock ISSN 1354-1013, 1365-2486.
+\newblock \doi{10.1111/gcb.16844}.
+\newblock URL \url{https://onlinelibrary.wiley.com/doi/10.1111/gcb.16844}.
 
 \bibitem[Mieno(2022)]{mieno_rgis_2022}
 T.~Mieno.
@@ -144,5 +173,18 @@ C.~E. Torgersen, R.~N. Faux, B.~A. McIntosh, N.~J. Poage, and D.~J. Norton.
 \newblock \doi{10.1016/S0034-4257(01)00186-9}.
 \newblock URL
   \url{https://linkinghub.elsevier.com/retrieve/pii/S0034425701001869}.
+
+\bibitem[Wawrzyniak et~al.(2016)Wawrzyniak, Piégay, Allemand, Vaudor, Goma,
+  and Grandjean]{wawrzyniak_effects_2016}
+V.~Wawrzyniak, H.~Piégay, P.~Allemand, L.~Vaudor, R.~Goma, and P.~Grandjean.
+\newblock Effects of geomorphology and groundwater level on the spatio-temporal
+  variability of riverine cold water patches assessed using thermal infrared
+  ({TIR}) remote sensing.
+\newblock \emph{Remote Sensing of Environment}, 175:\penalty0 337--348, Mar.
+  2016.
+\newblock ISSN 00344257.
+\newblock \doi{10.1016/j.rse.2015.12.050}.
+\newblock URL
+  \url{https://linkinghub.elsevier.com/retrieve/pii/S0034425715302728}.
 
 \end{thebibliography}

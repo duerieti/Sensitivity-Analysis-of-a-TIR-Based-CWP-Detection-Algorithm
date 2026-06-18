@@ -1,5 +1,6 @@
 \chapter{Methods}
-This chapter describes the operationalisation of the research questions into a set of methodological steps, which are then described in detail. The presented methods can be divided into three logical steps. The first step focuses on optimizing the currently available CWP detection algorithm with respect to execution speed, to set the stage for the sensitivity analysis. The second step focuses on deriving sensitivity indices using the Morris method for a set of variable CWPs which can be clearly attributed to being either tributary-caused or non-tributary-caused. The third step focuses on deriving visualizations and fitting a statistical model to the selected CWPs, aiming to explain the sensitivity of CWP area to the step length parameter as a function of CWP area and the temperature difference to the surrounding environment.
+
+This chapter describes the operationalisation of the research questions into a set of methodological sections, which are then described in detail. The presented methods can be divided into three sections. The first section focuses on optimizing the currently available CWP detection algorithm with respect to execution speed, to set the stage for the sensitivity analysis. The second section focuses on deriving sensitivity indices using the Morris method for a set of variable CWPs which can be clearly attributed to being either tributary-caused or non-tributary-caused. The third section focuses on deriving visualizations and fitting a statistical model to the selected CWPs, aiming to explain the sensitivity of CWP area to the step length parameter as a function of CWP area and the temperature difference to the surrounding environment.
 
 
 \section{Data}
@@ -7,7 +8,12 @@ This chapter describes the operationalisation of the research questions into a s
 
 \section{Operationalisation of the Research Question}
 
-Defining river sections containing a CWP is not entirely straightforward. The general location of such a river section can be determined easily using a map, as the point at which the tributary enters the river must lie within it. However, no general rule exists for determining the precise spatial extent of such a section -- that is, where it begins and ends. For example, it could be defined as extending 50 meters upstream from the tributary inflow, or as a section downstream of the inflow whose length scales with the tributary's discharge, under the assumption that larger tributaries influence the thermal regime of the receiving river over a longer distance.
+Research question 1 asks how the step length parameter contributes to the 
+algorithm's variance in river sections \textit{containing a tributary with 
+	significantly differing water temperatures}, compared to sections without such 
+tributaries. Translating this into a concrete methodological design requires 
+defining what constitutes such a river section -- specifically, where it begins 
+and ends. This is not entirely straightforward. No general rule exists for determining the precise spatial extent of such a section. For example, it could be defined as extending 50 meters upstream from the tributary inflow, or as a section downstream of the inflow whose length scales with the tributary's discharge, under the assumption that larger tributaries influence the thermal regime of the receiving river over a longer distance.
 
 In this study, an outcome-based definition of a tributary-influenced river section was used instead: rather than geometrically delineating river sections and applying a subjective rule for their extent, the river section is defined directly as the extent of the CWP caused by the tributary. This removes the ambiguity of delineating tributary-influenced river sections, since such a section is then simply spanned by the CWP itself. This definition also inherently captures the requirement of a "significantly differing water temperature" from research question 1: if a tributary's water were not significantly colder than the receiving river, no CWP would form. The existence of a tributary-caused CWP therefore provides evidence that the tributary's temperature differs significantly from that of the surrounding river.
 
@@ -24,7 +30,17 @@ Most sensitivity analysis methods feature a high cost when it comes to model exe
 \subsection{Reimplementation of the CWP algorithm based on GDAL and system calls}
 
 
-The original algorithm focuses on per-slab processing of the raster using a set of R loops and relying on \texttt{terra} and \texttt{sf} functions to implement the logic. The reworked algorithm adapts much of the original logic but instead operates directly on disk: The majority of processing steps read their input from, and writes their output to, raster or vector files via calls to the GDAL command line interface. Table~\ref{tab:cwp_pseudocode} gives a high-level overview of the reimplemented algorithm; the tool or function used in each step is listed in the right-hand column. The remainder of this section motivates the key design decisions underlying this reimplementation.
+The reworked algorithm preserves the computational logic of the original 
+implementation but differs fundamentally in how each step is 
+mechanistically executed. Where the original algorithm processes the raster 
+slab-by-slab in memory using R loops and \texttt{terra}/\texttt{sf} functions, the 
+reworked algorithm replaces these with calls to the GDAL command line interface, 
+operating directly on raster and vector files on disk rather than holding 
+intermediate results in memory. Table~\ref{tab:cwp_pseudocode} gives a high-level 
+overview of the reimplemented algorithm; the tool or function used in each step 
+is listed in the right-hand column. The remainder of this section motivates the 
+key design decisions underlying this choice of implementation.
+
 
 \begin{table}[H]
 	\centering
@@ -54,16 +70,40 @@ The original algorithm focuses on per-slab processing of the raster using a set 
 \end{table}
 
 
-\paragraph{Performance.} This decision was made as \texttt{terra} operations are sometimes not performant, and GDAL offers an often faster set of geocomputational tools, which can be called from R using \texttt{system()} or \texttt{sf::gdal\_utils()} \citep{lovelace2019geocomputation}. Empirical testing in a prior coursework exercise also showed a significant speedup of GDAL-based raster operations compared to \texttt{terra} across a range of use cases \citep{duerr_raster_deepdive}; this coursework was not peer-reviewed and is cited here only as a supporting empirical observation.
+\paragraph{Performance.} The decision to heavily rely on GDAL was made as \texttt{terra} operations are sometimes not performant, and GDAL offers an often faster set of geocomputational tools, which can be called from R using \texttt{system()} or \texttt{sf::gdal\_utils()} \citep{lovelace2019geocomputation}. Empirical testing in a prior coursework exercise also showed a significant speedup of GDAL-based raster operations compared to \texttt{terra} across a range of use cases \citep{duerr_raster_deepdive}; this coursework was not peer-reviewed and is cited here only as a supporting empirical observation.
 
-\paragraph{Memory footprint and HPC suitability.} The GDAL-based approach also enables easy chunk processing with intermediate reading and writing to disk, which helps to keep memory footprint small. This can be beneficial in an HPC setting, where not only the number of available cores but also the available memory can become a limiting factor. The drawback of this decision is that writing intermediate results to disk causes large spikes in disk space consumption, as intermediate rasters of the algorithm can be up to 25\,GB in size. This was counteracted by deploying compression during writing and decompression during reading -- a strategy that produces little computational overhead but greatly reduces the size of the intermediate results. Specifically, this was implemented by setting the compression options \texttt{COMPRESS=DEFLATE} and \texttt{PREDICTOR=2} when working with GDAL's GeoTIFF driver \citep{gdal_gtiff_driver}. It should be noted, however, that heavily relying on GDAL introduces a large amount of I/O activity, which can significantly hurt performance on distributed file systems; this remains a limitation of the chosen approach and is revisited in the Discussion Section.
+\paragraph{Memory footprint and HPC suitability.} The GDAL-based approach also enables easy chunk processing with intermediate reading and writing to disk, which helps to keep memory footprint small. This can be beneficial in an HPC setting, where not only the number of available cores but also the available memory can become a limiting factor when running processes in parallel. The drawback of this decision is that writing intermediate results to disk causes large spikes in disk space consumption, as intermediate rasters of the algorithm can be up to 25\,GB in size. This was counteracted by deploying compression during writing and decompression during reading -- a strategy that produces little computational overhead but greatly reduces the size of the intermediate results. Specifically, this was implemented by setting the compression options \texttt{COMPRESS=DEFLATE} and \texttt{PREDICTOR=2} when working with GDAL's GeoTIFF driver \citep{gdal_gtiff_driver}. It should be noted, however, that heavily relying on GDAL introduces a large amount of I/O activity, which can significantly hurt performance on distributed file systems; this remains a limitation of the chosen approach and is revisited in the Discussion Section.
 
 \paragraph{Raster value extraction.} As a further optimization, \texttt{terra::extract()} was replaced with \texttt{exact\_extract()} from the \texttt{exactextractr} package (used in steps 4 and 8 of Table~\ref{tab:cwp_pseudocode}). This was done as \texttt{exact\_extract()} extracts aggregated values from rasters considerably faster than \texttt{terra::extract()} for large rasters \citep{mieno_rgis_2022}; it should be noted, however, that this speed difference was not tested in isolation within this work. A further difference between the two functions concerns how partially covered cells are handled: \texttt{exact\_extract()} performs a coverage-fraction-weighted extraction, in which partially covered cells are weighted by their fraction of coverage \citep{isciences_exactextract}, whereas \texttt{terra::extract()} by default includes a cell only if its center point falls within the polygon \citep{hijmans_terra_extract} which is the behaviour used in the original (v1) implementation. To approximate this cell-center-inclusion behaviour within \texttt{exact\_extract()}, only cells with a coverage fraction of at least 50\% were included; this approximation is not exactly equivalent to \texttt{terra}'s center-point rule, and its consequences for output equivalence between v1 and v2 are addressed in the Discussion Section. 
 
 
 \subsection{Output eqivalence and Runtime Comparison}
 
-The resulting reimplementation was tested for equivalence in output by comparing the produced CWP polygons to the CWP polygons of the old algorithm when deployed with the exact same set of parameters. As a tool for comparison visual analysis in QGIS and the computation of Jaccard similarities between the two sets of CWPs was deployed. Table~\ref{tab:validation_params} shows the parameter combinations deployed in testing. Further, the runtime between the new algorithm and the existing version was compared with respect to the step length parameter. Runtime was compared across three segment lengths (400, 800, and 1200~m), with all other parameters held constant (zone halfwidth = 60~m, buffer = 3~px, $\Delta C = 1.0\,^{\circ}\mathrm{C}$, minimum patch area = 2~m$^2$, rounding = $0.1\,^{\circ}\mathrm{C}$, 8-connectivity enabled).
+The resulting reimplementation was tested for equivalence in output by comparing 
+the CWP polygons produced by v2 against those produced by v1 when deployed with 
+the exact same set of parameters. Spatial agreement between the two sets of polygons 
+was assessed using the Jaccard similarity index:
+
+\begin{equation}
+	J(A, B) = \frac{\text{area}(A \cap B)}{\text{area}(A \cup B)}
+	\label{eq:jaccard}
+\end{equation}
+
+where $A$ and $B$ denote the sets of CWP polygons produced by v1 and v2 
+respectively, $\text{area}(A \cap B)$ is the total area of spatial overlap 
+between the two polygon sets, and $\text{area}(A \cup B)$ is the total area 
+covered by at least one of the two polygon sets. A value of $J = 1$ indicates 
+perfect spatial agreement, while $J = 0$ indicates no overlap. In addition to 
+this quantitative measure, visual inspection of the polygon outputs in QGIS was 
+carried out to identify any systematic spatial patterns in the disagreements. 
+Table~\ref{tab:validation_params} shows the parameter combinations used in testing.
+
+Further, the runtime of v2 was compared against that of v1 with respect to the 
+step length parameter. Runtime was compared across three segment lengths 
+(400, 800, and 1200~m), with all other parameters held constant 
+(zone halfwidth = 60~m, buffer = 3~px, $\Delta T = 1.0\,^{\circ}$C, 
+minimum patch area = 2~m$^2$, rounding = $0.1\,^{\circ}$C, 
+8-connectivity enabled).
 
 \begin{table}[H]
 	\centering

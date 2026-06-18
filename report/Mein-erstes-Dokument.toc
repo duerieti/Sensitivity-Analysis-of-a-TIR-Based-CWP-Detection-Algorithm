@@ -1,35 +1,33 @@
 \babel@toc {english}{}\relax 
 \contentsline {chapter}{\numberline {1}Introduction}{4}{chapter.1}%
 \contentsline {chapter}{\numberline {2}Theoretical Background}{6}{chapter.2}%
-\contentsline {section}{\numberline {2.1}Model - Working Definition}{6}{section.2.1}%
-\contentsline {section}{\numberline {2.2}Model Input Sensitivity Analysis}{6}{section.2.2}%
-\contentsline {section}{\numberline {2.3}Sensitivity Analysis}{6}{section.2.3}%
-\contentsline {subsection}{\numberline {2.3.1}Local methods}{7}{subsection.2.3.1}%
-\contentsline {subsection}{\numberline {2.3.2}Global methods}{7}{subsection.2.3.2}%
-\contentsline {subsection}{\numberline {2.3.3}The Morris Method}{7}{subsection.2.3.3}%
+\contentsline {section}{\numberline {2.1}Model Input Sensitivity Analysis}{6}{section.2.1}%
+\contentsline {section}{\numberline {2.2}Sensitivity Analysis}{6}{section.2.2}%
+\contentsline {subsection}{\numberline {2.2.1}The Morris Method}{6}{subsection.2.2.1}%
 \contentsline {subsubsection}{Elementary Effects and the Sampling Grid}{7}{section*.2}%
 \contentsline {subsubsection}{Trajectory-Based Sampling}{8}{section*.4}%
-\contentsline {subsubsection}{Sensitivity Measures: $\mu $, $\sigma $, and $\mu ^*$}{9}{section*.6}%
-\contentsline {section}{\numberline {2.4}Coldwater Patches}{11}{section.2.4}%
+\contentsline {subsubsection}{Choosing $\Delta $ and $r$}{9}{section*.6}%
+\contentsline {subsubsection}{Sensitivity Measures: $\mu $, $\sigma $, and $\mu ^*$}{9}{section*.7}%
+\contentsline {section}{\numberline {2.3}Coldwater Patches}{11}{section.2.3}%
 \contentsline {chapter}{\numberline {3}Methods}{12}{chapter.3}%
 \contentsline {section}{\numberline {3.1}Data}{12}{section.3.1}%
 \contentsline {section}{\numberline {3.2}Operationalisation of the Research Question}{12}{section.3.2}%
 \contentsline {section}{\numberline {3.3}Optimizationn of Existing Algorithm}{13}{section.3.3}%
 \contentsline {subsection}{\numberline {3.3.1}Reimplementation of the CWP algorithm based on GDAL and system calls}{13}{subsection.3.3.1}%
-\contentsline {paragraph}{Performance.}{14}{section*.10}%
-\contentsline {paragraph}{Memory footprint and HPC suitability.}{14}{section*.11}%
-\contentsline {paragraph}{Raster value extraction.}{15}{section*.12}%
+\contentsline {paragraph}{Performance.}{14}{section*.11}%
+\contentsline {paragraph}{Memory footprint and HPC suitability.}{14}{section*.12}%
+\contentsline {paragraph}{Raster value extraction.}{15}{section*.13}%
 \contentsline {subsection}{\numberline {3.3.2}Output eqivalence and Runtime Comparison}{15}{subsection.3.3.2}%
 \contentsline {section}{\numberline {3.4}Sensitivity Analysis using Morris}{16}{section.3.4}%
 \contentsline {subsection}{\numberline {3.4.1}Determining and classifying step length sensitive CWP}{18}{subsection.3.4.1}%
-\contentsline {subsubsection}{Setting up first Morris experiment}{18}{section*.15}%
-\contentsline {subsubsection}{Model Evaluation along Parameter Combinations}{18}{section*.17}%
-\contentsline {subsubsection}{Creation of a fuzzy overlay of CWP}{20}{section*.20}%
-\contentsline {subsubsection}{Selection and Classification of CWP}{21}{section*.22}%
+\contentsline {subsubsection}{Setting up first Morris experiment}{18}{section*.16}%
+\contentsline {subsubsection}{Model Evaluation along Parameter Combinations}{18}{section*.18}%
+\contentsline {subsubsection}{Creation of a fuzzy overlay of CWP}{20}{section*.21}%
+\contentsline {subsubsection}{Selection and Classification of CWP}{21}{section*.23}%
 \contentsline {subsection}{\numberline {3.4.2}Computing morris sensitivity indices with respect to CWP area}{22}{subsection.3.4.2}%
-\contentsline {subsubsection}{Setting up second sampling Grid and executing Algorithm}{22}{section*.24}%
-\contentsline {subsubsection}{Computing lumped statistics for the selected CWPs}{23}{section*.26}%
-\contentsline {subsubsection}{Computing Morris sensitivity indices}{24}{section*.29}%
+\contentsline {subsubsection}{Setting up second sampling Grid and executing Algorithm}{22}{section*.25}%
+\contentsline {subsubsection}{Computing lumped statistics for the selected CWPs}{23}{section*.27}%
+\contentsline {subsubsection}{Computing Morris sensitivity indices}{24}{section*.30}%
 \contentsline {section}{\numberline {3.5}Visualisation and Statistical Modeling}{25}{section.3.5}%
 \contentsline {section}{\numberline {3.6}Usage of KI}{25}{section.3.6}%
 \contentsline {chapter}{\numberline {4}Results}{26}{chapter.4}%
@@ -43,13 +41,13 @@
 \contentsline {section}{\numberline {5.2}Operationalisation of Surrounding Stream Temperature}{32}{section.5.2}%
 \contentsline {section}{\numberline {5.3}Implementation Detail}{33}{section.5.3}%
 \contentsline {section}{\numberline {5.4}Reduction of Parameters}{34}{section.5.4}%
-\contentsline {section}{\numberline {5.5}Evaluation of the Modified Algorithm}{34}{section.5.5}%
-\contentsline {subsection}{\numberline {5.5.1}Output comparison}{34}{subsection.5.5.1}%
-\contentsline {subsection}{\numberline {5.5.2}Runtime}{35}{subsection.5.5.2}%
-\contentsline {chapter}{\numberline {6}Discussion}{39}{chapter.6}%
-\contentsline {section}{\numberline {6.1}Difference in CWP polygons between v1 and v2}{39}{section.6.1}%
-\contentsline {section}{\numberline {6.2}Speed comparison}{39}{section.6.2}%
-\contentsline {section}{\numberline {6.3}Answering research question 1}{40}{section.6.3}%
-\contentsline {section}{\numberline {6.4}Overall Sensitivity to the Different Parameters}{42}{section.6.4}%
-\contentsline {section}{\numberline {6.5}Answering Research Question 2}{42}{section.6.5}%
-\contentsline {section}{\numberline {6.6}Quellenverzeichnis}{44}{section.6.6}%
+\contentsline {section}{\numberline {5.5}Evaluation of the Modified Algorithm}{35}{section.5.5}%
+\contentsline {subsection}{\numberline {5.5.1}Output comparison}{35}{subsection.5.5.1}%
+\contentsline {subsection}{\numberline {5.5.2}Runtime}{36}{subsection.5.5.2}%
+\contentsline {chapter}{\numberline {6}Discussion}{38}{chapter.6}%
+\contentsline {section}{\numberline {6.1}Difference in CWP polygons between v1 and v2}{38}{section.6.1}%
+\contentsline {section}{\numberline {6.2}Speed comparison}{38}{section.6.2}%
+\contentsline {section}{\numberline {6.3}Answering research question 1}{39}{section.6.3}%
+\contentsline {section}{\numberline {6.4}Overall Sensitivity to the Different Parameters}{41}{section.6.4}%
+\contentsline {section}{\numberline {6.5}Answering Research Question 2}{41}{section.6.5}%
+\contentsline {section}{\numberline {6.6}Quellenverzeichnis}{43}{section.6.6}%

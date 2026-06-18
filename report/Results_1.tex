@@ -115,27 +115,44 @@ In v3, this is replaced by an inverse distance weighting (IDW) scheme. Rather th
 
 The implementation of v3 follows the structure of v2 closely, differing only in the computation of the reference temperature raster (steps 1--5 below, replacing steps 1--5 of Table~\ref{tab:cwp_pseudocode}). The full reference temperature computation proceeds as follows:
 
-\begin{enumerate}
-	\item From a uniform distribution with bounds 500--3000 metres, sample 20 candidate step length values.
-	\item For each of the 20 step length values:
-	\begin{enumerate}
-		\item Divide the river reach into $n$ centerline segments based on the step length.
-		\item Construct a narrow 3-pixel-wide reference strip polygon for each segment.
-		\item Extract the median temperature of each segment from the (unrounded) TIR raster using the reference strip polygon.
-		\item Compute the visual center of each strip polygon and assign the corresponding median temperature to this point.
-	\end{enumerate}
-	\item Pool the reference points (location + temperature) from all 20 step length values into a single combined set of IDW sample points.
-	\item Initialise a new raster to be populated with reference temperature values.
-	\item For each cell in this raster:
-	\begin{enumerate}
-		\item If the corresponding cell in the TIR raster is \texttt{NaN}, set the cell to \texttt{NaN} and proceed to the next cell.
-		\item Otherwise, compute a weighted temperature value for this cell using IDW over the pooled reference points.
-	\end{enumerate}
-	\item Round the TIR raster using a fixed rounding factor.
-	\item Subtract the rounded TIR raster from the reference raster; flag pixels where the difference exceeds $\Delta T$, producing a binary CWP raster.
-	\item Polygonize the binary CWP raster into patch polygons.
-	\item Filter patches by minimum area, compute per-patch temperature statistics, and apply a patch-level threshold check against the reference temperature.
-\end{enumerate}
+\begin{tcolorbox}[title=Algorithm: v3 Reference Temperature Computation and CWP Detection,
+	fonttitle=\bfseries, colback=gray!5, colframe=gray!50]
+	\begin{alltt}
+		# SAMPLE REFERENCE POINTS: #
+		SET candidate\_step\_lengths = 20 values sampled from Uniform(500, 3000) metres
+		INITIALIZE idw\_sample\_points = empty list
+		
+		FOR each step\_length IN candidate\_step\_lengths:
+			DIVIDE river centerline into n segments of length step\_length
+			CONSTRUCT a 3-pixel-wide reference strip polygon for each segment
+			EXTRACT median temperature of each segment from TIR raster
+			COMPUTE visual center point of each strip polygon
+			ADD (center\_point, median\_temperature) to idw\_sample\_points
+		
+		# COMPUTE REFERENCE TEMPERATURE RASTER: #
+		INITIALIZE reference\_raster with same extent and resolution as TIR raster
+		
+		FOR each cell c IN reference\_raster:
+			IF TIR\_raster[c] is NaN:
+				SET reference\_raster[c] = NaN
+			ELSE:
+				FOR each point p IN idw\_sample\_points:
+					CALCULATE distance d = Euclidean distance from c to p
+					CALCULATE weight w = 1 / d\^{}2
+					SET reference\_raster[c] = SUM(w * temperature) / SUM(w)
+		
+		# DETECT COLD WATER PATCHES: # 
+		SET tir\_rounded = ROUND(TIR\_raster, round\_to)
+		SET binary\_raster[c] = 1 IF reference\_raster[c] - tir\_rounded[c] >= delta\_T
+		ELSE NaN
+		
+		POLYGONIZE binary\_raster into patch polygons
+		FILTER patches with area < min\_patch\_area\_m2
+		FILTER patches where median(delta\_T across patch) < delta\_T
+		
+		RETURN patch polygons with area and temperature statistics
+	\end{alltt}
+\end{tcolorbox}
 
 Step 5b is implemented in C++ and imported into R via the \texttt{Rcpp} package, as the per-pixel IDW computation was identified as the primary computational bottleneck.
 
@@ -171,7 +188,7 @@ gradually as the temperature difference to the surrounding river diminishes.
 
 \begin{figure}[ht]
 	\centering
-	\includegraphics[width=\textwidth]{Bilder/idw_cutoff_eliminated.png}
+	\includegraphics[width=\textwidth]{Bilder/v3_trunctuation_fix.png}
 	\caption{Elimination of an artificial slab-boundary truncation. Left: v1 output, 
 		showing the CWP extent truncated abruptly at a slab boundary due to the 
 		discontinuous piecewise-constant reference temperature field. Right: v3 output, 
@@ -189,7 +206,7 @@ v3, which is likely a more accurate representation of the underlying thermal ano
 
 \begin{figure}[ht]
 	\centering
-	\includegraphics[width=\textwidth]{Bilder/idw_merged_cwp.png}
+	\includegraphics[width=\textwidth]{Bilder/v3_fix_cutoff_2.png}
 	\caption{Merger of previously severed CWP fragments. Left: v1 output, showing two 
 		separate CWP polygons on either side of a slab boundary. Right: v3 output, showing 
 		the same thermal anomaly detected as a single contiguous patch.}
@@ -209,7 +226,7 @@ consistent with the mechanistic argument developed in this chapter.
 
 \begin{figure}[ht]
 	\centering
-	\includegraphics[width=\textwidth]{Bilder/idw_new_cwp.png}
+	\includegraphics[width=\textwidth]{Bilder/large_cwp_only_in_v3.png}
 	\caption{Example of a CWP detected by v3 but absent in v1 and v2. The detection 
 		is consistent with the hypothesis that the corresponding thermal anomaly was 
 		split into sub-threshold fragments by a slab boundary in v1 and v2, and 
