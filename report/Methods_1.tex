@@ -176,28 +176,24 @@ only cells with a coverage fraction of at least 50\% were included in
 
 The resulting reimplementation was tested for equivalence in output by comparing 
 the CWP polygons produced by v2 against those produced by v1 when deployed with 
-the exact same set of parameters. Spatial agreement between the two sets of 
-polygons was assessed using the Jaccard similarity index:
+the exact same set of parameters. Spatial agreement was assessed using the 
+Jaccard similarity index:
 
 \begin{equation}
 	J(A, B) = \frac{\text{area}(A \cap B)}{\text{area}(A \cup B)}
 	\label{eq:jaccard}
 \end{equation}
 
-where $A$ and $B$ denote the sets of CWP polygons produced by v1 and v2 
-respectively, $\text{area}(A \cap B)$ is the total area of spatial overlap 
-between the two polygon sets, and $\text{area}(A \cup B)$ is the total area 
-covered by at least one of the two polygon sets. A value of $J = 1$ indicates 
-perfect spatial agreement, while $J = 0$ indicates no overlap. In addition to 
-this quantitative measure, visual inspection of the polygon outputs in QGIS was 
-carried out to identify any systematic spatial patterns in the disagreements. 
-Table~\ref{tab:validation_params} shows the parameter combinations used in testing.
+where $A$ and $B$ are the CWP polygon sets produced by v1 and v2 respectively. 
+$J = 1$ indicates perfect agreement and $J = 0$ indicates no overlap. In 
+addition, visual inspection in QGIS was carried out to identify any systematic 
+spatial patterns in the disagreements. Table~\ref{tab:validation_params} shows 
+the parameter combinations used in testing.
 
-Further, the runtime of v2 was compared against that of v1 with respect to the 
-step length parameter. Runtime was compared across three segment lengths 
-(400, 800, and 1200~m), with all other parameters held constant (zone halfwidth 
-= 60~m, buffer = 3~px, $\Delta T = 1.0\,^{\circ}$C, minimum patch area = 
-2~m$^2$, rounding = $0.1\,^{\circ}$C, 8-connectivity enabled).
+Runtime was compared across three segment lengths (400, 800, and 1200~m), with 
+all other parameters held constant (zone halfwidth = 60~m, buffer = 3~px, 
+$\Delta T = 1.0\,^{\circ}$C, minimum patch area = 2~m$^2$, rounding = 
+$0.1\,^{\circ}$C, 8-connectivity enabled).
 
 \begin{table}[H]
 	\centering
@@ -235,16 +231,6 @@ displays the sensitivity analysis results visually and fits a statistical model
 relating the sensitivity of CWP area to the step length parameter to the CWP's 
 area and its temperature difference to the surrounding environment.
 
-
-The inclusion of buffer pixel count and temperature delta alongside step length 
-also serves a secondary, validatory purpose. \citet{tonolla_thermische-kartographie_2026} 
-already found in their sensitivity analysis that the buffer pixel count seems to 
-have little influence on the CWP area; if this finding can be replicated here, 
-algorithmic simplification using factor fixing might be possible. Conversely, the 
-temperature delta parameter was among the most influential parameters in 
-\citet{tonolla_thermische-kartographie_2026}. Replicating both findings within 
-the present methodology would lend additional credibility to both approaches.
-
 \subsection{Determining and Classifying Step Length Sensitive CWP}
 \label{sec:cwp_classification}
 
@@ -264,22 +250,22 @@ Figure~\ref{fig:cwp_fuzzy_overview} provides a visual overview of these steps.
 	\centering
 	\includegraphics[width=\textwidth]{Bilder/cwp_fuzzy.png}
 	\caption{Visual overview of the steps involved in determining and classifying 
-		step-length-sensitive CWP: setting up the first Morris experiment and 
-		executing the CWP algorithm across the sampled parameter tuples, 
-		aggregating the resulting polygon layers into a fuzzy overlay raster, and 
-		selecting and classifying variable CWPs into tributary-caused and 
-		non-tributary-caused groups.}
+		step-length-sensitive CWP. The result is a set classified CWP}
 	\label{fig:cwp_fuzzy_overview}
 \end{figure}
 
 \subsubsection{Setting up First Morris Experiment}
 
-First, a two-dimensional Morris sampling grid was set up spanning two parameters: 
-buffer pixel count and step length. A total of 6 levels were set for each 
-parameter, with the step length varying from 400 m to 1200 m and the number of 
-pixels in the buffer spanning from 2 to 7. To compute the elementary effects, a 
-jump distance of 3 was set. Figure~\ref{fig:morris_grid} shows the deployed grid 
-visualized in greater detail, with the jump distance additionally drawn in.
+A two-dimensional Morris sampling grid was set up spanning buffer pixel count 
+and step length, with 6 levels per parameter (step length: 400--1200~m; buffer: 
+2--7~px) and a jump distance of $\Delta = 3$. Figure~\ref{fig:morris_grid} 
+shows the grid with the jump distance drawn in. A total of 44 trajectories were 
+sampled ($r = 44$), yielding $44 \times (2+1) = 132$ parameter tuples, each 
+holding a unique combination of buffer pixel count and step length. Sampling 
+was performed using the R package \texttt{sensitivity}.
+
+% NOTE: filename collision with the second grid's figure (k=3, isometric cube) --
+% this k=2 grid needs its own distinct filename.
 
 \begin{figure}[H]
 	\centering
@@ -290,54 +276,33 @@ visualized in greater detail, with the jump distance additionally drawn in.
 	\label{fig:morris_grid}
 \end{figure}
 
-% NOTE: filename collision with the second grid's figure (k=3, isometric cube) --
-% this k=2 grid needs its own distinct filename.
-
-From this grid, a total of 44 trajectories were sampled ($r=44$), resulting in 
-a total of $44 \times (2 + 1) = 132$ parameter tuples being generated. Each 
-tuple holds a different combination of buffer pixel count and step length. These 
-were written to a file along with a unique identifier for each tuple. For the 
-sampling procedure, the R package \texttt{sensitivity} was used.
-
-The decision to vary only the buffer pixel count and step length in this first 
-Morris experiment (i.e., $k=2$, with the temperature delta parameter held 
-constant) is methodologically important. The temperature delta parameter directly 
-determines the threshold used by the algorithm to flag pixels as part of a CWP; 
-varying it would therefore be expected to introduce variability in the detected 
-extent of essentially all CWPs, independent of whether they are sensitive to the 
-step length parameter specifically. Including the temperature delta in this first 
-step would consequently make it difficult to distinguish CWPs that are variable 
-because of the step length parameter from CWPs that merely appear variable because 
-the CWP-defining threshold itself was varied. By holding the temperature delta 
-constant and varying only step length and buffer pixel count, any variability 
-observed in the resulting fuzzy overlay can be more confidently attributed to 
-these two parameters, and in particular to step length (as the buffer pixel count 
-is generally non-influential).
-
-A Morris design was used for this first step, rather than e.g.\ a simple grid 
-sweep, to ensure the validity of the selection criterion itself: the goal of this 
-step is to select CWPs whose variability can subsequently be quantified using the 
-Morris sensitivity indices computed in the second experiment. Had a different 
-sampling scheme been used here, it would be possible to visually identify CWPs 
-as variable based on a pattern of variation that the Morris elementary effects 
-might not register as sensitive. By already constructing the fuzzy overlay from 
-Morris-sampled runs in this first step, any variability visible in the overlay 
-is, by construction, of the kind that the subsequent Morris-based sensitivity 
-analysis is designed to detect.
+The temperature delta parameter was held constant ($k=2$) because varying it 
+would introduce variability in the detected extent of essentially all CWPs -- 
+making it impossible to distinguish CWPs that are sensitive to step length from 
+those that merely respond to a changing detection threshold. Holding it constant 
+ensures that any variability in the fuzzy overlay can be attributed to step 
+length and buffer pixel count, and in particular to step length, as the buffer 
+pixel count is generally non-influential. Further a, Morris design was used rather than a simple grid sweep to ensure construct 
+validity of the selection criterion: any variability visible in the fuzzy 
+overlay is, by construction, of the kind that the subsequent Morris sensitivity 
+analysis is designed to detect. Had a different sampling scheme been used, 
+visually variable CWPs might not register as sensitive under the Morris indices 
+computed in the second experiment.
 
 \subsubsection{Model Evaluation along Parameter Combinations}
 \label{sec:modeleval}
 
-Next, a parallelized computation scheme was set up to evaluate the CWP algorithm 
-along the created parameter tuples, while keeping the parameters not part of the 
-Morris experiment constant. Table~\ref{tab:held_constant_first_morris} shows the 
-values at which the other parameters were held constant.
+The CWP algorithm was evaluated across all sampled parameter tuples in parallel 
+using GNU Parallel \citep{tange_2024_gnu_parallel}, with the remaining parameters 
+held constant as listed in Table~\ref{tab:held_constant_first_morris}. Each 
+worker process fetched a parameter tuple, created a uniquely named working 
+directory, and wrote all results there for traceability. 
+Figure~\ref{fig:gnu} visualizes the workflow.
 
-\begin{table}[h]
+\begin{table}[H]
 	\centering
 	\caption{Parameter values held constant during the first Morris experiment, 
-		while the step length and the buffer pixel count were varied according to 
-		the sampled parameter tuples.}
+		while step length and buffer pixel count were varied.}
 	\label{tab:held_constant_first_morris}
 	\begin{tabular}{lr}
 		\toprule
@@ -352,26 +317,24 @@ values at which the other parameters were held constant.
 	\end{tabular}
 \end{table}
 
-To orchestrate the parallel execution of the CWP algorithm, the open source 
-software GNU Parallel was deployed \citep{tange_2024_gnu_parallel}. Specifically, 
-GNU Parallel was used to implement a worker pool of processes, each executing the 
-CWP algorithm with a parameter tuple fetched from a parameter text file. Before 
-starting the computation, each process also sets up an individual working 
-directory, to which intermediate results as well as the final result are written. 
-To keep the parameter combination as well as the identifier traceable -- and the 
-results therefore identifiable -- the folder name holds both the identifier and 
-the parameter values. Figure~\ref{fig:gnu} visualizes the GNU Parallel workflow.
-
-
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=\textwidth]{Bilder/GNU.png}
+	\caption{Worker pool orchestrated by GNU Parallel across three parallel 
+		processes. Each process reads a parameter tuple from a shared 
+		\texttt{parameters.txt} file, creates an individual working directory 
+		named after the tuple identifier and parameter values (e.g.\ 
+		\texttt{job\_1\_7\_880}), executes the CWP detection algorithm, and 
+		writes the results to that directory before fetching the next parameter 
+		tuple. The cycle repeats until all tuples have been processed.}
+	\label{fig:gnu}
+\end{figure}
 
 \subsubsection{Creation of a Fuzzy Overlay of CWP}
 
-The resulting CWP polygon layers were then processed into a single raster through 
-a series of processing steps. First, each polygon layer was rasterized using the 
-same pixel size as the TIR rasters. Then, these different raster representations 
-of the CWPs were stacked into a multi-layer raster, and a pixel-wise mean 
-calculation was performed. This aggregates the three-dimensional raster stack 
-into a two-dimensional raster. This process is visualized in 
+The CWP polygon layers from all runs were rasterized at the TIR raster 
+resolution, stacked into a multi-layer raster, and reduced to a single 
+two-dimensional raster via pixel-wise mean. The result is visualized in 
 Figure~\ref{fig:fuzzy_overlay}.
 
 \begin{figure}[H]
@@ -387,36 +350,22 @@ Figure~\ref{fig:fuzzy_overlay}.
 	\label{fig:fuzzy_overlay}
 \end{figure}
 
-The pixel-wise mean computation produces a pixel score between 0 and 1, which 
-can be interpreted as follows: a pixel value of 1 indicates that this area of 
-the Emme basin was part of a CWP during each of the runs, while a pixel value 
-near zero indicates that the area covered by the pixel was almost never part of 
-a CWP in the model outputs. The resulting raster can be understood as a fuzzy 
-membership representation of the CWPs in the Emme, where each pixel has a 
-probability-like score of belonging to a CWP. From these fuzzy CWPs, it can 
-also be read which CWPs are variable with respect to the step length parameter. 
-CWPs which show a wide range of different shades in their coloring contain pixels 
-that are generally variable in their identity as CWP or non-CWP pixels. These 
-CWP are therefore candidates for the selection and classification process 
-described in the following subsection.
+Each pixel in the resulting raster holds a score between 0 and 1, 
+representing the fraction of runs in which that pixel was detected as part 
+of a CWP -- interpretable as a fuzzy membership score. CWPs showing a wide 
+range of scores across their extent are variable with respect to the step 
+length parameter and are therefore candidates for the selection and 
+classification process described in the following subsection.
 
 \subsubsection{Selection and Classification of CWP}
 
-From this fuzzy CWP raster, CWP which were clearly variable and whose origin 
-could be clearly attributed to either a tributary inflow or the absence thereof 
-were selected and classified into the groups tributary-caused and 
-non-tributary-caused. The selection and classification process was not carried 
-out algorithmically due to time constraints, but was based on a visual 
-interpretation of the patches. First, patches were judged as being variable or 
-non-variable based on their coloring in the fuzzy overlay. Patches were generally 
-determined to be variable when their coloring contained a substantial proportion 
-of grey and black pixels, indicating that the detected CWP extent changed 
-considerably across runs. These CWP then underwent classification. A CWP was 
-classified as tributary-caused if it was located in close proximity to a 
-tributary inflow -- either directly at, or immediately downstream of, the point 
-where the tributary enters the receiving river. 
-Figure~\ref{fig:decision_tree_classification} visualizes this decision process 
-as a decision tree.
+From the fuzzy CWP raster, patches that were clearly variable and clearly 
+attributable to either a tributary inflow or its absence were selected and 
+classified as tributary-caused or non-tributary-caused based on visual 
+interpretation. Variability was assessed from the fuzzy overlay coloring, 
+and tributary attribution was determined by proximity to a tributary inflow. 
+Figure~\ref{fig:decision_tree_classification} visualizes this as a decision 
+tree.
 
 \begin{figure}[H]
 	\centering
@@ -429,29 +378,20 @@ as a decision tree.
 	\label{fig:decision_tree_classification}
 \end{figure}
 
-To identify tributary inflows, OpenStreetMap as well as SwissImage were consulted. 
-OpenStreetMap facilitated the identification of tributaries which might be 
-obscured by forest or buildings in the SwissImage data, while SwissImage provided 
-the opportunity to spot tributaries which might not be mapped in OpenStreetMap, 
-as OpenStreetMap is based on volunteered geographic content and therefore cannot 
-be assumed to be complete.
+Tributary inflows were identified using OpenStreetMap and SwissImage in 
+combination, as neither source can be assumed complete on its own. A total 
+of 24 CWPs were selected and classified; for each, a bounding box was 
+extracted to serve as the spatial unit for the sensitivity index computation.
 
-A total of 24 CWP patches which are variable and can be clearly attributed to 
-being either tributary-caused or non-tributary-caused were selected and classified. 
-In the context of research question 2, each of these 24 CWP and its spatial 
-extent constitutes one of the annotated locations across which sensitivity indices 
-are computed. For each selected CWP, a bounding box was extracted.
-
-Multiple small adjacent CWPs were grouped together and treated as a single CWP 
-patch. This was done with spatial autocorrelation in mind: Tobler's first law of 
-geography states that all things are related, but close things are more related 
-than distant things. Small CWP located close together near the same location share 
-the same local generating conditions (same tributary, same reach geometry, same 
-local thermal regime). Their sensitivity to the step length parameter will 
-therefore be highly similar precisely because of their spatial proximity. Treating 
-them as separate CWP would consequently over-represent that location in the 
-analysis, as if the same spot were sampled multiple times and counted as 
-independent observations, skewing the analysis towards those local conditions.
+Multiple small adjacent CWPs were grouped and treated as a single patch. 
+This decision is motivated by Tobler's first law of geography, which states 
+that all things are related, but close things are more related than distant 
+things. CWPs in close spatial proximity share the same local generating 
+conditions -- the same tributary, the same reach geometry, the same local 
+thermal regime -- and will therefore exhibit highly similar sensitivity to 
+the step length parameter precisely because of that proximity. Treating them 
+as separate observations would consequently over-represent that location in 
+the analysis, skewing the sensitivity indices towards this specific location and taking away representability for the complete emme basement.
 
 % TODO: reference to the appendix, where a grid of all CWP and their 
 %        classification is provided
@@ -461,17 +401,12 @@ independent observations, skewing the analysis towards those local conditions.
 \subsection{Computing Morris Sensitivity Indices with respect to CWP Area}
 \label{sec:morris_indices}
 
-With the 24 CWPs selected and classified, the second stage of the sensitivity 
-analysis focuses on quantifying their sensitivity to the three parameters buffer 
-pixel count, step length, and temperature delta. As discussed in 
-Section~\ref{sec:spatial_sa}, applying the Morris method to a spatially 
-distributed model output requires aggregating that output into a scalar statistic 
-per model run, Here, the total detected CWP 
-area serves this role. The computation proceeds tree main steps:
-setting up and executing a second Morris experiment across the 
-classified CWP locations, computing lumped area statistics per location and run, 
-and deriving and analysing the Morris sensitivity indices. 
-Figure~\ref{fig:cwp_stats_overview} provides a visual overview of these steps.
+With the 24 CWPs classified, the second stage quantifies their sensitivity 
+to buffer pixel count, step length, and temperature delta. Following 
+\citet{lilburne_sensitivity_2009}, the spatially distributed polygon output 
+is aggregated to a scalar statistic per run -- here, the total detected CWP 
+area within each bounding box. Figure~\ref{fig:cwp_stats_overview} 
+summarises the steps involved.
 
 \begin{figure}[H]
 	\centering
@@ -485,13 +420,15 @@ Figure~\ref{fig:cwp_stats_overview} provides a visual overview of these steps.
 	\label{fig:cwp_stats_overview}
 \end{figure}
 
-
-
 \subsubsection{Setting up Second Sampling Grid and Executing Algorithm}
 
-A three-dimensional Morris sampling grid was set up spanning buffer pixel count, 
-step length, and temperature delta. A visual depiction of the grid is provided 
-in Figure~\ref{fig:morris_grid_second}.
+A three-dimensional Morris sampling grid spanning buffer pixel count, step 
+length, and temperature delta was set up, as depicted in 
+Figure~\ref{fig:morris_grid_second}. A total of 64 trajectories were sampled 
+($r = 64$), yielding $64 \times (3+1) = 256$ parameter tuples 
+(Equation~\ref{eq:morris_runs}). The algorithm was executed in parallel using 
+the same orchestration as in Section~\ref{sec:modeleval}, with the remaining 
+parameters held constant as listed in Table~\ref{tab:held_constant_second_morris}.
 
 \begin{figure}[H]
 	\centering
@@ -502,17 +439,12 @@ in Figure~\ref{fig:morris_grid_second}.
 	\label{fig:morris_grid_second}
 \end{figure}
 
-A total of 64 trajectories were sampled from this grid, creating a total of 
-$64 \times (3 + 1) = 256$ sampling tuples (see Equation~\ref{eq:morris_runs}). 
-The model was again executed in parallel on the different parameter tuples, with 
-the remaining parameters held constant at the values provided in 
-Table~\ref{tab:held_constant_second_morris}. For the execution orchestration, 
-the same set-up as in Section~\ref{sec:modeleval} was deployed. The resulting 
-CWP polygons were again written to folders uniquely identified by an id as well 
-as the parameter values.
-
-\begin{table}[h]
+\begin{table}[H]
 	\centering
+	\caption{Parameter values held constant during the second Morris experiment, 
+		while \texttt{step\_length}, \texttt{buffer\_px}, and \texttt{delta\_T} 
+		were varied.}
+	\label{tab:held_constant_second_morris}
 	\begin{tabular}{lr}
 		\toprule
 		Parameter & Value \\
@@ -522,10 +454,6 @@ as the parameter values.
 		\texttt{connect\_diagonals}   & TRUE \\
 		\bottomrule
 	\end{tabular}
-	\caption{Parameter values held constant during the second Morris experiment, 
-		while \texttt{step\_length}, \texttt{buffer\_px}, and \texttt{delta\_T} 
-		were varied according to the sampled parameter tuples.}
-	\label{tab:held_constant_second_morris}
 \end{table}
 
 \subsubsection{Computing Lumped Statistics for the Selected CWPs}
