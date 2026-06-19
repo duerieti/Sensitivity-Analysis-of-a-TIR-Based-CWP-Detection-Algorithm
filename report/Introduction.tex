@@ -2,26 +2,21 @@
 
 In recent years, thermal infrared (TIR) remote sensing from unmanned aerial 
 vehicles (UAVs) and other airborne platforms has become an established approach 
-for mapping thermal heterogeneity in river systems, with a growing body of work 
-covering both data acquisition campaigns and the associated processing pipelines 
+for mapping thermal heterogeneity in river systems
 \citep{casas-mulet_unmanned_2020,kuhn_assessing_2021,torgersen_airborne_2001,
 	dugdale_practitioners_2016}. Mapping this heterogeneity is ecologically important: 
 the cold-water patches it reveals can act as refugia that are essential for the 
 survival of thermally sensitive fish species, particularly as river temperatures 
 in Switzerland are expected to rise due to climate change. 
 Despite this importance, there is currently no comprehensive information about the 
-presence, scale, and location of such cold-water patches in Swiss water bodies -- 
-data that is critical for river management in the context of climate change 
+presence, scale, and location of such cold-water patches in Swiss water bodies 
 \citep{tonolla_thermische-kartographie_2026, tonolla_thermoscanning_2021}.
 
 As part of a cantonal project aiming to quantify the temperature heterogeneity 
 and detect cold-water patches in the Emme River and its tributaries, TIR imagery 
 covering over a 100 km river transect were collected in a helicopter-based survey. 
 These TIR images were then processed to extract longitudinal and transversal 
-temperature gradients, as well as to detect cold-water spots. The current 
-processing workflow involves stitching highly overlapping TIR images into 
-orthophotos and performing thermal corrections using in-situ temperature loggers. 
-Then, longitudinal and transversal temperature gradients are derived. Additionally, 
+temperature gradients, as well as to detect cold-water spots. Here, 
 a newly developed algorithm for the automatic detection of cold-water patches is 
 deployed with the goal of mapping these patches. Detailed information regarding 
 the whole workflow can be found in 
@@ -34,19 +29,11 @@ parameter values, with the step length and the temperature delta parameters havi
 a particularly strong influence. A systematic and more extensive sensitivity 
 analysis of the algorithm is therefore needed to better characterise this variance 
 and to inform potential algorithmic improvements. Performing such an analysis 
-requires executing the algorithm across a large number of parameter combinations -- 
-256 runs in the case of this thesis. The existing algorithm was found to require 
+requires executing the algorithm across a large number of parameter combinations. The existing algorithm was found to require 
 between 1.25 and 2 hours per run on the available hardware, rendering a full 
 sensitivity analysis infeasible without a faster implementation. A speed-optimized 
 reimplementation is therefore a prerequisite for the sensitivity analysis itself.
 
-The algorithm defines a CWP by comparing individual pixel temperatures against 
-a local median reference temperature calculated over a defined segment whose 
-length is governed by the step length parameter. It is hypothesised that the 
-choice of step length introduces significant variance near the inflow of 
-tributaries, because cold-water tributaries introduce sharp longitudinal 
-temperature gradients which can skew the calculation if the step size is chosen 
-sub-optimally.
 
 \section*{Research Questions}
 
@@ -73,7 +60,7 @@ results. These objectives are formalised in the following three research questio
 	temperature calculated over a defined segment whose length is governed by 
 	the step length parameter. Cold-water tributaries introduce sharp 
 	longitudinal temperature gradients which can skew this calculation if the 
-	step size is chosen sub-optimally -- it is therefore hypothesised that 
+	step size is chosen sub-optimally. It is therefore hypothesised that 
 	step length sensitivity is elevated near tributary inflows, giving rise to 
 	the following hypotheses:
 	\item[$H_0$] The sensitivity of the detected CWP area to the step length 

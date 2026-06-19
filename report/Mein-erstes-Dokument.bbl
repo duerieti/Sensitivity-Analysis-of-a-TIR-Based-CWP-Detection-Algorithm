@@ -1,9 +1,21 @@
-\begin{thebibliography}{20}
+\begin{thebibliography}{22}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax
   \providecommand{\doi}[1]{doi: #1}\else
   \providecommand{\doi}{doi: \begingroup \urlstyle{rm}\Url}\fi
+
+\bibitem[Campolongo et~al.(2007)Campolongo, Cariboni, and
+  Saltelli]{campolongo_effective_2007}
+F.~Campolongo, J.~Cariboni, and A.~Saltelli.
+\newblock An effective screening design for sensitivity analysis of large
+  models.
+\newblock \emph{Environmental Modelling \& Software}, 22\penalty0
+  (10):\penalty0 1509--1518, Oct. 2007.
+\newblock ISSN 13648152.
+\newblock \doi{10.1016/j.envsoft.2006.10.004}.
+\newblock URL
+  \url{https://linkinghub.elsevier.com/retrieve/pii/S1364815206002805}.
 
 \bibitem[Casas-Mulet et~al.(2020)Casas-Mulet, Pander, Ryu, Stewardson, and
   Geist]{casas-mulet_unmanned_2020}
@@ -85,6 +97,13 @@ A.~Ligmann-Zielinska.
 \newblock \doi{10.1080/13658816.2013.782613}.
 \newblock URL
   \url{http://www.tandfonline.com/doi/abs/10.1080/13658816.2013.782613}.
+
+\bibitem[Lilburne and Tarantola(2009)]{lilburne_sensitivity_2009}
+L.~Lilburne and S.~Tarantola.
+\newblock Sensitivity analysis of spatial models.
+\newblock \emph{International Journal of Geographical Information Science},
+  23\penalty0 (2):\penalty0 151--168, 2009.
+\newblock \doi{10.1080/13658810802094995}.
 
 \bibitem[Lovelace et~al.(2019)Lovelace, Nowosad, and
   Muenchow]{lovelace2019geocomputation}

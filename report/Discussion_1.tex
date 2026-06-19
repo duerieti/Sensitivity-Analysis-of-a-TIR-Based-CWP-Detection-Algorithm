@@ -1,76 +1,293 @@
 \chapter{Discussion}
 
-%% This is about discussing the results and answering the hypothesis. In very brief: The hypothesis whas that for tributary affected, step length is more important etc. Of course the discussion kind of depends on the results I find. One thing I can say for certain howerer is that one critique will be the small sample size. And also the lack of large non tributary affected patches.
+\section{Research Question 1: Algorithm Reimplementation}
+\label{sec:rq1_discussion}
+
+This section discusses the results of the output equivalence comparison 
+and the runtime benchmarking between v1 and v2, and assesses whether 
+the sensitivity analysis findings derived from v2 can be transferred 
+to v1.
+
+
+\subsection{Difference in CWP Polygons between v1 and v2}
+
+The CWP polygons produced by v1 and v2 are in general agreement with respect 
+to location and spatial extent, as reflected by Jaccard similarities of 0.936, 
+0.956, and 0.976 across the three validation runs. The observed discrepancies 
+are confined to the pixel level -- typically affecting a small number of pixels 
+at patch boundaries -- and no systematic spatial bias is apparent.
+
+The most likely source of these discrepancies is the difference in how 
+\texttt{terra::extract()} and \texttt{exactextractr::exact\_extract()} handle 
+partially covered pixels: as described in the Methods, the 50\% coverage-fraction 
+threshold used to approximate \texttt{terra}'s center-point inclusion rule is not 
+exactly equivalent, and small differences in the extracted reference temperatures 
+could propagate to pixel-level differences in the binary CWP raster. Importantly, 
+the differences between v1 and v2 are minor and bounded in their effect: they do 
+not introduce systematic differences in which CWPs are detected or where, but only 
+affect a small number of boundary pixels.
+
+The research question is specifically targeted at the behaviour of v1. The 
+sensitivity analysis was, however, conducted on v2 as this optimized algorithm 
+version has a substantially reduced runtime. The high Jaccard similarities, 
+combined with the observation that the discrepancies between v1 and v2 can be 
+attributed to a minor rounding artefact rather than to any fundamental difference 
+in algorithmic behaviour, support the conclusion that v2 replicates the behaviour 
+of v1 to a degree sufficient to transfer sensitivity findings. In other words, 
+the sensitivity of CWP area to the step length, buffer pixel count, and 
+temperature delta parameters as observed in v2 can be considered representative 
+of the sensitivity that would have been observed had the Morris experiment been 
+conducted on v1 directly.
+
+\subsection{Speed Comparison}
+
+The optimized algorithm (v2) shows substantially shorter execution times than v1 
+across all three tested segment lengths, with the performance advantage being most 
+pronounced at shorter step lengths. Of particular interest is the contrasting 
+scaling behaviour of the two implementations: while v2 maintains an approximately 
+constant execution time of around 0.5 hours regardless of step length, v1's 
+execution time increases as step length decreases, ranging from approximately 
+1.25 hours at 1200~m to approximately 2 hours at 400~m.
+
+This difference in scaling behaviour is consistent with a mechanistic explanation 
+rooted in how the two implementations process the river reach. v2 is loop-free: 
+GDAL operates on the full raster in a single pass, and each pixel undergoes a 
+fixed number of operations regardless of how many segments the river reach is 
+divided into. The number of segments therefore has no bearing on execution time, 
+which explains the observed constant scaling behaviour. v1, by contrast, processes 
+the reach one slab at a time using R loops. Each loop iteration incurs both a 
+fixed overhead -- the cost of the loop machinery itself, independent of slab size 
+-- and a variable computation proportional to the raster area of that slab. At 
+shorter step lengths, the reach is divided into a larger number of smaller slabs: 
+the variable computation per iteration decreases while the fixed overhead remains 
+constant, shifting the ratio of overhead-to-useful-work unfavourably and 
+increasing total execution time. This is a plausible explanation for the observed 
+scaling behaviour of v1, though it should be noted that this mechanistic account 
+is a hypothesis and was not formally tested within this work.
+
+The decision to optimize the algorithm prior to the Morris experiment was 
+well-founded: v2 is faster than v1 across the entire parameter range tested, and 
+the performance advantage is largest precisely at the shorter step lengths (400~m) 
+where v1 is slowest -- which happen to fall within the Morris sampling grid used 
+in this work.
+
+
+\section{Research Question 2: Sensitivity Analysis}
+\label{sec:rq2_discussion}
+
+This section interprets the Morris sensitivity analysis results, first 
+addressing the specific hypothesis regarding step-length sensitivity in 
+tributary-caused versus non-tributary-caused CWP, and then discussing 
+the overall parameter sensitivity ranking across all three varied parameters.
+
+\subsection{Answering Research Question 2}
+
+The boxplot comparison of $\mu^*$ values between tributary-caused and 
+non-tributary-caused CWP shows a tendency consistent with H1: tributary-caused 
+CWP display a wider spread in step-length sensitivity, with a higher third 
+quartile and higher maximum values than the non-tributary-caused group. However, 
+a closer inspection reveals that this pattern is not uniform within the 
+tributary-caused class -- some tributary-caused CWP show sensitivity values 
+comparable to the non-tributary-caused group, while others are substantially more 
+sensitive. This within-class heterogeneity suggests that tributary presence alone 
+is not a sufficient condition for high sensitivity to the step length parameter, 
+and that H1 as stated does not fully capture the situation. At the same time, the 
+data do not support H0 either: the non-tributary-caused CWP consistently show low 
+$\mu^*$ values, and the elevated sensitivity observed in a subset of 
+tributary-caused CWP is unlikely to be entirely coincidental. The true picture 
+lies between the two hypotheses.
+
+The scatter plot and linear model together point to CWP area as the more proximate 
+driver of step-length sensitivity. Across both classes, locations with larger mean 
+CWP area tend to show higher $\mu^*$ values, and this relationship is approximately 
+linear. The linear model confirms this: the mean area predictor is highly 
+significant ($p < 0.001$) with a positive slope, while the mean temperature delta 
+predictor is not significant ($p = 0.556$), indicating no detectable independent 
+contribution of temperature delta to step-length sensitivity after accounting for 
+area. The color distribution in the scatter plot is consistent with this: both 
+high and low $\Delta T$ CWP appear across the full range of $\mu^*$ values, with 
+no clear separation by temperature.
+
+A mechanistic explanation for the area--sensitivity relationship follows naturally 
+from the structure of the algorithm. CWPs in a river system tend to be elongated 
+rather than wide, since the river channel constrains lateral extent while 
+longitudinal extent is less bounded. Large CWP are therefore predominantly long 
+CWP. A long CWP has a higher probability of spanning the boundary between two 
+adjacent slabs, and when this occurs, the two parts of the patch are compared 
+against different reference temperatures -- one computed from each slab's reference 
+strip. If those reference temperatures differ (which is more likely near a 
+tributary inflow, where sharp longitudinal temperature gradients exist), the 
+flagging threshold is effectively applied inconsistently across the patch, 
+introducing variability in the detected CWP extent that is directly attributable 
+to the step length parameter. Shorter or smaller CWP are more likely to fall 
+entirely within a single slab, and are therefore less exposed to this effect.
+
+Tributary inflows are then best understood not as a direct cause of step-length 
+sensitivity, but as one mechanism that can produce large, elongated CWP -- by 
+introducing substantial volumes of cold water that generate extended thermal 
+anomalies along the river. This explains why tributary-caused CWP tend to show 
+higher sensitivity as a group, while also explaining why the effect is not 
+universal: a tributary-caused CWP that is small (perhaps because the tributary 
+discharge is low or the temperature difference modest) will not be sensitive to 
+the step length parameter for the same reason that a small non-tributary-caused 
+CWP is not. It also means that the data cannot speak to whether a large 
+non-tributary-caused CWP would show comparable sensitivity to an equally large 
+tributary-caused CWP, since no non-tributary-caused CWP larger than approximately 
+1000~m$^2$ is present in the dataset.
+
+Interestingly, CWP area and mean temperature delta appear to be largely unrelated 
+in the data, despite the intuitive expectation that a colder tributary might 
+produce a larger thermal anomaly. This could suggest that tributary discharge 
+plays a more important role than temperature difference in determining CWP size 
+-- a large, moderately cold tributary may produce a larger CWP than a small but 
+very cold one. Discharge data were not collected during the survey, but could be 
+a valuable addition in future work.
+
+The following answer to research question 2 is therefore proposed: neither H0 
+nor H1 is fully supported by the data. H0 is too strong a rejection -- tributary 
+presence is associated with a tendency towards higher step-length sensitivity. 
+However, H1 overstates the role of tributary presence as a direct determinant of 
+sensitivity. The data suggest that the more proximate driver is CWP size: large 
+CWP, which are disproportionately but not exclusively tributary-caused, are more 
+susceptible to the step length parameter because they are more likely to span slab 
+boundaries and therefore be exposed to inconsistent reference temperatures.
+
+Two important caveats must accompany this conclusion. First, the sample size of 
+$n=24$ is small, and the significant area--sensitivity relationship could reflect 
+a chance finding. Second, and more fundamentally, the selection and classification 
+of the 24 CWP was carried out through visual interpretation rather than 
+algorithmically, which introduces the possibility of confirmation bias: CWP were 
+selected on the basis of appearing variable and appearing tributary-caused or 
+non-tributary-caused, meaning the dataset reflects the analyst's prior expectations 
+rather than a random or representative sample of CWP in the Emme system. For 
+these reasons, the findings should be treated as hypothesis-generating rather than 
+confirmatory, and replication with a larger, algorithmically selected sample would 
+be needed before stronger conclusions can be drawn.
+
+\subsection{Overall Sensitivity across all Parameters}
+
+The overall $\mu^*$ distributions across all 24 annotated locations reveal a 
+clear ranking of parameter influence with respect to detected CWP area. The buffer 
+pixel count is consistently non-influential, with $\mu^*$ values close to zero 
+across all locations. The corresponding $\sigma$ values are similarly low, 
+suggesting that the elementary effects of buffer pixel count are both small in 
+magnitude and consistent across the parameter space -- indicating neither a strong 
+main effect nor meaningful interactions with the other parameters. This finding 
+is consistent with \citet{tonolla_thermische-kartographie_2026}, who report the 
+same result in their sensitivity analysis of the CWP detection algorithm. Given 
+this replication, the strategy of factor fixing can be applied: the buffer pixel 
+count can be set to a fixed constant value, effectively removing it as a free 
+parameter of the algorithm.
+
+The temperature delta parameter shows the highest $\mu^*$ values overall, 
+indicating that it is the most influential of the three parameters with respect 
+to CWP area. This is also consistent with the findings of 
+\citet{tonolla_thermische-kartographie_2026}, who likewise identify temperature 
+delta as the dominant parameter. The elevated $\sigma$ values for temperature 
+delta suggest that its elementary effects vary across the parameter space, pointing 
+to the presence of nonlinearity or interactions with the other parameters. This 
+is ecologically plausible: the relationship between the flagging threshold and the 
+detected CWP area is unlikely to be linear, as small changes in temperature delta 
+near the boundary of what constitutes a detectable thermal anomaly could produce 
+disproportionately large changes in detected area, while changes far from this 
+boundary may have little effect.
+
+The step length parameter occupies an intermediate position, with $\mu^*$ values 
+clearly above zero but consistently below those of temperature delta. Like 
+temperature delta, step length also shows elevated $\sigma$ values, suggesting 
+interactions with the other parameters or nonlinear behaviour.
+
+The replication of the buffer pixel and temperature delta findings from 
+\citet{tonolla_thermische-kartographie_2026} within the present work, using an 
+independently implemented Morris experiment on a different dataset, lends 
+additional credibility to both sets of results and suggests that these sensitivity 
+patterns are a robust property of the CWP detection algorithm rather than 
+artefacts of a particular study context.
+
+
+\section{Research Question 3: Algorithm Modification}
+\label{sec:rq3_discussion}
+
+Research question 3 asked what adjustments could be made to the detection 
+algorithm to reduce variability with respect to its parameters while also 
+achieving plausible detection results. Based on the Morris screening findings, 
+three modifications were implemented in v3, as described in 
+Section~\ref{sec:rq3_methods}: the buffer pixel count was fixed by factor fixing, 
+the slab-based reference temperature computation was replaced by an IDW scheme 
+removing the step length dependency, and the temperature delta parameter was 
+retained as a user-defined input. The evaluation presented in 
+Section~\ref{sec:rq3_results} shows that v3 produces outputs that differ 
+substantially from v1 in terms of Jaccard similarity, which is expected given 
+the fundamental redesign of the reference temperature step. Qualitatively, 
+however, v3 eliminates the slab-boundary cutoff artefacts identified as a direct 
+consequence of step-length sensitivity, producing more contiguous and 
+naturallyextending CWP detections. Research question 3 can therefore be answered 
+affirmatively: the identified parameter sensitivities can be addressed through 
+targeted algorithmic modifications without sacrificing output plausibility.
 
 
 
-% the method is not perfectly ideal and is acutally more of a screening method
+\section{Future improvements}
+
+The following subsections identify three methodological limitations of the 
+present work and outline directions in which future studies could address them.
+
+\subsection{Subjective Selection and Classification of CWP}
+
+Both the selection and classification of the CWP were carried out subjectively 
+based on visual inspection of the fuzzy overlay raster. This approach is prone 
+to confirmation bias on two levels. First, the judgment about variability and 
+the judgment about class membership were both made with the study hypothesis 
+already in mind. CWPs that were selected are therefore likely those that were 
+most easily attributable to one of the two classes -- patches that clearly 
+appeared variable and clearly appeared tributary-caused or non-tributary-caused. 
+More nuanced cases, where variability was ambiguous or class attribution 
+uncertain, were left out. The resulting dataset is consequently biased towards 
+extreme and obvious cases, and may not be representative of the broader 
+population of CWPs in the Emme system. Second, given that H1 of research 
+question 2 was considered plausible prior to the analysis based on prior 
+observations, the selection process may have been further skewed towards patches 
+that would support H1, even if this influence was not conscious.
+
+Two methodological improvements could reduce these limitations in future work. 
+First, the variability assessment and CWP selection could be replaced by a fully 
+algorithmic approach, removing human judgment from the process. Caution is 
+however warranted: upon defining the rules of a process-based algorithm, the 
+analyst may inadvertently encode the same biases that affect manual selection. 
+Similarly, a data-driven approach would need to learn from a ground truth dataset 
+that is itself produced by human labeling, meaning the bias present in the 
+labeling process would be inherited by the model. Second, if manual 
+classification cannot be avoided, inter-rater reliability assessment should be 
+included: multiple independent observers, each blind to the study hypothesis, 
+could classify the same set of candidate CWPs, and the level of agreement between 
+raters -- quantified for example using Cohen's $\kappa$ -- would provide an 
+empirical measure of classification reliability. Such a dataset could further 
+serve as ground truth for training a data-driven classification algorithm, 
+combining the transparency of manual labeling with the scalability of an 
+automated approach.
+
+\subsection{Sample Size}
+
+With only $n = 24$ annotated CWP locations, the dataset is small by the 
+standards of statistical inference. While the significant area--sensitivity 
+relationship detected by the linear model suggests that the effect is strong 
+enough to be visible at this sample size, the risk of chance findings cannot 
+be excluded. A larger sample would increase statistical power and reduce the 
+probability that the observed relationships are artefacts of the specific 
+locations selected.
 
 
-% the buffer pix 
+\subsection{Hidden Parameter in v3}
 
-
-% the classification and selection of cwp is rather subjective. => So there is a lot of potential for confirmation bias. We assumed the hypothesis to be correct so this might has clouded my judgement. Next time it would defenetly be better to derive an algorithmic approach. But it should also be noted here that the design of a algorithmc set of rules of course is also succeptible to confirmation bias.
-
-
-\section{Difference in CWP polygons between v1 and v2}
-
-The CWP polygons produced by v1 and v2 are in general agreement with respect to location and spatial extent, as reflected by Jaccard similarities of 0.936, 0.956, and 0.976 across the three validation runs. The observed discrepancies are confined to the pixel level -- typically affecting a small number of pixels at patch boundaries -- and no systematic spatial bias is apparent.
-
-The most likely source of these discrepancies is the difference in how \texttt{terra::extract()} and \texttt{exactextractr::exact\_extract()} handle partially covered pixels: as described in the Methods, the 50\% coverage-fraction threshold used to approximate \texttt{terra}'s center-point inclusion rule is not exactly equivalent, and small differences in the extracted reference temperatures could propagate to pixel-level differences in the binary CWP raster. Importantly, the differences between v1 and v2 are minor and bounded in their effect: they do not introduce systematic differences in which CWPs are detected or where, but only affect a small number of boundary pixels.
-
-The research question is specifically targeted at the behaviour of v1. The sensitivity analysis was, however, conducted on v2 as this optimized algorithm version has a substantially reduced algorithm runtime. The high Jaccard similarities, combined with the observation that the discrepancies between v1 and v2 can be attributed to a minor rounding artefact rather than to any fundamental difference in algorithmic behaviour, support the conclusion that v2 replicates the behaviour of v1 to a degree sufficient to transfer sensitivity findings. In other words, the sensitivity of CWP area to the step length, buffer pixel count, and temperature delta parameters as observed in v2 can be considered representative of the sensitivity that would have been observed had the Morris experiment been conducted on v1 directly.
-
-\section{Speed comparison}
-
-The optimized algorithm (v2) shows substantially shorter execution times than v1 across all three tested segment lengths, with the performance advantage being most pronounced at shorter step lengths. Of particular interest is the contrasting scaling behaviour of the two implementations: while v2 maintains an approximately constant execution time of around 0.5 hours regardless of step length, v1's execution time increases as step length decreases, ranging from approximately 1.25 hours at 1200~m to approximately 2 hours at 400~m.
-
-This difference in scaling behaviour is consistent with a mechanistic explanation rooted in how the two implementations process the river reach. v2 is loop-free: GDAL operates on the full raster in a single pass, and each pixel undergoes a fixed number of operations regardless of how many segments the river reach is divided into. The number of segments therefore has no bearing on execution time, which explains the observed constant scaling behaviour. v1, by contrast, processes the reach one slab at a time using R loops. Each loop iteration incurs both a fixed overhead -- the cost of the loop machinery itself, independent of slab size -- and a variable computation proportional to the raster area of that slab. At shorter step lengths, the reach is divided into a larger number of smaller slabs: the variable computation per iteration decreases while the fixed overhead remains constant, shifting the ratio of overhead-to-useful-work unfavourably and increasing total execution time. This is a plausible explanation for the observed scaling behaviour of v1, though it should be noted that this mechanistic account is a hypothesis and was not formally tested within this work.
-
-The decision to optimize the algorithm prior to the Morris experiment was well-founded: v2 is faster than v1 across the entire parameter range tested, and the performance advantage is largest precisely at the shorter step lengths (400~m) where v1 is slowest -- which happen to fall within the Morris sampling grid used in this work.
-
-\section{Answering research question 1}
-
-
-The boxplot comparison of $\mu^*$ values between tributary-caused and non-tributary-caused CWP shows a tendency consistent with H1: tributary-caused CWP display a wider spread in step-length sensitivity, with a higher third quartile and higher maximum values than the non-tributary-caused group. However, a closer inspection reveals that this pattern is not uniform within the tributary-caused class — some tributary-caused CWP show sensitivity values comparable to the non-tributary-caused group, while others are substantially more sensitive. This within-class heterogeneity suggests that tributary presence alone is not a sufficient condition for high sensitivity to the step length parameter, and that H1 as stated does not fully capture the situation. At the same time, the data do not support H0 either: the non-tributary-caused CWP consistently show low $\mu^*$ values, and the elevated sensitivity observed in a subset of tributary-caused CWP is unlikely to be entirely coincidental. The true picture lies between the two hypotheses.
-
-The scatter plot and linear model together point to CWP area as the more proximate driver of step-length sensitivity. Across both classes, locations with larger mean CWP area tend to show higher $\mu^*$ values, and this relationship is approximately linear. The linear model confirms this: the mean area predictor is highly significant ($p < 0.001$) with a positive slope, while the mean temperature delta predictor is not significant ($p = 0.556$), indicating no detectable independent contribution of temperature delta to step-length sensitivity after accounting for area. The color distribution in the scatter plot is consistent with this: both high and low $\Delta T$ CWP appear across the full range of $\mu^*$ values, with no clear separation by temperature.
-
-A mechanistic explanation for the area--sensitivity relationship follows naturally from the structure of the algorithm. CWPs in a river system tend to be elongated rather than wide, since the river channel constrains lateral extent while longitudinal extent is less bounded. Large CWP are therefore predominantly long CWP. A long CWP has a higher probability of spanning the boundary between two adjacent slabs, and when this occurs, the two parts of the patch are compared against different reference temperatures -- one computed from each slab's reference strip. If those reference temperatures differ (which is more likely near a tributary inflow, where sharp longitudinal temperature gradients exist), the flagging threshold is effectively applied inconsistently across the patch, introducing variability in the detected CWP extent that is directly attributable to the step length parameter. Shorter or smaller CWP are more likely to fall entirely within a single slab, and are therefore less exposed to this effect.
-
-Tributary inflows are then best understood not as a direct cause of step-length sensitivity, but as one mechanism that can produce large, elongated CWP -- by introducing substantial volumes of cold water that generate extended thermal anomalies along the river. This explains why tributary-caused CWP tend to show higher sensitivity as a group, while also explaining why the effect is not universal: a tributary-caused CWP that is small (perhaps because the tributary discharge is low or the temperature difference modest) will not be sensitive to the step length parameter for the same reason that a small non-tributary-caused CWP is not. It also means that the data cannot speak to whether a large non-tributary-caused CWP would show comparable sensitivity to an equally large tributary-caused CWP, since no non-tributary-caused CWP larger than approximately 1000~m$^2$ is present in the dataset.
-
-Interestingly, CWP area and mean temperature delta appear to be largely unrelated in the data, despite the intuitive expectation that a colder tributary might produce a larger thermal anomaly. This could suggest that tributary discharge plays a more important role than temperature difference in determining CWP size -- a large, moderately cold tributary may produce a larger CWP than a small but very cold one. Discharge data were not collected during the survey, but could be a valuable addition in future work.
-
-The following answer to research question 1 is therefore proposed: neither H0 nor H1 is fully supported by the data. H0 is too strong a rejection -- tributary presence is associated with a tendency towards higher step-length sensitivity. However, H1 overstates the role of tributary presence as a direct determinant of sensitivity. The data suggest that the more proximate driver is CWP size: large CWP, which are disproportionately but not exclusively tributary-caused, are more susceptible to the step length parameter because they are more likely to span slab boundaries and therefore be exposed to inconsistent reference temperatures.
-
-Two important caveats must accompany this conclusion. First, the sample size of $n=24$ is small, and the significant area--sensitivity relationship could reflect a chance finding. Second, and more fundamentally, the selection and classification of the 24 CWP was carried out through visual interpretation rather than algorithmically, which introduces the possibility of confirmation bias: CWP were selected on the basis of appearing variable and appearing tributary-caused or non-tributary-caused, meaning the dataset reflects the analyst's prior expectations rather than a random or representative sample of CWP in the Emme system. For these reasons, the findings should be treated as hypothesis-generating rather than confirmatory, and replication with a larger, algorithmically selected sample would be needed before stronger conclusions can be drawn.
-
-
-
-\section{Overall Sensitivity to the Different Parameters}
-
-The overall $\mu^*$ distributions across all 24 annotated locations reveal a clear ranking of parameter influence with respect to detected CWP area. The buffer pixel count is consistently non-influential, with $\mu^*$ values close to zero across all locations. The corresponding $\sigma$ values are similarly low, suggesting that the elementary effects of buffer pixel count are both small in magnitude and consistent across the parameter space -- indicating neither a strong main effect nor meaningful interactions with the other parameters. This finding is consistent with \citep{tonolla_thermische-kartographie_2026}, who report the same result in their sensitivity analysis of the CWP detection algorithm. Given this replication, the strategy of factor fixing can be applied: the buffer pixel count can be set to a fixed constant value, effectively removing it as a free parameter of the algorithm. The specific value to which it is fixed is discussed in Chapter~6.
-
-The temperature delta parameter shows the highest $\mu^*$ values overall, indicating that it is the most influential of the three parameters with respect to CWP area. This is also consistent with the findings of \citep{tonolla_thermische-kartographie_2026}, who likewise identify temperature delta as the dominant parameter. The elevated $\sigma$ values for temperature delta suggest that its elementary effects vary across the parameter space, pointing to the presence of nonlinearity or interactions with the other parameters. This is ecologically plausible: the relationship between the flagging threshold and the detected CWP area is unlikely to be linear, as small changes in temperature delta near the boundary of what constitutes a detectable thermal anomaly could produce disproportionately large changes in detected area, while changes far from this boundary may have little effect.
-
-The step length parameter occupies an intermediate position, with $\mu^*$ values clearly above zero but consistently below those of temperature delta. Like temperature delta, step length also shows elevated $\sigma$ values, suggesting interactions with the other parameters or nonlinear behaviour.
-
-The replication of the buffer pixel and temperature delta findings from \citep{tonolla_thermische-kartographie_2026} within the present work, using an independently implemented Morris experiment on a different dataset, lends additional credibility to both sets of results and suggests that these sensitivity patterns are a robust property of the CWP detection algorithm rather than artefacts of a particular study context.
-
-
-\section{Answering Research Question 2}
-
-Research question 2 asked what adjustments could be made to the detection algorithm 
-to reduce variability with respect to its parameters while also achieving plausible 
-detection results. Based on the Morris screening findings, three modifications were 
-implemented in v3, as described in Chapter~5: the buffer pixel count was fixed by 
-factor fixing, the slab-based reference temperature computation was replaced by an 
-IDW scheme removing the step length dependency, and the temperature delta parameter 
-was retained as a user-defined input. The evaluation presented in 
-Section~5.5 shows that v3 produces outputs comparable to v1 in terms of Jaccard 
-similarity, while qualitatively eliminating the slab-boundary cutoff artefacts 
-identified as a direct consequence of step-length sensitivity. Research question 2 
-can therefore be answered affirmatively: the identified parameter sensitivities 
-can be addressed through targeted algorithmic modifications without sacrificing 
-output plausibility.
+Upon closer inspection, v3 introduces a parameter that was not explicitly 
+treated as a free parameter during the development of the algorithm: the decay 
+power of the inverse distance weighting scheme, which governs how quickly the 
+influence of a reference point diminishes with distance. In the current 
+implementation this value is fixed at 2, which is a common default, but the 
+choice is arbitrary and its influence on the detected CWP area has not been 
+assessed. Strictly speaking, this means that the parameter reduction achieved 
+by v3 is incomplete: the decay power has effectively been fixed by convention 
+rather than by a principled sensitivity analysis. A dedicated sensitivity 
+analysis of the IDW decay power would be needed to either justify fixing it at 
+its current value through factor fixing, or to expose it as a free parameter 
+that the user should be able to configure.

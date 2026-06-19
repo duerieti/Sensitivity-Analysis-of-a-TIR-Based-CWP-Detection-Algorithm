@@ -28,9 +28,9 @@
      inkscape:deskcolor="#d1d1d1"
      inkscape:document-units="mm"
      showgrid="true"
-     inkscape:zoom="3.237996"
-     inkscape:cx="307.13441"
-     inkscape:cy="776.56056"
+     inkscape:zoom="4.5792179"
+     inkscape:cx="308.02203"
+     inkscape:cy="756.13349"
      inkscape:window-width="1853"
      inkscape:window-height="1011"
      inkscape:window-x="0"
@@ -56,7 +56,7 @@
      id="defs1">
     <marker
        style="overflow:visible"
-       id="marker30"
+       id="RoundedArrow"
        refX="0"
        refY="0"
        orient="auto-start-reverse"
@@ -71,26 +71,7 @@
          transform="scale(0.7)"
          d="m -0.21114562,-4.1055728 6.42229122,3.21114561 a 1,1 90 0 1 0,1.78885438 L -0.21114562,4.1055728 A 1.236068,1.236068 31.717474 0 1 -2,3 v -6 a 1.236068,1.236068 148.28253 0 1 1.78885438,-1.1055728 z"
          style="fill:context-stroke;fill-rule:evenodd;stroke:none"
-         id="path30" />
-    </marker>
-    <marker
-       style="overflow:visible"
-       id="marker28"
-       refX="0"
-       refY="0"
-       orient="auto-start-reverse"
-       inkscape:stockid="Rounded arrow"
-       markerWidth="1"
-       markerHeight="1"
-       viewBox="0 0 1 1"
-       inkscape:isstock="true"
-       inkscape:collect="always"
-       preserveAspectRatio="xMidYMid">
-      <path
-         transform="scale(0.7)"
-         d="m -0.21114562,-4.1055728 6.42229122,3.21114561 a 1,1 90 0 1 0,1.78885438 L -0.21114562,4.1055728 A 1.236068,1.236068 31.717474 0 1 -2,3 v -6 a 1.236068,1.236068 148.28253 0 1 1.78885438,-1.1055728 z"
-         style="fill:context-stroke;fill-rule:evenodd;stroke:none"
-         id="path28" />
+         id="path3" />
     </marker>
     <linearGradient
        id="swatch26"
@@ -213,15 +194,15 @@
      inkscape:groupmode="layer"
      id="layer1">
     <path
-       style="fill:#000000;fill-opacity:0;stroke-width:0.264583;stroke:url(#linearGradient9)"
+       style="fill:#000000;fill-opacity:0;stroke-width:0.165;stroke:url(#linearGradient9);stroke-dasharray:none"
        d="m 74.961794,209.97802 25.009059,-0.0327 0.0327,-25.04175 H 74.994486 Z"
        id="path8" />
     <path
-       style="fill:#000000;fill-opacity:0;stroke-width:0.264583;stroke:url(#linearGradient10)"
+       style="fill:#000000;fill-opacity:0;stroke-width:0.165;stroke:url(#linearGradient10);stroke-dasharray:none"
        d="m 74.89726,204.99657 25.058218,0.0462 -0.04623,-5.13185 -24.965752,0.0462 0.01831,-5.0173 25.009059,0.0327 0.03269,-5.0672 -25.041753,0.0327 z"
        id="path9" />
     <path
-       style="fill:#000000;fill-opacity:0;stroke-width:0.264583;stroke:url(#linearGradient12)"
+       style="fill:#000000;fill-opacity:0;stroke-width:0.165;stroke:url(#linearGradient12);stroke-dasharray:none"
        d="m 79.994434,184.90839 0.0019,25.06963 5.001813,-0.0327 0.0011,-25.0485 4.998929,-0.0116 -0.0063,25.06006 5.005901,-0.004 -0.0041,-25.02949 z"
        id="path11" />
     <text
@@ -298,6 +279,18 @@
          y="224.96547">7</tspan></text>
     <text
        xml:space="preserve"
+       style="font-size:2.33833px;writing-mode:lr-tb;direction:ltr;fill:#eb4141;fill-opacity:1;stroke-width:0.19486"
+       x="87.201332"
+       y="245.02502"
+       id="text17-2"
+       transform="scale(1.2057846,0.82933552)"><tspan
+         sodipodi:role="line"
+         id="tspan17-7"
+         style="fill:#eb4141;fill-opacity:1;stroke-width:0.19486"
+         x="87.201332"
+         y="245.02502">Δ</tspan></text>
+    <text
+       xml:space="preserve"
        style="font-size:1.35368px;writing-mode:lr-tb;direction:ltr;fill:#000000;fill-opacity:1;stroke-width:0.112807"
        x="69.478615"
        y="217.29623"
@@ -332,6 +325,18 @@
          style="stroke-width:0.112807"
          x="69.353569"
          y="207.06734">720</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:1.35368px;writing-mode:lr-tb;direction:ltr;fill:#000000;fill-opacity:1;stroke-width:0.112807"
+       x="102.29407"
+       y="209.33003"
+       id="text19-3"
+       transform="scale(1.0324927,0.96852985)"><tspan
+         sodipodi:role="line"
+         id="tspan19-5"
+         style="stroke-width:0.112807"
+         x="102.29407"
+         y="209.33003" /></text>
     <text
        xml:space="preserve"
        style="font-size:1.35368px;writing-mode:lr-tb;direction:ltr;fill:#000000;fill-opacity:1;stroke-width:0.112807"
@@ -371,35 +376,35 @@
     <text
        xml:space="preserve"
        style="font-size:1.42525px;writing-mode:lr-tb;direction:ltr;fill:#121212;fill-opacity:1;stroke-width:0.118771"
-       x="85.895615"
-       y="207.41165"
+       x="83.661324"
+       y="208.70547"
        id="text23"
        transform="scale(0.97358869,1.0271278)"><tspan
          sodipodi:role="line"
          id="tspan23"
          style="fill:#121212;fill-opacity:1;stroke-width:0.118771"
-         x="85.895615"
-         y="207.41165">Buffer Pixel</tspan></text>
+         x="83.661324"
+         y="208.70547">Buffer Pixel Count</tspan></text>
     <text
        xml:space="preserve"
-       style="font-size:2.32899px;writing-mode:lr-tb;direction:ltr;white-space:pre;inline-size:16.0041;display:inline;fill:#121212;fill-opacity:1;stroke-width:0.194083"
-       x="53.662651"
-       y="200.53003"
-       id="text23-2"
-       transform="matrix(8.6740184e-4,-0.58661679,0.59264742,0.0010174,-48.303094,232.22099)"
-       inkscape:transform-center-x="-0.5266653"
-       inkscape:transform-center-y="0.0032071045"><tspan
-         x="53.662651"
-         y="200.53003"
-         id="tspan2">Step Length</tspan></text>
+       style="font-size:1.42525px;writing-mode:lr-tb;direction:ltr;fill:#121212;fill-opacity:1;stroke-width:0.118771"
+       x="-208.05276"
+       y="69.322113"
+       id="text23-0"
+       transform="matrix(0.0059073,-0.97357076,1.0271089,0.00623216,0,0)"><tspan
+         sodipodi:role="line"
+         id="tspan23-6"
+         style="fill:#121212;fill-opacity:1;stroke-width:0.118771"
+         x="-208.05276"
+         y="69.322113">Step Length [m]</tspan></text>
     <path
        style="fill:#121212;fill-opacity:1;stroke-width:0.264583"
        d="m 101.03696,185.03696 -0.0817,10.00973 z"
        id="path25" />
     <path
-       style="fill:#ff9a00;fill-opacity:1;fill-rule:nonzero;stroke:#fd251f;stroke-width:0.24;stroke-dasharray:none;stroke-opacity:1;marker-start:url(#marker28);marker-end:url(#marker30)"
-       d="m 101.22427,195.74373 c 1.37827,1.43705 2.42962,2.92496 2.98585,4.48992 1.02504,2.88395 -0.26691,6.05842 -3.65722,9.6294 4.3863,-4.59856 5.37366,-9.31663 0.67137,-14.11932 z"
-       id="path26"
-       sodipodi:nodetypes="cscc" />
+       style="fill:#ff0000;fill-opacity:0;stroke:#ff2424;stroke-width:0.158169;stroke-dasharray:none;stroke-opacity:1;marker-end:url(#RoundedArrow)"
+       d="m 100.83734,209.59009 c 8.81964,-7.90865 0.0855,-13.94877 0.0855,-13.94877"
+       id="path2"
+       sodipodi:nodetypes="cc" />
   </g>
 </svg>

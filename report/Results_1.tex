@@ -1,18 +1,36 @@
 \chapter{Results}
 
-\section{Speed comparison in execution}
+\section{Research Question 1: Algorithm Reimplementation}
+\label{sec:rq1_results}
 
-Figure~\ref{fig:speed_comparison} shows the execution time of v1 and v2 as a function of segment length. The execution time of v2 is approximately 0.5 hours across all three tested segment lengths, remaining largely constant. In contrast, v1 shows execution times ranging from approximately 2 hours at a segment length of 400~m to approximately 1.25 hours at 1200~m, with execution time increasing as segment length decreases (i.e., as the number of segments increases).
+This section presents the results of the runtime benchmarking and output 
+equivalence comparison between v1 and v2. The two subsections address the 
+speed improvement achieved by the reimplementation and the degree to which 
+the two implementations produce spatially consistent CWP detections.
 
-\begin{figure}[ht]
+
+\subsection{Runtime Comparison}
+
+Figure~\ref{fig:speed_comparison} shows the execution time of v1 and v2 as a 
+function of segment length. The execution time of v2 is approximately 0.5 hours 
+across all three tested segment lengths, remaining largely constant. In contrast, 
+v1 shows execution times ranging from approximately 2 hours at a segment length 
+of 400~m to approximately 1.25 hours at 1200~m, with execution time increasing 
+as segment length decreases (i.e., as the number of segments increases).
+
+\begin{figure}[H]
 	\centering
 	\includegraphics[width=0.8\textwidth]{Bilder/speed_comparison.png}
-	\caption{Execution time of the original (v1) and optimized (v2) implementations of \texttt{detect\_cwp\_single} as a function of segment length. The optimized implementation shows execution times that are both shorter and largely constant across segment lengths, whereas the original implementation scales disproportionately with decreasing segment length (i.e., increasing number of segments).}
+	\caption{Execution time of the original (v1) and optimized (v2) 
+		implementations of \texttt{detect\_cwp\_single} as a function of segment 
+		length. The optimized implementation shows execution times that are both 
+		shorter and largely constant across segment lengths, whereas the original 
+		implementation scales disproportionately with decreasing segment length 
+		(i.e., increasing number of segments).}
 	\label{fig:speed_comparison}
 \end{figure}
 
-
-\section{Comparison of outputs}
+\subsection{Output Equivalence}
 
 The three comparison runs achieved outputs that are in general agreement with 
 respect to CWP location and shape, but are not identical at the pixel level. 
@@ -32,7 +50,7 @@ the two polygon sets is more visible. Panel (c) shows an example of complete
 spatial agreement from trial run 2, where the v1 and v2 polygons are 
 indistinguishable.
 
-\begin{figure}[ht]
+\begin{figure}[H]
 	\centering
 	\begin{subfigure}[t]{0.32\textwidth}
 		\centering
@@ -65,61 +83,204 @@ indistinguishable.
 \end{figure}
 
 
+\section{Research Question 2: Sensitivity Analysis}
+\label{sec:rq2_results}
 
+This section presents the Morris sensitivity analysis results across three 
+complementary views: the sensitivity of detected CWP area to the step length 
+parameter stratified by CWP class, the overall sensitivity ranking across all 
+three varied parameters, and the relationship between CWP area and step-length 
+sensitivity as quantified by the linear model.
 
-\section{Sensitivity scores for step length parameter}
+\subsection{Sensitivity of CWP Area to Step Length}
 
-Figure~\ref{fig:step_length_sensitivity} shows the Morris sensitivity indices $\mu^*$ and $\sigma$ with respect to the step length parameter, stratified by CWP class ($n = 10$ tributary-caused, $n = 14$ non-tributary-caused). All non-tributary-caused CWP show $\mu^*$ values below 0.2, indicating low sensitivity to the step length parameter across this class. The tributary-caused CWP show a wider spread in $\mu^*$: some tributary-caused CWP have sensitivity values comparable to the non-tributary-caused group, while others show substantially higher values of up to 0.3--0.6. The median $\mu^*$ values of the two classes are similar, with the primary difference lying in the upper tail of the tributary-caused distribution. The $\sigma$ values show a comparable pattern, with greater spread in the tributary-caused group.
+Figure~\ref{fig:step_length_sensitivity} shows the Morris sensitivity indices 
+$\mu^*$ and $\sigma$ with respect to the step length parameter, stratified by 
+CWP class ($n = 10$ tributary-caused, $n = 14$ non-tributary-caused). All 
+non-tributary-caused CWP show $\mu^*$ values below 0.2, indicating low 
+sensitivity to the step length parameter across this class. The tributary-caused 
+CWP show a wider spread in $\mu^*$: some tributary-caused CWP have sensitivity 
+values comparable to the non-tributary-caused group, while others show 
+substantially higher values of up to 0.3--0.6. The median $\mu^*$ values of the 
+two classes are similar, with the primary difference lying in the upper tail of 
+the tributary-caused distribution. The $\sigma$ values show a comparable pattern, 
+with greater spread in the tributary-caused group.
 
-\begin{figure}[ht]
+\begin{figure}[H]
 	\centering
 	\includegraphics[width=\textwidth]{Bilder/step_length_results.png}
-	\caption{Morris sensitivity indices ($\mu^*$ and $\sigma$) for the \texttt{step\_length} parameter with respect to cold water patch area, stratified by patch class (red: tributary-caused, $n=10$; blue: non-tributary-caused, $n=14$). Boxplots show the distribution across bounding boxes.}
+	\caption{Morris sensitivity indices ($\mu^*$ and $\sigma$) for the 
+		\texttt{step\_length} parameter with respect to cold water patch area, 
+		stratified by patch class (red: tributary-caused, $n=10$; blue: 
+		non-tributary-caused, $n=14$). Boxplots show the distribution across 
+		bounding boxes.}
 	\label{fig:step_length_sensitivity}
 \end{figure}
 
-\newpage
+\subsection{Overall Sensitivity across all Parameters}
 
-\section{Overall $\mu^*$ across all parameters}
+Figure~\ref{fig:mu_star_overall} displays the $\mu^*$ values for all 24 CWP 
+locations with respect to the three parameters varied in the second Morris 
+experiment. The buffer pixel count shows consistently low $\mu^*$ values across 
+all locations, with the entire distribution concentrated near zero. In contrast, 
+both step length and temperature delta show distributions that deviate clearly 
+from zero. The temperature delta parameter shows the highest $\mu^*$ values 
+overall, suggesting it has the strongest influence on the detected CWP area 
+across the set of annotated locations.
 
-Figure~\ref{fig:mu_star_overall} displays the $\mu^*$ values for all 24 CWP locations with respect to the three parameters varied in the second Morris experiment. The buffer pixel count shows consistently low $\mu^*$ values across all locations, with the entire distribution concentrated near zero. In contrast, both step length and temperature delta show distributions that deviate clearly from zero. The temperature delta parameter shows the highest $\mu^*$ values overall, suggesting it has the strongest influence on the detected CWP area across the set of annotated locations.
-
-\begin{figure}[ht]
+\begin{figure}[H]
 	\centering
 	\includegraphics[width=\textwidth]{Bilder/mu_star_res.png}
-	\caption{Overall $\mu^*$ sensitivity indices for \texttt{buffer\_px}, \texttt{delta\_T}, and \texttt{step\_length} across all classified cold water patches ($N = 24$ locations, $r = 64$ trajectories).}
+	\caption{Overall $\mu^*$ sensitivity indices for \texttt{buffer\_px}, 
+		\texttt{delta\_T}, and \texttt{step\_length} across all classified cold 
+		water patches ($N = 24$ locations, $r = 64$ trajectories).}
 	\label{fig:mu_star_overall}
 \end{figure}
 
+\subsection{Relationship between CWP Area and Step Length Sensitivity}
 
-\section{$\mu^*$ (step length) versus CWP area}
+Figure~\ref{fig:mu_star_vs_area} shows the 24 selected CWP along three 
+dimensions simultaneously: mean CWP area averaged across all Morris runs 
+(x-axis), $\mu^*$ with respect to the step length parameter (y-axis), mean 
+temperature delta to the surrounding environment averaged across all Morris 
+runs (color), and CWP class (shape). The data suggest a positive relationship 
+between mean CWP area and sensitivity to the step length parameter: locations 
+with larger mean CWP area tend to show higher $\mu^*$ values. This pattern 
+appears across both classes. No clear relationship between mean temperature 
+delta and $\mu^*$ is visible from the coloring.
 
-Figure~\ref{fig:mu_star_vs_area} shows the 24 selected CWP along three dimensions simultaneously: mean CWP area averaged across all Morris runs (x-axis), $\mu^*$ with respect to the step length parameter (y-axis), mean temperature delta to the surrounding environment averaged across all Morris runs (color), and CWP class (shape). The data suggest a positive relationship between mean CWP area and sensitivity to the step length parameter: locations with larger mean CWP area tend to show higher $\mu^*$ values. This pattern appears across both classes. No clear relationship between mean temperature delta and $\mu^*$ is visible from the coloring.
-
-Table~\ref{tab:regression_mustar} shows the results of the linear model fitted to predict $\mu^*$ (step length) from mean CWP area and mean temperature delta. The mean area predictor is highly significant ($p < 0.001$) with a positive slope, consistent with the visual pattern in Figure~\ref{fig:mu_star_vs_area}. The mean temperature delta predictor is not significant ($p = 0.556$), indicating no detectable linear relationship between temperature delta and sensitivity to the step length parameter after accounting for area. The model explains a substantial proportion of variance ($R^2 = 0.611$, Adjusted $R^2 = 0.572$).
+Table~\ref{tab:regression_mustar} shows the results of the linear model fitted 
+to predict $\mu^*$ (step length) from mean CWP area and mean temperature delta. 
+The mean area predictor is highly significant ($p < 0.001$) with a positive 
+slope, consistent with the visual pattern in Figure~\ref{fig:mu_star_vs_area}. 
+The mean temperature delta predictor is not significant ($p = 0.556$), indicating 
+no detectable linear relationship between temperature delta and sensitivity to 
+the step length parameter after accounting for area. The model explains a 
+substantial proportion of variance ($R^2 = 0.611$, Adjusted $R^2 = 0.572$).
 
 \begin{figure}[ht]
 	\centering
 	\includegraphics[width=\textwidth]{Bilder/mu_star_vs_area_vs_deltaT.png}
-	\caption{$\mu^*$ (step length) versus mean CWP area for each of the 24 annotated locations. Color indicates the mean temperature delta to the surrounding river ($\overline{\Delta T}$, averaged across all Morris runs); shape indicates CWP class (circle: non-tributary-caused; triangle: tributary-caused).}
+	\caption{$\mu^*$ (step length) versus mean CWP area for each of the 24 
+		annotated locations. Color indicates the mean temperature delta to the 
+		surrounding river ($\overline{\Delta T}$, averaged across all Morris runs); 
+		shape indicates CWP class (circle: non-tributary-caused; triangle: 
+		tributary-caused).}
 	\label{fig:mu_star_vs_area}
 \end{figure}
 
-\begin{table}[h]
+\begin{table}[H]
 	\centering
-	\caption{Regression results for $\mu^*$ (step length) predicted by mean CWP area and mean $\Delta T$, fitted across all 24 annotated locations.}
+	\caption{Regression results for $\mu^*$ (step length) predicted by mean 
+		CWP area and mean $\Delta T$, fitted across all 24 annotated locations.}
 	\label{tab:regression_mustar}
 	\begin{tabular}{lrrrr}
 		\toprule
 		Predictor & Estimate & SE & $t$ & $p$ \\
 		\midrule
-		(Intercept)        & $9.024 \times 10^{-2}$  & $3.094 \times 10^{-2}$ & 2.92    & 0.009    \\
-		Mean area          & $1.578 \times 10^{-4}$  & $2.839 \times 10^{-5}$ & 5.56    & $<0.001$ \\
-		Mean $\Delta T$    & $-1.041 \times 10^{-2}$ & $1.739 \times 10^{-2}$ & $-0.60$ & 0.556    \\
+		(Intercept)     & $9.024 \times 10^{-2}$  & $3.094 \times 10^{-2}$ 
+		& 2.92    & 0.009    \\
+		Mean area       & $1.578 \times 10^{-4}$  & $2.839 \times 10^{-5}$ 
+		& 5.56    & $<0.001$ \\
+		Mean $\Delta T$ & $-1.041 \times 10^{-2}$ & $1.739 \times 10^{-2}$ 
+		& $-0.60$ & 0.556    \\
 		\bottomrule
 	\end{tabular}
 	
 	\vspace{0.5em}
 	\footnotesize
-	\textit{Note.} $R^2 = 0.611$, Adjusted $R^2 = 0.572$, $F(2, 20) = 15.73$, $p < 0.001$. Residual standard error $= 0.088$ on 20 degrees of freedom (one observation deleted due to missingness).
+	\textit{Note.} $R^2 = 0.611$, Adjusted $R^2 = 0.572$, $F(2, 20) = 15.73$, 
+	$p < 0.001$. Residual standard error $= 0.088$ on 20 degrees of freedom 
+	(one observation deleted due to missingness).
 \end{table}
+
+
+\section{Research Question 3: Algorithm Modification}
+\label{sec:rq3_results}
+
+This section presents the evaluation of v3 relative to v1, covering both the 
+quantitative Jaccard similarity comparison and the qualitative assessment of 
+detection improvements resulting from the IDW-based reference temperature 
+computation.
+
+\subsection{Output Comparison of v3 against v1}
+
+The CWP polygons produced by v3 were compared against those of v1 using the 
+same Jaccard similarity metric applied in the output equivalence comparison of 
+v1 and v2 (Section~\ref{sec:output_equivalence}). The Jaccard similarities 
+obtained were 0.325, 0.334, and 0.287 for the three validation parameter 
+combinations -- substantially lower than the values of 0.936, 0.956, and 0.976 
+obtained for v2 versus v1. This indicates that v3 produces CWP detections that 
+differ considerably from those of v1, which is expected: the IDW-based reference 
+temperature computation represents a fundamental redesign of the core reference 
+temperature step rather than a minor reimplementation, and is therefore not 
+expected to replicate v1's outputs closely. The relevant question is not whether 
+v3 agrees with v1, but whether v3's detections are ecologically more plausible.
+
+Figure~\ref{fig:v3_qualitative} illustrates three qualitative improvements 
+observed in v3 relative to v1. In each panel, v1 polygons and v3 polygons are 
+overlaid with 50\% transparency, allowing areas of agreement and disagreement 
+to be read directly from the overlap pattern.
+
+
+
+\begin{figure}[H]
+	\centering
+	\begin{subfigure}[t]{0.32\textwidth}
+		\centering
+		\includegraphics[width=\textwidth]{Bilder/v3_trunctuation_fix.png}
+		\caption{Slab-boundary truncation eliminated. The v1 polygon ends 
+			abruptly at the slab boundary; the v3 polygon extends naturally 
+			beyond it.}
+		\label{fig:v3_truncation}
+	\end{subfigure}
+	\hfill
+	\begin{subfigure}[t]{0.32\textwidth}
+		\centering
+		\includegraphics[width=\textwidth]{Bilder/v3_fix_cutoff_2.png}
+		\caption{Merger of previously severed fragments. Two separate v1 
+			polygons are detected as a single contiguous patch in v3.}
+		\label{fig:v3_merger}
+	\end{subfigure}
+	\hfill
+	\begin{subfigure}[t]{0.32\textwidth}
+		\centering
+		\includegraphics[width=\textwidth]{Bilder/large_cwp_only_in_v3.png}
+		\caption{New detection in v3. A CWP absent in v1 is detected by v3, 
+			consistent with the hypothesis that it was split into sub-threshold 
+			fragments by a slab boundary in v1.}
+		\label{fig:v3_new}
+	\end{subfigure}
+	\caption{Qualitative comparison of CWP detections between v1 and v3 at 
+		three example locations. In each panel, v1 polygons and v3 polygons are 
+		overlaid at 50\% transparency; areas covered by both algorithms appear as 
+		a blend of the two colours, while areas covered by only one algorithm 
+		appear in that algorithm's colour alone.}
+	\label{fig:v3_qualitative}
+\end{figure}
+
+
+Panel (a) shows the most direct improvement: in v1, the detected CWP extent is 
+truncated abruptly at a slab boundary, not because the underlying thermal anomaly 
+ends there, but because the reference temperature changes discontinuously at that 
+point. In v3, the spatially continuous IDW reference temperature surface removes 
+this artificial boundary, allowing the detected patch to extend naturally beyond 
+the former boundary location and taper off gradually as the temperature difference 
+to the surrounding river diminishes.
+
+Panel (b) illustrates a direct consequence of eliminating slab-boundary 
+truncations: CWPs previously reported as two separate fragments -- one on each 
+side of a slab boundary -- are now detected as a single contiguous polygon, 
+which is likely a more accurate representation of the underlying thermal anomaly.
+
+Panel (c) shows an example of a CWP detected by v3 that is entirely absent in 
+v1. A likely explanation is that the corresponding thermal anomaly straddles a 
+slab boundary in v1, causing it to be split into two sub-threshold fragments 
+that are subsequently removed by the minimum area filter. In v3, the absence of 
+slab boundaries allows the anomaly to be detected as a single contiguous patch 
+above the area threshold. Whether these additional detections represent genuine 
+CWPs missed by v1, or false positives introduced by the IDW reference 
+temperature surface, cannot be determined without independent ground-truth 
+validation -- but the former interpretation is consistent with the mechanistic 
+argument developed in Section~\ref{sec:rq3_methods}.
+
