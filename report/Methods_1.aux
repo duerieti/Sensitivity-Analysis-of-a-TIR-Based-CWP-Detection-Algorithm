@@ -1,90 +1,108 @@
 \relax 
 \providecommand\hyper@newdestlabel[2]{}
-\citation{tonolla_thermische-kartographie_2026}
-\citation{tonolla_thermische-kartographie_2026}
-\@writefile{toc}{\contentsline {chapter}{\numberline {3}Methods}{12}{chapter.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {chapter}{\numberline {3}Methods}{16}{chapter.3}\protected@file@percent }
 \@writefile{lof}{\addvspace {10\p@ }}
 \@writefile{lot}{\addvspace {10\p@ }}
-\@writefile{toc}{\contentsline {section}{\numberline {3.1}Data and Study Area}{12}{section.3.1}\protected@file@percent }
-\@writefile{lot}{\contentsline {table}{\numberline {1-1}{\ignorespaces Technical specifications of the three TIR orthophotos covering the Emme main channel. All rasters are in the Swiss coordinate reference system CH1903+/LV95 (EPSG:2056) and stored as single-band Float32 GeoTIFF files.}}{13}{table.caption.11}\protected@file@percent }
-\newlabel{tab:tir_specs}{{1-1}{13}{Technical specifications of the three TIR orthophotos covering the Emme main channel. All rasters are in the Swiss coordinate reference system CH1903+/LV95 (EPSG:2056) and stored as single-band Float32 GeoTIFF files}{table.caption.11}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {3.2}Addressing Research Question 1: Algorithm Reimplementation}{13}{section.3.2}\protected@file@percent }
-\newlabel{sec:rq1_methods}{{3.2}{13}{Addressing Research Question 1: Algorithm Reimplementation}{section.3.2}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {3.2.1}Reimplementation of the CWP Algorithm based on GDAL and System Calls}{13}{subsection.3.2.1}\protected@file@percent }
+\citation{tonolla_thermische-kartographie_2026}
+\citation{tonolla_thermische-kartographie_2026}
+\@writefile{toc}{\contentsline {chapter}{\numberline {4}Methods}{17}{chapter.4}\protected@file@percent }
+\@writefile{lof}{\addvspace {10\p@ }}
+\@writefile{lot}{\addvspace {10\p@ }}
+\@writefile{toc}{\contentsline {section}{\numberline {4.1}Data and Study Area}{17}{section.4.1}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {1-1}{\ignorespaces Overview of the study area along the Emme river. The map shows the settlements bounding each of the three TIR orthophoto segments (Emme Upper Reach 1, Emme Upper Reach 2, Emme Lower Reach), as well as the three tributary rivers imaged during the survey (Ilfis, Grüene, and Urtene), shown here as a single combined category.}}{18}{figure.caption.9}\protected@file@percent }
+\newlabel{fig:study_area}{{1-1}{18}{Overview of the study area along the Emme river. The map shows the settlements bounding each of the three TIR orthophoto segments (Emme Upper Reach 1, Emme Upper Reach 2, Emme Lower Reach), as well as the three tributary rivers imaged during the survey (Ilfis, Grüene, and Urtene), shown here as a single combined category}{figure.caption.9}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {1-1}{\ignorespaces Technical specifications of the three TIR orthophotos covering the Emme main channel. All rasters are in the Swiss coordinate reference system CH1903+/LV95 (EPSG:2056) and stored as single-band Float32 GeoTIFF files.}}{18}{table.caption.10}\protected@file@percent }
+\newlabel{tab:tir_specs}{{1-1}{18}{Technical specifications of the three TIR orthophotos covering the Emme main channel. All rasters are in the Swiss coordinate reference system CH1903+/LV95 (EPSG:2056) and stored as single-band Float32 GeoTIFF files}{table.caption.10}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {4.2}Addressing Research Question 1: Algorithm Reimplementation}{18}{section.4.2}\protected@file@percent }
+\newlabel{sec:rq1_methods}{{4.2}{18}{Addressing Research Question 1: Algorithm Reimplementation}{section.4.2}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.2.1}Reimplementation of the CWP Algorithm based on GDAL and System Calls}{19}{subsection.4.2.1}\protected@file@percent }
 \citation{lovelace2019geocomputation}
 \citation{duerr_raster_deepdive}
 \citation{gdal_gtiff_driver}
-\@writefile{lot}{\contentsline {table}{\numberline {2-2}{\ignorespaces High-level overview of the reworked CWP detection algorithm, including the primary tool or function used for each step.}}{14}{table.caption.12}\protected@file@percent }
-\newlabel{tab:cwp_pseudocode}{{2-2}{14}{High-level overview of the reworked CWP detection algorithm, including the primary tool or function used for each step}{table.caption.12}{}}
-\@writefile{toc}{\contentsline {paragraph}{Performance.}{14}{section*.13}\protected@file@percent }
-\@writefile{toc}{\contentsline {paragraph}{Memory footprint and HPC suitability.}{14}{section*.14}\protected@file@percent }
+\@writefile{lot}{\contentsline {table}{\numberline {2-2}{\ignorespaces High-level overview of the reworked CWP detection algorithm, including the primary tool or function used for each step.}}{20}{table.caption.11}\protected@file@percent }
+\newlabel{tab:cwp_pseudocode}{{2-2}{20}{High-level overview of the reworked CWP detection algorithm, including the primary tool or function used for each step}{table.caption.11}{}}
+\@writefile{toc}{\contentsline {paragraph}{Performance.}{20}{section*.12}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Memory footprint and HPC suitability.}{20}{section*.13}\protected@file@percent }
 \citation{mieno_rgis_2022}
 \citation{isciences_exactextract}
 \citation{hijmans_terra_extract}
-\@writefile{toc}{\contentsline {paragraph}{Raster value extraction.}{15}{section*.15}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {3.2.2}Output Equivalence and Runtime Comparison}{15}{subsection.3.2.2}\protected@file@percent }
-\newlabel{sec:output_equivalence}{{3.2.2}{15}{Output Equivalence and Runtime Comparison}{subsection.3.2.2}{}}
-\newlabel{eq:jaccard}{{2-1}{15}{Output Equivalence and Runtime Comparison}{equation.3.1}{}}
-\@writefile{lot}{\contentsline {table}{\numberline {2-3}{\ignorespaces Parameter combinations used for the output equivalence comparison between v1 and v2.}}{15}{table.caption.16}\protected@file@percent }
-\newlabel{tab:validation_params}{{2-3}{15}{Parameter combinations used for the output equivalence comparison between v1 and v2}{table.caption.16}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {3.3}Addressing Research Question 2: Sensitivity Analysis}{15}{section.3.3}\protected@file@percent }
-\newlabel{sec:rq2_methods}{{3.3}{15}{Addressing Research Question 2: Sensitivity Analysis}{section.3.3}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {3.3.1}Determining and Classifying Step Length Sensitive CWP}{16}{subsection.3.3.1}\protected@file@percent }
-\newlabel{sec:cwp_classification}{{3.3.1}{16}{Determining and Classifying Step Length Sensitive CWP}{subsection.3.3.1}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {3-1}{\ignorespaces Visual overview of the steps involved in determining and classifying step-length-sensitive CWP. The result is a set classified CWP}}{16}{figure.caption.17}\protected@file@percent }
-\newlabel{fig:cwp_fuzzy_overview}{{3-1}{16}{Visual overview of the steps involved in determining and classifying step-length-sensitive CWP. The result is a set classified CWP}{figure.caption.17}{}}
-\@writefile{toc}{\contentsline {subsubsection}{Setting up First Morris Experiment}{16}{section*.18}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Raster value extraction.}{21}{section*.14}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.2.2}Output Equivalence and Runtime Comparison}{21}{subsection.4.2.2}\protected@file@percent }
+\newlabel{sec:output_equivalence}{{4.2.2}{21}{Output Equivalence and Runtime Comparison}{subsection.4.2.2}{}}
+\newlabel{eq:jaccard}{{2-1}{21}{Output Equivalence and Runtime Comparison}{equation.4.1}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {2-3}{\ignorespaces Parameter combinations used for the output equivalence comparison between v1 and v2.}}{21}{table.caption.15}\protected@file@percent }
+\newlabel{tab:validation_params}{{2-3}{21}{Parameter combinations used for the output equivalence comparison between v1 and v2}{table.caption.15}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {4.3}Addressing Research Question 2: Sensitivity Analysis}{21}{section.4.3}\protected@file@percent }
+\newlabel{sec:rq2_methods}{{4.3}{21}{Addressing Research Question 2: Sensitivity Analysis}{section.4.3}{}}
+\citation{tonolla_thermische-kartographie_2026}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.3.1}Determining and Classifying Step Length Sensitive CWP}{22}{subsection.4.3.1}\protected@file@percent }
+\newlabel{sec:cwp_classification}{{4.3.1}{22}{Determining and Classifying Step Length Sensitive CWP}{subsection.4.3.1}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {3-2}{\ignorespaces Visual overview of the steps involved in determining and classifying step-length-sensitive CWP. The result is a set of classified CWPs.}}{22}{figure.caption.16}\protected@file@percent }
+\newlabel{fig:cwp_fuzzy_overview}{{3-2}{22}{Visual overview of the steps involved in determining and classifying step-length-sensitive CWP. The result is a set of classified CWPs}{figure.caption.16}{}}
+\@writefile{toc}{\contentsline {subsubsection}{Setting up First Morris Experiment}{22}{section*.17}\protected@file@percent }
 \citation{tange_2024_gnu_parallel}
-\@writefile{lof}{\contentsline {figure}{\numberline {3-2}{\ignorespaces Visual depiction of the Morris sampling grid, spanning step length and buffer pixel count. The arrow shows the $\Delta $ chosen for the Morris experiment, corresponding to a jump of 3 grid cells.}}{17}{figure.caption.19}\protected@file@percent }
-\newlabel{fig:morris_grid}{{3-2}{17}{Visual depiction of the Morris sampling grid, spanning step length and buffer pixel count. The arrow shows the $\Delta $ chosen for the Morris experiment, corresponding to a jump of 3 grid cells}{figure.caption.19}{}}
-\@writefile{toc}{\contentsline {subsubsection}{Model Evaluation along Parameter Combinations}{17}{section*.20}\protected@file@percent }
-\newlabel{sec:modeleval}{{3.3.1}{17}{Model Evaluation along Parameter Combinations}{section*.20}{}}
-\@writefile{lot}{\contentsline {table}{\numberline {3-4}{\ignorespaces Parameter values held constant during the first Morris experiment, while step length and buffer pixel count were varied.}}{18}{table.caption.21}\protected@file@percent }
-\newlabel{tab:held_constant_first_morris}{{3-4}{18}{Parameter values held constant during the first Morris experiment, while step length and buffer pixel count were varied}{table.caption.21}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {3-3}{\ignorespaces Worker pool orchestrated by GNU Parallel across three parallel processes. Each process reads a parameter tuple from a shared \texttt  {parameters.txt} file, creates an individual working directory named after the tuple identifier and parameter values (e.g.\ \texttt  {job\_1\_7\_880}), executes the CWP detection algorithm, and writes the results to that directory before fetching the next parameter tuple. The cycle repeats until all tuples have been processed.}}{18}{figure.caption.22}\protected@file@percent }
-\newlabel{fig:gnu}{{3-3}{18}{Worker pool orchestrated by GNU Parallel across three parallel processes. Each process reads a parameter tuple from a shared \texttt {parameters.txt} file, creates an individual working directory named after the tuple identifier and parameter values (e.g.\^^M\texttt {job\_1\_7\_880}), executes the CWP detection algorithm, and writes the results to that directory before fetching the next parameter tuple. The cycle repeats until all tuples have been processed}{figure.caption.22}{}}
-\@writefile{toc}{\contentsline {subsubsection}{Creation of a Fuzzy Overlay of CWP}{18}{section*.23}\protected@file@percent }
-\@writefile{lof}{\contentsline {figure}{\numberline {3-4}{\ignorespaces Illustration of the fuzzy overlay construction. The two upper rasters show the binary CWP detection outputs of two individual Morris runs, where dark blue pixels indicate detected CWP and white pixels indicate non-CWP area. The lower raster shows the resulting fuzzy overlay, where light blue pixels hold a lower score than dark blue pixels, reflecting locations where CWP detection was inconsistent across runs.}}{19}{figure.caption.24}\protected@file@percent }
-\newlabel{fig:fuzzy_overlay}{{3-4}{19}{Illustration of the fuzzy overlay construction. The two upper rasters show the binary CWP detection outputs of two individual Morris runs, where dark blue pixels indicate detected CWP and white pixels indicate non-CWP area. The lower raster shows the resulting fuzzy overlay, where light blue pixels hold a lower score than dark blue pixels, reflecting locations where CWP detection was inconsistent across runs}{figure.caption.24}{}}
-\@writefile{toc}{\contentsline {subsubsection}{Selection and Classification of CWP}{19}{section*.25}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {3-3}{\ignorespaces Visual depiction of the Morris sampling grid, spanning step length and buffer pixel count. The arrow shows the $\Delta $ chosen for the Morris experiment, corresponding to a jump of 3 grid cells.}}{23}{figure.caption.18}\protected@file@percent }
+\newlabel{fig:morris_grid}{{3-3}{23}{Visual depiction of the Morris sampling grid, spanning step length and buffer pixel count. The arrow shows the $\Delta $ chosen for the Morris experiment, corresponding to a jump of 3 grid cells}{figure.caption.18}{}}
+\@writefile{toc}{\contentsline {subsubsection}{Model Evaluation along Parameter Combinations}{23}{section*.19}\protected@file@percent }
+\newlabel{sec:modeleval}{{4.3.1}{23}{Model Evaluation along Parameter Combinations}{section*.19}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {3-4}{\ignorespaces Parameter values held constant during the first Morris experiment, while step length and buffer pixel count were varied.}}{24}{table.caption.20}\protected@file@percent }
+\newlabel{tab:held_constant_first_morris}{{3-4}{24}{Parameter values held constant during the first Morris experiment, while step length and buffer pixel count were varied}{table.caption.20}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {3-4}{\ignorespaces Worker pool orchestrated by GNU Parallel across three parallel processes. Each process reads a parameter tuple from a shared \texttt  {parameters.txt} file, creates an individual working directory named after the tuple identifier and parameter values (e.g.\ \texttt  {job\_1\_7\_880}), executes the CWP detection algorithm, and writes the results to that directory before fetching the next parameter tuple. The cycle repeats until all tuples have been processed.}}{24}{figure.caption.21}\protected@file@percent }
+\newlabel{fig:gnu}{{3-4}{24}{Worker pool orchestrated by GNU Parallel across three parallel processes. Each process reads a parameter tuple from a shared \texttt {parameters.txt} file, creates an individual working directory named after the tuple identifier and parameter values (e.g.\^^M\texttt {job\_1\_7\_880}), executes the CWP detection algorithm, and writes the results to that directory before fetching the next parameter tuple. The cycle repeats until all tuples have been processed}{figure.caption.21}{}}
+\@writefile{toc}{\contentsline {subsubsection}{Creation of a Fuzzy Overlay of CWP}{24}{section*.22}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {3-5}{\ignorespaces Illustration of the fuzzy overlay construction. The two upper rasters show the binary CWP detection outputs of two individual Morris runs, where dark blue pixels indicate detected CWP and white pixels indicate non-CWP area. The lower raster shows the resulting fuzzy overlay, where light blue pixels hold a lower score than dark blue pixels, reflecting locations where CWP detection was inconsistent across runs.}}{25}{figure.caption.23}\protected@file@percent }
+\newlabel{fig:fuzzy_overlay}{{3-5}{25}{Illustration of the fuzzy overlay construction. The two upper rasters show the binary CWP detection outputs of two individual Morris runs, where dark blue pixels indicate detected CWP and white pixels indicate non-CWP area. The lower raster shows the resulting fuzzy overlay, where light blue pixels hold a lower score than dark blue pixels, reflecting locations where CWP detection was inconsistent across runs}{figure.caption.23}{}}
+\@writefile{toc}{\contentsline {subsubsection}{Selection and Classification of CWP}{25}{section*.24}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {3-6}{\ignorespaces Decision tree illustrating the visual classification process applied to candidate CWP patches: patches are first assessed as variable or non-variable based on their coloring in the fuzzy overlay, and variable patches are further classified as tributary-caused or non-tributary-caused based on their proximity to a tributary inflow.}}{26}{figure.caption.25}\protected@file@percent }
+\newlabel{fig:decision_tree_classification}{{3-6}{26}{Decision tree illustrating the visual classification process applied to candidate CWP patches: patches are first assessed as variable or non-variable based on their coloring in the fuzzy overlay, and variable patches are further classified as tributary-caused or non-tributary-caused based on their proximity to a tributary inflow}{figure.caption.25}{}}
 \citation{lilburne_sensitivity_2009}
-\@writefile{lof}{\contentsline {figure}{\numberline {3-5}{\ignorespaces Decision tree illustrating the visual classification process applied to candidate CWP patches: patches are first assessed as variable or non-variable based on their coloring in the fuzzy overlay, and variable patches are further classified as tributary-caused or non-tributary-caused based on their proximity to a tributary inflow.}}{20}{figure.caption.26}\protected@file@percent }
-\newlabel{fig:decision_tree_classification}{{3-5}{20}{Decision tree illustrating the visual classification process applied to candidate CWP patches: patches are first assessed as variable or non-variable based on their coloring in the fuzzy overlay, and variable patches are further classified as tributary-caused or non-tributary-caused based on their proximity to a tributary inflow}{figure.caption.26}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {3.3.2}Computing Morris Sensitivity Indices with respect to CWP Area}{20}{subsection.3.3.2}\protected@file@percent }
-\newlabel{sec:morris_indices}{{3.3.2}{20}{Computing Morris Sensitivity Indices with respect to CWP Area}{subsection.3.3.2}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {3-6}{\ignorespaces Visual overview of the steps involved in computing Morris sensitivity indices with respect to CWP area: setting up the second Morris experiment ($k=3$) and executing the algorithm across the sampled parameter tuples, computing lumped area statistics per annotated CWP location and Morris run, and computing and visualising the Morris sensitivity indices.}}{21}{figure.caption.27}\protected@file@percent }
-\newlabel{fig:cwp_stats_overview}{{3-6}{21}{Visual overview of the steps involved in computing Morris sensitivity indices with respect to CWP area: setting up the second Morris experiment ($k=3$) and executing the algorithm across the sampled parameter tuples, computing lumped area statistics per annotated CWP location and Morris run, and computing and visualising the Morris sensitivity indices}{figure.caption.27}{}}
-\@writefile{toc}{\contentsline {subsubsection}{Setting up Second Sampling Grid and Executing Algorithm}{21}{section*.28}\protected@file@percent }
-\@writefile{lof}{\contentsline {figure}{\numberline {3-7}{\ignorespaces Visual depiction of the second Morris sampling grid, spanning step length, buffer pixel count, and the temperature delta threshold. The red arrow indicates the $\Delta $ chosen.}}{22}{figure.caption.29}\protected@file@percent }
-\newlabel{fig:morris_grid_second}{{3-7}{22}{Visual depiction of the second Morris sampling grid, spanning step length, buffer pixel count, and the temperature delta threshold. The red arrow indicates the $\Delta $ chosen}{figure.caption.29}{}}
-\@writefile{lot}{\contentsline {table}{\numberline {3-5}{\ignorespaces Parameter values held constant during the second Morris experiment, while \texttt  {step\_length}, \texttt  {buffer\_px}, and \texttt  {delta\_T} were varied.}}{22}{table.caption.30}\protected@file@percent }
-\newlabel{tab:held_constant_second_morris}{{3-5}{22}{Parameter values held constant during the second Morris experiment, while \texttt {step\_length}, \texttt {buffer\_px}, and \texttt {delta\_T} were varied}{table.caption.30}{}}
-\@writefile{toc}{\contentsline {subsubsection}{Computing Lumped Statistics for the Selected CWPs}{22}{section*.31}\protected@file@percent }
-\@writefile{lof}{\contentsline {figure}{\numberline {3-8}{\ignorespaces Schematic overview of the lumped-statistics computation for one annotated CWP location (Limpbach inflow into the Emme near Utzenstorf BE). For each Morris run, CWP polygons are cropped to the bounding box; if polygons are present, total area and area-weighted mean temperature delta are computed; if the bounding box is empty, both are set to zero.}}{23}{figure.caption.32}\protected@file@percent }
-\newlabel{fig:cwp_lumping_decision}{{3-8}{23}{Schematic overview of the lumped-statistics computation for one annotated CWP location (Limpbach inflow into the Emme near Utzenstorf BE). For each Morris run, CWP polygons are cropped to the bounding box; if polygons are present, total area and area-weighted mean temperature delta are computed; if the bounding box is empty, both are set to zero}{figure.caption.32}{}}
-\@writefile{toc}{\contentsline {subsubsection}{Computing Morris Sensitivity Indices}{23}{section*.34}\protected@file@percent }
-\@writefile{lot}{\contentsline {table}{\numberline {3-6}{\ignorespaces Excerpt of the lumped statistics table. Each row corresponds to one annotated CWP location under one Morris parameter tuple. The area measures differ across rows sharing the same location, reflecting the variability of the detected CWP extent with respect to the input parameters.}}{24}{table.caption.33}\protected@file@percent }
-\newlabel{tab:lumped_stats_example}{{3-6}{24}{Excerpt of the lumped statistics table. Each row corresponds to one annotated CWP location under one Morris parameter tuple. The area measures differ across rows sharing the same location, reflecting the variability of the detected CWP extent with respect to the input parameters}{table.caption.33}{}}
-\@writefile{toc}{\contentsline {subsubsection}{Visualisation and Statistical Modelling}{24}{section*.35}\protected@file@percent }
-\newlabel{sec:morris_viz_model}{{3.3.2}{24}{Visualisation and Statistical Modelling}{section*.35}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {3.4}Addressing Research Question 3: Algorithm Modification}{24}{section.3.4}\protected@file@percent }
-\newlabel{sec:rq3_methods}{{3.4}{24}{Addressing Research Question 3: Algorithm Modification}{section.3.4}{}}
+\newlabel{fig:cwp_variable_tributary}{{3-7a}{27}{Variable, tributary-caused. Coloring indicates variability, and the patch lies adjacent to a tributary inflow}{figure.caption.26}{}}
+\newlabel{sub@fig:cwp_variable_tributary}{{a}{27}{Variable, tributary-caused. Coloring indicates variability, and the patch lies adjacent to a tributary inflow}{figure.caption.26}{}}
+\newlabel{fig:cwp_variable_nontributary}{{3-7b}{27}{Variable, non-tributary-caused. Coloring indicates variability, but no tributary inflow is present nearby}{figure.caption.26}{}}
+\newlabel{sub@fig:cwp_variable_nontributary}{{b}{27}{Variable, non-tributary-caused. Coloring indicates variability, but no tributary inflow is present nearby}{figure.caption.26}{}}
+\newlabel{fig:cwp_nonvariable_tributary}{{3-7c}{27}{Non-variable, tributary-caused. The patch shows little variability in the fuzzy overlay despite proximity to a tributary inflow}{figure.caption.26}{}}
+\newlabel{sub@fig:cwp_nonvariable_tributary}{{c}{27}{Non-variable, tributary-caused. The patch shows little variability in the fuzzy overlay despite proximity to a tributary inflow}{figure.caption.26}{}}
+\newlabel{fig:cwp_nonvariable_nontributary}{{3-7d}{27}{Non-variable, non-tributary-caused. The patch shows little variability and no tributary inflow is present nearby}{figure.caption.26}{}}
+\newlabel{sub@fig:cwp_nonvariable_nontributary}{{d}{27}{Non-variable, non-tributary-caused. The patch shows little variability and no tributary inflow is present nearby}{figure.caption.26}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {3-7}{\ignorespaces Examples of the four classification outcomes from the decision tree in Figure~\ref {fig:decision_tree_classification}: variable vs. non-variable patches (rows), further split by tributary attribution (columns).}}{27}{figure.caption.26}\protected@file@percent }
+\newlabel{fig:cwp_classification_examples}{{3-7}{27}{Examples of the four classification outcomes from the decision tree in Figure~\ref {fig:decision_tree_classification}: variable vs. non-variable patches (rows), further split by tributary attribution (columns)}{figure.caption.26}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.3.2}Computing Morris Sensitivity Indices with respect to CWP Area}{27}{subsection.4.3.2}\protected@file@percent }
+\newlabel{sec:morris_indices}{{4.3.2}{27}{Computing Morris Sensitivity Indices with respect to CWP Area}{subsection.4.3.2}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {3-8}{\ignorespaces Visual overview of the steps involved in computing Morris sensitivity indices with respect to CWP area: setting up the second Morris experiment ($k=3$) and executing the algorithm across the sampled parameter tuples, computing lumped area statistics per annotated CWP location and Morris run, and computing and visualising the Morris sensitivity indices.}}{28}{figure.caption.27}\protected@file@percent }
+\newlabel{fig:cwp_stats_overview}{{3-8}{28}{Visual overview of the steps involved in computing Morris sensitivity indices with respect to CWP area: setting up the second Morris experiment ($k=3$) and executing the algorithm across the sampled parameter tuples, computing lumped area statistics per annotated CWP location and Morris run, and computing and visualising the Morris sensitivity indices}{figure.caption.27}{}}
+\@writefile{toc}{\contentsline {subsubsection}{Setting up Second Sampling Grid and Executing Algorithm}{28}{section*.28}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {3-9}{\ignorespaces Visual depiction of the second Morris sampling grid, spanning step length, buffer pixel count, and the temperature delta threshold. The red arrow indicates the $\Delta $ chosen.}}{29}{figure.caption.29}\protected@file@percent }
+\newlabel{fig:morris_grid_second}{{3-9}{29}{Visual depiction of the second Morris sampling grid, spanning step length, buffer pixel count, and the temperature delta threshold. The red arrow indicates the $\Delta $ chosen}{figure.caption.29}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {3-5}{\ignorespaces Parameter values held constant during the second Morris experiment, while \texttt  {step\_length}, \texttt  {buffer\_px}, and \texttt  {delta\_T} were varied.}}{29}{table.caption.30}\protected@file@percent }
+\newlabel{tab:held_constant_second_morris}{{3-5}{29}{Parameter values held constant during the second Morris experiment, while \texttt {step\_length}, \texttt {buffer\_px}, and \texttt {delta\_T} were varied}{table.caption.30}{}}
+\@writefile{toc}{\contentsline {subsubsection}{Computing Lumped Statistics for the Selected CWPs}{29}{section*.31}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {3-10}{\ignorespaces Schematic overview of the lumped-statistics computation for one annotated CWP location (Limpbach inflow into the Emme near Utzenstorf BE). For each Morris run, CWP polygons are cropped to the bounding box; if polygons are present, total area and area-weighted mean temperature delta are computed; if the bounding box is empty, both are set to zero.}}{30}{figure.caption.32}\protected@file@percent }
+\newlabel{fig:cwp_lumping_decision}{{3-10}{30}{Schematic overview of the lumped-statistics computation for one annotated CWP location (Limpbach inflow into the Emme near Utzenstorf BE). For each Morris run, CWP polygons are cropped to the bounding box; if polygons are present, total area and area-weighted mean temperature delta are computed; if the bounding box is empty, both are set to zero}{figure.caption.32}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {3-6}{\ignorespaces Excerpt of the lumped statistics table. Each row corresponds to one annotated CWP location under one Morris parameter tuple.}}{30}{table.caption.33}\protected@file@percent }
+\newlabel{tab:lumped_stats_example}{{3-6}{30}{Excerpt of the lumped statistics table. Each row corresponds to one annotated CWP location under one Morris parameter tuple}{table.caption.33}{}}
+\@writefile{toc}{\contentsline {subsubsection}{Computing Morris Sensitivity Indices}{30}{section*.34}\protected@file@percent }
+\citation{tonolla_thermische-kartographie_2026}
 \citation{tonolla_thermische-kartographie_2026}
 \citation{tonolla_thermische-kartographie_2026}
 \citation{tonolla_thermische-kartographie_2026}
 \citation{tonolla_thermische-kartographie_2026}
 \citation{tonolla_thermische-kartographie_2026}
 \citation{casas-mulet_unmanned_2020}
-\@writefile{toc}{\contentsline {subsection}{\numberline {3.4.1}Motivation for Algorithm Modification}{25}{subsection.3.4.1}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {3.4.2}Operationalisation of Surrounding Stream Temperature}{25}{subsection.3.4.2}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {3.4.3}Implementation Detail}{26}{subsection.3.4.3}\protected@file@percent }
-\@writefile{lot}{\contentsline {table}{\numberline {4-7}{\ignorespaces High-level overview of the v3 CWP detection algorithm. Steps 1--5 replace the corresponding steps of Table~\ref {tab:cwp_pseudocode}; steps 6--9 are identical to v2.}}{26}{table.caption.36}\protected@file@percent }
-\newlabel{tab:cwp_pseudocode_v3}{{4-7}{26}{High-level overview of the v3 CWP detection algorithm. Steps 1--5 replace the corresponding steps of Table~\ref {tab:cwp_pseudocode}; steps 6--9 are identical to v2}{table.caption.36}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {3.4.4}Reduction of Parameters}{26}{subsection.3.4.4}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {3.5}Usage of AI}{27}{section.3.5}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{Visualisation and Statistical Modelling}{31}{section*.35}\protected@file@percent }
+\newlabel{sec:morris_viz_model}{{4.3.2}{31}{Visualisation and Statistical Modelling}{section*.35}{}}
+\newlabel{eq:linear_model}{{3-3}{31}{Visualisation and Statistical Modelling}{equation.4.3}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {4.4}Addressing Research Question 3: Algorithm Modification}{31}{section.4.4}\protected@file@percent }
+\newlabel{sec:rq3_methods}{{4.4}{31}{Addressing Research Question 3: Algorithm Modification}{section.4.4}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.4.1}Motivation for Algorithm Modification}{31}{subsection.4.4.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.4.2}Operationalisation of Surrounding Stream Temperature}{32}{subsection.4.4.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.4.3}Implementation Detail}{32}{subsection.4.4.3}\protected@file@percent }
+\@writefile{lot}{\contentsline {table}{\numberline {4-7}{\ignorespaces High-level overview of the v3 CWP detection algorithm. Steps 1--5 replace the corresponding steps of Table~\ref {tab:cwp_pseudocode}; steps 6--8 are identical to v2.}}{33}{table.caption.36}\protected@file@percent }
+\newlabel{tab:cwp_pseudocode_v3}{{4-7}{33}{High-level overview of the v3 CWP detection algorithm. Steps 1--5 replace the corresponding steps of Table~\ref {tab:cwp_pseudocode}; steps 6--8 are identical to v2}{table.caption.36}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.4.4}Reduction of Parameters}{33}{subsection.4.4.4}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {4.5}Usage of AI}{33}{section.4.5}\protected@file@percent }
 \@setckpt{Methods_1}{
-\setcounter{page}{28}
-\setcounter{equation}{2}
+\setcounter{page}{34}
+\setcounter{equation}{3}
 \setcounter{enumi}{0}
 \setcounter{enumii}{0}
 \setcounter{enumiii}{0}
@@ -92,13 +110,13 @@
 \setcounter{footnote}{0}
 \setcounter{mpfootnote}{0}
 \setcounter{part}{0}
-\setcounter{chapter}{3}
+\setcounter{chapter}{4}
 \setcounter{section}{5}
 \setcounter{subsection}{0}
 \setcounter{subsubsection}{0}
 \setcounter{paragraph}{0}
 \setcounter{subparagraph}{0}
-\setcounter{figure}{8}
+\setcounter{figure}{10}
 \setcounter{table}{7}
 \setcounter{tcbbreakpart}{0}
 \setcounter{tcblayer}{0}
@@ -116,6 +134,6 @@
 \setcounter{section@level}{1}
 \setcounter{Item}{0}
 \setcounter{Hfootnote}{0}
-\setcounter{bookmark@seq@number}{21}
+\setcounter{bookmark@seq@number}{25}
 \setcounter{lstlisting}{0}
 }

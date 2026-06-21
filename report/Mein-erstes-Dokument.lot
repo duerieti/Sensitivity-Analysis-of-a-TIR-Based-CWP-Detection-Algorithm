@@ -1,0 +1,16 @@
+\babel@toc {english}{}\relax 
+\addvspace {10\p@ }
+\addvspace {10\p@ }
+\addvspace {10\p@ }
+\addvspace {10\p@ }
+\contentsline {table}{\numberline {1-1}{\ignorespaces Technical specifications of the three TIR orthophotos covering the Emme main channel. All rasters are in the Swiss coordinate reference system CH1903+/LV95 (EPSG:2056) and stored as single-band Float32 GeoTIFF files.}}{18}{table.caption.10}%
+\contentsline {table}{\numberline {2-2}{\ignorespaces High-level overview of the reworked CWP detection algorithm, including the primary tool or function used for each step.}}{20}{table.caption.11}%
+\contentsline {table}{\numberline {2-3}{\ignorespaces Parameter combinations used for the output equivalence comparison between v1 and v2.}}{21}{table.caption.15}%
+\contentsline {table}{\numberline {3-4}{\ignorespaces Parameter values held constant during the first Morris experiment, while step length and buffer pixel count were varied.}}{24}{table.caption.20}%
+\contentsline {table}{\numberline {3-5}{\ignorespaces Parameter values held constant during the second Morris experiment, while \texttt {step\_length}, \texttt {buffer\_px}, and \texttt {delta\_T} were varied.}}{29}{table.caption.30}%
+\contentsline {table}{\numberline {3-6}{\ignorespaces Excerpt of the lumped statistics table. Each row corresponds to one annotated CWP location under one Morris parameter tuple.}}{30}{table.caption.33}%
+\contentsline {table}{\numberline {4-7}{\ignorespaces High-level overview of the v3 CWP detection algorithm. Steps 1--5 replace the corresponding steps of Table~\ref {tab:cwp_pseudocode}; steps 6--8 are identical to v2.}}{33}{table.caption.36}%
+\addvspace {10\p@ }
+\contentsline {table}{\numberline {2-1}{\ignorespaces Regression results for $\mu ^*$ (step length) predicted by mean CWP area and mean $\Delta T$, fitted across all 24 annotated locations.}}{38}{table.caption.42}%
+\addvspace {10\p@ }
+\addvspace {10\p@ }

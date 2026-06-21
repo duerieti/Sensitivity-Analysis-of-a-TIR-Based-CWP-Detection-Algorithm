@@ -14,7 +14,6 @@
    inkscape:export-ydpi="897.61035"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
-   xmlns:xlink="http://www.w3.org/1999/xlink"
    xmlns="http://www.w3.org/2000/svg"
    xmlns:svg="http://www.w3.org/2000/svg">
   <sodipodi:namedview
@@ -28,9 +27,9 @@
      inkscape:deskcolor="#d1d1d1"
      inkscape:document-units="mm"
      showgrid="true"
-     inkscape:zoom="7.9999999"
-     inkscape:cx="333.4375"
-     inkscape:cy="567.06251"
+     inkscape:zoom="2.8284271"
+     inkscape:cx="288.85312"
+     inkscape:cy="522.37514"
      inkscape:window-width="1853"
      inkscape:window-height="1011"
      inkscape:window-x="0"
@@ -101,42 +100,6 @@
          style="fill:context-stroke;fill-rule:evenodd;stroke:none"
          id="path8" />
     </marker>
-    <linearGradient
-       inkscape:collect="always"
-       xlink:href="#swatch2"
-       id="linearGradient2"
-       x1="77.769905"
-       y1="157.77362"
-       x2="78.818198"
-       y2="157.77362"
-       gradientUnits="userSpaceOnUse" />
-    <linearGradient
-       inkscape:collect="always"
-       xlink:href="#swatch3"
-       id="linearGradient3"
-       x1="77.769905"
-       y1="157.77362"
-       x2="78.818198"
-       y2="157.77362"
-       gradientUnits="userSpaceOnUse" />
-    <linearGradient
-       inkscape:collect="always"
-       xlink:href="#swatch3"
-       id="linearGradient4"
-       gradientUnits="userSpaceOnUse"
-       x1="77.769905"
-       y1="157.77362"
-       x2="78.818198"
-       y2="157.77362" />
-    <linearGradient
-       inkscape:collect="always"
-       xlink:href="#swatch2"
-       id="linearGradient5"
-       gradientUnits="userSpaceOnUse"
-       x1="77.769905"
-       y1="157.77362"
-       x2="78.818198"
-       y2="157.77362" />
   </defs>
   <g
      inkscape:label="Layer 1"
@@ -322,23 +285,6 @@
          style="fill:#0d0d0d;fill-opacity:1;stroke-width:0;stroke-dasharray:none"
          x="105.51118"
          y="144.26349" /></text>
-    <g
-       id="layer1-6"
-       transform="matrix(1.7361878,0,0,1.5235326,-25.508683,-102.61437)"
-       style="fill:url(#linearGradient3);stroke:url(#linearGradient2);stroke-opacity:1">
-      <text
-         xml:space="preserve"
-         style="font-size:1.84238px;writing-mode:lr-tb;direction:ltr;fill:url(#linearGradient4);fill-opacity:1;stroke:url(#linearGradient5);stroke-width:0;stroke-dasharray:none;stroke-opacity:1"
-         x="73.907593"
-         y="166.59366"
-         id="text19-0"
-         transform="scale(1.0517343,0.95081048)"><tspan
-           sodipodi:role="line"
-           id="tspan19-6"
-           style="fill:url(#linearGradient4);fill-opacity:1;stroke:url(#linearGradient5);stroke-width:0;stroke-dasharray:none;stroke-opacity:1"
-           x="73.907593"
-           y="166.59366">Δ</tspan></text>
-    </g>
     <text
        xml:space="preserve"
        style="font-size:1.84238px;writing-mode:lr-tb;direction:ltr;fill:#0d0d0d;fill-opacity:1;stroke:#000000;stroke-width:0;stroke-dasharray:none;stroke-opacity:1"

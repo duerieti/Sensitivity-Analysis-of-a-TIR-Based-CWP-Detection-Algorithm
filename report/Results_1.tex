@@ -20,7 +20,7 @@ as segment length decreases (i.e., as the number of segments increases).
 
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=0.8\textwidth]{Bilder/speed_comparison.png}
+	\includegraphics[width=\textwidth]{Bilder/speed_comparison.png}
 	\caption{Execution time of the original (v1) and optimized (v2) 
 		implementations of \texttt{detect\_cwp\_single} as a function of segment 
 		length. The optimized implementation shows execution times that are both 
@@ -32,49 +32,47 @@ as segment length decreases (i.e., as the number of segments increases).
 
 \subsection{Output Equivalence}
 
-The three comparison runs achieved outputs that are in general agreement with 
-respect to CWP location and shape, but are not identical at the pixel level. 
-The Jaccard similarities for the three runs are 0.936, 0.956, and 0.976, 
-indicating generally good agreement between v1 and v2. In all figures, v2 
-polygons are shown in red and v1 polygons in blue, overlaid at 50\% 
-transparency; areas of perfect agreement therefore appear as a blend of 
-both colours.
-
-Figure~\ref{fig:v1v2_comparison} illustrates the range of agreement observed 
-across the three trial runs. Panel (a) shows a representative example of the 
-general agreement between v1 and v2 for trial run 3: the two algorithms detect 
-the same CWPs at the same locations, with discrepancies confined to a small 
-number of boundary pixels. Panel (b) shows a more pronounced example of 
-pixel-level disagreement from trial run 1, where the boundary mismatch between 
-the two polygon sets is more visible. Panel (c) shows an example of complete 
-spatial agreement from trial run 2, where the v1 and v2 polygons are 
+The three comparison runs achieved Jaccard similarities of 0.936, 0.956, 
+and 0.976, indicating generally good spatial agreement between v1 and v2. 
+In all panels, v2 polygons are shown in red and v1 polygons in blue, 
+overlaid at 50\% transparency. Figure~\ref{fig:v1v2_comparison} illustrates the range of agreement 
+observed. Panel (a) shows a representative example of general agreement, 
+with discrepancies confined to a small number of boundary pixels. Panel (b) 
+shows a more pronounced boundary mismatch. Panel (c) shows an example of 
+complete spatial agreement, where the two polygon sets are visually 
 indistinguishable.
+
 
 \begin{figure}[H]
 	\centering
-	\begin{subfigure}[t]{0.32\textwidth}
+	\begin{subfigure}[t]{\textwidth}
 		\centering
-		\includegraphics[width=\textwidth]{Bilder/param_combi_3_general_agreement.png}
-		\caption{General agreement, trial run 3 ($J = 0.976$). Discrepancies 
+		\includegraphics[width=\textwidth]{Bilder/v1_v2_pixel_level_disagreement.png}
+		\caption{General agreement. Discrepancies 
 			are confined to patch boundaries.}
 		\label{fig:v1v2_general}
 	\end{subfigure}
-	\hfill
-	\begin{subfigure}[t]{0.32\textwidth}
+	
+	\vspace{0.5cm}
+	
+	\begin{subfigure}[t]{\textwidth}
 		\centering
-		\includegraphics[width=\textwidth]{Bilder/trial_run_1_more_pronounced_dis.png}
-		\caption{More pronounced disagreement, trial run 1 ($J = 0.936$). 
+		\includegraphics[width=\textwidth]{Bilder/v1_v2_more_pronounced_dissagreement.png}
+		\caption{More pronounced disagreement. 
 			Boundary mismatches between v1 and v2 are more evident.}
 		\label{fig:v1v2_disagreement}
 	\end{subfigure}
-	\hfill
-	\begin{subfigure}[t]{0.32\textwidth}
+	
+	\vspace{0.5cm}
+	
+	\begin{subfigure}[t] {\textwidth}
 		\centering
-		\includegraphics[width=\textwidth]{Bilder/trial_run_perfect_agreement.png}
-		\caption{Complete agreement, trial run 2 ($J = 0.956$). v1 and v2 
+		\includegraphics[width=\textwidth]{Bilder/v1_v2_complete_agreement.png}
+		\caption{Complete agreement. v1 and v2 
 			polygons are spatially indistinguishable.}
 		\label{fig:v1v2_perfect}
 	\end{subfigure}
+	
 	\caption{Comparison of CWP polygon outputs between v1 (blue) and v2 (red) 
 		across the three validation runs. Polygons are overlaid at 50\% transparency; 
 		areas of agreement appear as a blend of both colours, while areas covered 
@@ -130,7 +128,7 @@ across the set of annotated locations.
 
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=\textwidth]{Bilder/mu_star_res.png}
+	\includegraphics[width=\textwidth]{Bilder/mustar_sig_over_all.png}
 	\caption{Overall $\mu^*$ sensitivity indices for \texttt{buffer\_px}, 
 		\texttt{delta\_T}, and \texttt{step\_length} across all classified cold 
 		water patches ($N = 24$ locations, $r = 64$ trajectories).}
@@ -143,20 +141,18 @@ Figure~\ref{fig:mu_star_vs_area} shows the 24 selected CWP along three
 dimensions simultaneously: mean CWP area averaged across all Morris runs 
 (x-axis), $\mu^*$ with respect to the step length parameter (y-axis), mean 
 temperature delta to the surrounding environment averaged across all Morris 
-runs (color), and CWP class (shape). The data suggest a positive relationship 
+runs (color), and CWP class (shape).The data suggest a positive relationship 
 between mean CWP area and sensitivity to the step length parameter: locations 
-with larger mean CWP area tend to show higher $\mu^*$ values. This pattern 
-appears across both classes. No clear relationship between mean temperature 
-delta and $\mu^*$ is visible from the coloring.
+with larger mean CWP 
+area tend to show higher $\mu^*$ values. No clear relationship between 
+mean temperature delta and $\mu^*$ is visible from the colouring.
 
-Table~\ref{tab:regression_mustar} shows the results of the linear model fitted 
-to predict $\mu^*$ (step length) from mean CWP area and mean temperature delta. 
+Table~\ref{tab:regression_mustar} shows the results of the linear model. 
 The mean area predictor is highly significant ($p < 0.001$) with a positive 
 slope, consistent with the visual pattern in Figure~\ref{fig:mu_star_vs_area}. 
-The mean temperature delta predictor is not significant ($p = 0.556$), indicating 
-no detectable linear relationship between temperature delta and sensitivity to 
-the step length parameter after accounting for area. The model explains a 
-substantial proportion of variance ($R^2 = 0.611$, Adjusted $R^2 = 0.572$).
+The mean temperature delta predictor is not significant ($p = 0.556$). 
+The model explains a substantial proportion of variance ($R^2 = 0.611$, 
+Adjusted $R^2 = 0.572$).
 
 \begin{figure}[ht]
 	\centering
@@ -226,7 +222,7 @@ to be read directly from the overlap pattern.
 
 \begin{figure}[H]
 	\centering
-	\begin{subfigure}[t]{0.32\textwidth}
+	\begin{subfigure}[t]{\textwidth}
 		\centering
 		\includegraphics[width=\textwidth]{Bilder/v3_trunctuation_fix.png}
 		\caption{Slab-boundary truncation eliminated. The v1 polygon ends 
@@ -234,23 +230,28 @@ to be read directly from the overlap pattern.
 			beyond it.}
 		\label{fig:v3_truncation}
 	\end{subfigure}
-	\hfill
-	\begin{subfigure}[t]{0.32\textwidth}
+	
+	\vspace{0.5cm}
+	
+	\begin{subfigure}[t]{\textwidth}
 		\centering
-		\includegraphics[width=\textwidth]{Bilder/v3_fix_cutoff_2.png}
+		\includegraphics[width=\textwidth]{Bilder/v3_fix_cutoff.png}
 		\caption{Merger of previously severed fragments. Two separate v1 
 			polygons are detected as a single contiguous patch in v3.}
 		\label{fig:v3_merger}
 	\end{subfigure}
-	\hfill
-	\begin{subfigure}[t]{0.32\textwidth}
+	
+	\vspace{0.5cm}
+	
+	\begin{subfigure}[t]{\textwidth}
 		\centering
-		\includegraphics[width=\textwidth]{Bilder/large_cwp_only_in_v3.png}
+		\includegraphics[width=\textwidth]{Bilder/v3_new_CWP.png}
 		\caption{New detection in v3. A CWP absent in v1 is detected by v3, 
 			consistent with the hypothesis that it was split into sub-threshold 
 			fragments by a slab boundary in v1.}
 		\label{fig:v3_new}
 	\end{subfigure}
+	
 	\caption{Qualitative comparison of CWP detections between v1 and v3 at 
 		three example locations. In each panel, v1 polygons and v3 polygons are 
 		overlaid at 50\% transparency; areas covered by both algorithms appear as 

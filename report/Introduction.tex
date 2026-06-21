@@ -13,26 +13,38 @@ presence, scale, and location of such cold-water patches in Swiss water bodies
 \citep{tonolla_thermische-kartographie_2026, tonolla_thermoscanning_2021}.
 
 As part of a cantonal project aiming to quantify the temperature heterogeneity 
-and detect cold-water patches in the Emme River and its tributaries, TIR imagery 
-covering over a 100 km river transect were collected in a helicopter-based survey. 
-These TIR images were then processed to extract longitudinal and transversal 
-temperature gradients, as well as to detect cold-water spots. Here, 
-a newly developed algorithm for the automatic detection of cold-water patches is 
-deployed with the goal of mapping these patches. Detailed information regarding 
-the whole workflow can be found in 
-\citep{tonolla_thermische-kartographie_2026, tonolla_thermoscanning_2021}.
+and detect cold-water patches in the Emme River and its tributaries, a 
+helicopter-based survey was previously conducted to collect TIR imagery covering 
+over a 100 km river transect. These TIR images were processed using a newly 
+developed algorithm for the automatic detection of cold-water patches, extracting 
+longitudinal and transversal temperature gradients alongside the detected 
+cold-water spots. Detailed information regarding the full workflow can be found 
+in \citep{tonolla_thermische-kartographie_2026, tonolla_thermoscanning_2021}; the 
+present thesis builds directly on this existing algorithm and the resulting 
+dataset.
 
 The CWP detection algorithm relies on externally configured parameters, and 
 sensitivity analyses performed in \citep{tonolla_thermische-kartographie_2026} 
 indicate that the detection results can vary significantly based on the chosen 
-parameter values, with the step length and the temperature delta parameters having 
-a particularly strong influence. A systematic and more extensive sensitivity 
-analysis of the algorithm is therefore needed to better characterise this variance 
-and to inform potential algorithmic improvements. Performing such an analysis 
-requires executing the algorithm across a large number of parameter combinations. The existing algorithm was found to require 
-between 1.25 and 2 hours per run on the available hardware, rendering a full 
-sensitivity analysis infeasible without a faster implementation. A speed-optimized 
-reimplementation is therefore a prerequisite for the sensitivity analysis itself.
+parameter values, with the step length and the temperature delta parameters 
+having a particularly strong influence. The algorithm divides the river reach 
+into fixed-length segments and computes a separate local reference temperature 
+for each segment; visual inspection of existing detection results revealed that 
+this can produce abrupt cut-off artefacts, where a cold-water patch spanning two 
+adjacent segments is compared against two different reference temperatures and 
+truncated at the segment boundary, even though the underlying thermal anomaly 
+continues beyond it. Because cold-water tributaries tend to produce elongated 
+thermal anomalies extending substantially along the river channel, such patches 
+are disproportionately likely to span a segment boundary, suggesting that step 
+length sensitivity may be elevated specifically for tributary-caused CWPs. A 
+systematic and more extensive sensitivity analysis of the algorithm is therefore 
+needed to test this assumption, to better characterise the resulting variance 
+more broadly, and to inform potential algorithmic improvements. Performing such 
+an analysis requires executing the algorithm across a large number of parameter 
+combinations. The existing algorithm was found to require between 1.25 and 2 
+hours per run on the available hardware, rendering a full sensitivity analysis 
+infeasible without a faster implementation. A speed-optimized reimplementation is 
+therefore a prerequisite for the sensitivity analysis itself.
 
 
 \section*{Research Questions}
@@ -46,23 +58,13 @@ sensitivity; and third, to derive adjustments to the detection algorithm that co
 reduce this parameter sensitivity while maintaining ecologically plausible detection 
 results. These objectives are formalised in the following three research questions:
 
-% the research question and the operationalisation are kind of out of sinc a bit
-% => I got to address this in the Limitations.
-
 \begin{description}
 	\item[Research question 1] Can the existing CWP detection algorithm be 
 	reimplemented in a computationally more efficient form, while producing 
 	outputs that are equivalent to those of the original implementation?
 	\item[Research question 2] How does the step length parameter contribute 
 	to the variance of the detected CWP area for tributary-caused CWPs, 
-	compared to non-tributary-caused CWPs? The algorithm defines a CWP by 
-	comparing individual pixel temperatures against a local median reference 
-	temperature calculated over a defined segment whose length is governed by 
-	the step length parameter. Cold-water tributaries introduce sharp 
-	longitudinal temperature gradients which can skew this calculation if the 
-	step size is chosen sub-optimally. It is therefore hypothesised that 
-	step length sensitivity is elevated near tributary inflows, giving rise to 
-	the following hypotheses:
+	compared to non-tributary-caused CWPs?
 	\item[$H_0$] The sensitivity of the detected CWP area to the step length 
 	parameter does not differ between tributary-caused and non-tributary-caused 
 	CWPs.

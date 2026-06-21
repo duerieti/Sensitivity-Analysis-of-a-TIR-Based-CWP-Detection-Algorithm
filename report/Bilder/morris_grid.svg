@@ -29,7 +29,7 @@
      inkscape:document-units="mm"
      showgrid="true"
      inkscape:zoom="4.5792179"
-     inkscape:cx="308.02203"
+     inkscape:cx="307.91284"
      inkscape:cy="756.13349"
      inkscape:window-width="1853"
      inkscape:window-height="1011"
@@ -279,18 +279,6 @@
          y="224.96547">7</tspan></text>
     <text
        xml:space="preserve"
-       style="font-size:2.33833px;writing-mode:lr-tb;direction:ltr;fill:#eb4141;fill-opacity:1;stroke-width:0.19486"
-       x="87.201332"
-       y="245.02502"
-       id="text17-2"
-       transform="scale(1.2057846,0.82933552)"><tspan
-         sodipodi:role="line"
-         id="tspan17-7"
-         style="fill:#eb4141;fill-opacity:1;stroke-width:0.19486"
-         x="87.201332"
-         y="245.02502">Δ</tspan></text>
-    <text
-       xml:space="preserve"
        style="font-size:1.35368px;writing-mode:lr-tb;direction:ltr;fill:#000000;fill-opacity:1;stroke-width:0.112807"
        x="69.478615"
        y="217.29623"
@@ -376,15 +364,15 @@
     <text
        xml:space="preserve"
        style="font-size:1.42525px;writing-mode:lr-tb;direction:ltr;fill:#121212;fill-opacity:1;stroke-width:0.118771"
-       x="83.661324"
-       y="208.70547"
+       x="82.058968"
+       y="208.59297"
        id="text23"
        transform="scale(0.97358869,1.0271278)"><tspan
          sodipodi:role="line"
          id="tspan23"
          style="fill:#121212;fill-opacity:1;stroke-width:0.118771"
-         x="83.661324"
-         y="208.70547">Buffer Pixel Count</tspan></text>
+         x="82.058968"
+         y="208.59297">Buffer Pixel Count</tspan></text>
     <text
        xml:space="preserve"
        style="font-size:1.42525px;writing-mode:lr-tb;direction:ltr;fill:#121212;fill-opacity:1;stroke-width:0.118771"

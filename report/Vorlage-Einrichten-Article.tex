@@ -13,87 +13,70 @@
 % =====================================================================================
 \usepackage{tcolorbox}
 \usepackage{alltt}
-\usepackage[english]{babel}				% Deutsche Sprachpaket
-\usepackage[T1]{fontenc}				% Kodierung dt. Schriften
-\usepackage[utf8]{inputenc}				% Kodierung Zeicheneinlesung
+\usepackage[english]{babel}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
 \usepackage{lmodern}
-
 % Pakete für Mathe und Formeln
 \usepackage{amsmath}
 \usepackage{amsfonts}
 \usepackage{amssymb}
 % \usepackage{siunitx}
-
 % Pakete Grafiken
-\usepackage{graphicx}					% Grafiken und Abbildungen allgemein
-\usepackage{float}						% Bilder im Fliesstext
-\usepackage{subcaption}					% Subfigures für Bildgitter
-
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage{subcaption}
 % Pakete für besondere Schriften
-\usepackage{listings}					% Programmier-Code in Text
-
+\usepackage{listings}
 % Pakete für Tabellen
-\usepackage{longtable}					% Tabellen über mehrere Seiten
-\usepackage{tabularx}					% Tabellen mit fixer Breite der Spalten
-\usepackage{tabulary}					% Tabellen mit sich anpassenden Spalten über mehrere Zeilen
-\usepackage{booktabs}					% schöne Linien in Tabellen (z.B. Toprule)
-\usepackage{multirow}					% Multirow cells in tables
-
+\usepackage{longtable}
+\usepackage{tabularx}
+\usepackage{tabulary}
+\usepackage{booktabs}
+\usepackage{multirow}
 % Anpassung von Aufzählungen
-\usepackage{paralist}					% kompakte Listen	
-\usepackage[inline]{enumitem}			% Beeinflussung Abstand in Aufzählungen
-%\setlist{noitemsep}					% kein Abstand in Aufzählungen
-%\setlist{itemsep=.1em}
-%\renewcommand{\labelitemi}{-}			% Bullets in Bindestriche umwandeln
-
-
+\usepackage{paralist}
+\usepackage[inline]{enumitem}
 % Literatur (Bibliography)
 \usepackage[authoryear,round,sort&compress]{natbib}
-\renewcommand{\bibsection}{\section{Quellenverzeichnis}}	% trägt Verzeichnis in Inhaltsverzeichnis ein
-
+\renewcommand{\bibsection}{\section{References}}
 % ==> am Ende des Dokumentes ergänzen
 % \bibliographystyle{abbrvnat}
-% \bibliography{Literatur}					% Name der Bibtex-Datei
+% \bibliography{Literatur}
 %
 % Achtung: es dürfen keine Doppelpunkte im Bibtex-File sein
-% - ggf. eine Arbeitsdatei als *.bib machen, und neue Quellen in Literatur.bib kopiern
-
 % Anpassungen Textsatz
-\parindent0pt							% kein Einzug bei neuen Absatzbeginn
-\renewcommand{\baselinestretch}{1.05}	% Zeilenabstand (1.05 = 105%)
-\setlength{\parskip}{6pt}				% Absatzabstand
-
-
+\parindent0pt
+\renewcommand{\baselinestretch}{1.05}
+\setlength{\parskip}{6pt}
 % Anpassung der Nummerierung von Abbildungen
-\usepackage[font=small,labelfont=bf,format=hang]{caption}	% Beschriftungen
-\captionsetup[table]{name=Tab.}								% Tab. statt Tabelle
-\captionsetup[figure]{name=Abb.}							% Abb. statt Abb.
-
-\renewcommand{\figurename}{\footnotesize Abb.}
+\usepackage[font=small,labelfont=bf,format=hang]{caption}
+\captionsetup[table]{name=Tab.}
+\captionsetup[figure]{name=Fig.}
+\renewcommand{\figurename}{\footnotesize Fig.}
 \renewcommand{\tablename}{\footnotesize Tab.}
-\renewcommand{\contentsname}{Inhalt}
-
-\renewcommand{\thefigure}{\arabic{section}-\arabic{figure}}		% inkl. Section-Nr. (z.B. Abb. 1-1)
-\renewcommand{\thetable}{\arabic{section}-\arabic{table}}		% dito
-\renewcommand{\theequation}{\arabic{section}-\arabic{equation}} % dito
-
+\renewcommand{\contentsname}{Contents}
+\renewcommand{\listfigurename}{List of Figures}
+\renewcommand{\listtablename}{List of Tables}
+\renewcommand{\chaptername}{Chapter}
+\renewcommand{\appendixname}{Appendix}
+\renewcommand{\thefigure}{\arabic{section}-\arabic{figure}}
+\renewcommand{\thetable}{\arabic{section}-\arabic{table}}
+\renewcommand{\theequation}{\arabic{section}-\arabic{equation}}
 % Anpassung des Seitenlayout
 \usepackage[left=3cm,right=3cm,top=2.5cm,bottom=2.5cm]{geometry}
-
 % Einrichten von Kopf- und Fusszeile
 \usepackage{fancyhdr}
 \pagestyle{fancy}
-\fancyhf{}								% leert erstmal alles (zurücksetzen)
-\cfoot{\thepage}						% Fusszeile (zentrum)
-\lhead{Sensitivity Analysis of CWP}		% Linker Kopf
-\rhead{Etienne Dürig AD 23}							% Rechter Kopf
-
+\fancyhf{}
+\cfoot{\thepage}
+\lhead{Sensitivity Analysis of CWP}
+\rhead{Etienne Dürig AD 23}
 % Anpassen von Hyperlinks
-% Achtung: sollte immer hier zum Schluss kommen, damit Hyperref ordentlich funktioniert
 \usepackage{hyperref}
 \hypersetup{%
-	colorlinks=true,		% Link farbig?
-	citecolor=blue,			% Veweis auf Quellen farbig?
-	linkcolor=blue,			% Farbe der Links
-	urlcolor=blue,			% Farbe von URL-Adressen
-	anchorcolor=blue}		% Farbe von Ankerlinks
+	colorlinks=true,
+	citecolor=blue,
+	linkcolor=blue,
+	urlcolor=blue,
+	anchorcolor=blue}

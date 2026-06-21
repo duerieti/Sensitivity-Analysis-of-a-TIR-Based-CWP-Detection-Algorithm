@@ -1,61 +1,61 @@
 \babel@toc {english}{}\relax 
-\contentsline {chapter}{\numberline {1}Introduction}{4}{chapter.1}%
-\contentsline {chapter}{\numberline {2}Theoretical Background}{6}{chapter.2}%
-\contentsline {section}{\numberline {2.1}Model Input Sensitivity Analysis}{6}{section.2.1}%
-\contentsline {section}{\numberline {2.2}Sensitivity Analysis}{6}{section.2.2}%
-\contentsline {subsection}{\numberline {2.2.1}The Morris Method}{6}{subsection.2.2.1}%
-\contentsline {subsubsection}{Elementary Effects and the Sampling Grid}{7}{section*.3}%
-\contentsline {subsubsection}{Trajectory-Based Sampling}{8}{section*.5}%
-\contentsline {subsubsection}{Choosing $\Delta $ and $r$}{9}{section*.7}%
-\contentsline {subsubsection}{Sensitivity Measures: $\mu $, $\sigma $, and $\mu ^*$}{9}{section*.8}%
-\contentsline {subsection}{\numberline {2.2.2}Application to Spatial Models}{11}{subsection.2.2.2}%
-\contentsline {section}{\numberline {2.3}Coldwater Patches}{11}{section.2.3}%
-\contentsline {chapter}{\numberline {3}Methods}{12}{chapter.3}%
-\contentsline {section}{\numberline {3.1}Data and Study Area}{12}{section.3.1}%
-\contentsline {section}{\numberline {3.2}Addressing Research Question 1: Algorithm Reimplementation}{13}{section.3.2}%
-\contentsline {subsection}{\numberline {3.2.1}Reimplementation of the CWP Algorithm based on GDAL and System Calls}{13}{subsection.3.2.1}%
-\contentsline {paragraph}{Performance.}{14}{section*.13}%
-\contentsline {paragraph}{Memory footprint and HPC suitability.}{14}{section*.14}%
-\contentsline {paragraph}{Raster value extraction.}{15}{section*.15}%
-\contentsline {subsection}{\numberline {3.2.2}Output Equivalence and Runtime Comparison}{15}{subsection.3.2.2}%
-\contentsline {section}{\numberline {3.3}Addressing Research Question 2: Sensitivity Analysis}{15}{section.3.3}%
-\contentsline {subsection}{\numberline {3.3.1}Determining and Classifying Step Length Sensitive CWP}{16}{subsection.3.3.1}%
-\contentsline {subsubsection}{Setting up First Morris Experiment}{16}{section*.18}%
-\contentsline {subsubsection}{Model Evaluation along Parameter Combinations}{17}{section*.20}%
-\contentsline {subsubsection}{Creation of a Fuzzy Overlay of CWP}{18}{section*.23}%
-\contentsline {subsubsection}{Selection and Classification of CWP}{19}{section*.25}%
-\contentsline {subsection}{\numberline {3.3.2}Computing Morris Sensitivity Indices with respect to CWP Area}{20}{subsection.3.3.2}%
-\contentsline {subsubsection}{Setting up Second Sampling Grid and Executing Algorithm}{21}{section*.28}%
-\contentsline {subsubsection}{Computing Lumped Statistics for the Selected CWPs}{22}{section*.31}%
-\contentsline {subsubsection}{Computing Morris Sensitivity Indices}{23}{section*.34}%
-\contentsline {subsubsection}{Visualisation and Statistical Modelling}{24}{section*.35}%
-\contentsline {section}{\numberline {3.4}Addressing Research Question 3: Algorithm Modification}{24}{section.3.4}%
-\contentsline {subsection}{\numberline {3.4.1}Motivation for Algorithm Modification}{25}{subsection.3.4.1}%
-\contentsline {subsection}{\numberline {3.4.2}Operationalisation of Surrounding Stream Temperature}{25}{subsection.3.4.2}%
-\contentsline {subsection}{\numberline {3.4.3}Implementation Detail}{26}{subsection.3.4.3}%
-\contentsline {subsection}{\numberline {3.4.4}Reduction of Parameters}{26}{subsection.3.4.4}%
-\contentsline {section}{\numberline {3.5}Usage of AI}{27}{section.3.5}%
-\contentsline {chapter}{\numberline {4}Results}{28}{chapter.4}%
-\contentsline {section}{\numberline {4.1}Research Question 1: Algorithm Reimplementation}{28}{section.4.1}%
-\contentsline {subsection}{\numberline {4.1.1}Runtime Comparison}{28}{subsection.4.1.1}%
-\contentsline {subsection}{\numberline {4.1.2}Output Equivalence}{29}{subsection.4.1.2}%
-\contentsline {section}{\numberline {4.2}Research Question 2: Sensitivity Analysis}{30}{section.4.2}%
-\contentsline {subsection}{\numberline {4.2.1}Sensitivity of CWP Area to Step Length}{30}{subsection.4.2.1}%
-\contentsline {subsection}{\numberline {4.2.2}Overall Sensitivity across all Parameters}{31}{subsection.4.2.2}%
-\contentsline {subsection}{\numberline {4.2.3}Relationship between CWP Area and Step Length Sensitivity}{32}{subsection.4.2.3}%
-\contentsline {section}{\numberline {4.3}Research Question 3: Algorithm Modification}{33}{section.4.3}%
-\contentsline {subsection}{\numberline {4.3.1}Output Comparison of v3 against v1}{33}{subsection.4.3.1}%
-\contentsline {chapter}{\numberline {5}Discussion}{35}{chapter.5}%
-\contentsline {section}{\numberline {5.1}Research Question 1: Algorithm Reimplementation}{35}{section.5.1}%
-\contentsline {subsection}{\numberline {5.1.1}Difference in CWP Polygons between v1 and v2}{35}{subsection.5.1.1}%
-\contentsline {subsection}{\numberline {5.1.2}Speed Comparison}{36}{subsection.5.1.2}%
+\contentsline {chapter}{\numberline {1}Introduction}{8}{chapter.1}%
+\contentsline {chapter}{\numberline {2}Theoretical Background}{10}{chapter.2}%
+\contentsline {section}{\numberline {2.1}Sensitivity Analysis}{10}{section.2.1}%
+\contentsline {section}{\numberline {2.2}The Morris Method}{10}{section.2.2}%
+\contentsline {subsection}{\numberline {2.2.1}Elementary Effects and the Sampling Grid}{11}{subsection.2.2.1}%
+\contentsline {subsection}{\numberline {2.2.2}Trajectory-Based Sampling}{11}{subsection.2.2.2}%
+\contentsline {subsection}{\numberline {2.2.3}Choosing $\Delta $ and $r$}{12}{subsection.2.2.3}%
+\contentsline {subsection}{\numberline {2.2.4}Sensitivity Measures: $\mu $, $\sigma $, and $\mu ^*$}{13}{subsection.2.2.4}%
+\contentsline {section}{\numberline {2.3}Application to Spatial Models}{14}{section.2.3}%
+\contentsline {section}{\numberline {2.4}Coldwater Patches}{14}{section.2.4}%
+\contentsline {chapter}{\numberline {3}Methods}{16}{chapter.3}%
+\contentsline {chapter}{\numberline {4}Methods}{17}{chapter.4}%
+\contentsline {section}{\numberline {4.1}Data and Study Area}{17}{section.4.1}%
+\contentsline {section}{\numberline {4.2}Addressing Research Question 1: Algorithm Reimplementation}{18}{section.4.2}%
+\contentsline {subsection}{\numberline {4.2.1}Reimplementation of the CWP Algorithm based on GDAL and System Calls}{19}{subsection.4.2.1}%
+\contentsline {paragraph}{Performance.}{20}{section*.12}%
+\contentsline {paragraph}{Memory footprint and HPC suitability.}{20}{section*.13}%
+\contentsline {paragraph}{Raster value extraction.}{21}{section*.14}%
+\contentsline {subsection}{\numberline {4.2.2}Output Equivalence and Runtime Comparison}{21}{subsection.4.2.2}%
+\contentsline {section}{\numberline {4.3}Addressing Research Question 2: Sensitivity Analysis}{21}{section.4.3}%
+\contentsline {subsection}{\numberline {4.3.1}Determining and Classifying Step Length Sensitive CWP}{22}{subsection.4.3.1}%
+\contentsline {subsubsection}{Setting up First Morris Experiment}{22}{section*.17}%
+\contentsline {subsubsection}{Model Evaluation along Parameter Combinations}{23}{section*.19}%
+\contentsline {subsubsection}{Creation of a Fuzzy Overlay of CWP}{24}{section*.22}%
+\contentsline {subsubsection}{Selection and Classification of CWP}{25}{section*.24}%
+\contentsline {subsection}{\numberline {4.3.2}Computing Morris Sensitivity Indices with respect to CWP Area}{27}{subsection.4.3.2}%
+\contentsline {subsubsection}{Setting up Second Sampling Grid and Executing Algorithm}{28}{section*.28}%
+\contentsline {subsubsection}{Computing Lumped Statistics for the Selected CWPs}{29}{section*.31}%
+\contentsline {subsubsection}{Computing Morris Sensitivity Indices}{30}{section*.34}%
+\contentsline {subsubsection}{Visualisation and Statistical Modelling}{31}{section*.35}%
+\contentsline {section}{\numberline {4.4}Addressing Research Question 3: Algorithm Modification}{31}{section.4.4}%
+\contentsline {subsection}{\numberline {4.4.1}Motivation for Algorithm Modification}{31}{subsection.4.4.1}%
+\contentsline {subsection}{\numberline {4.4.2}Operationalisation of Surrounding Stream Temperature}{32}{subsection.4.4.2}%
+\contentsline {subsection}{\numberline {4.4.3}Implementation Detail}{32}{subsection.4.4.3}%
+\contentsline {subsection}{\numberline {4.4.4}Reduction of Parameters}{33}{subsection.4.4.4}%
+\contentsline {section}{\numberline {4.5}Usage of AI}{33}{section.4.5}%
+\contentsline {chapter}{\numberline {5}Results}{34}{chapter.5}%
+\contentsline {section}{\numberline {5.1}Research Question 1: Algorithm Reimplementation}{34}{section.5.1}%
+\contentsline {subsection}{\numberline {5.1.1}Runtime Comparison}{34}{subsection.5.1.1}%
+\contentsline {subsection}{\numberline {5.1.2}Output Equivalence}{35}{subsection.5.1.2}%
 \contentsline {section}{\numberline {5.2}Research Question 2: Sensitivity Analysis}{36}{section.5.2}%
-\contentsline {subsection}{\numberline {5.2.1}Answering Research Question 2}{36}{subsection.5.2.1}%
-\contentsline {subsection}{\numberline {5.2.2}Overall Sensitivity across all Parameters}{38}{subsection.5.2.2}%
+\contentsline {subsection}{\numberline {5.2.1}Sensitivity of CWP Area to Step Length}{37}{subsection.5.2.1}%
+\contentsline {subsection}{\numberline {5.2.2}Overall Sensitivity across all Parameters}{37}{subsection.5.2.2}%
+\contentsline {subsection}{\numberline {5.2.3}Relationship between CWP Area and Step Length Sensitivity}{38}{subsection.5.2.3}%
 \contentsline {section}{\numberline {5.3}Research Question 3: Algorithm Modification}{39}{section.5.3}%
-\contentsline {section}{\numberline {5.4}Future improvements}{39}{section.5.4}%
-\contentsline {subsection}{\numberline {5.4.1}Subjective Selection and Classification of CWP}{39}{subsection.5.4.1}%
-\contentsline {subsection}{\numberline {5.4.2}Sample Size}{40}{subsection.5.4.2}%
-\contentsline {subsection}{\numberline {5.4.3}Hidden Parameter in v3}{40}{subsection.5.4.3}%
-\contentsline {chapter}{\numberline {6}Appendix}{41}{chapter.6}%
-\contentsline {section}{\numberline {6.1}Quellenverzeichnis}{41}{section.6.1}%
+\contentsline {subsection}{\numberline {5.3.1}Output Comparison of v3 against v1}{39}{subsection.5.3.1}%
+\contentsline {chapter}{\numberline {6}Discussion}{42}{chapter.6}%
+\contentsline {section}{\numberline {6.1}Research Question 1: Algorithm Reimplementation}{42}{section.6.1}%
+\contentsline {subsection}{\numberline {6.1.1}Difference in CWP Polygons between v1 and v2}{42}{subsection.6.1.1}%
+\contentsline {subsection}{\numberline {6.1.2}Speed Comparison}{42}{subsection.6.1.2}%
+\contentsline {section}{\numberline {6.2}Research Question 2: Sensitivity Analysis}{43}{section.6.2}%
+\contentsline {subsection}{\numberline {6.2.1}Answering Research Question 2}{43}{subsection.6.2.1}%
+\contentsline {subsection}{\numberline {6.2.2}Overall Sensitivity across all Parameters}{44}{subsection.6.2.2}%
+\contentsline {section}{\numberline {6.3}Research Question 3: Algorithm Modification}{45}{section.6.3}%
+\contentsline {section}{\numberline {6.4}Future Improvements}{45}{section.6.4}%
+\contentsline {subsection}{\numberline {6.4.1}Subjective Selection and Classification of CWP}{45}{subsection.6.4.1}%
+\contentsline {subsection}{\numberline {6.4.2}Sample Size}{46}{subsection.6.4.2}%
+\contentsline {subsection}{\numberline {6.4.3}Hidden Parameter in v3}{46}{subsection.6.4.3}%
+\contentsline {section}{\numberline {6.5}References}{47}{section.6.5}%
+\contentsline {chapter}{\numberline {7}Appendix}{49}{chapter.7}%
