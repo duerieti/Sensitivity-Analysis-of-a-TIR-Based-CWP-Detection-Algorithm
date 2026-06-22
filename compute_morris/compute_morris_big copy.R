@@ -103,7 +103,7 @@ results %>% colnames()
 
 # ── 3. PLOT SENSITIVITY INDICES ───────────────────────────────────────────────
 
-if (FALSE) {
+if (TRUE) {
 
 # Visualise the normalised sensitivity indices stratified by CWP class
 # (Tributary / Non-Tributary). Each point is one annotated CWP location.
@@ -259,3 +259,27 @@ lm_summary_2 <- summary(lm_fit_2)
 lm_summary_2
 
 } # end if (FALSE)
+
+
+
+
+results %>% colnames()
+
+
+mu_star_sig_of_all_plot <- results %>%
+  pivot_longer(cols = mu:sigma, names_to = "score", values_to = "score_value") %>%
+  filter(score != "mu") %>%
+  ggplot(aes(x = parameter, y = score_value, fill = score)) + 
+  geom_boxplot(outlier.shape = NA) +
+  geom_point(position = position_jitterdodge(jitter.width = 0.2, dodge.width = 0.75),
+             alpha = 0.5, size = 1) +
+  ylab("Index value") +
+  xlab("Algorithm Parameters") +
+  scale_x_discrete(limits = c("buffer_px", "slab_halfwidth_m", "delta_T"),
+                    labels = c("Buffer Pixel Count", "Step Length", "Temperature Delta")) +
+  scale_fill_discrete(name = "Morris Indices",
+                       labels = c(expression(mu^"*"), expression(sigma)))
+
+
+ggsave("./report/Bilder/mustar_sig_over_all.png",mu_star_sig_of_all_plot ,
+       width = 6, height = 4, units = "in", dpi = 300)
