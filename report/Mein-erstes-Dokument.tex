@@ -41,7 +41,6 @@
 	\label{fig:cwp_locations_emme}
 \end{figure}
 
-
 \begin{figure}[p]
 	\centering
 	\vspace{0.5em}
@@ -88,7 +87,7 @@
 	\begin{subfigure}[t]{0.28\textwidth}
 		\centering
 		\includegraphics[width=\linewidth, height=1.8cm, keepaspectratio]{Bilder/cwp_images/7.png}
-		\caption*{7 -- Non Tributary-Caused}
+		\caption*{7 -- Tributary-Caused}
 	\end{subfigure}
 	\begin{subfigure}[t]{0.28\textwidth}
 		\centering
@@ -107,12 +106,12 @@
 	\begin{subfigure}[t]{0.28\textwidth}
 		\centering
 		\includegraphics[width=\linewidth, height=1.8cm, keepaspectratio]{Bilder/cwp_images/10.png}
-		\caption*{10 -- Tributary-Caused}
+		\caption*{10 -- Non Tributary-Caused}
 	\end{subfigure}
 	\begin{subfigure}[t]{0.28\textwidth}
 		\centering
 		\includegraphics[width=\linewidth, height=1.8cm, keepaspectratio]{Bilder/cwp_images/11.png}
-		\caption*{11 -- Non Tributary-Caused}
+		\caption*{11 -- Tributary-Caused}
 	\end{subfigure}
 	\begin{subfigure}[t]{0.28\textwidth}
 		\centering
@@ -131,12 +130,12 @@
 	\begin{subfigure}[t]{0.28\textwidth}
 		\centering
 		\includegraphics[width=\linewidth, height=1.8cm, keepaspectratio]{Bilder/cwp_images/14.png}
-		\caption*{14 -- Tributary-Caused}
+		\caption*{14 -- Non Tributary-Caused}
 	\end{subfigure}
 	\begin{subfigure}[t]{0.28\textwidth}
 		\centering
 		\includegraphics[width=\linewidth, height=1.8cm, keepaspectratio]{Bilder/cwp_images/15.png}
-		\caption*{15 -- Non Tributary-Caused}
+		\caption*{15 -- Tributary-Caused}
 	\end{subfigure}
 	
 	\vspace{0.8em}
@@ -164,7 +163,7 @@
 	\begin{subfigure}[t]{0.28\textwidth}
 		\centering
 		\includegraphics[width=\linewidth, height=1.8cm, keepaspectratio]{Bilder/cwp_images/19.png}
-		\caption*{19 -- Tributary-Caused}
+		\caption*{19 -- Non Tributary-Caused}
 	\end{subfigure}
 	\begin{subfigure}[t]{0.28\textwidth}
 		\centering
@@ -202,39 +201,44 @@
 	\label{fig:cwp_catalogue}
 \end{figure}
 
-	\section*{Appendix C: List of Generative AI Systems}
-	
-	The following generative AI systems and AI-assisted tools were utilized in the 
-	context of this work:
-	
-	\begin{table}[H]
-		\centering
-		\begin{tabular}{@{} p{2.5cm} p{3.5cm} p{7cm} @{}}
-			\toprule
-			\textbf{System / Tool} & \textbf{Provider \& Version} & 
-			\textbf{Purpose of Use} \\
-			\midrule
-			Claude Sonnet 4.6 & Anthropic (2026) \newline Version Sonnet 4.6 &
-			\begin{itemize}[noitemsep, topsep=0pt, leftmargin=*]
-				\item Stylistic improvement of text
-				\item Spelling correction
-				\item Code debugging and coding assistance (no agentic coding)
-				\item \LaTeX{} assistant (debugging and formatting)
-				\item Finding relevant literature
-			\end{itemize} \\
-			\addlinespace
-			Claude Opus 4.6 & Anthropic (2026) \newline Version Opus 4.6 &
-			\begin{itemize}[noitemsep, topsep=0pt, leftmargin=*]
-				\item Complex debugging tasks
-				\item Complex writing assistance tasks such as assuring 
-				cross-chapter naming consistency
-			\end{itemize} \\
-			\bottomrule
-		\end{tabular}
-	\end{table}
-	
-	\vspace{0.5em}
-	\noindent\textit{Note:} The author assumes full responsibility for all generated 
-	content, its accuracy, and compliance with the standards of scientific integrity.
+\section*{Appendix B: Statement of Reproducibility}
+
+The complete R code associated with this thesis is available at: https://github.com/duerieti/Sensitivity-Analysis-of-a-TIR-Based-CWP-Detection-Algorithm
+
+
+\section*{Appendix C: List of Generative AI Systems}
+
+The following generative AI systems and AI-assisted tools were utilized in the 
+context of this work:
+
+\begin{table}[H]
+	\centering
+	\begin{tabular}{@{} p{2.5cm} p{3.5cm} p{7cm} @{}}
+		\toprule
+		\textbf{System / Tool} & \textbf{Provider \& Version} & 
+		\textbf{Purpose of Use} \\
+		\midrule
+		Claude Sonnet 4.6 & Anthropic (2026) \newline Version Sonnet 4.6 &
+		\begin{itemize}[noitemsep, topsep=0pt, leftmargin=*]
+			\item Stylistic improvement of text
+			\item Spelling correction
+			\item Code debugging and coding assistance (no agentic coding)
+			\item \LaTeX{} assistant (debugging and formatting)
+			\item Finding relevant literature
+		\end{itemize} \\
+		\addlinespace
+		Claude Opus 4.6 & Anthropic (2026) \newline Version Opus 4.6 &
+		\begin{itemize}[noitemsep, topsep=0pt, leftmargin=*]
+			\item Complex debugging tasks
+			\item Complex writing assistance tasks such as assuring 
+			cross-chapter naming consistency
+		\end{itemize} \\
+		\bottomrule
+	\end{tabular}
+\end{table}
+
+\vspace{0.5em}
+\noindent\textit{Note:} The author assumes full responsibility for all generated 
+content, its accuracy, and compliance with the standards of scientific integrity.
 	
 \end{document}

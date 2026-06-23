@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.28 (TeX Live 2025/Debian) (preloaded format=pdflatex 2026.6.13)  23 JUN 2026 17:51
+This is pdfTeX, Version 3.141592653-2.6-1.40.28 (TeX Live 2025/Debian) (preloaded format=pdflatex 2026.6.13)  23 JUN 2026 19:58
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1733,136 +1733,127 @@ Package pdftex.def Info: Bilder/annotated_cwp_locations.png  used on input line
 <Bilder/cwp_images/1.png, id=803, 1443.3925pt x 907.39pt>
 File: Bilder/cwp_images/1.png Graphic file (type png)
 <use Bilder/cwp_images/1.png>
-Package pdftex.def Info: Bilder/cwp_images/1.png  used on input line 52.
+Package pdftex.def Info: Bilder/cwp_images/1.png  used on input line 51.
 (pdftex.def)             Requested size: 81.46812pt x 51.21501pt.
 <Bilder/cwp_images/2.png, id=804, 1443.3925pt x 907.39pt>
 File: Bilder/cwp_images/2.png Graphic file (type png)
 <use Bilder/cwp_images/2.png>
-Package pdftex.def Info: Bilder/cwp_images/2.png  used on input line 57.
+Package pdftex.def Info: Bilder/cwp_images/2.png  used on input line 56.
 (pdftex.def)             Requested size: 81.46812pt x 51.21501pt.
 <Bilder/cwp_images/3.png, id=805, 1443.3925pt x 907.39pt>
 File: Bilder/cwp_images/3.png Graphic file (type png)
 <use Bilder/cwp_images/3.png>
-Package pdftex.def Info: Bilder/cwp_images/3.png  used on input line 62.
+Package pdftex.def Info: Bilder/cwp_images/3.png  used on input line 61.
 (pdftex.def)             Requested size: 81.46812pt x 51.21501pt.
 <Bilder/cwp_images/4.png, id=806, 1443.3925pt x 907.39pt>
 File: Bilder/cwp_images/4.png Graphic file (type png)
 <use Bilder/cwp_images/4.png>
-Package pdftex.def Info: Bilder/cwp_images/4.png  used on input line 71.
+Package pdftex.def Info: Bilder/cwp_images/4.png  used on input line 70.
 (pdftex.def)             Requested size: 81.46812pt x 51.21501pt.
 <Bilder/cwp_images/5.png, id=807, 1443.3925pt x 907.39pt>
 File: Bilder/cwp_images/5.png Graphic file (type png)
 <use Bilder/cwp_images/5.png>
-Package pdftex.def Info: Bilder/cwp_images/5.png  used on input line 76.
+Package pdftex.def Info: Bilder/cwp_images/5.png  used on input line 75.
 (pdftex.def)             Requested size: 81.46812pt x 51.21501pt.
 <Bilder/cwp_images/6.png, id=808, 1443.3925pt x 907.39pt>
 File: Bilder/cwp_images/6.png Graphic file (type png)
 <use Bilder/cwp_images/6.png>
-Package pdftex.def Info: Bilder/cwp_images/6.png  used on input line 81.
+Package pdftex.def Info: Bilder/cwp_images/6.png  used on input line 80.
 (pdftex.def)             Requested size: 81.46812pt x 51.21501pt.
 <Bilder/cwp_images/7.png, id=809, 1443.3925pt x 907.39pt>
 File: Bilder/cwp_images/7.png Graphic file (type png)
 <use Bilder/cwp_images/7.png>
-Package pdftex.def Info: Bilder/cwp_images/7.png  used on input line 90.
+Package pdftex.def Info: Bilder/cwp_images/7.png  used on input line 89.
 (pdftex.def)             Requested size: 81.46812pt x 51.21501pt.
 <Bilder/cwp_images/8.png, id=810, 1443.3925pt x 907.39pt>
 File: Bilder/cwp_images/8.png Graphic file (type png)
 <use Bilder/cwp_images/8.png>
-Package pdftex.def Info: Bilder/cwp_images/8.png  used on input line 95.
+Package pdftex.def Info: Bilder/cwp_images/8.png  used on input line 94.
 (pdftex.def)             Requested size: 81.46812pt x 51.21501pt.
 <Bilder/cwp_images/9.png, id=811, 1443.3925pt x 907.39pt>
 File: Bilder/cwp_images/9.png Graphic file (type png)
 <use Bilder/cwp_images/9.png>
-Package pdftex.def Info: Bilder/cwp_images/9.png  used on input line 100.
+Package pdftex.def Info: Bilder/cwp_images/9.png  used on input line 99.
 (pdftex.def)             Requested size: 81.46812pt x 51.21501pt.
 <Bilder/cwp_images/10.png, id=812, 1443.3925pt x 907.39pt>
 File: Bilder/cwp_images/10.png Graphic file (type png)
 <use Bilder/cwp_images/10.png>
-Package pdftex.def Info: Bilder/cwp_images/10.png  used on input line 109.
+Package pdftex.def Info: Bilder/cwp_images/10.png  used on input line 108.
 (pdftex.def)             Requested size: 81.46812pt x 51.21501pt.
 <Bilder/cwp_images/11.png, id=813, 1443.3925pt x 907.39pt>
 File: Bilder/cwp_images/11.png Graphic file (type png)
 <use Bilder/cwp_images/11.png>
-Package pdftex.def Info: Bilder/cwp_images/11.png  used on input line 114.
+Package pdftex.def Info: Bilder/cwp_images/11.png  used on input line 113.
 (pdftex.def)             Requested size: 81.46812pt x 51.21501pt.
 <Bilder/cwp_images/12.png, id=814, 1443.3925pt x 907.39pt>
 File: Bilder/cwp_images/12.png Graphic file (type png)
 <use Bilder/cwp_images/12.png>
-Package pdftex.def Info: Bilder/cwp_images/12.png  used on input line 119.
+Package pdftex.def Info: Bilder/cwp_images/12.png  used on input line 118.
 (pdftex.def)             Requested size: 81.46812pt x 51.21501pt.
 <Bilder/cwp_images/13.png, id=815, 1443.3925pt x 907.39pt>
 File: Bilder/cwp_images/13.png Graphic file (type png)
 <use Bilder/cwp_images/13.png>
-Package pdftex.def Info: Bilder/cwp_images/13.png  used on input line 128.
+Package pdftex.def Info: Bilder/cwp_images/13.png  used on input line 127.
 (pdftex.def)             Requested size: 81.46812pt x 51.21501pt.
 <Bilder/cwp_images/14.png, id=816, 1443.3925pt x 907.39pt>
 File: Bilder/cwp_images/14.png Graphic file (type png)
 <use Bilder/cwp_images/14.png>
-Package pdftex.def Info: Bilder/cwp_images/14.png  used on input line 133.
+Package pdftex.def Info: Bilder/cwp_images/14.png  used on input line 132.
 (pdftex.def)             Requested size: 81.46812pt x 51.21501pt.
 <Bilder/cwp_images/15.png, id=817, 1443.3925pt x 907.39pt>
 File: Bilder/cwp_images/15.png Graphic file (type png)
 <use Bilder/cwp_images/15.png>
-Package pdftex.def Info: Bilder/cwp_images/15.png  used on input line 138.
+Package pdftex.def Info: Bilder/cwp_images/15.png  used on input line 137.
 (pdftex.def)             Requested size: 81.46812pt x 51.21501pt.
 <Bilder/cwp_images/16.png, id=818, 1443.3925pt x 907.39pt>
 File: Bilder/cwp_images/16.png Graphic file (type png)
 <use Bilder/cwp_images/16.png>
-Package pdftex.def Info: Bilder/cwp_images/16.png  used on input line 147.
+Package pdftex.def Info: Bilder/cwp_images/16.png  used on input line 146.
 (pdftex.def)             Requested size: 81.46812pt x 51.21501pt.
 <Bilder/cwp_images/17.png, id=819, 1443.3925pt x 907.39pt>
 File: Bilder/cwp_images/17.png Graphic file (type png)
 <use Bilder/cwp_images/17.png>
-Package pdftex.def Info: Bilder/cwp_images/17.png  used on input line 152.
+Package pdftex.def Info: Bilder/cwp_images/17.png  used on input line 151.
 (pdftex.def)             Requested size: 81.46812pt x 51.21501pt.
 <Bilder/cwp_images/18.png, id=820, 1441.385pt x 910.40125pt>
 File: Bilder/cwp_images/18.png Graphic file (type png)
 <use Bilder/cwp_images/18.png>
-Package pdftex.def Info: Bilder/cwp_images/18.png  used on input line 157.
+Package pdftex.def Info: Bilder/cwp_images/18.png  used on input line 156.
 (pdftex.def)             Requested size: 81.06891pt x 51.20438pt.
 <Bilder/cwp_images/19.png, id=821, 1441.385pt x 910.40125pt>
 File: Bilder/cwp_images/19.png Graphic file (type png)
 <use Bilder/cwp_images/19.png>
-Package pdftex.def Info: Bilder/cwp_images/19.png  used on input line 166.
+Package pdftex.def Info: Bilder/cwp_images/19.png  used on input line 165.
 (pdftex.def)             Requested size: 81.06891pt x 51.20438pt.
 <Bilder/cwp_images/20.png, id=822, 1441.385pt x 910.40125pt>
 File: Bilder/cwp_images/20.png Graphic file (type png)
 <use Bilder/cwp_images/20.png>
-Package pdftex.def Info: Bilder/cwp_images/20.png  used on input line 171.
+Package pdftex.def Info: Bilder/cwp_images/20.png  used on input line 170.
 (pdftex.def)             Requested size: 81.06891pt x 51.20438pt.
 <Bilder/cwp_images/21.png, id=823, 1441.385pt x 910.40125pt>
 File: Bilder/cwp_images/21.png Graphic file (type png)
 <use Bilder/cwp_images/21.png>
-Package pdftex.def Info: Bilder/cwp_images/21.png  used on input line 176.
+Package pdftex.def Info: Bilder/cwp_images/21.png  used on input line 175.
 (pdftex.def)             Requested size: 81.06891pt x 51.20438pt.
 <Bilder/cwp_images/22.png, id=824, 1441.385pt x 910.40125pt>
 File: Bilder/cwp_images/22.png Graphic file (type png)
 <use Bilder/cwp_images/22.png>
-Package pdftex.def Info: Bilder/cwp_images/22.png  used on input line 185.
+Package pdftex.def Info: Bilder/cwp_images/22.png  used on input line 184.
 (pdftex.def)             Requested size: 81.06891pt x 51.20438pt.
 <Bilder/cwp_images/23.png, id=825, 1441.385pt x 910.40125pt>
 File: Bilder/cwp_images/23.png Graphic file (type png)
 <use Bilder/cwp_images/23.png>
-Package pdftex.def Info: Bilder/cwp_images/23.png  used on input line 190.
+Package pdftex.def Info: Bilder/cwp_images/23.png  used on input line 189.
 (pdftex.def)             Requested size: 81.06891pt x 51.20438pt.
 <Bilder/cwp_images/24.png, id=826, 1441.385pt x 910.40125pt>
 File: Bilder/cwp_images/24.png Graphic file (type png)
 <use Bilder/cwp_images/24.png>
-Package pdftex.def Info: Bilder/cwp_images/24.png  used on input line 195.
+Package pdftex.def Info: Bilder/cwp_images/24.png  used on input line 194.
 (pdftex.def)             Requested size: 81.06891pt x 51.20438pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 214--214
-[]|\T1/lmr/bx/n/10.95 System /
- []
-
-
-Underfull \hbox (badness 1320) in paragraph at lines 214--214
-[]|\T1/lmr/bx/n/10.95 Provider & Ver-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 226--226
-[]|\T1/lmr/m/n/10.95 Claude Opus
+Overfull \hbox (62.06406pt too wide) in paragraph at lines 206--207
+\T1/lmr/m/n/10.95 The com-plete R code as-so-ci-ated with this the-sis is avail
+-able at: https://github.com/duerieti/Sensitivity-
  []
 
 [43
@@ -1884,6 +1875,20 @@ images/6.png> <./Bilder/cwp_images/7.png> <./Bilder/cwp_images/8.png> <./Bilder
 mages/17.png> <./Bilder/cwp_images/18.png> <./Bilder/cwp_images/19.png> <./Bild
 er/cwp_images/20.png> <./Bilder/cwp_images/21.png> <./Bilder/cwp_images/22.png>
  <./Bilder/cwp_images/23.png> <./Bilder/cwp_images/24.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 218--218
+[]|\T1/lmr/bx/n/10.95 System /
+ []
+
+
+Underfull \hbox (badness 1320) in paragraph at lines 218--218
+[]|\T1/lmr/bx/n/10.95 Provider & Ver-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 230--230
+[]|\T1/lmr/m/n/10.95 Claude Opus
+ []
+
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 13.59999pt, for example:
@@ -1906,9 +1911,9 @@ Package rerunfilecheck Info: File `Mein-erstes-Dokument.out' has not changed.
 (rerunfilecheck)             Checksum: 79EC2390FC66DF2DA44641E876942594;8806.
  ) 
 Here is how much of TeX's memory you used:
- 29588 strings out of 469438
- 559353 string characters out of 5468410
- 957493 words of memory out of 5000000
+ 29589 strings out of 469438
+ 559364 string characters out of 5468410
+ 955493 words of memory out of 5000000
  57561 multiletter control sequences out of 15000+600000
  748878 words of font info for 113 fonts, out of 8000000 for 9000
  59 hyphenation exceptions out of 8191
@@ -1927,10 +1932,10 @@ share/texmf/fonts/type1/public/lm/lmr9.pfb></usr/share/texmf/fonts/type1/public
 xmf/fonts/type1/public/lm/lmsy10.pfb></usr/share/texmf/fonts/type1/public/lm/lm
 sy7.pfb></usr/share/texmf/fonts/type1/public/lm/lmsy8.pfb></usr/share/texmf/fon
 ts/type1/public/lm/lmtt10.pfb>
-Output written on Mein-erstes-Dokument.pdf (46 pages, 35534369 bytes).
+Output written on Mein-erstes-Dokument.pdf (46 pages, 35535221 bytes).
 PDF statistics:
- 1009 PDF objects out of 1200 (max. 8388607)
- 806 compressed objects within 9 object streams
- 154 named destinations out of 1000 (max. 500000)
+ 1010 PDF objects out of 1200 (max. 8388607)
+ 807 compressed objects within 9 object streams
+ 155 named destinations out of 1000 (max. 500000)
  628 words of extra memory for PDF output out of 10000 (max. 10000000)
 
