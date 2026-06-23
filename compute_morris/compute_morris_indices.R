@@ -76,13 +76,18 @@ for (i in seq_along(identifiers)) {
   # for this CWP location — used for stratified plotting later
   Class     <- normalized_lumped_statistics %>% filter(identifier == id) %>% pull(Class)     %>% unique()
   mean_area <- normalized_lumped_statistics %>% filter(identifier == id) %>% pull(total_area) %>% mean(na.rm = TRUE)
+  mean_deltaT <- normalized_lumped_statistics %>% filter(identifier == id) %>% pull(mean_deltaT) %>% mean(na.rm = TRUE)
 
   # store the sensitivity indices together with metadata for this CWP location
   results_list[[i]] <- data.frame(
     identifier = id,
     parameter  = colnames(sa$ee), # one row per parameter
     mu         = mu,
-    mean_area  = mean_area
+    mu.star    = mu.star,
+    sigma      = sigma,
+    mean_area  = mean_area,
+    mean_deltaT = mean_deltaT,
+    Class = Class
   )
 }
 
@@ -97,6 +102,9 @@ results <- bind_rows(results_list) %>%
 results %>% colnames()
 
 # ── 3. PLOT SENSITIVITY INDICES ───────────────────────────────────────────────
+
+if (TRUE) {
+
 # Visualise the normalised sensitivity indices stratified by CWP class
 # (Tributary / Non-Tributary). Each point is one annotated CWP location.
 # Locations classified as "Unshure" are excluded from the plots.
@@ -216,6 +224,62 @@ mu_star_vs_area <- results %>%
 
 mu_star_vs_area
 
+results %>% colnames()
 
-ggsave("./report/Bilder/mu_star_vs_area.png", mu_star_vs_area,
+mu_star_vs_area_deltaT <- results %>%
+  filter(parameter == "slab_halfwidth_m") %>%
+  ggplot(aes(x = mean_area, y = mu.star, color = mean_deltaT, shape = Class)) +
+  geom_point(size = 3, stroke = 1.2) +
+  scale_color_viridis_c(option = "C") +
+  scale_shape_manual(values = c(16, 17)) +  # filled circle, filled triangle
+  xlab(expression("Mean CWP area ("*m^2*")")) +
+  ylab(expression(mu*"* (step length)")) +
+  labs(color = expression(Delta*T~"(mean, "*degree*"C)"), shape = "Class") +
+  ggtitle(expression(mu*"* (step length) by mean area, colored by "*Delta*"T")) +
+  annotate("label",
+    x = -Inf, y = Inf, hjust = 0, vjust = 1,
+    label = annotation_text,
+    size = 3
+  )
+
+mu_star_vs_area_deltaT
+
+ggsave("./report/Bilder/mu_star_vs_area_vs_deltaT.png", mu_star_vs_area_deltaT,
+       width = 6, height = 4, units = "in", dpi = 300)
+
+
+# fit linear model: mu.star ~ mean_area for slab_halfwidth_m
+lm_data <- results %>%
+  filter(parameter == "slab_halfwidth_m")
+
+
+lm_fit_2 <- lm(mu.star ~ mean_area + mean_deltaT, data = lm_data)
+lm_summary_2 <- summary(lm_fit_2)
+
+lm_summary_2
+
+} # end if (FALSE)
+
+
+
+
+results %>% colnames()
+
+
+mu_star_sig_of_all_plot <- results %>%
+  pivot_longer(cols = mu:sigma, names_to = "score", values_to = "score_value") %>%
+  filter(score != "mu") %>%
+  ggplot(aes(x = parameter, y = score_value, fill = score)) + 
+  geom_boxplot(outlier.shape = NA) +
+  geom_point(position = position_jitterdodge(jitter.width = 0.2, dodge.width = 0.75),
+             alpha = 0.5, size = 1) +
+  ylab("Index value") +
+  xlab("Algorithm Parameters") +
+  scale_x_discrete(limits = c("buffer_px", "slab_halfwidth_m", "delta_T"),
+                    labels = c("Buffer Pixel Count", "Step Length", "Temperature Delta")) +
+  scale_fill_discrete(name = "Morris Indices",
+                       labels = c(expression(mu^"*"), expression(sigma)))
+
+
+ggsave("./report/Bilder/mustar_sig_over_all.png",mu_star_sig_of_all_plot ,
        width = 6, height = 4, units = "in", dpi = 300)
