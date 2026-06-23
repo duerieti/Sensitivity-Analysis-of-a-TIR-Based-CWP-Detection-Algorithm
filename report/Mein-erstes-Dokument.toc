@@ -30,17 +30,17 @@
 \contentsline {subsection}{\numberline {3.7.2}Overall Sensitivity across all Parameters}{32}{subsection.3.7.2}%
 \contentsline {subsection}{\numberline {3.7.3}Relationship between CWP Area and Step Length Sensitivity}{33}{subsection.3.7.3}%
 \contentsline {section}{\numberline {3.8}Algorithm Modification}{34}{section.3.8}%
-\contentsline {chapter}{\numberline {4}Discussion}{36}{chapter.4}%
-\contentsline {section}{\numberline {4.1}Algorithm Reimplementation}{36}{section.4.1}%
-\contentsline {subsection}{\numberline {4.1.1}Difference in CWP Polygons between v1 and v2}{36}{subsection.4.1.1}%
-\contentsline {subsection}{\numberline {4.1.2}Speed Comparison}{36}{subsection.4.1.2}%
-\contentsline {section}{\numberline {4.2}Sensitivity Analysis}{37}{section.4.2}%
-\contentsline {subsection}{\numberline {4.2.1}Step Length Sensitivity by CWP Class}{37}{subsection.4.2.1}%
-\contentsline {subsection}{\numberline {4.2.2}Overall Sensitivity across all Parameters}{38}{subsection.4.2.2}%
-\contentsline {section}{\numberline {4.3}Algorithm Modification}{39}{section.4.3}%
+\contentsline {chapter}{\numberline {4}Discussion}{35}{chapter.4}%
+\contentsline {section}{\numberline {4.1}Algorithm Reimplementation}{35}{section.4.1}%
+\contentsline {subsection}{\numberline {4.1.1}Difference in CWP Polygons between v1 and v2}{35}{subsection.4.1.1}%
+\contentsline {subsection}{\numberline {4.1.2}Speed Comparison}{35}{subsection.4.1.2}%
+\contentsline {section}{\numberline {4.2}Sensitivity Analysis}{36}{section.4.2}%
+\contentsline {subsection}{\numberline {4.2.1}Step Length Sensitivity by CWP Class}{36}{subsection.4.2.1}%
+\contentsline {subsection}{\numberline {4.2.2}Overall Sensitivity across all Parameters}{37}{subsection.4.2.2}%
+\contentsline {section}{\numberline {4.3}Algorithm Modification}{38}{section.4.3}%
 \contentsline {section}{\numberline {4.4}Future Improvements}{39}{section.4.4}%
 \contentsline {subsection}{\numberline {4.4.1}Subjective Selection and Classification of CWP}{39}{subsection.4.4.1}%
-\contentsline {subsection}{\numberline {4.4.2}Sample Size}{40}{subsection.4.4.2}%
+\contentsline {subsection}{\numberline {4.4.2}Sample Size}{39}{subsection.4.4.2}%
 \contentsline {subsection}{\numberline {4.4.3}Hidden Parameter in v3}{40}{subsection.4.4.3}%
 \contentsline {section}{\numberline {4.5}References}{41}{section.4.5}%
 \contentsline {chapter}{\numberline {5}Appendix}{43}{chapter.5}%

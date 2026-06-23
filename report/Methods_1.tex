@@ -267,7 +267,7 @@ Since the spacing between adjacent levels of the 6-level grid in the normalized
 unit space is $1/(p-1) = 1/5$, jumping 3 grid levels yields exactly 
 $3 \times 1/5 = 3/5$, matching the recommended $\Delta$. 
 Figure~\ref{fig:morris_grid_first} shows the grid with the jump distance drawn 
-in. A total of 44 trajectories were then sampled, yielding 
+in. A total of 44 trajectories were then sampled from the grid, yielding 
 $44 \times (2+1) = 132$ parameter tuples, each holding a unique combination 
 of buffer pixel count and step length. The remaining parameters were held 
 constant as listed in Table~\ref{tab:held_constant_first_morris} to ensure 
@@ -405,15 +405,14 @@ examples of the four possible classification outcomes.
 Tributary inflows were identified using OpenStreetMap and SwissImage in 
 combination. OpenStreetMap allows tributaries obscured by vegetation to be 
 identified, while SwissImage covers tributaries that were not mapped in 
-OpenStreetMap -- neither source can be assumed complete on its own. Multiple 
+OpenStreetMap. Multiple 
 closely adjacent CWPs were grouped and treated as a single patch, as CWPs in 
 close spatial proximity share the same local generating conditions and will 
-therefore exhibit highly similar sensitivity -- treating them as separate 
+therefore exhibit highly similar sensitivity. Treating them as separate 
 observations would violate the assumption of independence and skew the 
-sensitivity indices towards conditions prevailing at that particular spot. For each of the now classified CWP, the bounding box was obtained indicating their location.
+sensitivity indices towards conditions prevailing at that particular spot. For each of the 24 selected and classified CWP, a bounding box was then recorded.
 % TODO: reference to the appendix, where a grid of all CWP and their 
 %        classification is provided
-
 \subsection{Computing Morris Sensitivity Indices with respect to CWP Area}
 \label{sec:morris_indices}
 
@@ -422,7 +421,7 @@ sensitivity indices towards conditions prevailing at that particular spot. For e
 	\includegraphics[width=\textwidth]{Bilder/cwp_stats.png}
 	\caption{Visual overview of the steps involved in computing Morris 
 		sensitivity indices with respect to CWP area. The selected and classified 
-		CWP locations flow into the process at step 4.}
+		CWP flow into the process at step 4.}
 	\label{fig:cwp_stats_overview}
 \end{figure}
 
@@ -430,7 +429,7 @@ With the 24 CWP classified, the second stage quantified their
 sensitivity to the three algorithm parameters: buffer pixel count, step length, 
 and temperature delta. Where the first experiment varied only two parameters to 
 produce the detection frequency raster, the second experiment varied all three 
-and used the per-location CWP area as the scalar output fed into the Morris 
+and used the CWP area as the scalar output fed into the Morris 
 sensitivity computation.
 
 First, a three-dimensional Morris sampling grid spanning buffer pixel count, 
@@ -439,7 +438,7 @@ Figure~\ref{fig:morris_grid_second}. A \texttt{grid.jump} of 3 was again
 chosen, implementing equal-probability sampling of the elementary effects as 
 described in Section~\ref{sec:choosing_delta_r}. A total of 64 trajectories 
 were then sampled from the grid, yielding $64 \times (3+1) = 256$ parameter 
-tuples (Equation~\ref{eq:morris_runs}). The algorithm was executed in parallel 
+tuples. The algorithm was executed in parallel 
 using the same orchestration as in the first experiment, with the remaining 
 parameters held constant at the same values as listed in 
 Table~\ref{tab:held_constant_first_morris}.
@@ -453,37 +452,35 @@ Table~\ref{tab:held_constant_first_morris}.
 	\label{fig:morris_grid_second}
 \end{figure}
 
-Next, for each of the 24 CWP bounding boxes and each completed Morris run, 
-the CWP polygons lying inside the bounding box were selected. The total CWP 
-area and the area-weighted mean temperature delta were then computed from 
-these polygons. If a given parameter tuple produced no CWP detection within 
-the bounding box, both statistics were set to zero. The computation and the 
-resulting table structure are illustrated in 
-Figure~\ref{fig:cwp_lumping_decision}.
+Next, for each completed Morris run, the 24 selected CWP where extracted using the bounding boxes from \ref{sec:cwp_classification}. Then the CWP area and the mean 
+temperature delta were computed for each CWP. If a given 
+parameter tuple produced no detection for a specific CWP, both statistics were set 
+to zero. (A non existing CWP has no surface and also no temperature difference to its environment).
+The computation is illustrated in Figure for an example CWP~\ref{fig:cwp_lumping_decision}. 
+
 
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=\textwidth]{Bilder/cropping_strat_img.png}
-	\caption{Visual representation of the bounding box computation. A CWP 
-		located in one of the 24 bounding boxes is selected, then aggregation 
-		is performed. The resulting statistics can be captured in a table based format together with aggregation results from other bounding boxes.}
+	\caption{Visual representation of the bounding box computation. One of the 24 selected
+		CWPs is selected using a recorded bounding box, then aggregation 
+		is performed. The resulting statistics can be captured in a table based format together with aggregation results from other selected CWP.}
 	\label{fig:cwp_lumping_decision}
 \end{figure}
 
-Finally, the total CWP area values were normalised per bounding box using min-max 
-scaling into $[0, 1]$. This ensured comparability across bounding boxes: without 
-normalisation, bounding boxes with inherently larger CWP would produce larger 
+Finally, the CWP area values were normalized per CWP using min-max 
+scaling into the intervall $[0, 1]$. This ensures comparability across the 24 selected CWP: without 
+normalisation, larger CWP would produce larger 
 absolute area differences, inflating their sensitivity indices relative to 
-smaller patches. After scaling, a value of 1 corresponded to the maximum area 
-detected for that bounding box across all runs and a value of 0 to an empty 
-bounding box. The Morris indices $\mu^*$, and $\sigma$ were then 
+smaller CWP. After scaling, a value of 1 corresponded to the maximum area 
+detected for that CWP across all runs and a value of 0 to no CWP beeing present for that run. The Morris indices $\mu^*$, and $\sigma$ were then 
 computed with respect to the normalised area values using the R package 
 \texttt{sensitivity}.
 
 Two sets of boxplot visualisations were produced. The first displayed $\mu^*$ 
 and $\sigma$ with respect to step length, stratified by CWP class, to allow 
 a direct comparison of sensitivity between tributary-caused and 
-non-tributary-caused CWPs. The second displayed $\mu^*$ for all three varied 
+non-tributary-caused CWPs. The second displayed $\mu^*$ and $\sigma$ for all three varied 
 parameters pooled across both classes, providing an overview of their relative 
 influence on CWP area.
 
@@ -492,17 +489,15 @@ temperature delta are associated with step-length sensitivity:
 
 \begin{equation}
 	\mu^*_{\text{step length}} = \beta_0 + \beta_1 \cdot \overline{\text{area}} 
-	+ \beta_2 \cdot \overline{\Delta T} + \varepsilon
+	+ \beta_2 \cdot \overline{\Delta T}
 	\label{eq:linear_model}
 \end{equation}
 
 where $\mu^*_{\text{step length}}$ is the Morris sensitivity index for step 
-length, $\overline{\text{area}}$ and $\overline{\Delta T}$ are the mean total 
-CWP area and mean temperature delta across all Morris runs for each CWP 
-location, and $\varepsilon$ is the residual error term, capturing the portion 
-of variability in $\mu^*_{\text{step length}}$ that cannot be explained by 
-mean area and mean temperature delta alone. The model was fitted using R's 
-\texttt{lm()} across all 24 locations, pooling both classes.
+length, $\overline{\text{area}}$ and $\overline{\Delta T}$ are the mean 
+CWP area and mean temperature delta across all Morris runs for each CWP. The model was fitted using R's 
+\texttt{lm()} across all 24 CWP, pooling both classes.
+
 
 \section{Algorithm Modification}
 \label{sec:rq3_methods}

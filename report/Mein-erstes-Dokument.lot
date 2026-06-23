@@ -8,6 +8,6 @@
 \contentsline {table}{\numberline {3-4}{\ignorespaces Parameter values held constant during the first Morris experiment, while step length and buffer pixel count were varied.}}{20}{table.caption.15}%
 \contentsline {table}{\numberline {4-5}{\ignorespaces High-level overview of the v3 CWP detection algorithm. Steps 1--5 replace the corresponding steps of Table~\ref {tab:cwp_pseudocode}; steps 6--8 are identical to v2.}}{28}{table.caption.22}%
 \contentsline {table}{\numberline {4-6}{\ignorespaces Parameter status in v3 relative to v2.}}{28}{table.caption.23}%
-\contentsline {table}{\numberline {7-7}{\ignorespaces Regression results for $\mu ^*$ (step length) predicted by mean CWP area and mean $\Delta T$, fitted across all 24 annotated locations.}}{33}{table.caption.29}%
+\contentsline {table}{\numberline {7-7}{\ignorespaces Regression results for $\mu ^*$ (step length) predicted by mean CWP area and mean $\Delta T$, fitted across all 24 annotated locations.}}{33}{table.caption.28}%
 \addvspace {10\p@ }
 \addvspace {10\p@ }

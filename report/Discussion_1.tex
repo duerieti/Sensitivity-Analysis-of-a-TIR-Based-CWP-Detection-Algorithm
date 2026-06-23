@@ -69,26 +69,28 @@ the overall parameter sensitivity ranking across all three varied parameters.
 \subsection{Step Length Sensitivity by CWP Class}
 
 The boxplot comparison of $\mu^*$ values between tributary-caused and 
-non-tributary-caused CWP shows a tendency consistent with H1: tributary-caused 
-CWP display a wider spread in step-length sensitivity, with a higher third 
-quartile and higher maximum values than the non-tributary-caused group. However, 
-a closer inspection reveals that this pattern is not uniform within the 
-tributary-caused class -- some tributary-caused CWP show sensitivity values 
-comparable to the non-tributary-caused group, while others are substantially more 
-sensitive. This within-class heterogeneity suggests that tributary presence alone 
-is not a sufficient condition for high sensitivity to the step length parameter, 
-and that H1 as stated does not fully capture the situation. At the same time, the 
-data do not support H0 either: the non-tributary-caused CWP consistently show low 
+non-tributary-caused CWP, shown in Figure~\ref{fig:step_length_sensitivity}, 
+shows a tendency consistent with H1: tributary-caused CWP display a wider 
+spread in step-length sensitivity, with a higher third quartile and higher 
+maximum values than the non-tributary-caused group. However, a closer 
+inspection reveals that this pattern is not uniform within the tributary-caused 
+class -- some tributary-caused CWP show sensitivity values comparable to the 
+non-tributary-caused group, while others are substantially more sensitive. This 
+within-class heterogeneity suggests that tributary presence alone is not a 
+sufficient condition for high sensitivity to the step length parameter, and that 
+H1 as stated does not fully capture the situation. At the same time, the data 
+do not support H0 either: the non-tributary-caused CWP consistently show low 
 $\mu^*$ values, and the elevated sensitivity observed in a subset of 
 tributary-caused CWP is unlikely to be entirely coincidental. The true picture 
 lies between the two hypotheses.
 
-The scatter plot and linear model together point to CWP area as the more proximate 
-driver of step-length sensitivity. Across both classes, locations with larger mean 
-CWP area tend to show higher $\mu^*$ values, and this relationship is approximately 
-linear. The linear model confirms this: the mean area predictor is highly 
-significant ($p < 0.001$) with a positive slope, while the mean temperature delta 
-predictor is not significant ($p = 0.556$).
+The scatter plot in Figure~\ref{fig:mu_star_vs_area} and the linear model 
+together point to CWP area as the more proximate driver of step-length 
+sensitivity. Across both classes, locations with larger mean CWP area tend to 
+show higher $\mu^*$ values, and this relationship is approximately linear. The 
+linear model confirms this: the mean area predictor is highly significant 
+($p < 0.001$) with a positive slope, while the mean temperature delta predictor 
+is not significant ($p = 0.556$).
 
 A mechanistic explanation for the area--sensitivity relationship follows naturally 
 from the structure of the algorithm. CWPs in a river system tend to be elongated 
@@ -131,31 +133,33 @@ reference temperatures.
 
 \subsection{Overall Sensitivity across all Parameters}
 
-The overall $\mu^*$ distributions across all 24 annotated locations reveal a 
-clear ranking of parameter influence with respect to detected CWP area. The buffer 
-pixel count is consistently non-influential, with $\mu^*$ values close to zero 
-across all locations. The corresponding $\sigma$ values are similarly low, 
-suggesting that the elementary effects of buffer pixel count are both small in 
-magnitude and consistent across the parameter space -- indicating neither a strong 
-main effect nor meaningful interactions with the other parameters. This finding 
-is consistent with \citet{tonolla_thermische-kartographie_2026}, who report the 
-same result in their sensitivity analysis of the CWP detection algorithm. Given 
-this replication, the strategy of factor fixing can be applied: the buffer pixel 
-count can be set to a fixed constant value, effectively removing it as a free 
-parameter of the algorithm.
+
+The overall $\mu^*$ distributions across all 24 annotated locations, shown in 
+Figure~\ref{fig:mu_star_overall}, reveal a clear ranking of parameter influence 
+with respect to detected CWP area. The buffer pixel count is consistently 
+non-influential, with $\mu^*$ values close to zero across all locations. The 
+corresponding $\sigma$ values are similarly low, suggesting that the elementary 
+effects of buffer pixel count are both small in magnitude and consistent across 
+the parameter space -- indicating neither a strong main effect nor meaningful 
+interactions with the other parameters. This is consistent with 
+\citet{tonolla_thermische-kartographie_2026}, who likewise identify the buffer 
+pixel count as non-influential in their sensitivity analysis of the CWP detection 
+algorithm.
 
 The temperature delta parameter shows the highest $\mu^*$ values overall, 
 indicating that it is the most influential of the three parameters with respect 
-to CWP area. This is also consistent with the findings of 
-\citet{tonolla_thermische-kartographie_2026}, who likewise identify temperature 
-delta as the dominant parameter. The elevated $\sigma$ values for temperature 
-delta suggest that its elementary effects vary across the parameter space, pointing 
-to the presence of nonlinearity or interactions with the other parameters. This 
-is ecologically plausible: the relationship between the flagging threshold and the 
-detected CWP area is unlikely to be linear, as small changes in temperature delta 
-near the boundary of what constitutes a detectable thermal anomaly could produce 
-disproportionately large changes in detected area, while changes far from this 
-boundary may have little effect.
+to CWP area -- a finding likewise consistent with 
+\citet{tonolla_thermische-kartographie_2026}. The elevated $\sigma$ values for 
+temperature delta suggest that its elementary effects vary across the parameter 
+space, pointing to the presence of nonlinearity or interactions with the other 
+parameters. This is ecologically plausible: the relationship between the flagging 
+threshold and the detected CWP area is unlikely to be linear. Consider a thermal 
+anomaly whose mean temperature falls just 0.1\textdegree C below the current 
+detection threshold -- the entirety of that anomaly's area is undetected. 
+Increasing temperature delta by 0.1\textdegree C brings that entire area above 
+the threshold in a single step, producing a large change in detected area from 
+a small parameter change. The same increment applied elsewhere in the parameter 
+space -- far from any threshold boundary -- may flag no new area at all.
 
 The step length parameter occupies an intermediate position, with $\mu^*$ values 
 clearly above zero but consistently below those of temperature delta. Like 
@@ -165,12 +169,9 @@ interactions with the other parameters or nonlinear behaviour.
 \section{Algorithm Modification}
 \label{sec:rq3_discussion}
 
-% TODO: Branch in the info striped away from the results section. Nuanece interpretation needed here.
-
-
-The replication of the buffer pixel and temperature delta findings from 
+The replication of the buffer pixel count and temperature delta findings from 
 \citet{tonolla_thermische-kartographie_2026} within the present work, using an 
-independently implemented Morris experiment on a different dataset, lends 
+independently implemented sensitivity analysis lends 
 additional credibility to both sets of results and suggests that these sensitivity 
 patterns are robust properties of the CWP detection algorithm rather than 
 artefacts of a particular study context. This agreement between the two analyses 
@@ -181,15 +182,35 @@ Based on these findings, three modifications were implemented in v3, as describe
 in Section~\ref{sec:rq3_methods}: the buffer pixel count was fixed by factor 
 fixing, the slab-based reference temperature computation was replaced by an IDW 
 scheme removing the step length dependency, and the temperature delta parameter 
-was retained as a user-defined input. The evaluation presented in 
-Section~\ref{sec:rq3_results} shows that v3 produces outputs that differ 
-substantially from v1 in terms of Jaccard similarity, which is expected given 
-the fundamental redesign of the reference temperature step. Qualitatively, 
-however, v3 eliminates the slab-boundary cutoff artefacts identified as a direct 
-consequence of step-length sensitivity, producing more contiguous and naturally 
-extending CWP detections. Research question 3 can therefore be answered 
-affirmatively: the identified parameter sensitivities can be addressed through 
-targeted algorithmic modifications without sacrificing output plausibility.
+was retained as a user-defined input.
+
+The substantially lower Jaccard similarities obtained for v3 against v1 (0.325, 
+0.334, and 0.287) are expected given the fundamental redesign of the reference 
+temperature step, and do not in themselves indicate that v3 performs worse than 
+v1. The difference between the two algorithms is not simply noise -- at least 
+part of it originates from improved behaviour. The slab-boundary truncation 
+artefact identified as a direct consequence of step-length sensitivity no longer 
+occurs in v3, producing CWP detections that extend naturally rather than ending 
+abruptly at segment boundaries. Similarly, CWPs that were artificially severed 
+into multiple sub-threshold fragments by a slab boundary in v1 are detected as 
+single contiguous patches in v3, which is likely a more ecologically accurate 
+representation of the underlying thermal anomaly.
+
+What remains less certain are the new CWP detections present in v3 but entirely 
+absent in v1. A plausible explanation is that these represent genuine CWPs 
+that were fragmented below the minimum area threshold by a slab boundary in v1 
+and therefore filtered out. However, as visible in Figure~\ref{fig:v3_new}, at 
+least one such detection is large enough that sub-threshold fragmentation alone 
+cannot account for its complete absence in v1 -- an alternative explanation 
+would be required for cases of this size. Determining whether these additional 
+detections represent real cold-water patches would require in-situ river 
+morphology assessment combined with temperature sensor deployment to verify 
+whether the flagged locations exhibit persistent thermal anomalies under field 
+conditions.
+
+Research question 3 can therefore be answered affirmatively: the identified 
+parameter sensitivities can be addressed through targeted algorithmic 
+modifications without sacrificing output plausibility.
 
 \section{Future Improvements}
 
