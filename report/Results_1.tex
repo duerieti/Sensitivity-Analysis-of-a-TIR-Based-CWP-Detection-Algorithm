@@ -1,3 +1,5 @@
+\chapter{Results}
+
 \section{Algorithm Reimplementation}
 \label{sec:rq1_results}
 
@@ -91,7 +93,13 @@ two classes are similar, with the primary difference lying in the upper tail of
 the tributary-caused distribution. The $\sigma$ values show a comparable pattern, 
 with greater spread in the tributary-caused group.
 
-
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=\textwidth]{Bilder/step_length_results.png}
+	\caption{Morris sensitivity indices ($\mu^*$ and $\sigma$) for step length 
+		with respect to cold water patch area, stratified by patch class.}
+	\label{fig:step_length_sensitivity}
+\end{figure}
 
 \subsection{Overall Sensitivity across all Parameters}
 
@@ -155,20 +163,19 @@ Adjusted $R^2 = 0.572$).
 		\toprule
 		Predictor & Estimate & SE & $t$ & $p$ \\
 		\midrule
-		(Intercept)     & $9.024 \times 10^{-2}$  & $3.094 \times 10^{-2}$ 
-		& 2.92    & 0.009    \\
-		Mean area       & $1.578 \times 10^{-4}$  & $2.839 \times 10^{-5}$ 
-		& 5.56    & $<0.001$ \\
-		Mean $\Delta T$ & $-1.041 \times 10^{-2}$ & $1.739 \times 10^{-2}$ 
-		& $-0.60$ & 0.556    \\
+		(Intercept)     & $1.015 \times 10^{-1}$  & $2.672 \times 10^{-2}$ 
+		& 3.80    & 0.001    \\
+		Mean area       & $1.491 \times 10^{-4}$  & $1.845 \times 10^{-5}$ 
+		& 8.08    & $<0.001$ \\
+		Mean $\Delta T$ & $-1.614 \times 10^{-2}$ & $1.568 \times 10^{-2}$ 
+		& $-1.03$ & 0.316    \\
 		\bottomrule
 	\end{tabular}
 	
 	\vspace{0.5em}
 	\footnotesize
-	\textit{Note.} $R^2 = 0.611$, Adjusted $R^2 = 0.572$, $F(2, 20) = 15.73$, 
-	$p < 0.001$. Residual standard error $= 0.088$ on 20 degrees of freedom 
-	(one observation deleted due to missingness).
+	\textit{Note.} $R^2 = 0.794$, Adjusted $R^2 = 0.772$, $F(2, 19) = 36.53$, 
+	$p < 0.001$. Residual standard error $= 0.074$ on 19 degrees of freedom.
 \end{table}
 
 \section{Algorithm Modification}

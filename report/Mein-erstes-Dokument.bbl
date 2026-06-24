@@ -1,9 +1,16 @@
-\begin{thebibliography}{23}
+\begin{thebibliography}{25}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax
   \providecommand{\doi}[1]{doi: #1}\else
   \providecommand{\doi}{doi: \begingroup \urlstyle{rm}\Url}\fi
+
+\bibitem[Baston(2025)]{exactextractr}
+D.~Baston.
+\newblock \emph{exactextractr: Fast Extraction from Raster Datasets using
+  Polygons}, 2025.
+\newblock URL \url{https://CRAN.R-project.org/package=exactextractr}.
+\newblock R package version 0.10.1.
 
 \bibitem[Campolongo et~al.(2007)Campolongo, Cariboni, and
   Saltelli]{campolongo_effective_2007}
@@ -70,6 +77,13 @@ R.~J. Hijmans, A.~Brown, and M.~Barbosa.
 \newblock extract: Extract values from a {SpatRaster}, 2024.
 \newblock URL \url{https://rspatial.github.io/terra/reference/extract.html}.
 \newblock \texttt{terra} package documentation.
+
+\bibitem[Iooss et~al.(2026)Iooss, {Da Veiga}, Janon, and Pujol]{sensitivity}
+B.~Iooss, S.~{Da Veiga}, A.~Janon, and G.~Pujol.
+\newblock \emph{sensitivity: Global Sensitivity Analysis of Model Outputs and
+  Importance Measures}, 2026.
+\newblock URL \url{https://CRAN.R-project.org/package=sensitivity}.
+\newblock R package version 1.31.0.
 
 \bibitem[{ISciences, LLC}(2026)]{isciences_exactextract}
 {ISciences, LLC}.

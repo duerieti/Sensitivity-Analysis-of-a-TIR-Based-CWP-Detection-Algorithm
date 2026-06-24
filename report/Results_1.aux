@@ -1,43 +1,48 @@
 \relax 
 \providecommand\hyper@newdestlabel[2]{}
-\@writefile{toc}{\contentsline {section}{\numberline {3.6}Algorithm Reimplementation}{30}{section.3.6}\protected@file@percent }
-\newlabel{sec:rq1_results}{{3.6}{30}{Algorithm Reimplementation}{section.3.6}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {3.6.1}Runtime Comparison}{30}{subsection.3.6.1}\protected@file@percent }
-\@writefile{lof}{\contentsline {figure}{\numberline {6-10}{\ignorespaces Execution time of v1 and v2 as a function of step length. In red the original CWP detection algorithm (v1) in blue the speed optimized algorithm (v2).}}{30}{figure.caption.24}\protected@file@percent }
-\newlabel{fig:speed_comparison}{{6-10}{30}{Execution time of v1 and v2 as a function of step length. In red the original CWP detection algorithm (v1) in blue the speed optimized algorithm (v2)}{figure.caption.24}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {3.6.2}Output Equivalence}{30}{subsection.3.6.2}\protected@file@percent }
-\newlabel{fig:v1v2_general}{{6-11a}{31}{General agreement. Discrepancies are confined to patch boundaries}{figure.caption.25}{}}
-\newlabel{sub@fig:v1v2_general}{{a}{31}{General agreement. Discrepancies are confined to patch boundaries}{figure.caption.25}{}}
-\newlabel{fig:v1v2_disagreement}{{6-11b}{31}{More pronounced disagreement. Boundary mismatches between v1 and v2 are more evident}{figure.caption.25}{}}
-\newlabel{sub@fig:v1v2_disagreement}{{b}{31}{More pronounced disagreement. Boundary mismatches between v1 and v2 are more evident}{figure.caption.25}{}}
-\newlabel{fig:v1v2_perfect}{{6-11c}{31}{Complete agreement. v1 and v2 polygons are spatially indistinguishable}{figure.caption.25}{}}
-\newlabel{sub@fig:v1v2_perfect}{{c}{31}{Complete agreement. v1 and v2 polygons are spatially indistinguishable}{figure.caption.25}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {6-11}{\ignorespaces Comparison of CWP polygon outputs between v1 (blue) and v2 (red) across the three validation runs. Polygons are overlaid at 50\% transparency; areas of agreement appear as a blend of both colours, while areas covered by only one algorithm appear in that algorithm's colour alone.}}{31}{figure.caption.25}\protected@file@percent }
-\newlabel{fig:v1v2_comparison}{{6-11}{31}{Comparison of CWP polygon outputs between v1 (blue) and v2 (red) across the three validation runs. Polygons are overlaid at 50\% transparency; areas of agreement appear as a blend of both colours, while areas covered by only one algorithm appear in that algorithm's colour alone}{figure.caption.25}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {3.7}Sensitivity Analysis}{31}{section.3.7}\protected@file@percent }
-\newlabel{sec:rq2_results}{{3.7}{31}{Sensitivity Analysis}{section.3.7}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {3.7.1}Sensitivity of CWP Area to Step Length}{32}{subsection.3.7.1}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {3.7.2}Overall Sensitivity across all Parameters}{32}{subsection.3.7.2}\protected@file@percent }
-\@writefile{lof}{\contentsline {figure}{\numberline {7-12}{\ignorespaces $\mu ^*$ and $\sigma $ sensitivity indices for buffer pixel count, step length, and temperature delta across all classified cold water patches ($N = 24$ locations, $r = 64$ trajectories).}}{32}{figure.caption.26}\protected@file@percent }
-\newlabel{fig:mu_star_overall}{{7-12}{32}{$\mu ^*$ and $\sigma $ sensitivity indices for buffer pixel count, step length, and temperature delta across all classified cold water patches ($N = 24$ locations, $r = 64$ trajectories)}{figure.caption.26}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {3.7.3}Relationship between CWP Area and Step Length Sensitivity}{33}{subsection.3.7.3}\protected@file@percent }
-\@writefile{lof}{\contentsline {figure}{\numberline {7-13}{\ignorespaces $\mu ^*$ (step length) versus mean CWP area for each of the 24 annotated locations. Color indicates the mean temperature delta to the surrounding river ($\overline  {\Delta T}$, averaged across all Morris runs); shape indicates CWP class (circle: non-tributary-caused; triangle: tributary-caused).}}{33}{figure.caption.27}\protected@file@percent }
-\newlabel{fig:mu_star_vs_area}{{7-13}{33}{$\mu ^*$ (step length) versus mean CWP area for each of the 24 annotated locations. Color indicates the mean temperature delta to the surrounding river ($\overline {\Delta T}$, averaged across all Morris runs); shape indicates CWP class (circle: non-tributary-caused; triangle: tributary-caused)}{figure.caption.27}{}}
-\@writefile{lot}{\contentsline {table}{\numberline {7-7}{\ignorespaces Regression results for $\mu ^*$ (step length) predicted by mean CWP area and mean $\Delta T$, fitted across all 24 annotated locations.}}{33}{table.caption.28}\protected@file@percent }
-\newlabel{tab:regression_mustar}{{7-7}{33}{Regression results for $\mu ^*$ (step length) predicted by mean CWP area and mean $\Delta T$, fitted across all 24 annotated locations}{table.caption.28}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {3.8}Algorithm Modification}{34}{section.3.8}\protected@file@percent }
-\newlabel{sec:rq3_results}{{3.8}{34}{Algorithm Modification}{section.3.8}{}}
-\newlabel{fig:v3_truncation}{{8-14a}{34}{A v1 polygon ends abruptly mid-reach; the corresponding v3 polygon extends beyond that point}{figure.caption.29}{}}
-\newlabel{sub@fig:v3_truncation}{{a}{34}{A v1 polygon ends abruptly mid-reach; the corresponding v3 polygon extends beyond that point}{figure.caption.29}{}}
-\newlabel{fig:v3_merger}{{8-14b}{34}{Two separate v1 polygons are detected as a single contiguous patch in v3}{figure.caption.29}{}}
-\newlabel{sub@fig:v3_merger}{{b}{34}{Two separate v1 polygons are detected as a single contiguous patch in v3}{figure.caption.29}{}}
-\newlabel{fig:v3_new}{{8-14c}{34}{A CWP detected by v3 that is entirely absent in v1}{figure.caption.29}{}}
-\newlabel{sub@fig:v3_new}{{c}{34}{A CWP detected by v3 that is entirely absent in v1}{figure.caption.29}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {8-14}{\ignorespaces Qualitative comparison of CWP detections between v1 (blue) and v3 (green) at three example locations. v1 polygons and v3 polygons are overlaid at 50\% transparency; areas covered by both algorithms appear as a blend of the two colours, while areas covered by only one algorithm appear in that algorithm's colour alone.}}{34}{figure.caption.29}\protected@file@percent }
-\newlabel{fig:v3_qualitative}{{8-14}{34}{Qualitative comparison of CWP detections between v1 (blue) and v3 (green) at three example locations. v1 polygons and v3 polygons are overlaid at 50\% transparency; areas covered by both algorithms appear as a blend of the two colours, while areas covered by only one algorithm appear in that algorithm's colour alone}{figure.caption.29}{}}
+\@writefile{toc}{\contentsline {chapter}{\numberline {4}Results}{32}{chapter.4}\protected@file@percent }
+\@writefile{lof}{\addvspace {10\p@ }}
+\@writefile{lot}{\addvspace {10\p@ }}
+\@writefile{toc}{\contentsline {section}{\numberline {4.1}Algorithm Reimplementation}{32}{section.4.1}\protected@file@percent }
+\newlabel{sec:rq1_results}{{4.1}{32}{Algorithm Reimplementation}{section.4.1}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.1.1}Runtime Comparison}{32}{subsection.4.1.1}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {1-1}{\ignorespaces Execution time of v1 and v2 as a function of step length. In red the original CWP detection algorithm (v1) in blue the speed optimized algorithm (v2).}}{33}{figure.caption.25}\protected@file@percent }
+\newlabel{fig:speed_comparison}{{1-1}{33}{Execution time of v1 and v2 as a function of step length. In red the original CWP detection algorithm (v1) in blue the speed optimized algorithm (v2)}{figure.caption.25}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.1.2}Output Equivalence}{33}{subsection.4.1.2}\protected@file@percent }
+\newlabel{fig:v1v2_general}{{1-2a}{34}{General agreement. Discrepancies are confined to patch boundaries}{figure.caption.26}{}}
+\newlabel{sub@fig:v1v2_general}{{a}{34}{General agreement. Discrepancies are confined to patch boundaries}{figure.caption.26}{}}
+\newlabel{fig:v1v2_disagreement}{{1-2b}{34}{More pronounced disagreement. Boundary mismatches between v1 and v2 are more evident}{figure.caption.26}{}}
+\newlabel{sub@fig:v1v2_disagreement}{{b}{34}{More pronounced disagreement. Boundary mismatches between v1 and v2 are more evident}{figure.caption.26}{}}
+\newlabel{fig:v1v2_perfect}{{1-2c}{34}{Complete agreement. v1 and v2 polygons are spatially indistinguishable}{figure.caption.26}{}}
+\newlabel{sub@fig:v1v2_perfect}{{c}{34}{Complete agreement. v1 and v2 polygons are spatially indistinguishable}{figure.caption.26}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {1-2}{\ignorespaces Comparison of CWP polygon outputs between v1 (blue) and v2 (red) across the three validation runs. Polygons are overlaid at 50\% transparency; areas of agreement appear as a blend of both colours, while areas covered by only one algorithm appear in that algorithm's colour alone.}}{34}{figure.caption.26}\protected@file@percent }
+\newlabel{fig:v1v2_comparison}{{1-2}{34}{Comparison of CWP polygon outputs between v1 (blue) and v2 (red) across the three validation runs. Polygons are overlaid at 50\% transparency; areas of agreement appear as a blend of both colours, while areas covered by only one algorithm appear in that algorithm's colour alone}{figure.caption.26}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {4.2}Sensitivity Analysis}{34}{section.4.2}\protected@file@percent }
+\newlabel{sec:rq2_results}{{4.2}{34}{Sensitivity Analysis}{section.4.2}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.2.1}Sensitivity of CWP Area to Step Length}{35}{subsection.4.2.1}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {2-3}{\ignorespaces Morris sensitivity indices ($\mu ^*$ and $\sigma $) for step length with respect to cold water patch area, stratified by patch class.}}{35}{figure.caption.27}\protected@file@percent }
+\newlabel{fig:step_length_sensitivity}{{2-3}{35}{Morris sensitivity indices ($\mu ^*$ and $\sigma $) for step length with respect to cold water patch area, stratified by patch class}{figure.caption.27}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.2.2}Overall Sensitivity across all Parameters}{35}{subsection.4.2.2}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {2-4}{\ignorespaces $\mu ^*$ and $\sigma $ sensitivity indices for buffer pixel count, step length, and temperature delta across all classified cold water patches ($N = 24$ locations, $r = 64$ trajectories).}}{36}{figure.caption.28}\protected@file@percent }
+\newlabel{fig:mu_star_overall}{{2-4}{36}{$\mu ^*$ and $\sigma $ sensitivity indices for buffer pixel count, step length, and temperature delta across all classified cold water patches ($N = 24$ locations, $r = 64$ trajectories)}{figure.caption.28}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.2.3}Relationship between CWP Area and Step Length Sensitivity}{36}{subsection.4.2.3}\protected@file@percent }
+\@writefile{lot}{\contentsline {table}{\numberline {2-1}{\ignorespaces Regression results for $\mu ^*$ (step length) predicted by mean CWP area and mean $\Delta T$, fitted across all 24 annotated locations.}}{36}{table.caption.30}\protected@file@percent }
+\newlabel{tab:regression_mustar}{{2-1}{36}{Regression results for $\mu ^*$ (step length) predicted by mean CWP area and mean $\Delta T$, fitted across all 24 annotated locations}{table.caption.30}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {2-5}{\ignorespaces $\mu ^*$ (step length) versus mean CWP area for each of the 24 annotated locations. Color indicates the mean temperature delta to the surrounding river ($\overline  {\Delta T}$, averaged across all Morris runs); shape indicates CWP class (circle: non-tributary-caused; triangle: tributary-caused).}}{37}{figure.caption.29}\protected@file@percent }
+\newlabel{fig:mu_star_vs_area}{{2-5}{37}{$\mu ^*$ (step length) versus mean CWP area for each of the 24 annotated locations. Color indicates the mean temperature delta to the surrounding river ($\overline {\Delta T}$, averaged across all Morris runs); shape indicates CWP class (circle: non-tributary-caused; triangle: tributary-caused)}{figure.caption.29}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {4.3}Algorithm Modification}{37}{section.4.3}\protected@file@percent }
+\newlabel{sec:rq3_results}{{4.3}{37}{Algorithm Modification}{section.4.3}{}}
+\newlabel{fig:v3_truncation}{{3-6a}{38}{A v1 polygon ends abruptly mid-reach; the corresponding v3 polygon extends beyond that point}{figure.caption.31}{}}
+\newlabel{sub@fig:v3_truncation}{{a}{38}{A v1 polygon ends abruptly mid-reach; the corresponding v3 polygon extends beyond that point}{figure.caption.31}{}}
+\newlabel{fig:v3_merger}{{3-6b}{38}{Two separate v1 polygons are detected as a single contiguous patch in v3}{figure.caption.31}{}}
+\newlabel{sub@fig:v3_merger}{{b}{38}{Two separate v1 polygons are detected as a single contiguous patch in v3}{figure.caption.31}{}}
+\newlabel{fig:v3_new}{{3-6c}{38}{A CWP detected by v3 that is entirely absent in v1}{figure.caption.31}{}}
+\newlabel{sub@fig:v3_new}{{c}{38}{A CWP detected by v3 that is entirely absent in v1}{figure.caption.31}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {3-6}{\ignorespaces Qualitative comparison of CWP detections between v1 (blue) and v3 (green) at three example locations. v1 polygons and v3 polygons are overlaid at 50\% transparency; areas covered by both algorithms appear as a blend of the two colours, while areas covered by only one algorithm appear in that algorithm's colour alone.}}{38}{figure.caption.31}\protected@file@percent }
+\newlabel{fig:v3_qualitative}{{3-6}{38}{Qualitative comparison of CWP detections between v1 (blue) and v3 (green) at three example locations. v1 polygons and v3 polygons are overlaid at 50\% transparency; areas covered by both algorithms appear as a blend of the two colours, while areas covered by only one algorithm appear in that algorithm's colour alone}{figure.caption.31}{}}
 \@setckpt{Results_1}{
-\setcounter{page}{35}
-\setcounter{equation}{3}
+\setcounter{page}{39}
+\setcounter{equation}{0}
 \setcounter{enumi}{0}
 \setcounter{enumii}{0}
 \setcounter{enumiii}{0}
@@ -45,14 +50,14 @@
 \setcounter{footnote}{0}
 \setcounter{mpfootnote}{0}
 \setcounter{part}{0}
-\setcounter{chapter}{3}
-\setcounter{section}{8}
+\setcounter{chapter}{4}
+\setcounter{section}{3}
 \setcounter{subsection}{0}
 \setcounter{subsubsection}{0}
 \setcounter{paragraph}{0}
 \setcounter{subparagraph}{0}
-\setcounter{figure}{14}
-\setcounter{table}{7}
+\setcounter{figure}{6}
+\setcounter{table}{1}
 \setcounter{tcbbreakpart}{0}
 \setcounter{tcblayer}{0}
 \setcounter{tcolorbox@number}{0}
@@ -69,6 +74,6 @@
 \setcounter{section@level}{1}
 \setcounter{Item}{0}
 \setcounter{Hfootnote}{0}
-\setcounter{bookmark@seq@number}{31}
+\setcounter{bookmark@seq@number}{32}
 \setcounter{lstlisting}{0}
 }

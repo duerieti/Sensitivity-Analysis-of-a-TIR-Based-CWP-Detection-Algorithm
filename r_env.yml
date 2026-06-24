@@ -29,4 +29,3 @@ dependencies:
   - r-abind
   - r-stringdist
   - r-sensitivity
-  - parallel

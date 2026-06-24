@@ -11,11 +11,15 @@ sa <- readRDS("compute_morris/sa_object_big.rds")
 
 sa$X
 
+
+lumped_statistics %>% 
+  filter(identifier == 14)
+
 # load the lumped statistics produced by the post-processing script.
 # each row represents one annotated CWP location under one Morris parameter
 # tuple, with the total detected area as the scalar model output.
 
-lumped_statistics <- read.csv("compute_morris/lumped_stats_emme_big.csv")
+lumped_statistics <- read.csv("compute_morris/aggregated_parameters.csv")
 
 # ── 1. NORMALISE MODEL OUTPUT ─────────────────────────────────────────────────
 # Normalise the total detected area per annotated CWP location by dividing by
@@ -144,88 +148,6 @@ ggsave("./report/Bilder/step_length_results.png", sensitivity_to_step_length,
        width = 6, height = 4, units = "in", dpi = 300)
 
 
-# sensitivity to buffer pixel count — stratified by CWP class
-buffer_px_results <- results %>%
-  filter(Class != "Unshure", parameter == "buffer_px") %>%
-  pivot_longer(names_to = "quantity", values_to = "value", cols = mu.star:sigma)
-
-n_per_class_buffer <- buffer_px_results %>%
-  distinct(Class, identifier) %>%
-  count(Class)
-
-annotation_text_buffer <- paste0(
-  "Morris trajectories: r = 64\n",
-  paste0("N ", n_per_class_buffer$Class, " : ", n_per_class_buffer$n, collapse = "\n")
-)
-
-sensitivity_to_buffer_px <- ggplot(buffer_px_results, aes(y = value, x = quantity, fill = Class)) +
-  geom_boxplot() +
-  geom_point(position = position_jitterdodge(jitter.width = 0.1, dodge.width = 0.75)) +
-  ggtitle("Sensitivity of CWP area to Buffer Pixel Count") +
-  annotate("label",
-    x = -Inf, y = Inf, hjust = 0, vjust = 1,
-    label = annotation_text_buffer,
-    size = 3
-  ) +
-  xlab("Morris sensitivity indices") +
-  ylab("Index value") +
-  scale_x_discrete(labels = c("mu.star" = expression(mu*"*"), "sigma" = expression(sigma)))
-
-sensitivity_to_buffer_px
-
-ggsave("./report/Bilder/buffer_px_results.png", sensitivity_to_buffer_px,
-       width = 6, height = 4, units = "in", dpi = 300)
-
-
-# sensitivity to temperature delta threshold — stratified by CWP class
-delta_T_results <- results %>%
-  filter(Class != "Unshure", parameter == "delta_T") %>%
-  pivot_longer(names_to = "quantity", values_to = "value", cols = mu.star:sigma)
-
-n_per_class_delta <- delta_T_results %>%
-  distinct(Class, identifier) %>%
-  count(Class)
-
-annotation_text_delta <- paste0(
-  "Morris trajectories: r = 64\n",
-  paste0("N ", n_per_class_delta$Class, " : ", n_per_class_delta$n, collapse = "\n")
-)
-
-sensitivity_to_delta_T <- ggplot(delta_T_results, aes(y = value, x = quantity, fill = Class)) +
-  geom_boxplot() +
-  geom_point(position = position_jitterdodge(jitter.width = 0.1, dodge.width = 0.75)) +
-  ggtitle("Sensitivity of CWP area to Temperature Delta Threshold") +
-  annotate("label",
-    x = -Inf, y = Inf, hjust = 0, vjust = 1,
-    label = annotation_text_delta,
-    size = 3
-  ) +
-  xlab("Morris sensitivity indices") +
-  ylab("Index value") +
-  scale_x_discrete(labels = c("mu.star" = expression(mu*"*"), "sigma" = expression(sigma)))
-
-sensitivity_to_delta_T
-
-ggsave("./report/Bilder/delta_T_results.png", sensitivity_to_delta_T,
-       width = 6, height = 4, units = "in", dpi = 300)
-
-mu_star_vs_area <- results %>%
-  filter(parameter == "slab_halfwidth_m") %>%
-  ggplot(aes(x = mean_area, y = mu.star, color = Class)) +
-  geom_point() +
-  xlab(expression("Mean CWP area ("*m^2*")")) +
-  ylab(expression(mu*"* (step length)")) +
-  ggtitle(expression(mu*"* (step length) vs. mean CWP area")) +
-  annotate("label",
-    x = -Inf, y = Inf, hjust = 0, vjust = 1,
-    label = annotation_text,
-    size = 3
-  )
-
-mu_star_vs_area
-
-results %>% colnames()
-
 mu_star_vs_area_deltaT <- results %>%
   filter(parameter == "slab_halfwidth_m") %>%
   ggplot(aes(x = mean_area, y = mu.star, color = mean_deltaT, shape = Class)) +
@@ -261,11 +183,6 @@ lm_summary_2
 } # end if (FALSE)
 
 
-
-
-results %>% colnames()
-
-
 mu_star_sig_of_all_plot <- results %>%
   pivot_longer(cols = mu:sigma, names_to = "score", values_to = "score_value") %>%
   filter(score != "mu") %>%
@@ -276,10 +193,13 @@ mu_star_sig_of_all_plot <- results %>%
   ylab("Index value") +
   xlab("Algorithm Parameters") +
   scale_x_discrete(limits = c("buffer_px", "slab_halfwidth_m", "delta_T"),
-                    labels = c("Buffer Pixel Count", "Step Length", "Temperature Delta")) +
+                   labels = c("Buffer Pixel Count", "Step Length", "Temperature Delta")) +
   scale_fill_discrete(name = "Morris Indices",
-                       labels = c(expression(mu^"*"), expression(sigma)))
-
+                      labels = c(expression(mu^"*"), expression(sigma))) +
+  annotate("label",
+           x = -Inf, y = Inf, hjust = 0, vjust = 1,
+           label = annotation_text,
+           size = 3)
 
 ggsave("./report/Bilder/mustar_sig_over_all.png",mu_star_sig_of_all_plot ,
        width = 6, height = 4, units = "in", dpi = 300)

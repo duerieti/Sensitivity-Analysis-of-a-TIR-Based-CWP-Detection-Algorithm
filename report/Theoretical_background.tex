@@ -22,8 +22,7 @@ expensive to run \citep{saltelli_global_2007, campolongo_effective_2007}. The
 resulting sensitivity indices cannot be interpreted quantitatively, but they do 
 allow for a qualitative, ordinal ranking of which model inputs are more 
 important than others \citep{campolongo_screening_2011}. As a global method, 
-Morris explores the entire input space by varying all input parameters 
-simultaneously across their plausible ranges, meaning that sensitivity scores 
+Morris explores the entire input space, meaning that sensitivity scores 
 reflect average behaviour across the full parameter space rather than being tied 
 to a single point \citep{saltelli_how_2010}. The following explanation of the 
 Morris method closely follows \citep{saltelli_global_2007} and is explained more 
@@ -31,9 +30,7 @@ explicitly in chapter 3 of their book.
 
 \subsection{Elementary Effects and the Sampling Grid}
 
-At the core of the Morris method sits a $k$-dimensional model $Y$ with inputs $X_1, \dots, X_k$. The model inputs are defined in the $k$-dimensional unit cube, meaning that $X_i$ can take on a value in the interval $[0,1]$. It is worth pointing out, that every model with a continuous input can be scaled to the $[0,1]$ range, which makes the unit cube a great place to define methods. In the Morris method, this input space is discretized into a grid $\Omega$, which is used as a basis for the computation of so-called elementary effects.
-
-An elementary effect of the $i$th input parameter $X_i$ is defined as:
+At the core of the Morris method sits a $k$-dimensional model $Y$ with inputs $X_1, \dots, X_k$. The model inputs are defined in the $k$-dimensional unit cube, meaning that $X_i$ can take on a value in the interval $[0,1]$. In the Morris method, this input space is discretized into a grid $\Omega$, which is has $p$ levels and is used as a basis for the computation of so-called elementary effects. An elementary effect of the $i$th input parameter $X_i$ is defined as:
 
 \begin{equation}
 	EE_i = \frac{Y(X_1, X_2, \dots, X_{i-1}, X_i + \Delta, \dots, X_k) - Y(X_1, X_2, \dots, X_k)}{\Delta}
@@ -44,7 +41,7 @@ Where $\Delta$ represents some step along the grid $\Omega$. Figure~\ref{fig:mor
 \begin{figure}[h]
 	\centering
 	\includegraphics[width=0.7\textwidth]{Bilder/morris_grid.png}
-	\caption{An example grid $\Omega$. The grid features two parameters $X_1$, $X_2$, meaning that it is a two-dimensional grid. Further, it features four levels ($p = 4$). The step length $\Delta$ chosen here is $\frac{2}{3}$ and indicated by the arrows.}
+	\caption{An example grid $\Omega$. The grid features two parameters $X_1$, $X_2$, meaning that it is a two-dimensional grid. Further, it features four levels ($p = 4$). The step $\Delta$ chosen here is $\frac{2}{3}$ and indicated by the arrows.}
 	\label{fig:morris_grid}
 \end{figure}
 
@@ -79,7 +76,7 @@ The choice of $r$ and $\Delta$ is not independent of $p$. When $p$ is chosen to 
 
 \subsection{Sensitivity Measures: $\mu$, $\sigma$, and $\mu^*$}
 
-Once the distributions $\mathcal{F}_i$ have been mapped out, statistical measures can be computed, specifically the mean $\mu_i$ and the standard deviation $\sigma_i$ of $\mathcal{F}_i$ are of interest. These two statistical measures together already allow for reasonable insight into the influence of the $i$th parameter $X_i$, which corresponds to the $i$th elementary effect $EE_i$, onto the model:
+Once the distributions $\mathcal{F}_i$ have been mapped out, statistical measures can be computed, specifically the mean $\mu_i$ and the standard deviation $\sigma_i$ of $\mathcal{F}_i$ are of interest. These two statistical measures together already allow for reasonable insight into the influence of the $i$th parameter $X_i$ -- which corresponds to the $i$th elementary effect $EE_i$ -- onto the model:
 
 If $\mu_i$ deviates strongly from $0$, then this means that the elementary effect $EE_i$ generally takes on non-zero values and therefore that the model output changes notably when a step of $\Delta$ is performed along the dimension spanned by $X_i$. This ultimately means that changes in $X_i$ generally affect the model output $Y$ considerably, and that $X_i$ therefore receives a high sensitivity score.
 
@@ -89,11 +86,7 @@ If $\sigma_i$ is large, this means that the distribution $\mathcal{F}_i$ is spre
 	\centering
 	\includegraphics[width=1\textwidth]{Bilder/example_grid_mu_sigma_vairation.png}
 	\caption{Four example distributions $\mathcal{F}_i$ of a parameter $X_i$,
-		illustrating how $\mu$ and $\sigma$ jointly characterise parameter influence.
-		\textit{Top left}: a large effect obscured by symmetry. \textit{Top right}: a large effect with no nonlinearity 
-		or interactions. 
-		\textit{Bottom left}: a large effect with nonlinearity or interactions. \textit{Bottom right}: a small effect 
-		with no nonlinearity or interactions.}
+		illustrating how $\mu$ and $\sigma$ jointly characterize parameter influence.}
 	\label{fig:mu_sig_example}
 \end{figure}
 
@@ -108,9 +101,9 @@ Situations can occur where $\mathcal{F}_i$ contains many extreme values, yet the
 
 % Here a range of example parameter plots are needed to show how FF_i distributions can look like, how they can be skewed, how they can be symetric etc.
 
-\section{Application to Spatial Models}
+\section{Sensitivity analysis for Spatial Models}
 
-The Morris method, like most global sensitivity analysis methods, is defined for models with a scalar output: a single value $Y$ is required for each model evaluation \citep{saltelli_global_2007}. The CWP detection algorithm, however, produces a spatially distributed output. Applying the Morris method to such a model therefore requires a spatial aggregation step to aggregate the spatial output to a scalar value, e.g. using a statistical aggregation function such as the mean \citep{lilburne_sensitivity_2009}.
+The Morris method, like most global sensitivity analysis methods, is defined for models with a scalar output: a single value $Y$ is required for each model evaluation \citep{saltelli_global_2007}. The CWP detection algorithm, however, produces a spatially distributed output. Applying the Morris method to such a model therefore requires a spatial aggregation step to transform the spatial output to a scalar value, e.g. using a statistical aggregation function such as the mean \citep{lilburne_sensitivity_2009}.
 
 % talk about cold water patches here. What are they, why are they interesting? Especially with respect to the salmanoid fish stuff. How are they defined. What is the critigue about the definition
 

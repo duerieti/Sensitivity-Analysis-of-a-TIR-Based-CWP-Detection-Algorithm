@@ -21,45 +21,45 @@ Repeated entry---line 317 of file references.bib
  : @article{casas-mulet_unmanned_2020
  :                                   ,
 I'm skipping whatever remains of this entry
-You've used 23 entries,
+You've used 25 entries,
             2773 wiz_defined-function locations,
-            772 strings with 10972 characters,
-and the built_in function-call counts, 11868 in all, are:
-= -- 1075
-> -- 819
-< -- 12
-+ -- 278
-- -- 255
-* -- 1064
-:= -- 1919
-add.period$ -- 111
-call.type$ -- 23
-change.case$ -- 154
-chr.to.int$ -- 23
-cite$ -- 46
-duplicate$ -- 433
-empty$ -- 831
-format.name$ -- 286
-if$ -- 2416
+            785 strings with 11446 characters,
+and the built_in function-call counts, 12613 in all, are:
+= -- 1142
+> -- 868
+< -- 13
++ -- 295
+- -- 270
+* -- 1123
+:= -- 2042
+add.period$ -- 119
+call.type$ -- 25
+change.case$ -- 163
+chr.to.int$ -- 25
+cite$ -- 50
+duplicate$ -- 468
+empty$ -- 882
+format.name$ -- 303
+if$ -- 2563
 int.to.chr$ -- 1
 int.to.str$ -- 1
 missing$ -- 17
-newline$ -- 165
-num.names$ -- 93
-pop$ -- 269
+newline$ -- 177
+num.names$ -- 101
+pop$ -- 286
 preamble$ -- 1
-purify$ -- 131
+purify$ -- 140
 quote$ -- 0
-skip$ -- 351
+skip$ -- 380
 stack$ -- 0
-substring$ -- 344
-swap$ -- 36
+substring$ -- 348
+swap$ -- 40
 text.length$ -- 0
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 238
+type$ -- 260
 warning$ -- 0
-while$ -- 91
+while$ -- 97
 width$ -- 0
-write$ -- 385
+write$ -- 413
 (There was 1 error message)
