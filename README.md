@@ -11,18 +11,19 @@
 TODO
 
 ---
-
 > **Note:** This project was developed and run on a Debian-based Linux system
 > and is best suited for execution on a distributed HPC cluster running a
 > Debian-like Linux OS with SLURM as the job scheduler and Conda as the
 > environment manager. The parallel execution scripts rely on GNU Parallel,
-> which is a Linux/macOS tool and is not natively available on Windows. Windows
+> which is a Linux/macOS tool and is not natively available on Windows (but can be deployed using Conda). Windows
 > users who wish to run the full pipeline locally are advised to install WSL 2
 > with Ubuntu:  
 > https://learn.microsoft.com/en-us/windows/wsl/install
+>
+> When running on Windows, file paths and line endings may need to be adjusted.
+> Any hardcoded paths using `/` may need to be updated, and shell scripts should
 
 ---
-
 ## 2. Prerequisites
 
 ### 2.1 ZHAW HPC Account (recommended)
@@ -44,16 +45,12 @@ The cluster runs Linux. The following terminal commands will be useful for navig
 | `mkdir` | Create a directory |
 | `nano` | View and edit files in the terminal |
 
----
-
-## 3. Installation
-
-### 3.1 Install Conda
+### 2.2 Conda
 
 If not already installed, download Conda from the official documentation:  
 https://docs.conda.io/projects/conda/en/latest/user-guide/install/index.html
 
-### 3.2 Install Git
+### 2.3 Git
 
 **Windows**  
 https://git-scm.com/install/windows
@@ -68,13 +65,40 @@ brew install git
 sudo apt install git
 ```
 
-### 3.3 Clone the Repository
+### 2.4 GNU Parallel
+
+GNU Parallel is required for the parallel execution scripts.
+
+**Linux (Debian-based)**
+```bash
+sudo apt install parallel
+```
+
+**macOS** (requires Homebrew)
+```bash
+brew install parallel
+```
+
+**Windows (via Conda)**
+
+You might add parallel to one of the environments.
+
+```bash
+conda activate r_env
+conda install -c conda-forge parallel
+```
+
+---
+
+## 3. Installation
+
+### 3.1 Clone the Repository
 
 ```bash
 git clone https://github.com/duerieti/Sensitivity-Analysis-of-a-TIR-Based-CWP-Detection-Algorithm.git
 ```
 
-### 3.4 Set Up Environments
+### 3.2 Set Up Environments
 
 #### Option A: Using Conda (recommended)
 
@@ -121,13 +145,13 @@ install.packages(c(
   "abind"
 ))
 ```
-
 **R version:** 4.5.3
 
 **System dependencies** (required for geospatial packages, Linux/macOS only):
 - GDAL ≥ 3.0
 - GEOS ≥ 3.8
 - PROJ ≥ 6.0
+
 
 ---
 
