@@ -1,6 +1,4 @@
-data/
 literature/
-code/Slurm*
 *.tif
 *.tiff
 *.shp
