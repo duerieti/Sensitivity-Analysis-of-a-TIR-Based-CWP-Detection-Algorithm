@@ -1,0 +1,2015 @@
+Zurich University of Applied Sciences
+Department Life Science and Facility Management
+Institute for Computational Life Sciences
+
+Sensitivity Analysis of a TIR-Based Cold-Water Patch
+Detection Algorithm
+The Influence of Cold Water Tributaries on Cold Water Patches
+
+Bachelor Thesis
+by
+Etienne Dürig
+Bachelor program Applied digital Life Sciences
+Focus Digital Environment
+Study cohort 2023
+June 25, 2026
+
+Dr. Manuel Antonetti
+ZHAW Life Sciences und Facility Management
+Institute for the Environment and Natural Resources
+Research Group: Ecohydrology
+Campus Grüenthal, 8820 Wädenswil
+Dr. Norman Juchler
+ZHAW Life Sciences und Facility Management
+Institute for Computational Life Sciences
+Research Group: Medical Image Analysis and Data Modeling
+Schloss, 8820 Wädenswil
+
+Imprint
+Keywords:
+Thermal Infrared (TIR), Cold-Water Patches (CWP), Sensitivity Analysis, Morris Method,
+River Temperature, Remote Sensing, GDAL, R
+Suggested Citation:
+Dürig, E. (2026). Sensitivity Analysis of a TIR-Based Cold-Water Patch Detection Algorithm. Bachelor Thesis, ZHAW School of Life Sciences and Facility Management.
+Institute:
+ZHAW Zurich University of Applied Sciences
+School of Life Sciences and Facility Management
+Institute of Computational Life Sciences (ICLS)
+Supervisors:
+Dr. Manuel Antonetti
+Dr. Norman Juchler
+
+Contents
+1 Introduction
+
+7
+
+2 Theoretical Background
+
+9
+
+2.1
+
+Sensitivity Analysis . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+
+9
+
+2.2
+
+The Morris Method
+
+9
+
+. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+
+2.2.1
+
+Elementary Effects and the Sampling Grid
+
+. . . . . . . . . . . . . . 10
+
+2.2.2
+
+Trajectory-Based Sampling . . . . . . . . . . . . . . . . . . . . . . . 10
+
+2.2.3
+
+Choosing ∆ and r . . . . . . . . . . . . . . . . . . . . . . . . . . . . 11
+
+2.2.4
+
+Sensitivity Measures: µ, σ, and µ∗ . . . . . . . . . . . . . . . . . . . 12
+
+2.3
+
+Sensitivity analysis for Spatial Models . . . . . . . . . . . . . . . . . . . . . 13
+
+2.4
+
+Coldwater Patches . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 13
+
+3 Methods
+
+15
+
+3.1
+
+Data and Study Area
+
+3.2
+
+Algorithm Reimplementation . . . . . . . . . . . . . . . . . . . . . . . . . . 17
+
+3.3
+
+3.4
+
+3.5
+
+. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 15
+
+3.2.1
+
+GDAL-Based Reimplementation . . . . . . . . . . . . . . . . . . . . 17
+
+3.2.2
+
+Output Equivalence and Runtime Comparison . . . . . . . . . . . . 19
+
+Sensitivity Analysis . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 19
+3.3.1
+
+Determining and Classifying Step Length Sensitive CWP . . . . . . 20
+
+3.3.2
+
+Computing Morris Sensitivity Indices with respect to CWP Area . . 25
+
+Algorithm Modification . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 28
+3.4.1
+
+Reference Temperature Redesign . . . . . . . . . . . . . . . . . . . . 28
+
+3.4.2
+
+Algorithm Overview . . . . . . . . . . . . . . . . . . . . . . . . . . . 29
+
+3.4.3
+
+Reduction of Parameters . . . . . . . . . . . . . . . . . . . . . . . . . 30
+
+Usage of AI . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 31
+
+4 Results
+4.1
+
+32
+
+Algorithm Reimplementation . . . . . . . . . . . . . . . . . . . . . . . . . . 32
+
+2
+
+Sensitivity Analysis of CWP
+
+4.2
+
+4.3
+
+Etienne Dürig AD 23
+
+4.1.1
+
+Runtime Comparison . . . . . . . . . . . . . . . . . . . . . . . . . . . 32
+
+4.1.2
+
+Output Equivalence . . . . . . . . . . . . . . . . . . . . . . . . . . . 33
+
+Sensitivity Analysis . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 34
+4.2.1
+
+Sensitivity of CWP Area to Step Length . . . . . . . . . . . . . . . . 35
+
+4.2.2
+
+Overall Sensitivity across all Parameters . . . . . . . . . . . . . . . . 35
+
+4.2.3
+
+Relationship between CWP Area and Step Length Sensitivity . . . . 36
+
+Algorithm Modification . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 37
+
+5 Discussion
+5.1
+
+5.2
+
+39
+
+Algorithm Reimplementation . . . . . . . . . . . . . . . . . . . . . . . . . . 39
+5.1.1
+
+Speed Comparison . . . . . . . . . . . . . . . . . . . . . . . . . . . . 39
+
+5.1.2
+
+Difference in CWP Polygons between v1 and v2 . . . . . . . . . . . 39
+
+Sensitivity Analysis . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 40
+5.2.1
+
+Step Length Sensitivity by CWP Class . . . . . . . . . . . . . . . . . 40
+
+5.2.2
+
+Overall Sensitivity across all Parameters . . . . . . . . . . . . . . . . 41
+
+5.3
+
+Algorithm Modification . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 42
+
+5.4
+
+Future Improvements . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 42
+
+5.5
+
+5.4.1
+
+Subjective Selection and Classification of CWP . . . . . . . . . . . . 42
+
+5.4.2
+
+Sample Size . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 43
+
+5.4.3
+
+Improvements in the v3 detection algorithm . . . . . . . . . . . . . . 43
+
+References . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 44
+
+6 Appendix
+
+47
+
+3
+
+List of Figures
+2-1 An example grid Ω. The grid features two parameters X1 , X2 , meaning
+that it is a two-dimensional grid. Further, it features four levels (p = 4).
+The step ∆ chosen here is 32 and indicated by the arrows. . . . . . . . . . . 10
+2-2 An example Morris trajectory through a three-dimensional sampling grid
+(k = 3, p = 6). The trajectory consists of k + 1 = 4 points. . . . . . . . . . . 11
+2-3 Four example distributions Fi of a parameter Xi , illustrating how µ and σ
+jointly characterize parameter influence. . . . . . . . . . . . . . . . . . . . . 12
+2-4 The difference of µ and µ⋆ visualized with their underlying distribution Fi
+and Gi . While the µ lies at around zero, µ⋆ significantly deviates from zero.
+
+13
+
+1-1 Overview of the study area along the Emme river. The map shows the
+settlements bounding each of the three TIR orthophoto segments (Emme
+Upper Reach 1, Emme Upper Reach 2, Emme Lower Reach), as well as the
+three tributary rivers imaged during the survey (Ilfis, Grüene, and Urtene),
+shown here as a single combined category. Background Image: Swissimage
+© Swisstopo . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 16
+3-2 Visual overview of the steps involved in determining and classifying steplength-sensitive CWP. The result is a total of 24 classified CWP, where 10
+are tributary-caused and 14 are non-tributary-caused. . . . . . . . . . . . . 20
+3-3 Visual depiction of the Morris sampling grid, spanning step length and
+buffer pixel count. The arrow shows the jump distance chosen for the
+Morris experiment, corresponding to 3 grid levels. . . . . . . . . . . . . . . . 21
+3-4 An example setup showing the worker pool. Red: the GNU Parallel process.
+Orange: 3 worker processes in the pool. Green: actions performed by the
+worker processes. Blue: files and folders. . . . . . . . . . . . . . . . . . . . . 22
+3-5 Construction of the detection frequency raster. The upper two layers show
+individual CWP detection outputs from two runs using different parameter
+tuples. The lower raster shows the resulting detection frequency raster,
+with gray pixels indicating lower detection frequency than black pixels. . . . 23
+3-6 Examples of the four classification outcomes: variable vs. non-variable
+patches (rows), further split by tributary attribution (columns). . . . . . . . 24
+3-7 Visual overview of the steps involved in computing Morris sensitivity indices
+with respect to CWP area. The selected and classified CWP flow into the
+process at step 4. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 25
+4
+
+Sensitivity Analysis of CWP
+
+Etienne Dürig AD 23
+
+3-8 Visual depiction of the second Morris sampling grid, spanning step length,
+buffer pixel count, and the temperature delta threshold. The red arrow
+indicates the jump distance chosen. . . . . . . . . . . . . . . . . . . . . . . . 26
+3-9 Visual representation of the bounding box computation. One of the 24
+selected CWPs is selected using the corresponding bounding box, then aggregation is performed. The resulting statistics can be captured in a table
+based format together with aggregation results from other selected CWP. . 27
+4-10 Illustration of the inverse distance weighting scheme used in v3. Each cell’s
+reference temperature is computed as a weighted average of surrounding
+sample points, where weights decrease with distance. . . . . . . . . . . . . . 29
+1-1 Execution time of v1 and v2 as a function of step length. In red the original
+CWP detection algorithm (v1) in blue the speed optimized algorithm (v2).
+
+33
+
+1-2 Comparison of CWP polygon outputs between v1 (blue) and v2 (red) across
+the three validation runs. Polygons are overlaid at 50% transparency; areas
+of agreement appear as a blend of both colours, while areas covered by only
+one algorithm appear in that algorithm’s colour alone. . . . . . . . . . . . . 34
+2-3 Morris sensitivity indices (µ∗ and σ) for step length with respect to cold
+water patch area, stratified by patch class. . . . . . . . . . . . . . . . . . . . 35
+2-4 µ∗ and σ sensitivity indices for buffer pixel count, step length, and temperature delta across all classified cold water patches (N = 24 locations,
+r = 64 trajectories). . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 36
+2-5 µ∗ (step length) versus mean CWP area for each of the 24 annotated locations. Color indicates the mean temperature delta to the surrounding river
+(∆T , averaged across all Morris runs); shape indicates CWP class (circle:
+non-tributary-caused; triangle: tributary-caused). . . . . . . . . . . . . . . . 37
+3-6 Qualitative comparison of CWP detections between v1 (blue) and v3 (green)
+at three example locations. v1 polygons and v3 polygons are overlaid at
+50% transparency; areas covered by both algorithms appear as a blend of
+the two colours, while areas covered by only one algorithm appear in that
+algorithm’s colour alone. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 38
+0-1 Annotated locations of cold water patches (CWP) in the Emme River. Each
+marker indicates the geographic position of a classified CWP. Background
+Image: Swissimage © Swisstopo . . . . . . . . . . . . . . . . . . . . . . . . 48
+0-2 Catalogue of non-tributary-caused cold-water patches (N = 14). Each
+patch is shown as a detection frequency raster excerpt. . . . . . . . . . . . . 49
+0-3 Catalogue of tributary-caused cold-water patches (N = 10). Each patch is
+shown as a detection frequency raster excerpt. . . . . . . . . . . . . . . . . . 50
+
+5
+
+List of Tables
+1-1 Technical specifications of the three TIR orthophotos covering the Emme
+main channel. All rasters are in the Swiss coordinate reference system
+CH1903+/LV95 (EPSG:2056) and stored as single-band Float32 GeoTIFF
+files. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 17
+2-2 High-level overview of the reworked CWP detection algorithm, including
+the primary tool or function used for each step. . . . . . . . . . . . . . . . . 18
+2-3 Parameter combinations used for the output equivalence comparison between v1 and v2. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 19
+3-4 Parameter values held constant during the first Morris experiment, while
+step length and buffer pixel count were varied. . . . . . . . . . . . . . . . . 21
+4-5 High-level overview of the v3 CWP detection algorithm. . . . . . . . . . . . 30
+4-6 Parameter status in v3 relative to v2.
+
+. . . . . . . . . . . . . . . . . . . . . 31
+
+2-1 Regression results for µ∗ (step length) predicted by mean CWP area and
+mean ∆T , fitted across all 24 annotated locations. . . . . . . . . . . . . . . 36
+
+6
+
+Chapter 1
+
+Introduction
+In recent years, thermal infrared (TIR) remote sensing from unmanned aerial vehicles
+(UAVs) and other airborne platforms has become an established approach for mapping
+thermal heterogeneity in river systems (Casas-Mulet et al., 2020; Dugdale, 2016; Kuhn
+et al., 2021; Torgersen et al., 2001). Mapping this heterogeneity is ecologically important:
+the cold-water patches it reveals can act as refugia that are essential for the survival
+of thermally sensitive fish species, particularly as river temperatures in Switzerland are
+expected to rise due to climate change. Despite this importance, there is currently no
+comprehensive information about the presence, scale, and location of such cold-water
+patches in Swiss water bodies (Tonolla and Antonetti, 2021, 2026).
+As part of a cantonal project aiming to quantify the temperature heterogeneity and detect
+cold-water patches in the Emme River and its tributaries, a helicopter-based survey was
+conducted to collect TIR imagery covering over a 100 km river transect. These TIR images
+were processed using a newly developed algorithm for the automatic detection of coldwater patches, extracting longitudinal and transversal temperature gradients alongside
+the detected cold-water spots. Detailed information regarding the full workflow can be
+found in (Tonolla and Antonetti, 2021, 2026); the present thesis builds directly on this
+existing algorithm and the resulting dataset.
+The CWP detection algorithm relies on externally configured parameters, and sensitivity
+analyses performed in (Tonolla and Antonetti, 2026) indicate that the detection results
+can vary significantly based on the chosen parameter values, with the step length and
+the temperature delta parameters having a particularly strong influence. The algorithm
+divides the river reach into fixed-length segments and computes a separate local reference
+temperature for each segment; visual inspection of existing detection results revealed that
+this can produce abrupt cut-off artefacts, where a cold-water patch spanning two adjacent
+segments is compared against two different reference temperatures and truncated at the
+segment boundary, even though the underlying thermal anomaly continues beyond it.
+Because cold-water tributaries tend to produce elongated thermal anomalies extending
+substantially along the river channel, such patches are disproportionately likely to span
+a segment boundary, suggesting that step length sensitivity may be elevated specifically
+for tributary-caused CWPs. A systematic and more extensive sensitivity analysis of the
+algorithm is therefore needed to test this assumption, to better characterise the resulting
+variance more broadly, and to inform potential algorithmic improvements. Performing
+such an analysis requires executing the algorithm across a large number of parameter
+combinations. The existing algorithm was found to require between 1.25 and 2 hours per
+7
+
+Sensitivity Analysis of CWP
+
+Etienne Dürig AD 23
+
+run on the available hardware, rendering a full sensitivity analysis infeasible without a
+faster implementation. A speed-optimized reimplementation is therefore a prerequisite for
+the sensitivity analysis itself.
+
+Research Questions
+Based on the above, this thesis pursues three objectives: first, to investigate whether
+the existing CWP detection algorithm can be reimplemented in a computationally more
+efficient form while producing equivalent outputs; second, to systematically investigate
+the algorithm’s sensitivity to its parameters, with particular focus on how the presence
+of tributary inflows interacts with this sensitivity; and third, to derive adjustments to
+the detection algorithm that could reduce this parameter sensitivity while maintaining
+ecologically plausible detection results. These objectives are formalised in the following
+three research questions:
+Research question 1 Can the existing CWP detection algorithm be reimplemented in
+a computationally more efficient form, while producing outputs that are equivalent
+to those of the original implementation?
+Research question 2 How does the step length parameter contribute to the variance
+of the detected CWP area for tributary-caused CWPs, compared to non-tributarycaused CWPs?
+H0 The sensitivity of the detected CWP area to the step length parameter does not differ
+between tributary-caused and non-tributary-caused CWPs.
+H1 The sensitivity of the detected CWP area to the step length parameter is significantly
+higher for tributary-caused CWPs than for non-tributary-caused CWPs.
+Research question 3 Building on the findings of Tonolla and Antonetti (2026) sensitivity analysis: what adjustments could be made to the detection algorithm to reduce
+variability with respect to its parameters while also achieving plausible detection
+results?
+
+8
+
+Chapter 2
+
+Theoretical Background
+2.1
+
+Sensitivity Analysis
+
+According to Saltelli et al. sensitivity analysis is “The study of how uncertainty in the
+output of a model [. . . ] can be apportioned to different sources of uncertainty in the model
+input” (Saltelli, 2004). This definition rests on a broad notion of what counts as a model
+input: in sensitivity analysis, everything that causes variation in the output of the model
+is classified as an input (Saltelli et al., 2007). Providing an example: if a linear regression
+of a target variable Y is performed, then not only are the predictors X1 , . . . , Xn considered
+as model inputs, but also the parameters θ1 , . . . , θn that correspond to the predictors. So
+the model:
+Y = f (X1 , X2 , θ1 , θ2 )
+
+(1-1)
+
+would have four model inputs from the view of sensitivity analysis.
+Sensitivity analysis provides a range of benefits. Firstly it allows the modeller to apply
+a strategy called “Factor Fixing”: if the model output Y is found to be independent of
+one or multiple inputs Xi , then these can be set to fixed constants, making sensitivity
+analysis a tool for model simplification (Saltelli et al., 2007). Secondly, sensitivity analysis
+generally improves model validity by identifying highly influential and therefore critical
+model components (Ligmann-Zielinska, 2013).
+
+2.2
+
+The Morris Method
+
+The Morris method belongs to the group of screening methods in sensitivity analysis.
+Screening methods require only a small number of model evaluations, making them computationally cheap and therefore well suited to models that are expensive to run (Campolongo
+et al., 2007; Saltelli et al., 2007). The resulting sensitivity indices cannot be interpreted
+quantitatively, but they do allow for a qualitative, ordinal ranking of which model inputs
+are more important than others (Campolongo et al., 2011). As a global method, Morris
+explores the entire input space, meaning that sensitivity scores reflect average behaviour
+across the full parameter space rather than being tied to a single point (Saltelli and Annoni, 2010). The following explanation of the Morris method closely follows (Saltelli et al.,
+2007) and is explained more explicitly in chapter 3 of their book.
+9
+
+Sensitivity Analysis of CWP
+
+2.2.1
+
+Etienne Dürig AD 23
+
+Elementary Effects and the Sampling Grid
+
+At the core of the Morris method sits a k-dimensional model Y with inputs X1 , . . . , Xk .
+The model inputs are defined in the k-dimensional unit cube, meaning that Xi can take
+on a value in the interval [0, 1]. In the Morris method, this input space is discretized into
+a grid Ω, which is has p levels and is used as a basis for the computation of so-called
+elementary effects. An elementary effect of the ith input parameter Xi is defined as:
+EEi =
+
+Y (X1 , X2 , . . . , Xi−1 , Xi + ∆, . . . , Xk ) − Y (X1 , X2 , . . . , Xk )
+∆
+
+(2-2)
+
+Where ∆ represents some step along the grid Ω. Figure 2-1, taken from (Saltelli et al.,
+2007), shows an example of such a grid for a two-parameter, four-level case.
+
+Fig. 2-1: An example grid Ω. The grid features two parameters X1 , X2 , meaning that it is a
+two-dimensional grid. Further, it features four levels (p = 4). The step ∆ chosen here
+is 23 and indicated by the arrows.
+
+The Morris method occupies itself with finding the statistical distribution of each of the
+i elementary effects. Fi is thereby used to denote the distribution of EEi , in other words
+Fi ∼ EEi (Saltelli et al., 2007).
+
+2.2.2
+
+Trajectory-Based Sampling
+
+To populate Fi with multiple samples of EEi , the Morris method uses an efficient trajectorybased sampling design that obtains as many elementary effects EEi from as few model
+evaluations as possible. Figure 2-2, taken from (Saltelli et al., 2007), shows an example
+trajectory through a three-dimensional sampling grid.
+
+10
+
+Sensitivity Analysis of CWP
+
+Etienne Dürig AD 23
+
+Fig. 2-2: An example Morris trajectory through a three-dimensional sampling grid (k = 3, p = 6).
+The trajectory consists of k + 1 = 4 points.
+
+From this figure it becomes visible that a trajectory consists of k+1 points x(1) , x(2) , . . . , x(k+1) ,
+where k is the dimension of the sampling grid. Each point differs from its predecessor by a
+step of ∆ in exactly one grid direction, so that consecutive points differ in only one model
+input Xi . The trajectory is constructed such that each dimension of the grid is stepped
+along exactly once. Each trajectory yields exactly k elementary effects EEi – one for each
+parameter spanning the sampling grid – and requires k + 1 model evaluations.
+To build up Fi for every factor, r such trajectories are generated. Since each trajectory
+contributes exactly one elementary effect per factor, each Fi ends up containing r samples.
+The total number of model evaluations required therefore is:
+N = r · (k + 1)
+
+(2-3)
+
+(Saltelli et al., 2007).
+
+2.2.3
+
+Choosing ∆ and r
+
+The choice of r and ∆ is not independent of p. When p is chosen to be even, the choice ∆ =
+p/2
+p−1 is ideal, as it has the additional property of guaranteeing equal-probability sampling
+from the grid, meaning that all grid levels are sampled with equal probability across
+the r trajectories (Saltelli et al., 2007). There is no clear rule regarding the number of
+trajectories r to pick. Generally, as the number of levels p in the grid increases, the number
+of trajectories r also needs to increase. Otherwise, increasing p serves little purpose, as
+the grid will not be sufficiently explored to feature all levels if the number of trajectories
+is too small (Saltelli et al., 2007). Generally, the number of trajectories is usually chosen
+somewhere between 10–50 (Campolongo et al., 2007).
+
+11
+
+Sensitivity Analysis of CWP
+
+2.2.4
+
+Etienne Dürig AD 23
+
+Sensitivity Measures: µ, σ, and µ∗
+
+Once the distributions Fi have been mapped out, the mean µi and the standard deviation
+σi of Fi are computed, which are the final sensitivity indices of the morris method. These
+two statistical measures together provide insight into the influence of the ith parameter
+Xi – which corresponds to the ith elementary effect EEi – onto the model:
+If µi deviates strongly from 0, then this means that the elementary effect EEi generally
+takes on non-zero values and therefore that the model output changes notably when a
+step of ∆ is performed along the dimension spanned by Xi . This ultimately means that
+changes in Xi generally affect the model output Y considerably, and that Xi therefore
+receives a high sensitivity score.
+If σi is large, this means that the distribution Fi is spread out considerably over a larger
+range. This indicates that the computed elementary effects EEi generally differed depending on their location in the grid. This behaviour points either to nonlinearity regarding Xi
+or to the fact that Xi interacts with other input parameters. Which of the two effects is
+responsible for the high standard deviation – or whether both contribute simultaneously –
+cannot be determined, which is a shortcoming of the Morris method (Saltelli et al., 2007).
+Figure 2-3 provides a visual example of possible F along with the associated µ and σ
+values and their corresponding interpretation.
+
+Fig. 2-3: Four example distributions Fi of a parameter Xi , illustrating how µ and σ jointly
+characterize parameter influence.
+
+Situations can occur where Fi contains many extreme values, yet the distribution is symmetric around zero. One such example is visualized in the upper-left plot of Figure 2-3.
+In such cases, computing the mean value µi yields a value close to zero, leading to the
+assumption that the parameter Xi is noninfluential. This would be a faulty assumption,
+as the sampled elementary effects EEi are substantial in magnitude but just cancel each
+12
+
+Sensitivity Analysis of CWP
+
+Etienne Dürig AD 23
+
+other out. This phenomenon can be detected by always taking σi into consideration,
+since in this scenario σi is large. It is, however, more common to additionally sample a
+distribution Gi , which captures the magnitude of the elementary effects |EEi |. We then
+compute the mean of this distribution, µ∗i , which is another commonly used sensitivity
+index and can be interpreted like µi . Since it only captures magnitude, Gi however never
+features negative values, and cancellation effects can therefore not occur (Saltelli et al.,
+2007). Figure 2-4 provides a visual example of this mechanism.
+
+Fig. 2-4: The difference of µ and µ⋆ visualized with their underlying distribution Fi and Gi . While
+the µ lies at around zero, µ⋆ significantly deviates from zero.
+
+2.3
+
+Sensitivity analysis for Spatial Models
+
+The Morris method, like most global sensitivity analysis methods, is defined for models
+with a scalar output: a single value Y is required for each model evaluation (Saltelli et al.,
+2007). The CWP detection algorithm, however, produces a spatially distributed output.
+Applying the Morris method to such a model therefore requires a spatial aggregation step
+to transform the spatial output to a scalar value, e.g. using a statistical aggregation
+function such as the mean (Lilburne and Tarantola, 2009).
+
+2.4
+
+Coldwater Patches
+
+Cold water patches (CWPs) are areas in rivers and streams where the water temperature
+is measurably colder than that of the main channel. The temperature difference used to
+define a CWP varies across the literature but is typically set between 0.5 and 3 degrees
+Celsius below the main channel temperature (Casas-Mulet et al., 2020; Wawrzyniak et al.,
+2016). Cold water patches are not automatically cold water refugia. Cold water refugia
+are cold water patches that are actively used by cold-water organisms for thermal relief
+(Mejia et al., 2023). The ecological importance of cold water refugia is expected to increase
+13
+
+Sensitivity Analysis of CWP
+
+Etienne Dürig AD 23
+
+as river temperatures rise due to climate change (Kurylyk et al., 2015). CWPs can arise
+from a range of physical mechanisms. A common cause is the inflow of a colder tributary-.
+Other generating mechanisms include groundwater upwelling, lateral seeps or hyporheic
+exchange (Mejia et al., 2023).
+
+14
+
+Chapter 3
+
+Methods
+This chapter describes the operationalisation of the three research questions into a set
+of methodological steps, which are then described in detail. The first section addresses
+research question 1 by describing the reimplementation of the CWP detection algorithm
+and the comparison of its outputs and runtime against the original. The second section addresses research question 2 by describing the Morris sensitivity analysis, including
+the selection and classification of CWPs, the computation of sensitivity indices, and the
+subsequent visualisation and statistical modelling. The third section addresses research
+question 3 by describing the algorithm modifications derived from the sensitivity analysis
+findings. A description of the data and study area is provided first.
+
+3.1
+
+Data and Study Area
+
+The Emme river originates in an extensive moorland between the Hohgant and Augstmatthorn massifs and flows through the Emmental region before joining the Aare near
+Zuchwil/Luterbach. The catchment covers approximately 974 km2 with a mean elevation
+of 845 m a.s.l., and land cover is dominated by agricultural land (52.1%) and forested
+areas (37.9%). During summer thunderstorms, the river can rise rapidly within minutes
+and transport large quantities of driftwood; as a consequence, the lower reaches have been
+heavily engineered (Tonolla and Antonetti, 2026).
+Tonolla and Antonetti (2026) acquired high-resolution TIR and RGB orthophotos along
+a 69 km transect of the Emme main channel, spanning from Kemmeribodenbad BE to
+Biberist SO, as well as imagery of three tributary rivers: the Ilfis, Grüene, and Urtene.
+The TIR imagery was collected from a helicopter platform using a FLIR SC655 thermal
+infrared camera. In this thesis, only the TIR and RGB orthophotos of the 69 km main
+channel section are used. The TIR orthophotos serve as the primary input to the CWP
+detection algorithms, while the RGB orthophotos are used in a downsampled state as
+background images for selected visualisations and were not used for any further analytical
+purpose. The 69 km river transect is covered by three partially overlapping single-band
+TIR orthophotos. Figure 1-1 provides an overview of the study area while Table 1-1
+summarises their technical specifications of the TIR ortophotos.
+
+15
+
+Sensitivity Analysis of CWP
+
+Etienne Dürig AD 23
+
+Fig. 1-1: Overview of the study area along the Emme river. The map shows the settlements
+bounding each of the three TIR orthophoto segments (Emme Upper Reach 1, Emme
+Upper Reach 2, Emme Lower Reach), as well as the three tributary rivers imaged
+during the survey (Ilfis, Grüene, and Urtene), shown here as a single combined category.
+Background Image: Swissimage © Swisstopo
+
+16
+
+Sensitivity Analysis of CWP
+
+Etienne Dürig AD 23
+
+Tab. 1-1: Technical specifications of the three TIR orthophotos covering the Emme main channel.
+All rasters are in the Swiss coordinate reference system CH1903+/LV95 (EPSG:2056)
+and stored as single-band Float32 GeoTIFF files.
+
+Emme
+Reach 1
+
+Upper
+
+Emme
+Reach 2
+
+Upper
+
+Emme
+Reach
+
+Lower
+
+Extent
+
+Kemmeribodenbad –
+Schüpbach
+
+Schüpbach – Goldbach
+
+Ramsei – Biberist
+
+Total pixels
+Resolution (m)
+Min temp. (°C)
+Max temp. (°C)
+Mean temp. (°C)
+Std dev. (°C)
+
+4.75 × 109
+0.207 × 0.207
+7.43
+33.67
+20.85
+1.05
+
+8.45 × 108
+0.204 × 0.204
+10.08
+30.94
+18.84
+1.24
+
+6.57 × 109
+0.207 × 0.207
+12.50
+34.10
+20.90
+1.32
+
+3.2
+
+Algorithm Reimplementation
+
+The Morris sensitivity analysis conducted in this thesis required executing the CWP detection algorithm across hundreds of parameter combinations, each applied to all three
+TIR orthophotos from Table 1-1, amounting to over 1000 individual algorithm runs in
+total. Completing this within a feasible timespan required both a speed-optimized reimplementation and parallel execution on ZHAW’s High Performance Cluster (HPC). All
+benchmarking was performed directly on the cluster to ensure that optimisation gains
+carry over to the HPC infrastructure.
+
+3.2.1
+
+GDAL-Based Reimplementation
+
+The reworked algorithm (v2) preserves the computational logic of the original implementation (v1) of Tonolla and Antonetti (2026) but differs fundamentally in how each step is
+mechanistically executed. Where v1 processes the raster slab-by-slab in memory using R
+loops and terra/sf functions, v2 replaces these with calls to the GDAL command line
+interface, operating directly on raster and vector files on disk rather than holding intermediate results in memory. Table 2-2 gives a high-level overview of v2; the tool or function
+used in each step is listed in the right-hand column.
+
+17
+
+Sensitivity Analysis of CWP
+
+Etienne Dürig AD 23
+
+Tab. 2-2: High-level overview of the reworked CWP detection algorithm, including the primary
+tool or function used for each step.
+
+Step
+
+Description
+
+Tool / Function
+
+1
+
+Divide the river reach into n centerline segments; construct a wide zone polygon and a
+narrow reference-strip polygon for each segment. Assign an ID to each segment.
+
+sf::st_buffer
+
+2
+
+Rasterize the zone polygons to a raster
+matching the TIR raster resolution, using the
+segment id as burn-in value.
+
+gdal vector
+rasterize
+
+3
+
+Round the TIR raster using a fixed rounding
+factor.
+
+gdal raster calc
+
+4
+
+Extract the median temperature per segment
+from the rounded TIR raster within each reference strip; store in a look-up table keyed
+by segment id.
+
+exactextractr::exact_extract
+
+5
+
+Reclassify the zone raster, replacing each
+segment id with its reference temperature
+from the look-up table, yielding the reference
+raster.
+
+gdal raster
+reclassify
+
+6
+
+Subtract the rounded TIR raster from the
+reference raster; flag pixels where the difference exceeds ∆T , producing a binary CWP
+raster.
+
+gdal raster calc
+
+7
+
+Polygonize the binary CWP raster into patch
+polygons.
+
+terra::as.polygons
+
+8
+
+Filter patches by minimum area, compute
+per-patch temperature statistics, and apply
+a patch-level threshold check against the reference temperature.
+
+exactextractr::exact_extract
+
+The decision to heavily rely on GDAL was made as terra operations are sometimes not
+performant, and GDAL offers an often faster set of geocomputational tools, which can be
+called from R using system() or sf::gdal_utils() (Lovelace et al., 2019). Empirical
+testing in a prior coursework exercise also showed a significant speedup of GDAL-based
+raster operations compared to terra across a range of use cases (Dürig, 2026); this coursework was not peer-reviewed and is cited here only as a supporting empirical observation.
+Operating directly on disk rather than in memory keeps the memory footprint small,
+which is important in an HPC setting where available memory can become a limiting
+factor under parallel execution. The drawback is that intermediate rasters can reach up
+to 25 GB in size; this was addressed by applying compression when writing GeoTIFF
+files, which substantially reduces disk space consumption with negligible computational
+overhead.
+terra::extract() was replaced with exact_extract() from the exactextractr pack18
+
+Sensitivity Analysis of CWP
+
+Etienne Dürig AD 23
+
+age (Baston, 2025), which extracts aggregated raster values considerably faster for large
+rasters (Mieno, 2022). The two functions differ in how partially covered cells are handled:
+exact_extract() weights cells by their coverage fraction (ISciences, LLC, 2026), whereas
+terra::extract() includes a cell only if its centre point falls within the polygon (Hijmans
+et al., 2024) – the behaviour used in v1. To approximate this, only cells with a coverage
+fraction of at least 50% were included in exact_extract(); this approximation is not
+exactly equivalent to terra’s centre-point rule.
+
+3.2.2
+
+Output Equivalence and Runtime Comparison
+
+The resulting reimplementation was tested for equivalence in output by comparing the
+CWP polygons produced by v2 against those produced by v1 when deployed with the
+exact same set of parameters. Spatial agreement was assessed using the Jaccard similarity
+index:
+J(A, B) =
+
+area(A ∩ B)
+area(A ∪ B)
+
+(2-1)
+
+where A and B are the CWP polygon sets produced by v1 and v2 respectively. J = 1
+indicates perfect agreement and J = 0 indicates no overlap. In addition, visual inspection
+in QGIS was carried out to identify any systematic spatial patterns in the disagreements.
+Table 2-3 shows the parameter combinations used in testing.
+Tab. 2-3: Parameter combinations used for the output equivalence comparison between v1 and
+v2.
+
+Parameter
+
+Test 1
+
+Test 2
+
+Test 3
+
+step_length
+zone_halfwidth_m
+buffer_px
+delta_T
+min_patch_area_m2
+round_to
+connect_diagonals
+
+200
+60
+4
+0.5
+2
+0.1
+TRUE
+
+800
+60
+3
+1.0
+3
+0.1
+TRUE
+
+1200
+60
+5
+1.5
+2
+0.1
+TRUE
+
+Runtime was compared across three step lengths (400, 800, and 1200 m), with all other
+parameters held constant (zone halfwidth = 60 m, buffer pixel count = 3 px, ∆T = 1.0 ◦ C,
+minimum patch area = 2 m2 , rounding = 0.1 ◦ C, 8-connectivity enabled).
+
+3.3
+
+Sensitivity Analysis
+
+With the algorithm optimized, sensitivity analysis was carried out to determine the sensitivity of the CWP detection algorithm with respect to the parameters buffer pixel count,
+step length, and temperature delta. As the step length sensitivity hypothesis concerns
+CWPs that are variable to the step length parameter specifically, a pre-selection step was
+first applied to identify CWPs that are actually susceptible to the step length parameter
+and to classify them by their likely cause, ensuring that the subsequent sensitivity analysis
+19
+
+Sensitivity Analysis of CWP
+
+Etienne Dürig AD 23
+
+targets a relevant subset. Morris sensitivity indices were then computed for these CWPs
+with respect to their area. Finally, the results were visualized and a linear model relating
+step-length sensitivity to CWP area and temperature delta was fitted.
+
+3.3.1
+
+Determining and Classifying Step Length Sensitive CWP
+
+Fig. 3-2: Visual overview of the steps involved in determining and classifying step-length-sensitive
+CWP. The result is a total of 24 classified CWP, where 10 are tributary-caused and 14
+are non-tributary-caused.
+
+First, a two-dimensional Morris sampling grid was set up spanning buffer pixel count and
+step length, with 6 levels per parameter (step length: 400–1200 m; buffer pixel count:
+2–7 px), using the R package sensitivity (Iooss et al., 2026) to generate the sampling
+design. The package handles the scaling of input parameters to the unit interval [0, 1]
+internally, so the parameters can be specified directly in their original units. Additionaly,
+in this package, the step size is not set directly as a continuous value ∆, but rather
+through the grid.jump argument, an integer specifying the number of grid levels to be
+jumped when computing each elementary effect. A grid.jump of 3 was chosen because
+it corresponds to the recommended step size (see Section 2.2.3), which implements equalprobability sampling of the elementary effects, given by:
+∆=
+
+p
+6
+3
+=
+=
+2(p − 1)
+2×5
+5
+
+(3-2)
+
+Since the spacing between adjacent levels of the 6-level grid in the normalized unit space
+is 1/(p − 1) = 1/5, jumping 3 grid levels yields exactly 3 × 1/5 = 3/5, matching the
+recommended ∆. Further, as sensitivity carries out normalisation to the zero-one range
+internally, the parameters can be set in their usual range. Figure 3-3 shows the grid with
+the jump distance drawn in. A total of 44 trajectories were then sampled from the grid,
+yielding 44 × (2 + 1) = 132 parameter tuples, each holding a unique combination of buffer
+pixel count and step length. The remaining parameters were held constant as listed in
+Table 3-4 to ensure that any variability in the model output is only attributed to either
+the step length or the buffer pixel count parameter.
+
+20
+
+Sensitivity Analysis of CWP
+
+Etienne Dürig AD 23
+
+Fig. 3-3: Visual depiction of the Morris sampling grid, spanning step length and buffer pixel count.
+The arrow shows the jump distance chosen for the Morris experiment, corresponding to
+3 grid levels.
+Tab. 3-4: Parameter values held constant during the first Morris experiment, while step length
+and buffer pixel count were varied.
+
+Parameter
+
+Value
+
+zone_halfwidth_m
+delta_T
+min_patch_area_m2
+connect_diagonals
+round_to
+
+60 m
+1.0 ◦ C
+2 m2
+TRUE
+0.1
+
+Next, the CWP algorithm was evaluated across all sampled parameter tuples in parallel
+using GNU Parallel (Tange, 2024). GNU Parallel orchestrates a pool of worker processes that operate concurrently. Each worker reads a parameter tuple from a shared
+parameters.txt file and creates a uniquely named working directory based on the tuple
+identifier and parameter values – for example job_1_7_880 for job 1 with buffer_px =
+7 and step_length = 880 m. The worker then executes the CWP detection algorithm
+and writes all results to that directory before fetching the next available tuple. The cycle
+continues until all parameter tuples have been processed. This workflow is visualized in
+Figure 3-4.
+
+21
+
+Sensitivity Analysis of CWP
+
+Etienne Dürig AD 23
+
+Fig. 3-4: An example setup showing the worker pool. Red: the GNU Parallel process. Orange: 3
+worker processes in the pool. Green: actions performed by the worker processes. Blue:
+files and folders.
+
+The CWP polygon layers from all runs were then rasterized at the TIR raster resolution,
+stacked into a multi-layer raster, and reduced to a single two-dimensional raster via pixelwise mean, yielding a detection frequency raster. Each pixel in the detection frequency
+raster holds a score between 0 and 1, representing the fraction of runs in which that pixel
+was detected as part of a CWP. A pixel detected as CWP in every single run received
+a score of 1; a pixel never detected received a score of 0; pixels with intermediate scores
+were detected inconsistently across runs, reflecting sensitivity to the varied parameters.
+The construction of the detection frequency raster is illustrated in Figure 3-5.
+
+22
+
+Sensitivity Analysis of CWP
+
+Etienne Dürig AD 23
+
+Fig. 3-5: Construction of the detection frequency raster. The upper two layers show individual
+CWP detection outputs from two runs using different parameter tuples. The lower
+raster shows the resulting detection frequency raster, with gray pixels indicating lower
+detection frequency than black pixels.
+
+Finally, from the detection frequency raster, patches that were clearly variable and clearly
+attributable to either a tributary inflow or its absence were selected and classified as
+tributary-caused or non-tributary-caused based on visual interpretation. Variability was
+assessed by inspecting the contrast of the detection frequency raster: patches showing a
+wide range of scores – from black to white – across their spatial extent were considered
+variable. Tributary attribution was then determined by proximity to a tributary inflow;
+patches lying adjacent to a visible tributary confluence were classified as tributary-caused,
+while patches with no nearby tributary were classified as non-tributary-caused. Figure 3-6
+shows examples of the four possible classification outcomes.
+
+23
+
+Sensitivity Analysis of CWP
+
+Etienne Dürig AD 23
+
+(a) Variable, tributary-caused. Shading indicates
+variability, and the patch lies adjacent to a tributary inflow.
+
+(b) Variable, non-tributary-caused. Shading indicates variability, but no tributary inflow is
+present nearby.
+
+(c) Non-variable, tributary-caused.
+The patch
+shows little variability in the detection frequency raster despite proximity to a tributary
+inflow.
+
+(d) Non-variable, non-tributary-caused.
+The
+patch shows little variability and no tributary
+inflow is present nearby.
+
+Fig. 3-6: Examples of the four classification outcomes: variable vs. non-variable patches (rows),
+further split by tributary attribution (columns).
+
+Tributary inflows were identified using OpenStreetMap and SwissImage in combination.
+OpenStreetMap allows tributaries obscured by vegetation to be identified, while SwissImage covers tributaries that were not mapped in OpenStreetMap. Multiple closely adjacent
+CWPs were grouped and treated as a single patch, as CWPs in close spatial proximity share the same local generating conditions and will therefore exhibit highly similar
+sensitivity. Treating them as separate observations would violate the assumption of independence and skew the sensitivity indices towards conditions prevailing at that particular
+spot. For each of the 24 selected and classified CWP, a bounding box was then recorded.
+
+24
+
+Sensitivity Analysis of CWP
+
+3.3.2
+
+Etienne Dürig AD 23
+
+Computing Morris Sensitivity Indices with respect to CWP Area
+
+Fig. 3-7: Visual overview of the steps involved in computing Morris sensitivity indices with respect
+to CWP area. The selected and classified CWP flow into the process at step 4.
+
+With the 24 CWP classified, Morris sensitivity indices were computed with respect to
+their area across the three algorithm parameters: buffer pixel count, step length, and
+temperature delta. Where the first experiment varied only two parameters to produce the
+detection frequency raster, the second experiment varied all three and used the CWP area
+as the scalar output fed into the Morris sensitivity computation.
+First, a three-dimensional Morris sampling grid spanning buffer pixel count, step length,
+and temperature delta was set up, as depicted in Figure 3-8. A grid.jump of 3 was again
+chosen, implementing equal-probability sampling of the elementary effects as described
+in Section 2.2.3. A total of 64 trajectories were then sampled from the grid, yielding
+64 × (3 + 1) = 256 parameter tuples. The algorithm was executed in parallel using the
+same orchestration as in the first experiment, with the remaining parameters held constant
+at the same values as listed in Table 3-4.
+
+25
+
+Sensitivity Analysis of CWP
+
+Etienne Dürig AD 23
+
+Fig. 3-8: Visual depiction of the second Morris sampling grid, spanning step length, buffer pixel
+count, and the temperature delta threshold. The red arrow indicates the jump distance
+chosen.
+
+Next, for each completed Morris run, the 24 selected CWP where extracted using the
+bounding boxes from 3.3.1. Then the CWP area and the mean temperature delta were
+computed for each selected CWP. If a given parameter tuple produced no detection for
+a specific CWP, both statistics were set to zero. (A non existing CWP has no surface
+and also no temperature difference to its environment). The computation is illustrated in
+Figure for an example CWP 3-9.
+
+26
+
+Sensitivity Analysis of CWP
+
+Etienne Dürig AD 23
+
+Fig. 3-9: Visual representation of the bounding box computation. One of the 24 selected CWPs
+is selected using the corresponding bounding box, then aggregation is performed. The
+resulting statistics can be captured in a table based format together with aggregation
+results from other selected CWP.
+
+Finally, the CWP area values were normalised per CWP using min-max scaling into the
+interval [0, 1]. This ensures comparability across the 24 selected CWP: without normalisation, larger CWP would produce larger absolute area differences, inflating their sensitivity
+indices relative to smaller CWP. After scaling, a value of 1 corresponded to the maximum
+area detected for that CWP across all runs and a value of 0 to no CWP being present for
+that run. The Morris indices µ∗ and σ were then computed with respect to the normalised
+area values using the R package sensitivity.
+Two sets of boxplot visualisations were then produced. The first displays µ∗ and σ with
+respect to step length, stratified by CWP class, to allow a direct comparison of sensitivity
+between tributary-caused and non-tributary-caused CWPs. The second displays µ∗ and σ
+for all three varied parameters pooled across both classes, providing an overview of their
+relative influence on CWP area.
+To further explore the relationship between step-length sensitivity and CWP characteristics, a scatter plot was produced displaying µ∗ (step length) against mean CWP area
+across all Morris runs, with mean temperature delta encoded as colour and CWP class
+encoded as point shape. Additionally, a linear model was fitted to assess quantitatively
+whether CWP area and temperature delta are associated with step-length sensitivity:
+µ∗step length = β0 + β1 · area + β2 · ∆T
+
+(3-3)
+
+where µ∗step length is the Morris sensitivity index for step length, area and ∆T are the mean
+27
+
+Sensitivity Analysis of CWP
+
+Etienne Dürig AD 23
+
+CWP area and mean temperature delta across all Morris runs for each CWP. The model
+was fitted using R’s lm() across all 24 CWP, pooling both classes.
+
+3.4
+
+Algorithm Modification
+
+Two findings from Tonolla and Antonetti (2026) informed specific algorithmic decisions
+in the design of v3. First, the buffer pixel count was found to have little influence on
+the detected CWP area, qualifying it as a candidate for factor fixing – it was therefore
+internalized in v3 and set to a constant value of 3. Second, the step length parameter was
+identified as having a non-negligible influence on the detected CWP area, motivating a
+fundamental redesign of the reference temperature computation. The temperature delta
+parameter is retained as a free parameter, as different thresholds are used in the literature
+to define CWPs and the user must therefore retain the ability to set it according to their
+chosen definition.
+
+3.4.1
+
+Reference Temperature Redesign
+
+In v1 and v2, the reference temperature for each pixel is determined by the median temperature of the slab segment to which that pixel belongs. This approach has two consequences:
+it requires a user-defined step length, and it produces a reference temperature field that
+is piecewise constant – uniform within each slab and discontinuous at slab boundaries.
+CWPs that happen to span a slab boundary are therefore compared against two different
+reference temperatures, which can produce artificial cutoffs in the detected patch extent.
+In v3, this is replaced by an inverse distance weighting (IDW) approach. Rather than
+dividing the reach into fixed slabs, reference temperature sample points are obtained by
+sampling multiple step length values from a uniform distribution and extracting the median temperature at each resulting segment’s visual center. These sample points, pooled
+across all sampled step lengths, are then used to compute a spatially continuous reference
+temperature raster via IDW, where each cell’s reference temperature is a distance-weighted
+average of the surrounding sample point temperatures. This guarantees that the reference
+temperature is a spatially continuous field, and that no sharp cutoffs at slab boundaries
+can occur.
+
+28
+
+Sensitivity Analysis of CWP
+
+Etienne Dürig AD 23
+
+Fig. 4-10: Illustration of the inverse distance weighting scheme used in v3. Each cell’s reference
+temperature is computed as a weighted average of surrounding sample points, where
+weights decrease with distance.
+
+3.4.2
+
+Algorithm Overview
+
+The implementation of v3 follows the structure of v2 closely, differing only in the computation of the reference temperature raster (steps 1–5 below, replacing steps 1–5 of Table 2-2).
+Steps 6–8 are identical to v2.
+
+29
+
+Sensitivity Analysis of CWP
+
+Etienne Dürig AD 23
+
+Tab. 4-5: High-level overview of the v3 CWP detection algorithm.
+
+Step
+
+Description
+
+1
+
+Sample 20 candidate step length values from a uniform distribution
+with bounds 500–3000 metres.
+
+2
+
+For each candidate step length, divide the river centerline into n
+segments; construct a narrow 3-pixel-wide reference strip polygon for
+each segment; extract the median temperature of each segment from
+the TIR raster; compute the visual centre of each strip polygon and
+assign the corresponding median temperature to this point.
+
+3
+
+Pool the reference points (location + temperature) from all 20 step
+length values into a single combined set of IDW sample points.
+
+4
+
+Initialise a new raster with the same extent and resolution as the
+TIR raster. For each cell: if the corresponding TIR cell is NaN, set
+to NaN; otherwise compute a distance-weighted reference temperature
+via IDW over the pooled sample points, using a decay power of 2.
+
+5
+
+Round the TIR raster using a fixed rounding factor.
+
+6
+
+Subtract the rounded TIR raster from the reference raster; flag pixels
+where the difference exceeds ∆T , producing a binary CWP raster.
+
+7
+
+Polygonize the binary CWP raster into patch polygons.
+
+8
+
+Filter patches by minimum area; compute per-patch temperature
+statistics; apply a patch-level threshold check against the reference
+temperature.
+
+Step 4 is implemented in C++ and imported into R via the Rcpp package, as the per-pixel
+IDW computation was identified as the primary computational bottleneck. To evaluate
+the output of v3 against v1, the Jaccard similarity metric from Section 3.2.2 was applied.
+Since v3 no longer shares the same parameter set as v1, a parameter-matched comparison
+is not possible. Instead, a single v3 run was performed and the resulting CWP polygons were compared against each of the three v1 runs conducted in Section 3.2, yielding
+three Jaccard similarity values. Additionally, visual inspection in QGIS was conducted to
+identify qualitative behavioural differences between v1 and v3.
+
+3.4.3
+
+Reduction of Parameters
+
+Table 4-6 summarises the status of each free parameter in v3 relative to v2. The zone
+halfwidth elimination implies a constraint: v3 requires a TIR raster with an exact water
+mask, with non-river pixels set to NaN.
+
+30
+
+Sensitivity Analysis of CWP
+
+Etienne Dürig AD 23
+
+Tab. 4-6: Parameter status in v3 relative to v2.
+
+Parameter
+
+Status in v3
+
+Reason
+
+buffer_px
+step_length
+zone_halfwidth_m
+delta_T
+min_patch_area_m2
+round_to
+connect_diagonals
+
+Fixed at 3
+Removed
+Removed
+Retained
+Retained
+Retained
+Retained
+
+Non-influential; factor fixing applied
+Replaced by IDW sampling over a range of step lengths
+Reference raster matched to valid TIR extent
+User-defined threshold; varies across CWP definitions
+User-defined filter
+User-defined rounding factor
+User-defined connectivity rule
+
+3.5
+
+Usage of AI
+
+The large language models Claude Sonnet 4.6 and Claude Opus 4.6 (Anthropic) were used
+as aids in this project. Detailed insight into the usage is given in Appendix A.
+
+31
+
+Chapter 4
+
+Results
+4.1
+
+Algorithm Reimplementation
+
+The following two subsections present the runtime benchmarking and output equivalence
+results for v1 and v2.
+
+4.1.1
+
+Runtime Comparison
+
+Figure 1-1 shows the execution time of v1 and v2 as a function of step length. The execution time of v2 is approximately 0.5 hours across all three tested step lengths, remaining
+largely constant. In contrast, v1 shows execution times ranging from approximately 2
+hours at a step length of 400 m to approximately 1.25 hours at 1200 m, with execution
+time increasing as step length decreases (i.e., as the number of segments increases).
+
+32
+
+Sensitivity Analysis of CWP
+
+Etienne Dürig AD 23
+
+Fig. 1-1: Execution time of v1 and v2 as a function of step length. In red the original CWP
+detection algorithm (v1) in blue the speed optimized algorithm (v2).
+
+4.1.2
+
+Output Equivalence
+
+The three comparison runs achieved Jaccard similarities of 0.936, 0.956, and 0.976, indicating generally good spatial agreement between v1 and v2. Figure 1-2 illustrates the
+range of agreement observed. Panel (a) shows a representative example of general agreement, with discrepancies confined to a small number of boundary pixels. Panel (b) shows
+a more pronounced boundary mismatch. Panel (c) shows an example of complete spatial
+agreement, where the two polygon sets are visually indistinguishable.
+
+33
+
+Sensitivity Analysis of CWP
+
+Etienne Dürig AD 23
+
+(a) General agreement. Discrepancies are confined to patch boundaries.
+
+(b) More pronounced disagreement. Boundary mismatches between v1 and v2 are more evident.
+
+(c) Complete agreement. v1 and v2 polygons are spatially indistinguishable.
+
+Fig. 1-2: Comparison of CWP polygon outputs between v1 (blue) and v2 (red) across the three
+validation runs. Polygons are overlaid at 50% transparency; areas of agreement appear
+as a blend of both colours, while areas covered by only one algorithm appear in that
+algorithm’s colour alone.
+
+4.2
+
+Sensitivity Analysis
+
+The Morris sensitivity analysis results are presented below across three complementary
+views, progressing from the specific hypothesis regarding step-length sensitivity to the
+broader parameter ranking and the relationship between CWP area and sensitivity.
+
+34
+
+Sensitivity Analysis of CWP
+
+4.2.1
+
+Etienne Dürig AD 23
+
+Sensitivity of CWP Area to Step Length
+
+Figure 2-3 shows the Morris sensitivity indices µ∗ and σ with respect to the step length
+parameter, stratified by CWP class. All non-tributary-caused CWP show µ∗ values below
+0.2, indicating low sensitivity to the step length parameter across this class. The tributarycaused CWP show a wider spread in µ∗ : some tributary-caused CWP have sensitivity
+values comparable to the non-tributary-caused group, while others show substantially
+higher values of up to 0.3–0.6. The median µ∗ values of the two classes are similar, with
+the primary difference lying in the upper tail of the tributary-caused distribution. The σ
+values show a comparable pattern, with greater spread in the tributary-caused group.
+
+Fig. 2-3: Morris sensitivity indices (µ∗ and σ) for step length with respect to cold water patch
+area, stratified by patch class.
+
+4.2.2
+
+Overall Sensitivity across all Parameters
+
+Figure 2-4 displays the µ∗ and σ values for all 24 CWP locations with respect to the three
+parameters varied in the second Morris experiment. The buffer pixel count shows consistently low µ∗ values across all locations, with the entire distribution concentrated near
+zero, and a similarly negligible σ, indicating neither a meaningful main effect nor relevant
+interactions with the other parameters. In contrast, both step length and temperature
+delta show distributions that deviate clearly from zero for both µ∗ and σ. The temperature delta parameter shows the highest µ∗ values overall, suggesting it has the strongest
+influence on the detected CWP area. For both step length and temperature delta, σ is of
+comparable magnitude to µ∗ , pointing to the presence of nonlinearity or interactions with
+the other parameters for both.
+
+35
+
+Sensitivity Analysis of CWP
+
+Etienne Dürig AD 23
+
+Fig. 2-4: µ∗ and σ sensitivity indices for buffer pixel count, step length, and temperature delta
+across all classified cold water patches (N = 24 locations, r = 64 trajectories).
+
+4.2.3
+
+Relationship between CWP Area and Step Length Sensitivity
+
+Figure 2-5 shows the 24 CWP along three dimensions simultaneously: mean CWP area
+averaged across all Morris runs (x-axis), µ∗ with respect to the step length parameter
+(y-axis), mean temperature delta averaged across all Morris runs (color), and CWP class
+(shape). Locations with larger mean CWP area tend to show higher µ∗ values. No clear
+pattern between mean temperature delta and µ∗ is visible from the colouring.
+Table 2-1 shows the results of the linear model. The mean area predictor is highly significant (p < 0.001) with a positive slope, consistent with the visual pattern in Figure 2-5.
+The mean temperature delta predictor is not significant (p = 0.618). The model explains
+a substantial proportion of variance (R2 = 0.763, Adjusted R2 = 0.740).
+Tab. 2-1: Regression results for µ∗ (step length) predicted by mean CWP area and mean ∆T ,
+fitted across all 24 annotated locations.
+
+Predictor
+
+Estimate
+
+SE
+
+t
+
+p
+
+(Intercept)
+Mean area
+Mean ∆T
+
+9.222 × 10−2
+1.551 × 10−4
+−9.049 × 10−3
+
+2.986 × 10−2
+2.049 × 10−5
+1.788 × 10−2
+
+3.09
+7.57
+−0.51
+
+0.006
+< 0.001
+0.618
+
+Note. R2 = 0.763, Adjusted R2 = 0.740, F (2, 21) = 33.79, p < 0.001. Residual standard error = 0.088 on
+21 degrees of freedom
+
+36
+
+Sensitivity Analysis of CWP
+
+Etienne Dürig AD 23
+
+Fig. 2-5: µ∗ (step length) versus mean CWP area for each of the 24 annotated locations. Color
+indicates the mean temperature delta to the surrounding river (∆T , averaged across
+all Morris runs); shape indicates CWP class (circle: non-tributary-caused; triangle:
+tributary-caused).
+
+4.3
+
+Algorithm Modification
+
+The CWP polygons produced by v3 were compared against those of v1 using the same
+Jaccard similarity metric applied in Section 3.2.2. The Jaccard similarities obtained were
+0.325, 0.334, and 0.287 – substantially lower than the values of 0.936, 0.956, and 0.976
+obtained for v2 versus v1. Figure 3-6 illustrates three qualitative differences observed in
+the v3 detections relative to v1.
+
+37
+
+Sensitivity Analysis of CWP
+
+Etienne Dürig AD 23
+
+(a) A v1 polygon ends abruptly mid-reach; the corresponding v3 polygon extends beyond that point.
+
+(b) Two separate v1 polygons are detected as a single contiguous patch in v3.
+
+(c) A CWP detected by v3 that is entirely absent in v1.
+
+Fig. 3-6: Qualitative comparison of CWP detections between v1 (blue) and v3 (green) at three
+example locations. v1 polygons and v3 polygons are overlaid at 50% transparency; areas
+covered by both algorithms appear as a blend of the two colours, while areas covered
+by only one algorithm appear in that algorithm’s colour alone.
+
+38
+
+Chapter 5
+
+Discussion
+5.1
+
+Algorithm Reimplementation
+
+This section discusses the results of the output equivalence comparison and the runtime
+benchmarking between v1 and v2, and assesses whether the sensitivity analysis findings
+derived from v2 can be transferred to v1.
+
+5.1.1
+
+Speed Comparison
+
+The optimized algorithm (v2) shows substantially shorter execution times than v1 across
+all three tested step lengths, with the performance advantage most pronounced at shorter
+step lengths. v2 maintains an approximately constant execution time of around 0.5 hours
+regardless of step length, while v1’s execution time increases as step length decreases,
+ranging from approximately 1.25 hours at 1200 m to approximately 2 hours at 400 m. This
+difference in scaling behaviour is consistent with how the two implementations process the
+river reach. v2 is loop-free: GDAL operates on the full raster in a single pass, regardless
+of the number of segments. v1 processes the reach one slab at a time using R loops, each
+iteration incurring a fixed overhead independent of slab size. At shorter step lengths the
+reach is divided into more slabs, shifting the overhead-to-useful-work ratio unfavourably
+and increasing total execution time. This mechanistic account is a hypothesis and was not
+formally tested.
+
+5.1.2
+
+Difference in CWP Polygons between v1 and v2
+
+The CWP polygons produced by v1 and v2 are in general agreement with respect to location and spatial extent, as reflected by Jaccard similarities of 0.936, 0.956, and 0.976
+across the three validation runs. The observed discrepancies are confined to the pixel level
+– typically affecting a small number of pixels at patch boundaries – and no systematic
+spatial bias is apparent. The most likely source of these discrepancies is the difference
+in how terra::extract() and exactextractr::exact_extract() handle partially covered pixels: the 50% coverage-fraction threshold used to approximate terra’s centre-point
+inclusion rule is not exactly equivalent, and small differences in extracted reference temperatures propagate to pixel-level differences in the binary CWP raster. The high Jaccard
+similarities, combined with the observation that the discrepancies can be attributed to
+a minor extraction artefact rather than a fundamental algorithmic difference, support
+39
+
+Sensitivity Analysis of CWP
+
+Etienne Dürig AD 23
+
+the conclusion that v2 replicates the behaviour of v1 to a degree sufficient to transfer
+sensitivity findings.
+
+5.2
+
+Sensitivity Analysis
+
+This section interprets the Morris sensitivity analysis results, first addressing the specific hypothesis regarding step-length sensitivity in tributary-caused versus non-tributarycaused CWP, and then discussing the overall parameter sensitivity ranking across all three
+varied parameters.
+
+5.2.1
+
+Step Length Sensitivity by CWP Class
+
+The boxplot comparison of µ∗ values between tributary-caused and non-tributary-caused
+CWP, shown in Figure 2-3, shows a tendency consistent with H1: tributary-caused CWP
+display a wider spread in step-length sensitivity, with a higher third quartile and higher
+maximum values than the non-tributary-caused group. However, a closer inspection reveals that this pattern is not uniform within the tributary-caused class – some tributarycaused CWP show sensitivity values comparable to the non-tributary-caused group, while
+others are substantially more sensitive. This within-class heterogeneity suggests that tributary presence alone is not a sufficient condition for high sensitivity to the step length
+parameter.
+The scatter plot in Figure 2-5 and the linear model together point to CWP area as the
+more proximate driver of step-length sensitivity. CWPs with larger mean area tend to
+show higher µ∗ values, and this relationship is approximately linear. The linear model
+confirms this: the mean area predictor is highly significant (p < 0.001) with a positive
+slope, while the mean temperature delta predictor is not significant (p = 0.316).
+A mechanistic explanation for the area–sensitivity relationship follows from the structure
+of the algorithm. CWPs in a river system tend to be elongated rather than wide, since
+the river channel constrains lateral extent while longitudinal extent is less bounded. Large
+CWP are therefore predominantly long CWP. A long CWP has a higher probability of
+spanning the boundary between two adjacent slabs, and when this occurs, the two parts
+of the patch are compared against different reference temperatures – one computed from
+each slab’s reference strip. If those reference temperatures differ (which is more likely
+near a tributary inflow, where sharp longitudinal temperature gradients exist), the flagging threshold is effectively applied inconsistently across the patch, introducing variability
+in the detected CWP extent that is directly attributable to the step length parameter.
+Smaller and therefore shorter CWP are more likely to fall entirely within a single slab,
+and are therefore less exposed to this effect.
+Tributary inflows are therefore best understood not as a direct cause of step-length sensitivity, but as one mechanism that can produce large, elongated CWP by introducing
+substantial volumes of cold water that generate extended thermal anomalies along the
+river. In the present dataset, large CWP occur exclusively in the tributary-caused class,
+which explains the elevated sensitivity observed in that group. Whether equally large
+non-tributary-caused CWP would show comparable sensitivity cannot be determined, as
+no such patches are present in the dataset.
+¨Neither H0 nor H1 is fully supported by the data. H0 is too strong a rejection as tributary
+40
+
+Sensitivity Analysis of CWP
+
+Etienne Dürig AD 23
+
+presence is associated with a tendency towards higher step-length sensitivity. However,
+H1 overstates the role of tributary presence as a direct determinant of sensitivity. The
+more proximate driver appears to be CWP size, with tributary presence acting primarily
+as a driver of patch size rather than sensitivity directly. With no comparably large nontributary-caused CWP present in the dataset, concluding that tributary-caused CWP are
+inherently more susceptible to the step length parameter is not fully justified as it is equally
+plausible that large non-tributary-caused CWP would show comparable sensitivity.
+Interestingly, CWP area and mean temperature delta appear to be largely unrelated in
+the data, despite the intuitive expectation that a colder tributary might produce a larger
+thermal anomaly. This could suggest that tributary discharge plays a more important role
+than temperature difference in determining CWP size. A large, moderately cold tributary
+may produce a larger CWP than a small but very cold one. Discharge data were not
+collected during the survey, but could be a valuable addition in future work.
+
+5.2.2
+
+Overall Sensitivity across all Parameters
+
+The overall µ∗ distributions across all 24 annotated locations, shown in Figure 2-4, reveal
+a clear ranking of parameter influence with respect to detected CWP area. The buffer
+pixel count is consistently non-influential, with µ∗ values close to zero across all locations.
+The corresponding σ values are similarly low, suggesting that the elementary effects of
+buffer pixel count are both small in magnitude and consistent across the parameter space.
+This indicates that there neither is a strong main effect nor any meaningful interactions
+with the other parameters. This is consistent with Tonolla and Antonetti (2026), who
+likewise identify the buffer pixel count as non-influential in their sensitivity analysis of the
+CWP detection algorithm.
+The temperature delta parameter shows the highest µ∗ values overall, indicating that it
+is the most influential of the three parameters with respect to CWP area which is again
+consistent with Tonolla and Antonetti (2026). The elevated σ values for temperature
+delta suggest that its elementary effects vary across the parameter space, pointing to the
+presence of nonlinearity or interactions with the other parameters. The former is rather
+plausible: the relationship between the flagging threshold and the detected CWP area is
+unlikely to be linear. Consider a thermal anomaly whose mean temperature falls just 0.1°C
+below the current detection threshold – the entirety of that anomaly’s area is undetected.
+Increasing temperature delta by 0.1°C brings that entire area above the threshold in a
+single step, producing a large change in detected area from a small parameter change.
+The same increment applied elsewhere in the parameter space may flag no new area at
+all.
+The step length parameter occupies an intermediate position, with µ∗ values clearly above
+zero but consistently below those of temperature delta. Like temperature delta, step
+length also shows elevated σ values, suggesting interactions with the other parameters
+or nonlinear behaviour. Here the results again agree with Tonolla and Antonetti (2026),
+which identified the step length parameter as beeing of intermediate influence in their
+sensitivity analysis.
+
+41
+
+Sensitivity Analysis of CWP
+
+5.3
+
+Etienne Dürig AD 23
+
+Algorithm Modification
+
+The replication of the buffer pixel count and temperature delta findings from Tonolla and
+Antonetti (2026) within the present work, using an independently implemented sensitivity
+analysis lends additional credibility to both sets of results and suggests that these sensitivity patterns are robust properties of the CWP detection algorithm rather than artefacts of
+a particular study context. This agreement between the two analyses provides a stronger
+basis for the design decisions underlying v3 than either analysis alone would afford.
+The substantially lower Jaccard similarities obtained for v3 against v1 (0.325, 0.334, and
+0.287) are expected given the fundamental redesign of the reference temperature step, and
+do not in themselves indicate that v3 performs worse than v1. The difference between the
+two algorithms at least partly originates from improved behaviour. The slab-boundary
+truncation artefact identified as a direct consequence of step-length sensitivity no longer
+occurs in v3, producing CWP detections that extend naturally rather than ending abruptly
+at segment boundaries. Similarly, CWPs that were artificially severed into multiple fragments by a slab boundary in v1 are detected as single contiguous patches in v3, which is
+likely a more ecologically accurate representation of the underlying thermal anomaly.
+What remains less certain are the new CWP detections present in v3 but entirely absent
+in v1. A plausible explanation is that these represent genuine CWPs that were fragmented
+below the minimum area threshold by a slab boundary in v1 and therefore filtered out.
+However, as visible in Figure 3-6c, at least one such detection is large enough that slap
+boundary fragmentation alone cannot account for its complete absence in v1. Therefore, an
+alternative explanation would be required for cases of this size. Determining whether these
+additional detections represent real cold-water patches would require in-situ assessment of
+river morphology and temperature.
+
+5.4
+
+Future Improvements
+
+The following subsections identify three methodological limitations of the present work
+and outline directions in which future studies could address them.
+
+5.4.1
+
+Subjective Selection and Classification of CWP
+
+Both the selection and classification of the CWP were carried out subjectively based on
+visual inspection of the fuzzy overlay raster. This approach is prone to confirmation
+bias on two levels. First, the judgment about variability and the judgment about class
+membership were both made with the study hypothesis already in mind. CWPs that
+were selected are therefore likely those that were most easily attributable to one of the
+two classes – patches that clearly appeared variable and clearly appeared tributary-caused
+or non-tributary-caused. More nuanced cases, where variability was ambiguous or class
+attribution uncertain, were left out. The resulting dataset is consequently biased towards
+extreme and obvious cases, and may not be representative of the broader population of
+CWPs in the Emme system. Second, given that H1 of research question 2 was considered
+plausible prior to the analysis based on prior observations, the selection process may have
+been further skewed towards patches that would support H1, even if this influence was
+not conscious.
+
+42
+
+Sensitivity Analysis of CWP
+
+Etienne Dürig AD 23
+
+Two methodological improvements could reduce these limitations in future work. First,
+the variability assessment and CWP selection could be replaced by a fully algorithmic approach, removing human judgment from the process. Caution is however warranted: upon
+defining the rules of a process-based algorithm, the analyst may inadvertently encode the
+same biases that affect manual selection. Similarly, a data-driven approach would need
+to learn from a ground truth dataset that is itself produced by human labeling, meaning
+the bias present in the labeling process would be inherited by the model. Second, if manual classification cannot be avoided, inter-rater reliability assessment should be included:
+multiple independent observers, each blind to the study hypothesis, could classify the
+same set of candidate CWPs, and the level of agreement between raters – quantified for
+example using Cohen’s κ – would provide an empirical measure of classification reliability.
+Such a dataset could further serve as ground truth for training a data-driven classification algorithm, combining the transparency of manual labeling with the scalability of an
+automated approach.
+
+5.4.2
+
+Sample Size
+
+With only n = 24 annotated CWP locations, the dataset is small by the standards of
+statistical inference. While the significant area–sensitivity relationship detected by the
+linear model suggests that the effect is strong enough to be visible at this sample size,
+the risk of chance findings cannot be excluded. A larger sample would increase statistical
+power and reduce the probability that the observed relationships are artefacts of the
+specific locations selected.
+
+5.4.3
+
+Improvements in the v3 detection algorithm
+
+Upon closer inspection, v3 introduces a parameter that was not explicitly treated as a
+free parameter during the development of the algorithm: the decay power of the inverse
+distance weighting scheme, which governs how quickly the influence of a reference point
+diminishes with distance. In the current implementation this value is fixed at 2, which
+is a common default, but the choice is arbitrary and its influence on the detected CWP
+area has not been assessed. Strictly speaking, this means that the parameter reduction
+achieved by v3 is incomplete: the decay power has effectively been fixed by convention
+rather than by a principled sensitivity analysis. A dedicated sensitivity analysis of the
+IDW decay power would be needed to either justify fixing it at its current value through
+factor fixing, or to expose it as a free parameter that the user should be able to configure.
+
+43
+
+Sensitivity Analysis of CWP
+
+5.5
+
+Etienne Dürig AD 23
+
+References
+
+D. Baston. exactextractr: Fast Extraction from Raster Datasets using Polygons, 2025. URL
+https://CRAN.R-project.org/package=exactextractr. R package version 0.10.1.
+F. Campolongo, J. Cariboni, and A. Saltelli. An effective screening design for sensitivity
+analysis of large models. Environmental Modelling & Software, 22(10):1509–1518, Oct.
+2007. ISSN 13648152. doi: 10.1016/j.envsoft.2006.10.004. URL https://linkinghub.
+elsevier.com/retrieve/pii/S1364815206002805.
+F. Campolongo, A. Saltelli, and J. Cariboni. From screening to quantitative sensitivity
+analysis. A unified approach. Computer Physics Communications, 182(4):978–988, Apr.
+2011. ISSN 00104655. doi: 10.1016/j.cpc.2010.12.039. URL https://linkinghub.
+elsevier.com/retrieve/pii/S0010465510005321.
+R. Casas-Mulet, J. Pander, D. Ryu, M. J. Stewardson, and J. Geist. Unmanned Aerial
+Vehicle (UAV)-Based Thermal Infra-Red (TIR) and Optical Imagery Reveals MultiSpatial Scale Controls of Cold-Water Areas Over a Groundwater-Dominated Riverscape. Frontiers in Environmental Science, 8:64, May 2020. ISSN 2296-665X. doi:
+10.3389/fenvs.2020.00064. URL https://www.frontiersin.org/article/10.3389/
+fenvs.2020.00064/full.
+S. J. Dugdale. A practitioner’s guide to thermal infrared remote sensing of rivers and
+streams: recent advances, precautions and considerations. WIREs Water, 3(2):251–
+268, Mar. 2016. ISSN 2049-1948, 2049-1948. doi: 10.1002/wat2.1135. URL https:
+//wires.onlinelibrary.wiley.com/doi/10.1002/wat2.1135.
+E. Dürig.
+Raster deepdive, 2026.
+URL https://stds-handin.github.io/
+Raster-Deepdive/. Coursework submission; not peer-reviewed, cited as supporting
+empirical observation only.
+GDAL/OGR contributors. GTiff – GeoTIFF file format, 2026. URL https://gdal.org/
+en/stable/drivers/raster/gtiff.html.
+R. J. Hijmans, A. Brown, and M. Barbosa. extract: Extract values from a SpatRaster,
+2024. URL https://rspatial.github.io/terra/reference/extract.html. terra
+package documentation.
+B. Iooss, S. Da Veiga, A. Janon, and G. Pujol. sensitivity: Global Sensitivity Analysis of
+Model Outputs and Importance Measures, 2026. URL https://CRAN.R-project.org/
+package=sensitivity. R package version 1.31.0.
+ISciences, LLC.
+exactextract,
+exactextract/index.html.
+
+2026.
+
+URL https://isciences.github.io/
+
+J. Kuhn, R. Casas-Mulet, J. Pander, and J. Geist. Assessing Stream Thermal Heterogeneity and Cold-Water Patches from UAV-Based Imagery: A Matter of Classification
+Methods and Metrics. Remote Sensing, 13(7):1379, Apr. 2021. ISSN 2072-4292. doi:
+10.3390/rs13071379. URL https://www.mdpi.com/2072-4292/13/7/1379.
+B. L. Kurylyk, K. T. B. MacQuarrie, T. Linnansaari, R. A. Cunjak, and R. A. Curry.
+Preserving, augmenting, and creating cold-water thermal refugia in rivers: concepts
+derived from research on the Miramichi River, New Brunswick (Canada). Ecohydrology,
+44
+
+Sensitivity Analysis of CWP
+
+Etienne Dürig AD 23
+
+8(6):1095–1108, Sept. 2015. ISSN 1936-0584, 1936-0592. doi: 10.1002/eco.1566. URL
+https://onlinelibrary.wiley.com/doi/10.1002/eco.1566.
+A. Ligmann-Zielinska. Spatially-explicit sensitivity analysis of an agent-based model of
+land use change. International Journal of Geographical Information Science, 27(9):1764–
+1781, Sept. 2013. ISSN 1365-8816, 1362-3087. doi: 10.1080/13658816.2013.782613. URL
+http://www.tandfonline.com/doi/abs/10.1080/13658816.2013.782613.
+L. Lilburne and S. Tarantola. Sensitivity analysis of spatial models. International
+Journal of Geographical Information Science, 23(2):151–168, 2009. doi: 10.1080/
+13658810802094995.
+R. Lovelace, J. Nowosad, and J. Muenchow. Geocomputation with R. CRC Press, 2019.
+ISBN 9780203730058.
+F. H. Mejia, V. Ouellet, M. A. Briggs, S. M. Carlson, R. Casas-Mulet, M. Chapman, M. J.
+Collins, S. J. Dugdale, J. L. Ebersole, D. M. Frechette, A. H. Fullerton, C. Gillis, Z. C.
+Johnson, C. Kelleher, B. L. Kurylyk, R. Lave, B. H. Letcher, K. M. Myrvold, T. Nadeau,
+H. Neville, H. Piégay, K. A. Smith, D. Tonolla, and C. E. Torgersen. Closing the gap
+between science and management of cold-water refuges in rivers and streams. Global
+Change Biology, 29(19):5482–5508, Oct. 2023. ISSN 1354-1013, 1365-2486. doi: 10.
+1111/gcb.16844. URL https://onlinelibrary.wiley.com/doi/10.1111/gcb.16844.
+T. Mieno. R as GIS for economists: Extraction speed comparison, 2022. URL https:
+//tmieno2.github.io/R-as-GIS-for-Economists/extract-speed.html.
+A. Saltelli, editor. Sensitivity analysis in practice: a guide to assessing scientific models.
+Wiley, Hoboken, NJ, 2004. ISBN 978-0-470-87093-8.
+A. Saltelli and P. Annoni. How to avoid a perfunctory sensitivity analysis. Environmental Modelling & Software, 25(12):1508–1517, Dec. 2010. ISSN 13648152. doi:
+10.1016/j.envsoft.2010.04.012. URL https://linkinghub.elsevier.com/retrieve/
+pii/S1364815210001180.
+A. Saltelli, M. Ratto, T. Andres, F. Campolongo, J. Cariboni, D. Gatelli, M. Saisana,
+and S. Tarantola. Global Sensitivity Analysis. The Primer. Wiley, 1 edition, Dec.
+2007. ISBN 978-0-470-05997-5 978-0-470-72518-4. doi: 10.1002/9780470725184. URL
+https://onlinelibrary.wiley.com/doi/book/10.1002/9780470725184.
+O. Tange. GNU Parallel 20240222. Zenodo, Software, Feb. 2024. URL https://doi.
+org/10.5281/zenodo.10719803.
+D. Tonolla and M. Antonetti. Thermoscanning Fliessgewässer Part II. Technical report,
+ZHAW, Wädenswil, June 2021.
+D. Tonolla and M. Antonetti. Thermische-Kartographie zur Detektion und Charakterisierung von Kaltwasserbereichen an der Emme und drei ausgewählten Zuflüssen
+(Grüene, Ilfis, Urtene). Technical report, ZHAW, Wädenswil, Feb. 2026.
+C. E. Torgersen, R. N. Faux, B. A. McIntosh, N. J. Poage, and D. J. Norton. Airborne
+thermal remote sensing for water temperature assessment in rivers and streams. Remote Sensing of Environment, 76(3):386–398, June 2001. ISSN 00344257. doi: 10.
+1016/S0034-4257(01)00186-9. URL https://linkinghub.elsevier.com/retrieve/
+pii/S0034425701001869.
+45
+
+Sensitivity Analysis of CWP
+
+Etienne Dürig AD 23
+
+V. Wawrzyniak, H. Piégay, P. Allemand, L. Vaudor, R. Goma, and P. Grandjean. Effects of
+geomorphology and groundwater level on the spatio-temporal variability of riverine cold
+water patches assessed using thermal infrared (TIR) remote sensing. Remote Sensing of
+Environment, 175:337–348, Mar. 2016. ISSN 00344257. doi: 10.1016/j.rse.2015.12.050.
+URL https://linkinghub.elsevier.com/retrieve/pii/S0034425715302728.
+
+46
+
+Chapter 6
+
+Appendix
+• Appendix A: Catalog of classified CWP
+• Appendix B: Statement of Reproducibility and Collaboration
+• Appendix C: List of Generative AI Systems
+
+47
+
+Sensitivity Analysis of CWP
+
+Etienne Dürig AD 23
+
+Appendix A: Catalog of classified CWP
+
+Fig. 0-1: Annotated locations of cold water patches (CWP) in the Emme River. Each marker
+indicates the geographic position of a classified CWP. Background Image: Swissimage
+© Swisstopo
+
+48
+
+Sensitivity Analysis of CWP
+
+Etienne Dürig AD 23
+
+1
+
+2
+
+3
+
+5
+
+8
+
+9
+
+10
+
+12
+
+13
+
+14
+
+16
+
+17
+
+18
+
+19
+
+Fig. 0-2: Catalogue of non-tributary-caused cold-water patches (N = 14). Each patch is shown
+as a detection frequency raster excerpt.
+
+49
+
+Sensitivity Analysis of CWP
+
+Etienne Dürig AD 23
+
+4
+
+6
+
+7
+
+11
+
+15
+
+20
+
+21
+
+22
+
+23
+
+24
+
+Fig. 0-3: Catalogue of tributary-caused cold-water patches (N = 10). Each patch is shown as a
+detection frequency raster excerpt.
+
+50
+
+Sensitivity Analysis of CWP
+
+Etienne Dürig AD 23
+
+Appendix B: Statement of Reproducibility
+The complete R code associated with this thesis is available at:
+https://github.com/duerieti/Sensitivity-Analysis-of-a-TIR-Based-CWP-Detection-Algorithm
+
+Appendix C: List of Generative AI Systems
+The following generative AI systems and AI-assisted tools were utilized in the context of
+this work:
+System
+Tool
+
+/
+
+Provider & Version
+
+Claude Sonnet
+4.6
+
+Anthropic (2026)
+Version Sonnet 4.6
+
+Claude
+4.6
+
+Anthropic (2026)
+Version Opus 4.6
+
+Opus
+
+Purpose of Use
+
+• Stylistic improvement of text
+• Spelling correction
+• Code debugging and coding assistance
+(no agentic coding)
+• LATEX assistant (debugging and formatting)
+• Finding relevant literature
+
+• Complex debugging tasks
+• Complex writing assistance tasks such
+as assuring cross-chapter naming consistency
+
+Note: The author assumes full responsibility for all generated content, its accuracy, and
+compliance with the standards of scientific integrity.
+
+51
+
+

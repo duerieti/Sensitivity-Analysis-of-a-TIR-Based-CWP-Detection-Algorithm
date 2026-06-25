@@ -8,6 +8,24 @@ and the runtime benchmarking between v1 and v2, and assesses whether
 the sensitivity analysis findings derived from v2 can be transferred 
 to v1.
 
+\subsection{Speed Comparison}
+
+The optimized algorithm (v2) shows substantially shorter execution times 
+than v1 across all three tested step lengths, with the performance 
+advantage most pronounced at shorter step lengths. v2 maintains an 
+approximately constant execution time of around 0.5 hours regardless of 
+step length, while v1's execution time increases as step length decreases, 
+ranging from approximately 1.25 hours at 1200~m to approximately 2 hours 
+at 400~m. This difference in scaling behaviour is consistent with how the two 
+implementations process the river reach. v2 is loop-free: GDAL operates 
+on the full raster in a single pass, regardless of the number of segments. v1 processes the reach 
+one slab at a time using R loops, each iteration incurring a fixed overhead 
+independent of slab size. At shorter step lengths the reach is divided into 
+more slabs, shifting the overhead-to-useful-work ratio unfavourably and 
+increasing total execution time. This mechanistic account is a hypothesis 
+and was not formally tested.
+
+
 \subsection{Difference in CWP Polygons between v1 and v2}
 
 The CWP polygons produced by v1 and v2 are in general agreement with 
@@ -27,22 +45,6 @@ than a fundamental algorithmic difference, support the conclusion that
 v2 replicates the behaviour of v1 to a degree sufficient to transfer 
 sensitivity findings.
 
-\subsection{Speed Comparison}
-
-The optimized algorithm (v2) shows substantially shorter execution times 
-than v1 across all three tested step lengths, with the performance 
-advantage most pronounced at shorter step lengths. v2 maintains an 
-approximately constant execution time of around 0.5 hours regardless of 
-step length, while v1's execution time increases as step length decreases, 
-ranging from approximately 1.25 hours at 1200~m to approximately 2 hours 
-at 400~m. This difference in scaling behaviour is consistent with how the two 
-implementations process the river reach. v2 is loop-free: GDAL operates 
-on the full raster in a single pass, regardless of the number of segments. v1 processes the reach 
-one slab at a time using R loops, each iteration incurring a fixed overhead 
-independent of slab size. At shorter step lengths the reach is divided into 
-more slabs, shifting the overhead-to-useful-work ratio unfavourably and 
-increasing total execution time. This mechanistic account is a hypothesis 
-and was not formally tested.
 
 \section{Sensitivity Analysis}
 \label{sec:rq2_discussion}
@@ -74,7 +76,7 @@ slope, while the mean temperature delta predictor is not significant
 ($p = 0.316$).
 
 A mechanistic explanation for the area--sensitivity relationship follows 
-naturally from the structure of the algorithm. CWPs in a river system tend to 
+from the structure of the algorithm. CWPs in a river system tend to 
 be elongated rather than wide, since the river channel constrains lateral extent 
 while longitudinal extent is less bounded. Large CWP are therefore predominantly 
 long CWP. A long CWP has a higher probability of spanning the boundary between 
@@ -84,7 +86,7 @@ reference strip. If those reference temperatures differ (which is more likely
 near a tributary inflow, where sharp longitudinal temperature gradients exist), 
 the flagging threshold is effectively applied inconsistently across the patch, 
 introducing variability in the detected CWP extent that is directly attributable 
-to the step length parameter. Shorter or smaller CWP are more likely to fall 
+to the step length parameter. Smaller and therefore shorter CWP are more likely to fall 
 entirely within a single slab, and are therefore less exposed to this effect.
 
 Tributary inflows are therefore best understood not as a direct cause of 
@@ -96,21 +98,22 @@ sensitivity observed in that group. Whether equally large non-tributary-caused
 CWP would show comparable sensitivity cannot be determined, as no such patches 
 are present in the dataset.
 
-Neither H0 nor H1 is fully supported by the data. H0 is too strong a rejection 
+¨Neither H0 nor H1 is fully supported by the data. H0 is too strong a rejection 
 as tributary presence is associated with a tendency towards higher step-length 
 sensitivity. However, H1 overstates the role of tributary presence as a direct 
 determinant of sensitivity. The more proximate driver appears to be CWP size, 
 with tributary presence acting primarily as a driver of patch size rather than 
-sensitivity directly. Given the size imbalance between classes, concluding that 
-tributary-caused CWP are inherently more susceptible to the step length parameter 
-is not fully justified.
+sensitivity directly. With no comparably large non-tributary-caused CWP present 
+in the dataset, concluding that tributary-caused CWP are inherently more 
+susceptible to the step length parameter is not fully justified as it is equally 
+plausible that large non-tributary-caused CWP would show comparable sensitivity.
 
 
 Interestingly, CWP area and mean temperature delta appear to be largely 
 unrelated in the data, despite the intuitive expectation that a colder 
 tributary might produce a larger thermal anomaly. This could suggest that 
 tributary discharge plays a more important role than temperature difference 
-in determining CWP size -- a large, moderately cold tributary may produce 
+in determining CWP size. A large, moderately cold tributary may produce 
 a larger CWP than a small but very cold one. Discharge data were not 
 collected during the survey, but could be a valuable addition in future work.
 
@@ -123,31 +126,30 @@ with respect to detected CWP area. The buffer pixel count is consistently
 non-influential, with $\mu^*$ values close to zero across all locations. The 
 corresponding $\sigma$ values are similarly low, suggesting that the elementary 
 effects of buffer pixel count are both small in magnitude and consistent across 
-the parameter space -- indicating neither a strong main effect nor meaningful 
-interactions with the other parameters. This is consistent with 
+the parameter space. This indicates that there neither is a strong main effect nor any meaningful interactions with the other parameters. This is consistent with 
 \citet{tonolla_thermische-kartographie_2026}, who likewise identify the buffer 
 pixel count as non-influential in their sensitivity analysis of the CWP detection 
 algorithm.
 
 The temperature delta parameter shows the highest $\mu^*$ values overall, 
 indicating that it is the most influential of the three parameters with respect 
-to CWP area -- a finding likewise consistent with 
+to CWP area which is again consistent with 
 \citet{tonolla_thermische-kartographie_2026}. The elevated $\sigma$ values for 
 temperature delta suggest that its elementary effects vary across the parameter 
 space, pointing to the presence of nonlinearity or interactions with the other 
-parameters. This is ecologically plausible: the relationship between the flagging 
+parameters. The former is rather plausible: the relationship between the flagging 
 threshold and the detected CWP area is unlikely to be linear. Consider a thermal 
 anomaly whose mean temperature falls just 0.1\textdegree C below the current 
 detection threshold -- the entirety of that anomaly's area is undetected. 
 Increasing temperature delta by 0.1\textdegree C brings that entire area above 
 the threshold in a single step, producing a large change in detected area from 
 a small parameter change. The same increment applied elsewhere in the parameter 
-space -- far from any threshold boundary -- may flag no new area at all.
+space may flag no new area at all.
 
 The step length parameter occupies an intermediate position, with $\mu^*$ values 
 clearly above zero but consistently below those of temperature delta. Like 
 temperature delta, step length also shows elevated $\sigma$ values, suggesting 
-interactions with the other parameters or nonlinear behaviour.
+interactions with the other parameters or nonlinear behaviour. Here the results again agree with \cite{tonolla_thermische-kartographie_2026}, which identified the step length parameter as beeing of intermediate influence in their sensitivity analysis.
 
 \section{Algorithm Modification}
 \label{sec:rq3_discussion}
