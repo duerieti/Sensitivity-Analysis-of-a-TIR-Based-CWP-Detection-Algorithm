@@ -26,3 +26,4 @@ literature/
 *.cpg
 *.sr.lock
 *.lock
+Slurm*/
