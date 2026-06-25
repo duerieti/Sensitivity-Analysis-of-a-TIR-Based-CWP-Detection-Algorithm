@@ -124,11 +124,9 @@ with the other parameters for both.
 		patches ($N = 24$ locations, $r = 64$ trajectories).}
 	\label{fig:mu_star_overall}
 \end{figure}
-
-
 \subsection{Relationship between CWP Area and Step Length Sensitivity}
 
-Figure~\ref{fig:mu_star_vs_area} shows the 24 CWP locations along three 
+Figure~\ref{fig:mu_star_vs_area} shows the 24 CWP along three 
 dimensions simultaneously: mean CWP area averaged across all Morris runs 
 (x-axis), $\mu^*$ with respect to the step length parameter (y-axis), mean 
 temperature delta averaged across all Morris runs (color), and CWP class 
@@ -139,9 +137,9 @@ visible from the colouring.
 Table~\ref{tab:regression_mustar} shows the results of the linear model. 
 The mean area predictor is highly significant ($p < 0.001$) with a positive 
 slope, consistent with the visual pattern in Figure~\ref{fig:mu_star_vs_area}. 
-The mean temperature delta predictor is not significant ($p = 0.556$). 
-The model explains a substantial proportion of variance ($R^2 = 0.611$, 
-Adjusted $R^2 = 0.572$).
+The mean temperature delta predictor is not significant ($p = 0.618$). 
+The model explains a substantial proportion of variance ($R^2 = 0.763$, 
+Adjusted $R^2 = 0.740$).
 
 \begin{figure}[ht]
 	\centering
@@ -163,19 +161,19 @@ Adjusted $R^2 = 0.572$).
 		\toprule
 		Predictor & Estimate & SE & $t$ & $p$ \\
 		\midrule
-		(Intercept)     & $1.015 \times 10^{-1}$  & $2.672 \times 10^{-2}$ 
-		& 3.80    & 0.001    \\
-		Mean area       & $1.491 \times 10^{-4}$  & $1.845 \times 10^{-5}$ 
-		& 8.08    & $<0.001$ \\
-		Mean $\Delta T$ & $-1.614 \times 10^{-2}$ & $1.568 \times 10^{-2}$ 
-		& $-1.03$ & 0.316    \\
+		(Intercept)     & $9.222 \times 10^{-2}$  & $2.986 \times 10^{-2}$ 
+		& 3.09    & 0.006    \\
+		Mean area       & $1.551 \times 10^{-4}$  & $2.049 \times 10^{-5}$ 
+		& 7.57    & $<0.001$ \\
+		Mean $\Delta T$ & $-9.049 \times 10^{-3}$ & $1.788 \times 10^{-2}$ 
+		& $-0.51$ & 0.618    \\
 		\bottomrule
 	\end{tabular}
 	
 	\vspace{0.5em}
 	\footnotesize
-	\textit{Note.} $R^2 = 0.794$, Adjusted $R^2 = 0.772$, $F(2, 19) = 36.53$, 
-	$p < 0.001$. Residual standard error $= 0.074$ on 19 degrees of freedom.
+	\textit{Note.} $R^2 = 0.763$, Adjusted $R^2 = 0.740$, $F(2, 21) = 33.79$, 
+	$p < 0.001$. Residual standard error $= 0.088$ on 21 degrees of freedom 
 \end{table}
 
 \section{Algorithm Modification}

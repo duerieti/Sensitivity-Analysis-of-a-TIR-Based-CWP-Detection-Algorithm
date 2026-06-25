@@ -25,6 +25,6 @@
 \contentsline {figure}{\numberline {3-6}{\ignorespaces Qualitative comparison of CWP detections between v1 (blue) and v3 (green) at three example locations. v1 polygons and v3 polygons are overlaid at 50\% transparency; areas covered by both algorithms appear as a blend of the two colours, while areas covered by only one algorithm appear in that algorithm's colour alone.}}{38}{figure.caption.31}%
 \addvspace {10\p@ }
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {0-1}{\ignorespaces Annotated locations of cold water patches (CWP) in the Emme River. Each marker indicates the geographic position of a classified CWP. Background Image: Swissimage © Swisstopo }}{49}{figure.caption.33}%
-\contentsline {figure}{\numberline {0-2}{\ignorespaces Catalogue of non-tributary-caused cold-water patches ($N = 14$). Each patch is shown as a detection frequency raster excerpt.}}{50}{figure.caption.34}%
-\contentsline {figure}{\numberline {0-3}{\ignorespaces Catalogue of tributary-caused cold-water patches ($N = 10$). Each patch is shown as a detection frequency raster excerpt.}}{51}{figure.caption.35}%
+\contentsline {figure}{\numberline {0-1}{\ignorespaces Annotated locations of cold water patches (CWP) in the Emme River. Each marker indicates the geographic position of a classified CWP. Background Image: Swissimage © Swisstopo }}{48}{figure.caption.33}%
+\contentsline {figure}{\numberline {0-2}{\ignorespaces Catalogue of non-tributary-caused cold-water patches ($N = 14$). Each patch is shown as a detection frequency raster excerpt.}}{49}{figure.caption.34}%
+\contentsline {figure}{\numberline {0-3}{\ignorespaces Catalogue of tributary-caused cold-water patches ($N = 10$). Each patch is shown as a detection frequency raster excerpt.}}{50}{figure.caption.35}%

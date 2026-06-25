@@ -9,17 +9,14 @@ library(tidyverse)
 # the model outputs via tell() to compute the sensitivity indices.
 sa <- readRDS("compute_morris/sa_object_big.rds")
 
-sa$X
 
-
-lumped_statistics %>% 
-  filter(identifier == 14)
 
 # load the lumped statistics produced by the post-processing script.
 # each row represents one annotated CWP location under one Morris parameter
 # tuple, with the total detected area as the scalar model output.
 
 lumped_statistics <- read.csv("compute_morris/aggregated_parameters.csv")
+
 
 # ── 1. NORMALISE MODEL OUTPUT ─────────────────────────────────────────────────
 # Normalise the total detected area per annotated CWP location by dividing by
@@ -44,8 +41,6 @@ normalized_lumped_statistics <- lumped_statistics %>%
 #   - sigma:   standard deviation of elementary effects (nonlinearity / interactions)
 
 identifiers  <- normalized_lumped_statistics$identifier %>% unique()
-
-lumped_statistics 
 
 
 
@@ -102,8 +97,8 @@ results <- bind_rows(results_list) %>%
       Class = ifelse(Class == "NT", "non tributary-caused", "tributar-caused")
     )
 
-
-results %>% colnames()
+results %>%
+  filter(identifier == 14)
 
 # ── 3. PLOT SENSITIVITY INDICES ───────────────────────────────────────────────
 
@@ -122,6 +117,8 @@ step_length_results <- results %>%
 n_per_class <- step_length_results %>%
   distinct(Class, identifier) %>%
   count(Class)
+  
+step_length_results %>% pull(identifier) %>% unique() %>% sort()
 
 # build the annotation text for the info box
 annotation_text <- paste0(

@@ -49,7 +49,7 @@ The Morris method occupies itself with finding the statistical distribution of e
 
 \subsection{Trajectory-Based Sampling}
 
-To populate $\mathcal{F}_i$ with multiple samples of $EE_i$, the Morris method uses an efficient trajectory-based sampling design that obtains as many elementary effects $EE_i$ from as few model evaluations as possible. The exact mathematical formulation of how trajectories are constructed is beyond the scope of this thesis; a visual understanding is sufficient. Figure~\ref{fig:saltelli_trajectory_grid}, taken from \citep{saltelli_global_2007}, shows an example trajectory through a three-dimensional sampling grid.
+To populate $\mathcal{F}_i$ with multiple samples of $EE_i$, the Morris method uses an efficient trajectory-based sampling design that obtains as many elementary effects $EE_i$ from as few model evaluations as possible. Figure~\ref{fig:saltelli_trajectory_grid}, taken from \citep{saltelli_global_2007}, shows an example trajectory through a three-dimensional sampling grid.
 
 \begin{figure}[H]
 	\centering
@@ -76,7 +76,7 @@ The choice of $r$ and $\Delta$ is not independent of $p$. When $p$ is chosen to 
 
 \subsection{Sensitivity Measures: $\mu$, $\sigma$, and $\mu^*$}
 
-Once the distributions $\mathcal{F}_i$ have been mapped out, statistical measures can be computed, specifically the mean $\mu_i$ and the standard deviation $\sigma_i$ of $\mathcal{F}_i$ are of interest. These two statistical measures together already allow for reasonable insight into the influence of the $i$th parameter $X_i$ -- which corresponds to the $i$th elementary effect $EE_i$ -- onto the model:
+Once the distributions $\mathcal{F}_i$ have been mapped out, the mean $\mu_i$ and the standard deviation $\sigma_i$ of $\mathcal{F}_i$ are computed, which are the final sensitivity indices of the morris method. These two statistical measures together provide insight into the influence of the $i$th parameter $X_i$ -- which corresponds to the $i$th elementary effect $EE_i$ -- onto the model:
 
 If $\mu_i$ deviates strongly from $0$, then this means that the elementary effect $EE_i$ generally takes on non-zero values and therefore that the model output changes notably when a step of $\Delta$ is performed along the dimension spanned by $X_i$. This ultimately means that changes in $X_i$ generally affect the model output $Y$ considerably, and that $X_i$ therefore receives a high sensitivity score.
 
@@ -90,7 +90,7 @@ If $\sigma_i$ is large, this means that the distribution $\mathcal{F}_i$ is spre
 	\label{fig:mu_sig_example}
 \end{figure}
 
-Situations can occur where $\mathcal{F}_i$ contains many extreme values, yet the distribution is symmetric around zero. One such example is visualized in the upper-left plot of Figure~\ref{fig:mu_sig_example}. In such cases, computing the mean value $\mu_i$ yields a value close to zero, leading to the assumption that the parameter $X_i$ is noninfluential. This would be a faulty assumption, as the sampled elementary effects $EE_i$ are substantial in magnitude but cancel each other out. This phenomenon can be detected by always taking $\sigma_i$ into consideration, since in this scenario $\sigma_i$ is large. It is, however, more common to additionally sample a distribution $\mathcal{G}_i$, which captures the magnitude of the elementary effects $|EE_i|$. We then compute the mean of this distribution, $\mu^*_i$, which can be interpreted like $\mu_i$. Since it only captures magnitude, this distribution however never features negative values, and cancellation effects can therefore not occur \citep{saltelli_global_2007}. Figure~\ref{fig:mu_mu_star} provides a visual example of this mechanism.
+Situations can occur where $\mathcal{F}_i$ contains many extreme values, yet the distribution is symmetric around zero. One such example is visualized in the upper-left plot of Figure~\ref{fig:mu_sig_example}. In such cases, computing the mean value $\mu_i$ yields a value close to zero, leading to the assumption that the parameter $X_i$ is noninfluential. This would be a faulty assumption, as the sampled elementary effects $EE_i$ are substantial in magnitude but just cancel each other out. This phenomenon can be detected by always taking $\sigma_i$ into consideration, since in this scenario $\sigma_i$ is large. It is, however, more common to additionally sample a distribution $\mathcal{G}_i$, which captures the magnitude of the elementary effects $|EE_i|$. We then compute the mean of this distribution, $\mu^*_i$, which is another commonly used sensitivity index and can be interpreted like $\mu_i$. Since it only captures magnitude, $\mathcal{G}_i$ however never features negative values, and cancellation effects can therefore not occur \citep{saltelli_global_2007}. Figure~\ref{fig:mu_mu_star} provides a visual example of this mechanism.
 
 \begin{figure}[H]
 	\centering

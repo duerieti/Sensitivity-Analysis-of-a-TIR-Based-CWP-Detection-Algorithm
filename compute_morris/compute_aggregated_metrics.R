@@ -16,7 +16,6 @@ classified_cwp_data <- read_delim("compute_morris/cwp_annotated.csv") %>%
     ymax = as.numeric(ymax)
   )
 
-
 # ── HELPERS ───────────────────────────────────────────────────────────────────
 
 # For a set of detected CWP polygons and a dataframe of annotated bounding boxes,
@@ -47,6 +46,8 @@ crop_to_regions <- function(polys, df) {
           Class      = row$Class,
           identifier = row$Index
         )
+    
+
     } else {
       # no CWP was detected at this location for this parameter tuple.
       # area = 0 (no patch), deltaT = 0 (no thermal anomaly) — both are
@@ -154,5 +155,7 @@ lumped_stats_obemme <- map(
 lumped_stats_all <- bind_rows(lumped_stats_emme_v1, lumped_stats_emme_v2, lumped_stats_obemme)
 
 lumped_stats_all
+
+lumped_stats_all %>% filter(identifier == 14) %>% filter(total_area != 0)
 
 write_csv(lumped_stats_all, "compute_morris/aggregated_parameters.csv")

@@ -7,7 +7,7 @@
 \contentsline {table}{\numberline {2-3}{\ignorespaces Parameter combinations used for the output equivalence comparison between v1 and v2.}}{19}{table.caption.12}%
 \contentsline {table}{\numberline {3-4}{\ignorespaces Parameter values held constant during the first Morris experiment, while step length and buffer pixel count were varied.}}{21}{table.caption.15}%
 \contentsline {table}{\numberline {4-5}{\ignorespaces High-level overview of the v3 CWP detection algorithm.}}{30}{table.caption.23}%
-\contentsline {table}{\numberline {4-6}{\ignorespaces Parameter status in v3 relative to v2.}}{30}{table.caption.24}%
+\contentsline {table}{\numberline {4-6}{\ignorespaces Parameter status in v3 relative to v2.}}{31}{table.caption.24}%
 \addvspace {10\p@ }
 \contentsline {table}{\numberline {2-1}{\ignorespaces Regression results for $\mu ^*$ (step length) predicted by mean CWP area and mean $\Delta T$, fitted across all 24 annotated locations.}}{36}{table.caption.30}%
 \addvspace {10\p@ }

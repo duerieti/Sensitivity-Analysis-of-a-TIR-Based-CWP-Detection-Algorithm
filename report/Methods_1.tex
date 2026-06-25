@@ -253,7 +253,7 @@ count and step length, with 6 levels per parameter (step length: 400--1200~m;
 buffer pixel count: 2--7~px), using the R package \texttt{sensitivity} 
 \citep{sensitivity} to generate the sampling design. The package handles the 
 scaling of input parameters to the unit interval $[0,1]$ internally, so the 
-parameters can be specified directly in their original units. In this package, 
+parameters can be specified directly in their original units. Additionaly, in this package, 
 the step size is not set directly 
 as a continuous value $\Delta$, but rather through the \texttt{grid.jump} 
 argument, an integer specifying the number of grid levels to be jumped when 
@@ -601,7 +601,14 @@ identical to v2.
 
 Step 4 is implemented in C++ and imported into R via the \texttt{Rcpp} package, 
 as the per-pixel IDW computation was identified as the primary computational 
-bottleneck.
+bottleneck. To evaluate the output of v3 against v1, the Jaccard similarity 
+metric from Section~\ref{sec:output_equivalence} was applied. Since v3 no 
+longer shares the same parameter set as v1, a parameter-matched comparison is 
+not possible. Instead, a single v3 run was performed and the resulting CWP 
+polygons were compared against each of the three v1 runs conducted in 
+Section~\ref{sec:rq1_methods}, yielding three Jaccard similarity values. 
+Additionally, visual inspection in QGIS was conducted to identify qualitative 
+behavioural differences between v1 and v3.
 
 \subsection{Reduction of Parameters}
 
