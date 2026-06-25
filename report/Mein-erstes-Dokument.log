@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.28 (TeX Live 2025/Debian) (preloaded format=pdflatex 2026.6.13)  25 JUN 2026 14:58
+This is pdfTeX, Version 3.141592653-2.6-1.40.28 (TeX Live 2025/Debian) (preloaded format=pdflatex 2026.6.13)  25 JUN 2026 19:55
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1349,16 +1349,16 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
 
 [19]
-<Bilder/cwp_fuzzy.png, id=597, 1195.46625pt x 325.215pt>
+<Bilder/cwp_fuzzy.png, id=597, 966.61125pt x 262.9825pt>
 File: Bilder/cwp_fuzzy.png Graphic file (type png)
 <use Bilder/cwp_fuzzy.png>
 Package pdftex.def Info: Bilder/cwp_fuzzy.png  used on input line 244.
-(pdftex.def)             Requested size: 426.79135pt x 116.10468pt.
-<Bilder/morris_grid_image.png, id=603, 102.31186pt x 84.56226pt>
+(pdftex.def)             Requested size: 426.79135pt x 116.11392pt.
+<Bilder/morris_grid_image.png, id=603, 101.35814pt x 81.33025pt>
 File: Bilder/morris_grid_image.png Graphic file (type png)
 <use Bilder/morris_grid_image.png>
-Package pdftex.def Info: Bilder/morris_grid_image.png  used on input line 281.
-(pdftex.def)             Requested size: 341.43437pt x 282.28336pt.
+Package pdftex.def Info: Bilder/morris_grid_image.png  used on input line 284.
+(pdftex.def)             Requested size: 341.43437pt x 274.0061pt.
 
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -1371,7 +1371,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 <Bilder/GNU.png, id=614, 995.72pt x 808.01875pt>
 File: Bilder/GNU.png Graphic file (type png)
 <use Bilder/GNU.png>
-Package pdftex.def Info: Bilder/GNU.png  used on input line 321.
+Package pdftex.def Info: Bilder/GNU.png  used on input line 324.
 (pdftex.def)             Requested size: 426.79135pt x 346.34398pt.
 
 
@@ -1385,7 +1385,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 <Bilder/overlay.png, id=622, 118.37837pt x 92.69028pt>
 File: Bilder/overlay.png Graphic file (type png)
 <use Bilder/overlay.png>
-Package pdftex.def Info: Bilder/overlay.png  used on input line 341.
+Package pdftex.def Info: Bilder/overlay.png  used on input line 344.
 (pdftex.def)             Requested size: 341.43437pt x 267.34941pt.
 
 
@@ -1400,29 +1400,29 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 File: Bilder/variable_tributary_caused.png Graphic file (type png)
 <use Bilder/variable_tributary_caused.png>
 Package pdftex.def Info: Bilder/variable_tributary_caused.png  used on input li
-ne 368.
+ne 371.
 (pdftex.def)             Requested size: 204.85802pt x 96.48581pt.
 <Bilder/variable_non_tributary_caused.png, id=630, 1229.59375pt x 579.16376pt>
 File: Bilder/variable_non_tributary_caused.png Graphic file (type png)
 <use Bilder/variable_non_tributary_caused.png>
 Package pdftex.def Info: Bilder/variable_non_tributary_caused.png  used on inpu
-t line 376.
+t line 379.
 (pdftex.def)             Requested size: 204.85802pt x 96.48581pt.
 <Bilder/non_variable_tributary_caused.png, id=631, 1229.59375pt x 579.16376pt>
 File: Bilder/non_variable_tributary_caused.png Graphic file (type png)
 <use Bilder/non_variable_tributary_caused.png>
 Package pdftex.def Info: Bilder/non_variable_tributary_caused.png  used on inpu
-t line 386.
+t line 389.
 (pdftex.def)             Requested size: 204.85802pt x 96.48581pt.
 <Bilder/non_variable_non_tributary_caused.png, id=632, 1229.59375pt x 579.16376
 pt>
 File: Bilder/non_variable_non_tributary_caused.png Graphic file (type png)
 <use Bilder/non_variable_non_tributary_caused.png>
 Package pdftex.def Info: Bilder/non_variable_non_tributary_caused.png  used on 
-input line 395.
+input line 398.
 (pdftex.def)             Requested size: 204.85802pt x 96.48581pt.
 
-Underfull \hbox (badness 4205) in paragraph at lines 397--397
+Underfull \hbox (badness 4205) in paragraph at lines 400--400
 [][]|\T1/lmr/m/n/9 Non-variable, non-tributary-caused. The
  []
 
@@ -1434,11 +1434,11 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
 
 [23 <./Bilder/overlay.png>]
-<Bilder/cwp_stats.png, id=638, 1128.215pt x 499.8675pt>
+<Bilder/cwp_stats.png, id=638, 713.66624pt x 328.22626pt>
 File: Bilder/cwp_stats.png Graphic file (type png)
 <use Bilder/cwp_stats.png>
-Package pdftex.def Info: Bilder/cwp_stats.png  used on input line 424.
-(pdftex.def)             Requested size: 426.79135pt x 189.09735pt.
+Package pdftex.def Info: Bilder/cwp_stats.png  used on input line 427.
+(pdftex.def)             Requested size: 426.79135pt x 196.28618pt.
 
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -1450,12 +1450,12 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 [24 <./Bilder/variable_tributary_caused.png> <./Bilder/variable_non_tributary_c
 aused.png> <./Bilder/non_variable_tributary_caused.png> <./Bilder/non_variable_
 non_tributary_caused.png>]
-<Bilder/large_moris_grid_image.png, id=653, 161.11864pt x 145.6667pt>
+<Bilder/large_moris_grid_image.png, id=653, 154.68033pt x 145.6667pt>
 File: Bilder/large_moris_grid_image.png Graphic file (type png)
 <use Bilder/large_moris_grid_image.png>
 Package pdftex.def Info: Bilder/large_moris_grid_image.png  used on input line 
-451.
-(pdftex.def)             Requested size: 341.43437pt x 308.73412pt.
+456.
+(pdftex.def)             Requested size: 341.43437pt x 321.58572pt.
 
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -1468,7 +1468,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 <Bilder/cropping_strat_img.png, id=661, 594.57297pt x 435.20836pt>
 File: Bilder/cropping_strat_img.png Graphic file (type png)
 <use Bilder/cropping_strat_img.png>
-Package pdftex.def Info: Bilder/cropping_strat_img.png  used on input line 467.
+Package pdftex.def Info: Bilder/cropping_strat_img.png  used on input line 472.
 
 (pdftex.def)             Requested size: 426.79135pt x 312.40013pt.
 
@@ -1488,12 +1488,12 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
 
 [27 <./Bilder/cropping_strat_img.png>]
-<Bilder/inverse_dist_weighting.png, id=676, 129.05357pt x 72.07642pt>
+<Bilder/inverse_dist_weighting.png, id=676, 128.40831pt x 71.17305pt>
 File: Bilder/inverse_dist_weighting.png Graphic file (type png)
 <use Bilder/inverse_dist_weighting.png>
 Package pdftex.def Info: Bilder/inverse_dist_weighting.png  used on input line 
-546.
-(pdftex.def)             Requested size: 426.79135pt x 238.40279pt.
+551.
+(pdftex.def)             Requested size: 426.79135pt x 236.5605pt.
 
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -1511,7 +1511,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
 
 [29 <./Bilder/inverse_dist_weighting.png>]
-Overfull \hbox (29.24763pt too wide) in paragraph at lines 624--637
+Overfull \hbox (29.24763pt too wide) in paragraph at lines 629--642
  [][] 
  []
 
@@ -1960,7 +1960,7 @@ share/texmf/fonts/type1/public/lm/lmr9.pfb></usr/share/texmf/fonts/type1/public
 xmf/fonts/type1/public/lm/lmsy10.pfb></usr/share/texmf/fonts/type1/public/lm/lm
 sy7.pfb></usr/share/texmf/fonts/type1/public/lm/lmsy8.pfb></usr/share/texmf/fon
 ts/type1/public/lm/lmtt10.pfb>
-Output written on Mein-erstes-Dokument.pdf (52 pages, 35419313 bytes).
+Output written on Mein-erstes-Dokument.pdf (52 pages, 35359060 bytes).
 PDF statistics:
  1060 PDF objects out of 1200 (max. 8388607)
  849 compressed objects within 9 object streams

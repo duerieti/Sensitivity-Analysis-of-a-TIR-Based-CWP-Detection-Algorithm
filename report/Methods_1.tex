@@ -270,11 +270,14 @@ Since the spacing between adjacent levels of the 6-level grid in the normalized
 unit space is $1/(p-1) = 1/5$, jumping 3 grid levels yields exactly 
 $3 \times 1/5 = 3/5$, matching the recommended $\Delta$. Further, as \texttt{sensitivity} carries out normalisation to the zero-one range internally, the parameters can be set in their usual range.
 Figure~\ref{fig:morris_grid_first} shows the grid with the jump distance drawn 
-in. A total of 44 trajectories were then sampled from the grid, yielding 
-$44 \times (2+1) = 132$ parameter tuples, each holding a unique combination 
-of buffer pixel count and step length. The remaining parameters were held 
-constant as listed in Table~\ref{tab:held_constant_first_morris} to ensure 
-that any variability in the model output is only attributed to either the step length or the buffer pixel count parameter.
+in. A total of 44 trajectories were then sampled from the grid (requested $r = 66$; 
+duplicate trajectories removed automatically by the \texttt{sensitivity} 
+package), yielding $44 \times (2+1) = 132$ parameter tuples, each holding a 
+unique combination of buffer pixel count and step length. The remaining 
+parameters were held constant as listed in 
+Table~\ref{tab:held_constant_first_morris} to ensure that any variability in 
+the detection frequency raster can be attributed to either the step length or 
+the buffer pixel count parameter.
 
 \begin{figure}[H]
 	\centering
@@ -440,11 +443,13 @@ step length, and temperature delta was set up, as depicted in
 Figure~\ref{fig:morris_grid_second}. A \texttt{grid.jump} of 3 was again 
 chosen, implementing equal-probability sampling of the elementary effects as 
 described in Section~\ref{sec:choosing_delta_r}. A total of 64 trajectories 
-were then sampled from the grid, yielding $64 \times (3+1) = 256$ parameter 
-tuples. The algorithm was executed in parallel 
-using the same orchestration as in the first experiment, with the remaining 
-parameters held constant at the same values as listed in 
+were then sampled from the grid (requested $r = 66$; duplicate trajectories 
+removed automatically by the \texttt{sensitivity} package), yielding 
+$64 \times (3+1) = 256$ parameter tuples. The algorithm was executed in 
+parallel using the same orchestration as in the first experiment, with the 
+remaining parameters held constant at the same values as listed in 
 Table~\ref{tab:held_constant_first_morris}.
+
 
 \begin{figure}[H]
 	\centering
