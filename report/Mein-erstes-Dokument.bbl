@@ -66,10 +66,12 @@ E.~D\"urig.
 \newblock Coursework submission; not peer-reviewed, cited as supporting
   empirical observation only.
 
-\bibitem[{GDAL/OGR contributors}(2026)]{gdal_gtiff_driver}
-{GDAL/OGR contributors}.
-\newblock {GTiff} -- {GeoTIFF} file format, 2026.
-\newblock URL \url{https://gdal.org/en/stable/drivers/raster/gtiff.html}.
+\bibitem[Eddelbuettel and Balamuta(2018)]{Rcpp}
+D.~Eddelbuettel and J.~J. Balamuta.
+\newblock {Extending {R} with {C++}: A Brief Introduction to {Rcpp}}.
+\newblock \emph{The American Statistician}, 72\penalty0 (1):\penalty0 28--36,
+  2018.
+\newblock \doi{10.1080/00031305.2017.1375990}.
 
 \bibitem[Hijmans et~al.(2024)Hijmans, Brown, and
   Barbosa]{hijmans_terra_extract}

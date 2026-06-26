@@ -4,6 +4,39 @@
 \begin{document}
 	\include{Vorlage-Titelseite.tex}
 	\newpage
+	
+	\section*{Abstract}
+	
+Cold water patches (CWPs) provide thermal refugia for cold-water organisms 
+and are expected to gain ecological importance as river temperatures rise due to 
+climate change. In a survey conducted in collaboration with the Canton of Bern, 
+high-resolution TIR orthophotos were acquired along a 69~km transect of the 
+Emme river, and a newly developed algorithm was deployed to detect CWPs 
+programmatically. While the algorithm produced plausible results, output was 
+found to vary with the parameters supplied, and detected patches were 
+occasionally truncated or severed in a manner attributable to the algorithm's 
+internal segmentation of the river reach. The truncation mechanism suggested 
+that tributary-caused CWPs, which tend to be larger and more elongated, might 
+be disproportionately affected by the step length parameter relative to 
+non-tributary-caused CWPs.
+
+To investigate this hypothesis and to characterise the sensitivity of the 
+algorithm more broadly, a Morris sensitivity analysis was conducted. Since this 
+required hundreds of repeated algorithm executions, a speed-optimized 
+GDAL-based reimplementation was first developed and validated against the 
+original algorithm using the Jaccard similarity index, achieving similarities 
+of 0.936--0.976 across three validation runs while reducing execution time by 
+a factor of three to four. The Morris analysis was then conducted across 24 
+manually selected and classified CWP locations, varying buffer pixel count, 
+step length, and temperature delta. Temperature delta was identified as the 
+most influential parameter, followed by step length, while buffer pixel count 
+showed negligible influence. Step-length sensitivity was confirmed to be higher 
+in tributary-caused CWPs, with CWP size identified as the proximate driver. A modified algorithm replacing the segment-based reference temperature 
+computation with an inverse distance weighting scheme eliminates the step length 
+parameter and reduces the truncation artefacts observed in the original 
+implementation.
+
+
 	\tableofcontents
 	\newpage
 	\listoffigures

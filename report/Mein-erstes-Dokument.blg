@@ -9,8 +9,6 @@ A level-1 auxiliary file: Results_1.aux
 A level-1 auxiliary file: Discussion_1.aux
 The style file: abbrvnat.bst
 Database file #1: references.bib
-Warning--entry type for "gdal_gtiff_driver" isn't style-file defined
---line 17 of file references.bib
 Warning--entry type for "mieno_rgis_2022" isn't style-file defined
 --line 26 of file references.bib
 Warning--entry type for "isciences_exactextract" isn't style-file defined
@@ -23,43 +21,43 @@ Repeated entry---line 317 of file references.bib
 I'm skipping whatever remains of this entry
 You've used 25 entries,
             2773 wiz_defined-function locations,
-            785 strings with 11446 characters,
-and the built_in function-call counts, 12613 in all, are:
-= -- 1142
-> -- 868
+            789 strings with 11463 characters,
+and the built_in function-call counts, 12758 in all, are:
+= -- 1158
+> -- 879
 < -- 13
-+ -- 295
-- -- 270
-* -- 1123
-:= -- 2042
-add.period$ -- 119
++ -- 298
+- -- 273
+* -- 1144
+:= -- 2065
+add.period$ -- 120
 call.type$ -- 25
-change.case$ -- 163
+change.case$ -- 164
 chr.to.int$ -- 25
 cite$ -- 50
-duplicate$ -- 468
-empty$ -- 882
-format.name$ -- 303
-if$ -- 2563
+duplicate$ -- 473
+empty$ -- 888
+format.name$ -- 308
+if$ -- 2594
 int.to.chr$ -- 1
 int.to.str$ -- 1
-missing$ -- 17
-newline$ -- 177
+missing$ -- 18
+newline$ -- 178
 num.names$ -- 101
-pop$ -- 286
+pop$ -- 281
 preamble$ -- 1
-purify$ -- 140
+purify$ -- 141
 quote$ -- 0
-skip$ -- 380
+skip$ -- 382
 stack$ -- 0
-substring$ -- 348
+substring$ -- 363
 swap$ -- 40
 text.length$ -- 0
 text.prefix$ -- 0
 top$ -- 0
 type$ -- 260
 warning$ -- 0
-while$ -- 97
+while$ -- 98
 width$ -- 0
-write$ -- 413
+write$ -- 416
 (There was 1 error message)

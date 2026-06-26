@@ -30,13 +30,13 @@ explicitly in chapter 3 of their book.
 
 \subsection{Elementary Effects and the Sampling Grid}
 
-At the core of the Morris method sits a $k$-dimensional model $Y$ with inputs $X_1, \dots, X_k$. The model inputs are defined in the $k$-dimensional unit cube, meaning that $X_i$ can take on a value in the interval $[0,1]$. In the Morris method, this input space is discretized into a grid $\Omega$, which is has $p$ levels and is used as a basis for the computation of so-called elementary effects. An elementary effect of the $i$th input parameter $X_i$ is defined as:
+At the core of the Morris method sits a $k$-dimensional model $Y$ with inputs $X_1, \dots, X_k$. The model inputs are defined in the $k$-dimensional unit cube, meaning that $X_i$ can take on a value in the interval $[0,1]$. In the Morris method, this input space is discretized into a grid $\Omega$, which has $p$ levels and is used as a basis for the computation of so-called elementary effects. An elementary effect of the $i$th input parameter $X_i$ is defined as:
 
 \begin{equation}
 	EE_i = \frac{Y(X_1, X_2, \dots, X_{i-1}, X_i + \Delta, \dots, X_k) - Y(X_1, X_2, \dots, X_k)}{\Delta}
 \end{equation}
 
-Where $\Delta$ represents some step along the grid $\Omega$. Figure~\ref{fig:morris_grid}, taken from \citep{saltelli_global_2007}, shows an example of such a grid for a two-parameter, four-level case.
+Where $\Delta$ represents some step along the grid $\Omega$. Figure~\ref{fig:morris_grid}, taken from \cite{saltelli_global_2007}, shows an example of such a grid for a two-parameter, four-level case.
 
 \begin{figure}[h]
 	\centering
@@ -45,11 +45,11 @@ Where $\Delta$ represents some step along the grid $\Omega$. Figure~\ref{fig:mor
 	\label{fig:morris_grid}
 \end{figure}
 
-The Morris method occupies itself with finding the statistical distribution of each of the $i$ elementary effects. $\mathcal{F}_i$ is thereby used to denote the distribution of $EE_i$, in other words $\mathcal{F}_i \sim EE_i$ \citep{saltelli_global_2007}.
+
 
 \subsection{Trajectory-Based Sampling}
 
-To populate $\mathcal{F}_i$ with multiple samples of $EE_i$, the Morris method uses an efficient trajectory-based sampling design that obtains as many elementary effects $EE_i$ from as few model evaluations as possible. Figure~\ref{fig:saltelli_trajectory_grid}, taken from \citep{saltelli_global_2007}, shows an example trajectory through a three-dimensional sampling grid.
+The Morris method occupies itself with finding the statistical distribution of each of the $i$ elementary effects. $\mathcal{F}_i$ is thereby used to denote the distribution of $EE_i$, in other words $\mathcal{F}_i \sim EE_i$ . To populate $\mathcal{F}_i$ with multiple samples of $EE_i$, the Morris method uses an efficient trajectory-based sampling design that obtains as many elementary effects $EE_i$ from as few model evaluations as possible. Figure~\ref{fig:saltelli_trajectory_grid}, taken from \cite{saltelli_global_2007}, shows an example trajectory through a three-dimensional sampling grid.
 
 \begin{figure}[H]
 	\centering
@@ -110,5 +110,5 @@ The Morris method, like most global sensitivity analysis methods, is defined for
 \section{Coldwater Patches}
 \label{sec:cwp_definition}
 
-Cold water patches (CWPs) are areas in rivers and streams where the water temperature is measurably colder than that of the main channel. The temperature difference used to define a CWP varies across the literature but is typically set between 0.5 and 3 degrees Celsius below the main channel temperature \citep{casas-mulet_unmanned_2020, wawrzyniak_effects_2016}. Cold water patches are not automatically cold water refugia. Cold water refugia are cold water patches that are actively used by cold-water organisms for thermal relief \citep{mejia_closing_2023}. The ecological importance of cold water refugia is expected to increase as river temperatures rise due to climate change \citep{kurylyk_preserving_2015}. CWPs can arise from a range of physical mechanisms. A common cause is the inflow of a colder tributary-. Other generating mechanisms include groundwater upwelling, lateral seeps or hyporheic exchange \citep{mejia_closing_2023}.
+Cold water patches (CWPs) are areas in rivers and streams where the water temperature is measurably colder than that of the main channel. The temperature difference used to define a CWP varies across the literature but is typically set between 0.5 and 3 degrees Celsius below the main channel temperature \citep{casas-mulet_unmanned_2020, wawrzyniak_effects_2016}. Cold water patches are not automatically cold water refugia. Cold water refugia are cold water patches that are actively used by cold-water organisms for thermal relief \citep{mejia_closing_2023}. The ecological importance of cold water refugia is expected to increase as river temperatures rise due to climate change \citep{kurylyk_preserving_2015}. CWPs can arise from a range of physical mechanisms. A possible  cause is the inflow of a colder tributary. Other generating mechanisms include groundwater upwelling, lateral seeps or hyporheic exchange \citep{mejia_closing_2023}.
 

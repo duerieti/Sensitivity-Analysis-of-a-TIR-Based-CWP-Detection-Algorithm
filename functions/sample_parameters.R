@@ -4,7 +4,7 @@ library(sensitivity) # support for a range of sensitivity analysis methods
 morrisDesign <- morris(
     model   = NULL, # passing null to the model slot tells the library that there is no model to set up.
     factors = c("buffer_px", "step_length"), # the two parameters subjectto variation
-    r       = 44, # 44 trajectories in sampling (the optimized sampling strategy for morris deploys trajectories)
+    r       = 66, # less than 66 trajectoreies might be sampled because doublicate trajectoreis are removed
     design  = list(type = "oat", levels = 6, grid.jump = 3), 
     # the grid has 6 levels (in normalized space {0, 0.2, 0.4, 0.6, 0.8, 1.0} )
     # to compute the elementary effects EE_i (partial derivatives), 3 grid points will be jumped.

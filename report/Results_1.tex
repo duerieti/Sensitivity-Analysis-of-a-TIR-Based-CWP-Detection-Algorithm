@@ -84,7 +84,7 @@ relationship between CWP area and sensitivity.
 Figure~\ref{fig:step_length_sensitivity} shows the Morris sensitivity indices 
 $\mu^*$ and $\sigma$ with respect to the step length parameter, stratified by 
 CWP class. All 
-non-tributary-caused CWP show $\mu^*$ values below 0.2, indicating low 
+non-tributary-caused CWP show $\mu^*$ values below 0.2, indicating intermediate
 sensitivity to the step length parameter across this class. The tributary-caused 
 CWP show a wider spread in $\mu^*$: some tributary-caused CWP have sensitivity 
 values comparable to the non-tributary-caused group, while others show 
@@ -127,12 +127,23 @@ with the other parameters for both.
 \subsection{Relationship between CWP Area and Step Length Sensitivity}
 
 Figure~\ref{fig:mu_star_vs_area} shows the 24 CWP along three 
-dimensions simultaneously: mean CWP area averaged across all Morris runs 
+dimensions simultaneously: mean CWP area averaged across all algorithm runs 
 (x-axis), $\mu^*$ with respect to the step length parameter (y-axis), mean 
-temperature delta averaged across all Morris runs (color), and CWP class 
+temperature delta averaged across all algorithm runs (color), and CWP class 
 (shape). Locations with larger mean CWP area tend to show higher $\mu^*$ 
 values. No clear pattern between mean temperature delta and $\mu^*$ is 
 visible from the colouring.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=\textwidth]{Bilder/mu_star_vs_area_vs_deltaT.png}
+	\caption{$\mu^*$ (step length) versus mean CWP area for each of the 24 
+		annotated locations. Color indicates the mean temperature delta to the 
+		surrounding river. The 
+		shape indicates CWP class (circle: non-tributary-caused; triangle: 
+		tributary-caused).}
+	\label{fig:mu_star_vs_area}
+\end{figure}
 
 Table~\ref{tab:regression_mustar} shows the results of the linear model. 
 The mean area predictor is highly significant ($p < 0.001$) with a positive 
@@ -141,16 +152,7 @@ The mean temperature delta predictor is not significant ($p = 0.618$).
 The model explains a substantial proportion of variance ($R^2 = 0.763$, 
 Adjusted $R^2 = 0.740$).
 
-\begin{figure}[ht]
-	\centering
-	\includegraphics[width=\textwidth]{Bilder/mu_star_vs_area_vs_deltaT.png}
-	\caption{$\mu^*$ (step length) versus mean CWP area for each of the 24 
-		annotated locations. Color indicates the mean temperature delta to the 
-		surrounding river ($\overline{\Delta T}$, averaged across all Morris runs); 
-		shape indicates CWP class (circle: non-tributary-caused; triangle: 
-		tributary-caused).}
-	\label{fig:mu_star_vs_area}
-\end{figure}
+
 
 \begin{table}[H]
 	\centering

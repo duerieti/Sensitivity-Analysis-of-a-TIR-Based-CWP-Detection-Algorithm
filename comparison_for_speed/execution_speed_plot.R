@@ -8,7 +8,7 @@ step_lengths                 <- c(200, 800, 1200)
 exec_times <- tibble(
   step_length = rep(step_lengths, 2),
   runtime_min = c(current_algo_execution_speed, new_algo_execution_speed) / 3600,
-  algorithm   = rep(c("original function ", "speed optimized"), each = length(step_lengths))
+  algorithm   = rep(c("original function (v1)", "speed optimized (v2)"), each = length(step_lengths))
 )
 
 p <- ggplot(exec_times, aes(x = step_length, y = runtime_min, color = algorithm)) +

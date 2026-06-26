@@ -98,13 +98,14 @@ infrastructure.
 \subsection{GDAL-Based Reimplementation}
 
 The reworked algorithm (v2) preserves the computational logic of the original 
-implementation (v1) of \cite{tonolla_thermische-kartographie_2026} but differs fundamentally in how each step is mechanistically 
-executed. Where v1 processes the raster slab-by-slab in 
-memory using R loops and \texttt{terra}/\texttt{sf} functions, v2 replaces these with calls to the GDAL command line interface, operating 
-directly on raster and vector files on disk rather than holding intermediate 
-results in memory. Table~\ref{tab:cwp_pseudocode} gives a high-level overview of 
-v2; the tool or function used in each step is listed in 
-the right-hand column.
+implementation (v1) of \citet{tonolla_thermische-kartographie_2026} but differs 
+fundamentally in how each step is mechanistically executed. Where v1 processes 
+the raster slab-by-slab using R loops and \texttt{terra}/\texttt{sf} functions, 
+holding intermediate results as R objects in memory. v2 takes a different approach relying on
+calls to the GDAL command line interface, operating directly on raster and 
+vector files on disk. Table~\ref{tab:cwp_pseudocode} gives a high-level 
+overview of v2. The tool or function used in each step is listed in the 
+right-hand column.
 
 \begin{table}[H]
 	\centering
@@ -160,7 +161,7 @@ here only as a supporting empirical observation.
 Operating directly on disk rather than in memory keeps the memory footprint 
 small, which is important in an HPC setting where available memory can become a 
 limiting factor under parallel execution. The drawback is that intermediate 
-rasters can reach up to 25\,GB in size; this was addressed by applying 
+rasters can reach up to 25\,GB in size. This problem was addressed by applying 
 compression when writing GeoTIFF files, which substantially reduces disk space consumption 
 with negligible computational overhead.
 
@@ -171,7 +172,7 @@ which extracts aggregated raster values considerably faster for large rasters
 are handled: \texttt{exact\_extract()} weights cells by their coverage fraction 
 \citep{isciences_exactextract}, whereas \texttt{terra::extract()} includes a 
 cell only if its centre point falls within the polygon 
-\citep{hijmans_terra_extract} -- the behaviour used in v1. To approximate this, 
+\citep{hijmans_terra_extract} which is the behaviour used in v1. To approximate this, 
 only cells with a coverage fraction of at least 50\% were included in 
 \texttt{exact\_extract()}; this approximation is not exactly equivalent to 
 \texttt{terra}'s centre-point rule.
@@ -268,7 +269,7 @@ of the elementary effects, given by:
 
 Since the spacing between adjacent levels of the 6-level grid in the normalized 
 unit space is $1/(p-1) = 1/5$, jumping 3 grid levels yields exactly 
-$3 \times 1/5 = 3/5$, matching the recommended $\Delta$. Further, as \texttt{sensitivity} carries out normalisation to the zero-one range internally, the parameters can be set in their usual range.
+$3 \times 1/5 = 3/5$, matching the recommended $\Delta$. 
 Figure~\ref{fig:morris_grid_first} shows the grid with the jump distance drawn 
 in. A total of 44 trajectories were then sampled from the grid (requested $r = 66$; 
 duplicate trajectories removed automatically by the \texttt{sensitivity} 
@@ -284,7 +285,7 @@ the buffer pixel count parameter.
 	\includegraphics[width=0.8\textwidth]{Bilder/morris_grid_image.png}
 	\caption{Visual depiction of the Morris sampling grid, spanning step length 
 		and buffer pixel count. The arrow shows the jump distance chosen for the 
-		Morris experiment, corresponding to 3 grid levels.}
+		parameter sampling, corresponding to 3 grid levels.}
 	\label{fig:morris_grid_first}
 \end{figure}
 
@@ -310,7 +311,7 @@ the buffer pixel count parameter.
 Next, the CWP algorithm was evaluated across all sampled parameter tuples in 
 parallel using GNU Parallel \citep{tange_2024_gnu_parallel}. GNU Parallel 
 orchestrates a pool of worker processes that operate concurrently. Each worker 
-reads a parameter tuple from a shared \texttt{parameters.txt} file and creates 
+reads a parameter tuple from a shared file and creates 
 a uniquely named working directory based on the tuple identifier and parameter 
 values -- for example \texttt{job\_1\_7\_880} for job 1 with 
 \texttt{buffer\_px} = 7 and \texttt{step\_length} = 880~m. The worker then 
@@ -432,11 +433,10 @@ sensitivity indices towards conditions prevailing at that particular spot. For e
 \end{figure}
 
 With the 24 CWP classified, Morris sensitivity indices were computed with respect 
-to their area across the three algorithm parameters: buffer pixel count, step 
+to their area across the three algorithm parameters buffer pixel count, step 
 length, and temperature delta. Where the first experiment varied only two 
 parameters to produce the detection frequency raster, the second experiment 
-varied all three and used the CWP area as the scalar output fed into the Morris 
-sensitivity computation.
+varied all three to provide sensitivity indices for each parameter.
 
 First, a three-dimensional Morris sampling grid spanning buffer pixel count, 
 step length, and temperature delta was set up, as depicted in 
@@ -460,7 +460,7 @@ Table~\ref{tab:held_constant_first_morris}.
 	\label{fig:morris_grid_second}
 \end{figure}
 
-Next, for each completed Morris run, the 24 selected CWP where extracted using the bounding boxes from \ref{sec:cwp_classification}. Then the CWP area and the mean 
+Next, for each completed algorithm run, the 24 selected CWP where extracted using the bounding boxes from \ref{sec:cwp_classification}. Then the CWP area and the mean 
 temperature delta were computed for each selected CWP. If a given 
 parameter tuple produced no detection for a specific CWP, both statistics were set 
 to zero. (A non existing CWP has no surface and also no temperature difference to its environment).
@@ -481,8 +481,8 @@ scaling into the interval $[0, 1]$. This ensures comparability across the 24
 selected CWP: without normalisation, larger CWP would produce larger 
 absolute area differences, inflating their sensitivity indices relative to 
 smaller CWP. After scaling, a value of 1 corresponded to the maximum area 
-detected for that CWP across all runs and a value of 0 to no CWP being present 
-for that run. The Morris indices $\mu^*$ and $\sigma$ were then 
+detected for that CWP across all algorithm runs and a value of 0 to no CWP being present 
+for that specific run. The Morris indices $\mu^*$ and $\sigma$ were then 
 computed with respect to the normalised area values using the R package 
 \texttt{sensitivity}.
 
@@ -515,9 +515,9 @@ model was fitted using R's \texttt{lm()} across all 24 CWP, pooling both classes
 \label{sec:rq3_methods}
 
 Two findings from \citet{tonolla_thermische-kartographie_2026} informed 
-specific algorithmic decisions in the design of v3. First, the buffer pixel 
+specific algorithmic decisions in the design of a second altered CWP detection algorithm (v3). First, the buffer pixel 
 count was found to have little influence on the detected CWP area, qualifying 
-it as a candidate for factor fixing -- it was therefore internalized in v3 and 
+it as a candidate for factor fixing. It was therefore internalized in v3 and 
 set to a constant value of 3. Second, the step length parameter was identified 
 as having a non-negligible influence on the detected CWP area, motivating a 
 fundamental redesign of the reference temperature computation. The temperature 
@@ -559,9 +559,7 @@ occur.
 \subsection{Algorithm Overview}
 
 The implementation of v3 follows the structure of v2 closely, differing only 
-in the computation of the reference temperature raster (steps 1--5 below, 
-replacing steps 1--5 of Table~\ref{tab:cwp_pseudocode}). Steps 6--8 are 
-identical to v2.
+in the computation of the reference temperature raster. An overview is provided in \ref{tab:cwp_pseudocode_v3}.
 
 \begin{table}[H]
 	\centering
@@ -577,7 +575,7 @@ identical to v2.
 		2 & For each candidate step length, divide the river centerline into $n$ 
 		segments; construct a narrow 3-pixel-wide reference strip polygon for 
 		each segment; extract the median temperature of each segment from the 
-		TIR raster; compute the visual centre of each strip polygon and assign 
+		TIR raster; compute the visual center (pole of inaccessibility) visual center of each strip polygon and assign 
 		the corresponding median temperature to this point. \\
 		\addlinespace
 		3 & Pool the reference points (location + temperature) from all 20 step 
@@ -604,10 +602,10 @@ identical to v2.
 	\end{tabular}
 \end{table}
 
-Step 4 is implemented in C++ and imported into R via the \texttt{Rcpp} package, 
+Step 4 is implemented in C++ and imported into R via the \texttt{Rcpp}  package \citep{Rcpp}, 
 as the per-pixel IDW computation was identified as the primary computational 
 bottleneck. To evaluate the output of v3 against v1, the Jaccard similarity 
-metric from Section~\ref{sec:output_equivalence} was applied. Since v3 no 
+metric again was applied. Since v3 no 
 longer shares the same parameter set as v1, a parameter-matched comparison is 
 not possible. Instead, a single v3 run was performed and the resulting CWP 
 polygons were compared against each of the three v1 runs conducted in 
@@ -618,9 +616,7 @@ behavioural differences between v1 and v3.
 \subsection{Reduction of Parameters}
 
 Table~\ref{tab:parameter_reduction} summarises the status of each free parameter 
-in v3 relative to v2. The zone halfwidth elimination implies a constraint: v3 
-requires a TIR raster with an exact water mask, with non-river pixels set to 
-\texttt{NaN}.
+in v3 relative to v2.
 
 \begin{table}[H]
 	\centering
