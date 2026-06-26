@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.28 (TeX Live 2025/Debian) (preloaded format=pdflatex 2026.6.13)  26 JUN 2026 16:31
+This is pdfTeX, Version 3.141592653-2.6-1.40.28 (TeX Live 2025/Debian) (preloaded format=pdflatex 2026.6.13)  26 JUN 2026 21:03
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1116,7 +1116,7 @@ Chapter 2.
 
 
 ]
-<Bilder/morris_grid.png, id=479, 622.57594pt x 484.05844pt>
+<Bilder/morris_grid.png, id=481, 622.57594pt x 484.05844pt>
 File: Bilder/morris_grid.png Graphic file (type png)
 <use Bilder/morris_grid.png>
 Package pdftex.def Info: Bilder/morris_grid.png  used on input line 43.
@@ -1127,7 +1127,7 @@ LaTeX Font Info:    External font `lmex10' loaded for size
 (Font)              <7> on input line 44.
 LaTeX Font Info:    External font `lmex10' loaded for size
 (Font)              <5> on input line 44.
-<Bilder/satteli_trajectory_grid.png, id=483, 782.925pt x 691.58376pt>
+<Bilder/satteli_trajectory_grid.png, id=485, 782.925pt x 691.58376pt>
 File: Bilder/satteli_trajectory_grid.png Graphic file (type png)
 <use Bilder/satteli_trajectory_grid.png>
 Package pdftex.def Info: Bilder/satteli_trajectory_grid.png  used on input line
@@ -1219,7 +1219,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
 
 [12 <./Bilder/satteli_trajectory_grid.png>]
-<Bilder/example_grid_mu_sigma_vairation.png, id=512, 650.43pt x 433.62pt>
+<Bilder/example_grid_mu_sigma_vairation.png, id=514, 650.43pt x 433.62pt>
 File: Bilder/example_grid_mu_sigma_vairation.png Graphic file (type png)
 <use Bilder/example_grid_mu_sigma_vairation.png>
 Package pdftex.def Info: Bilder/example_grid_mu_sigma_vairation.png  used on in
@@ -1234,7 +1234,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
 
 [13 <./Bilder/example_grid_mu_sigma_vairation.png (PNG copy)>]
-<Bilder/mu_mu_star.png, id=522, 722.7pt x 433.62pt>
+<Bilder/mu_mu_star.png, id=524, 722.7pt x 433.62pt>
 File: Bilder/mu_mu_star.png Graphic file (type png)
 <use Bilder/mu_mu_star.png>
 Package pdftex.def Info: Bilder/mu_mu_star.png  used on input line 97.
@@ -1260,7 +1260,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
  (./Methods_1.tex
 Chapter 3.
-<Bilder/study_area_map.png, id=555, 390.258pt x 597.432pt>
+<Bilder/study_area_map.png, id=557, 390.258pt x 597.432pt>
 File: Bilder/study_area_map.png Graphic file (type png)
 <use Bilder/study_area_map.png>
 Package pdftex.def Info: Bilder/study_area_map.png  used on input line 43.
@@ -1351,12 +1351,12 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
 
 [20]
-<Bilder/cwp_fuzzy.png, id=605, 966.61125pt x 262.9825pt>
+<Bilder/cwp_fuzzy.png, id=607, 1358.07375pt x 358.33875pt>
 File: Bilder/cwp_fuzzy.png Graphic file (type png)
 <use Bilder/cwp_fuzzy.png>
 Package pdftex.def Info: Bilder/cwp_fuzzy.png  used on input line 245.
-(pdftex.def)             Requested size: 426.79135pt x 116.11392pt.
-<Bilder/morris_grid_image.png, id=611, 101.35814pt x 81.33025pt>
+(pdftex.def)             Requested size: 426.79135pt x 112.60938pt.
+<Bilder/morris_grid_image.png, id=613, 101.35814pt x 81.33025pt>
 File: Bilder/morris_grid_image.png Graphic file (type png)
 <use Bilder/morris_grid_image.png>
 Package pdftex.def Info: Bilder/morris_grid_image.png  used on input line 285.
@@ -1370,7 +1370,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
 
 [21 <./Bilder/cwp_fuzzy.png>]
-<Bilder/GNU.png, id=622, 995.72pt x 808.01875pt>
+<Bilder/GNU.png, id=624, 995.72pt x 808.01875pt>
 File: Bilder/GNU.png Graphic file (type png)
 <use Bilder/GNU.png>
 Package pdftex.def Info: Bilder/GNU.png  used on input line 325.
@@ -1384,7 +1384,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
 
 [22 <./Bilder/morris_grid_image.png>]
-<Bilder/overlay.png, id=630, 118.37837pt x 92.69028pt>
+<Bilder/overlay.png, id=632, 118.37837pt x 92.69028pt>
 File: Bilder/overlay.png Graphic file (type png)
 <use Bilder/overlay.png>
 Package pdftex.def Info: Bilder/overlay.png  used on input line 345.
@@ -1398,25 +1398,25 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
 
 [23 <./Bilder/GNU.png>]
-<Bilder/variable_tributary_caused.png, id=637, 1229.59375pt x 579.16376pt>
+<Bilder/variable_tributary_caused.png, id=639, 1438.37375pt x 675.52374pt>
 File: Bilder/variable_tributary_caused.png Graphic file (type png)
 <use Bilder/variable_tributary_caused.png>
 Package pdftex.def Info: Bilder/variable_tributary_caused.png  used on input li
 ne 372.
-(pdftex.def)             Requested size: 204.85802pt x 96.48581pt.
-<Bilder/variable_non_tributary_caused.png, id=638, 1229.59375pt x 579.16376pt>
+(pdftex.def)             Requested size: 204.85802pt x 96.20128pt.
+<Bilder/variable_non_tributary_caused.png, id=640, 1229.59375pt x 579.16376pt>
 File: Bilder/variable_non_tributary_caused.png Graphic file (type png)
 <use Bilder/variable_non_tributary_caused.png>
 Package pdftex.def Info: Bilder/variable_non_tributary_caused.png  used on inpu
 t line 380.
 (pdftex.def)             Requested size: 204.85802pt x 96.48581pt.
-<Bilder/non_variable_tributary_caused.png, id=639, 1229.59375pt x 579.16376pt>
+<Bilder/non_variable_tributary_caused.png, id=641, 1229.59375pt x 579.16376pt>
 File: Bilder/non_variable_tributary_caused.png Graphic file (type png)
 <use Bilder/non_variable_tributary_caused.png>
 Package pdftex.def Info: Bilder/non_variable_tributary_caused.png  used on inpu
 t line 390.
 (pdftex.def)             Requested size: 204.85802pt x 96.48581pt.
-<Bilder/non_variable_non_tributary_caused.png, id=640, 1229.59375pt x 579.16376
+<Bilder/non_variable_non_tributary_caused.png, id=642, 1229.59375pt x 579.16376
 pt>
 File: Bilder/non_variable_non_tributary_caused.png Graphic file (type png)
 <use Bilder/non_variable_non_tributary_caused.png>
@@ -1436,11 +1436,11 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
 
 [24 <./Bilder/overlay.png>]
-<Bilder/cwp_stats.png, id=647, 713.66624pt x 328.22626pt>
+<Bilder/cwp_stats.png, id=649, 1127.21124pt x 483.8075pt>
 File: Bilder/cwp_stats.png Graphic file (type png)
 <use Bilder/cwp_stats.png>
 Package pdftex.def Info: Bilder/cwp_stats.png  used on input line 428.
-(pdftex.def)             Requested size: 426.79135pt x 196.28618pt.
+(pdftex.def)             Requested size: 426.79135pt x 183.18436pt.
 
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -1452,7 +1452,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 [25 <./Bilder/variable_tributary_caused.png> <./Bilder/variable_non_tributary_c
 aused.png> <./Bilder/non_variable_tributary_caused.png> <./Bilder/non_variable_
 non_tributary_caused.png>]
-<Bilder/large_moris_grid_image.png, id=661, 154.68033pt x 145.6667pt>
+<Bilder/large_moris_grid_image.png, id=663, 154.68033pt x 145.6667pt>
 File: Bilder/large_moris_grid_image.png Graphic file (type png)
 <use Bilder/large_moris_grid_image.png>
 Package pdftex.def Info: Bilder/large_moris_grid_image.png  used on input line 
@@ -1467,7 +1467,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
 
 [26 <./Bilder/cwp_stats.png>]
-<Bilder/cropping_strat_img.png, id=669, 594.57297pt x 435.20836pt>
+<Bilder/cropping_strat_img.png, id=671, 594.57297pt x 435.20836pt>
 File: Bilder/cropping_strat_img.png Graphic file (type png)
 <use Bilder/cropping_strat_img.png>
 Package pdftex.def Info: Bilder/cropping_strat_img.png  used on input line 472.
@@ -1490,12 +1490,12 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
 
 [28 <./Bilder/cropping_strat_img.png>]
-<Bilder/inverse_dist_weighting.png, id=684, 128.40831pt x 71.17305pt>
+<Bilder/inverse_dist_weighting.png, id=686, 128.40831pt x 71.56021pt>
 File: Bilder/inverse_dist_weighting.png Graphic file (type png)
 <use Bilder/inverse_dist_weighting.png>
 Package pdftex.def Info: Bilder/inverse_dist_weighting.png  used on input line 
 551.
-(pdftex.def)             Requested size: 426.79135pt x 236.5605pt.
+(pdftex.def)             Requested size: 426.79135pt x 237.84727pt.
 
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -1513,7 +1513,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
 
 [30 <./Bilder/inverse_dist_weighting.png>]
-Overfull \hbox (29.24763pt too wide) in paragraph at lines 625--638
+Overfull \hbox (29.24763pt too wide) in paragraph at lines 623--636
  [][] 
  []
 
@@ -1537,7 +1537,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
  (./Results_1.tex
 Chapter 4.
-<Bilder/speed_comparison.png, id=712, 433.62pt x 289.08pt>
+<Bilder/speed_comparison.png, id=714, 433.62pt x 289.08pt>
 File: Bilder/speed_comparison.png Graphic file (type png)
 <use Bilder/speed_comparison.png>
 Package pdftex.def Info: Bilder/speed_comparison.png  used on input line 20.
@@ -1548,20 +1548,21 @@ Package pdftex.def Info: Bilder/speed_comparison.png  used on input line 20.
 
 
 ]
-<Bilder/v1_v2_pixel_level_disagreement.png, id=718, 1752.5475pt x 524.96124pt>
+<Bilder/v1_v2_pixel_level_disagreement.png, id=720, 1731.46875pt x 551.05875pt>
+
 File: Bilder/v1_v2_pixel_level_disagreement.png Graphic file (type png)
 <use Bilder/v1_v2_pixel_level_disagreement.png>
 Package pdftex.def Info: Bilder/v1_v2_pixel_level_disagreement.png  used on inp
 ut line 39.
-(pdftex.def)             Requested size: 426.79135pt x 127.83563pt.
-<Bilder/v1_v2_more_pronounced_dissagreement.png, id=719, 1752.5475pt x 524.9612
+(pdftex.def)             Requested size: 426.79135pt x 135.8304pt.
+<Bilder/v1_v2_more_pronounced_dissagreement.png, id=721, 1752.5475pt x 524.9612
 4pt>
 File: Bilder/v1_v2_more_pronounced_dissagreement.png Graphic file (type png)
 <use Bilder/v1_v2_more_pronounced_dissagreement.png>
 Package pdftex.def Info: Bilder/v1_v2_more_pronounced_dissagreement.png  used o
 n input line 49.
 (pdftex.def)             Requested size: 426.79135pt x 127.83563pt.
-<Bilder/v1_v2_complete_agreement.png, id=720, 1752.5475pt x 524.96124pt>
+<Bilder/v1_v2_complete_agreement.png, id=722, 1752.5475pt x 524.96124pt>
 File: Bilder/v1_v2_complete_agreement.png Graphic file (type png)
 <use Bilder/v1_v2_complete_agreement.png>
 Package pdftex.def Info: Bilder/v1_v2_complete_agreement.png  used on input lin
@@ -1585,13 +1586,13 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 [35 <./Bilder/v1_v2_pixel_level_disagreement.png> <./Bilder/v1_v2_more_pronounc
 ed_dissagreement.png> <./Bilder/v1_v2_complete_agreement.png>]
-<Bilder/step_length_results.png, id=733, 433.62pt x 289.08pt>
+<Bilder/step_length_results.png, id=735, 433.62pt x 289.08pt>
 File: Bilder/step_length_results.png Graphic file (type png)
 <use Bilder/step_length_results.png>
 Package pdftex.def Info: Bilder/step_length_results.png  used on input line 98.
 
 (pdftex.def)             Requested size: 426.79135pt x 284.54036pt.
-<Bilder/mustar_sig_over_all.png, id=735, 433.62pt x 289.08pt>
+<Bilder/mustar_sig_over_all.png, id=737, 433.62pt x 289.08pt>
 File: Bilder/mustar_sig_over_all.png Graphic file (type png)
 <use Bilder/mustar_sig_over_all.png>
 Package pdftex.def Info: Bilder/mustar_sig_over_all.png  used on input line 121
@@ -1606,7 +1607,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
 
 [36 <./Bilder/step_length_results.png>]
-<Bilder/mu_star_vs_area_vs_deltaT.png, id=743, 433.62pt x 289.08pt>
+<Bilder/mu_star_vs_area_vs_deltaT.png, id=745, 433.62pt x 289.08pt>
 File: Bilder/mu_star_vs_area_vs_deltaT.png Graphic file (type png)
 <use Bilder/mu_star_vs_area_vs_deltaT.png>
 Package pdftex.def Info: Bilder/mu_star_vs_area_vs_deltaT.png  used on input li
@@ -1623,18 +1624,18 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 [37 <./Bilder/mustar_sig_over_all.png>]
 LaTeX Font Info:    External font `lmex10' loaded for size
 (Font)              <9> on input line 177.
-<Bilder/v3_trunctuation_fix.png, id=752, 1752.5475pt x 524.96124pt>
+<Bilder/v3_trunctuation_fix.png, id=754, 1752.5475pt x 524.96124pt>
 File: Bilder/v3_trunctuation_fix.png Graphic file (type png)
 <use Bilder/v3_trunctuation_fix.png>
 Package pdftex.def Info: Bilder/v3_trunctuation_fix.png  used on input line 195
 .
 (pdftex.def)             Requested size: 426.79135pt x 127.83563pt.
-<Bilder/v3_fix_cutoff.png, id=753, 1752.5475pt x 524.96124pt>
+<Bilder/v3_fix_cutoff.png, id=755, 1752.5475pt x 524.96124pt>
 File: Bilder/v3_fix_cutoff.png Graphic file (type png)
 <use Bilder/v3_fix_cutoff.png>
 Package pdftex.def Info: Bilder/v3_fix_cutoff.png  used on input line 205.
 (pdftex.def)             Requested size: 426.79135pt x 127.83563pt.
-<Bilder/v3_new_CWP.png, id=754, 1752.5475pt x 524.96124pt>
+<Bilder/v3_new_CWP.png, id=756, 1752.5475pt x 524.96124pt>
 File: Bilder/v3_new_CWP.png Graphic file (type png)
 <use Bilder/v3_new_CWP.png>
 Package pdftex.def Info: Bilder/v3_new_CWP.png  used on input line 215.
@@ -1738,78 +1739,78 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 [47]
 Chapter 6.
-<Bilder/annotated_cwp_locations.png, id=850, 462.528pt x 597.432pt>
+<Bilder/annotated_cwp_locations.png, id=852, 518.8986pt x 596.2275pt>
 File: Bilder/annotated_cwp_locations.png Graphic file (type png)
 <use Bilder/annotated_cwp_locations.png>
 Package pdftex.def Info: Bilder/annotated_cwp_locations.png  used on input line
  70.
-(pdftex.def)             Requested size: 426.79135pt x 551.30324pt.
-<Bilder/cwp_images/1.png, id=851, 1443.3925pt x 907.39pt>
+(pdftex.def)             Requested size: 426.79135pt x 490.41083pt.
+<Bilder/cwp_images/1.png, id=853, 1443.3925pt x 907.39pt>
 File: Bilder/cwp_images/1.png Graphic file (type png)
 <use Bilder/cwp_images/1.png>
 Package pdftex.def Info: Bilder/cwp_images/1.png  used on input line 83.
 (pdftex.def)             Requested size: 128.02765pt x 80.4847pt.
-<Bilder/cwp_images/2.png, id=852, 1443.3925pt x 907.39pt>
+<Bilder/cwp_images/2.png, id=854, 1443.3925pt x 907.39pt>
 File: Bilder/cwp_images/2.png Graphic file (type png)
 <use Bilder/cwp_images/2.png>
 Package pdftex.def Info: Bilder/cwp_images/2.png  used on input line 89.
 (pdftex.def)             Requested size: 128.02765pt x 80.4847pt.
-<Bilder/cwp_images/3.png, id=853, 1443.3925pt x 907.39pt>
+<Bilder/cwp_images/3.png, id=855, 1443.3925pt x 907.39pt>
 File: Bilder/cwp_images/3.png Graphic file (type png)
 <use Bilder/cwp_images/3.png>
 Package pdftex.def Info: Bilder/cwp_images/3.png  used on input line 95.
 (pdftex.def)             Requested size: 128.02765pt x 80.4847pt.
-<Bilder/cwp_images/5.png, id=854, 1443.3925pt x 907.39pt>
+<Bilder/cwp_images/5.png, id=856, 1443.3925pt x 907.39pt>
 File: Bilder/cwp_images/5.png Graphic file (type png)
 <use Bilder/cwp_images/5.png>
 Package pdftex.def Info: Bilder/cwp_images/5.png  used on input line 104.
 (pdftex.def)             Requested size: 128.02765pt x 80.4847pt.
-<Bilder/cwp_images/8.png, id=855, 1443.3925pt x 907.39pt>
+<Bilder/cwp_images/8.png, id=857, 1443.3925pt x 907.39pt>
 File: Bilder/cwp_images/8.png Graphic file (type png)
 <use Bilder/cwp_images/8.png>
 Package pdftex.def Info: Bilder/cwp_images/8.png  used on input line 110.
 (pdftex.def)             Requested size: 128.02765pt x 80.4847pt.
-<Bilder/cwp_images/9.png, id=856, 1443.3925pt x 907.39pt>
+<Bilder/cwp_images/9.png, id=858, 1443.3925pt x 907.39pt>
 File: Bilder/cwp_images/9.png Graphic file (type png)
 <use Bilder/cwp_images/9.png>
 Package pdftex.def Info: Bilder/cwp_images/9.png  used on input line 116.
 (pdftex.def)             Requested size: 128.02765pt x 80.4847pt.
-<Bilder/cwp_images/10.png, id=857, 1443.3925pt x 907.39pt>
+<Bilder/cwp_images/10.png, id=859, 1443.3925pt x 907.39pt>
 File: Bilder/cwp_images/10.png Graphic file (type png)
 <use Bilder/cwp_images/10.png>
 Package pdftex.def Info: Bilder/cwp_images/10.png  used on input line 125.
 (pdftex.def)             Requested size: 128.02765pt x 80.4847pt.
-<Bilder/cwp_images/12.png, id=858, 1443.3925pt x 907.39pt>
+<Bilder/cwp_images/12.png, id=860, 1443.3925pt x 907.39pt>
 File: Bilder/cwp_images/12.png Graphic file (type png)
 <use Bilder/cwp_images/12.png>
 Package pdftex.def Info: Bilder/cwp_images/12.png  used on input line 131.
 (pdftex.def)             Requested size: 128.02765pt x 80.4847pt.
-<Bilder/cwp_images/13.png, id=859, 1443.3925pt x 907.39pt>
+<Bilder/cwp_images/13.png, id=861, 1443.3925pt x 907.39pt>
 File: Bilder/cwp_images/13.png Graphic file (type png)
 <use Bilder/cwp_images/13.png>
 Package pdftex.def Info: Bilder/cwp_images/13.png  used on input line 137.
 (pdftex.def)             Requested size: 128.02765pt x 80.4847pt.
-<Bilder/cwp_images/14.png, id=860, 1443.3925pt x 907.39pt>
+<Bilder/cwp_images/14.png, id=862, 1443.3925pt x 907.39pt>
 File: Bilder/cwp_images/14.png Graphic file (type png)
 <use Bilder/cwp_images/14.png>
 Package pdftex.def Info: Bilder/cwp_images/14.png  used on input line 146.
 (pdftex.def)             Requested size: 128.02765pt x 80.4847pt.
-<Bilder/cwp_images/16.png, id=861, 1443.3925pt x 907.39pt>
+<Bilder/cwp_images/16.png, id=863, 1443.3925pt x 907.39pt>
 File: Bilder/cwp_images/16.png Graphic file (type png)
 <use Bilder/cwp_images/16.png>
 Package pdftex.def Info: Bilder/cwp_images/16.png  used on input line 152.
 (pdftex.def)             Requested size: 128.02765pt x 80.4847pt.
-<Bilder/cwp_images/17.png, id=862, 1443.3925pt x 907.39pt>
+<Bilder/cwp_images/17.png, id=864, 1443.3925pt x 907.39pt>
 File: Bilder/cwp_images/17.png Graphic file (type png)
 <use Bilder/cwp_images/17.png>
 Package pdftex.def Info: Bilder/cwp_images/17.png  used on input line 158.
 (pdftex.def)             Requested size: 128.02765pt x 80.4847pt.
-<Bilder/cwp_images/18.png, id=863, 1441.385pt x 910.40125pt>
+<Bilder/cwp_images/18.png, id=865, 1441.385pt x 910.40125pt>
 File: Bilder/cwp_images/18.png Graphic file (type png)
 <use Bilder/cwp_images/18.png>
 Package pdftex.def Info: Bilder/cwp_images/18.png  used on input line 167.
 (pdftex.def)             Requested size: 128.02553pt x 80.86292pt.
-<Bilder/cwp_images/19.png, id=864, 1441.385pt x 910.40125pt>
+<Bilder/cwp_images/19.png, id=866, 1441.385pt x 910.40125pt>
 File: Bilder/cwp_images/19.png Graphic file (type png)
 <use Bilder/cwp_images/19.png>
 Package pdftex.def Info: Bilder/cwp_images/19.png  used on input line 173.
@@ -1821,52 +1822,52 @@ Package pdftex.def Info: Bilder/cwp_images/18.png  used on input line 179.
 [48
 
 ]
-<Bilder/cwp_images/4.png, id=870, 1443.3925pt x 907.39pt>
+<Bilder/cwp_images/4.png, id=872, 1443.3925pt x 907.39pt>
 File: Bilder/cwp_images/4.png Graphic file (type png)
 <use Bilder/cwp_images/4.png>
 Package pdftex.def Info: Bilder/cwp_images/4.png  used on input line 194.
 (pdftex.def)             Requested size: 128.02765pt x 80.4847pt.
-<Bilder/cwp_images/6.png, id=871, 1443.3925pt x 907.39pt>
+<Bilder/cwp_images/6.png, id=873, 1443.3925pt x 907.39pt>
 File: Bilder/cwp_images/6.png Graphic file (type png)
 <use Bilder/cwp_images/6.png>
 Package pdftex.def Info: Bilder/cwp_images/6.png  used on input line 200.
 (pdftex.def)             Requested size: 128.02765pt x 80.4847pt.
-<Bilder/cwp_images/7.png, id=872, 1443.3925pt x 907.39pt>
+<Bilder/cwp_images/7.png, id=874, 1443.3925pt x 907.39pt>
 File: Bilder/cwp_images/7.png Graphic file (type png)
 <use Bilder/cwp_images/7.png>
 Package pdftex.def Info: Bilder/cwp_images/7.png  used on input line 206.
 (pdftex.def)             Requested size: 128.02765pt x 80.4847pt.
-<Bilder/cwp_images/11.png, id=873, 1443.3925pt x 907.39pt>
+<Bilder/cwp_images/11.png, id=875, 1443.3925pt x 907.39pt>
 File: Bilder/cwp_images/11.png Graphic file (type png)
 <use Bilder/cwp_images/11.png>
 Package pdftex.def Info: Bilder/cwp_images/11.png  used on input line 215.
 (pdftex.def)             Requested size: 128.02765pt x 80.4847pt.
-<Bilder/cwp_images/15.png, id=874, 1443.3925pt x 907.39pt>
+<Bilder/cwp_images/15.png, id=876, 1443.3925pt x 907.39pt>
 File: Bilder/cwp_images/15.png Graphic file (type png)
 <use Bilder/cwp_images/15.png>
 Package pdftex.def Info: Bilder/cwp_images/15.png  used on input line 221.
 (pdftex.def)             Requested size: 128.02765pt x 80.4847pt.
-<Bilder/cwp_images/20.png, id=875, 1441.385pt x 910.40125pt>
+<Bilder/cwp_images/20.png, id=877, 1441.385pt x 910.40125pt>
 File: Bilder/cwp_images/20.png Graphic file (type png)
 <use Bilder/cwp_images/20.png>
 Package pdftex.def Info: Bilder/cwp_images/20.png  used on input line 227.
 (pdftex.def)             Requested size: 128.02553pt x 80.86292pt.
-<Bilder/cwp_images/21.png, id=876, 1441.385pt x 910.40125pt>
+<Bilder/cwp_images/21.png, id=878, 1441.385pt x 910.40125pt>
 File: Bilder/cwp_images/21.png Graphic file (type png)
 <use Bilder/cwp_images/21.png>
 Package pdftex.def Info: Bilder/cwp_images/21.png  used on input line 236.
 (pdftex.def)             Requested size: 128.02553pt x 80.86292pt.
-<Bilder/cwp_images/22.png, id=877, 1441.385pt x 910.40125pt>
+<Bilder/cwp_images/22.png, id=879, 1441.385pt x 910.40125pt>
 File: Bilder/cwp_images/22.png Graphic file (type png)
 <use Bilder/cwp_images/22.png>
 Package pdftex.def Info: Bilder/cwp_images/22.png  used on input line 242.
 (pdftex.def)             Requested size: 128.02553pt x 80.86292pt.
-<Bilder/cwp_images/23.png, id=878, 1441.385pt x 910.40125pt>
+<Bilder/cwp_images/23.png, id=880, 1441.385pt x 910.40125pt>
 File: Bilder/cwp_images/23.png Graphic file (type png)
 <use Bilder/cwp_images/23.png>
 Package pdftex.def Info: Bilder/cwp_images/23.png  used on input line 248.
 (pdftex.def)             Requested size: 128.02553pt x 80.86292pt.
-<Bilder/cwp_images/24.png, id=879, 1441.385pt x 910.40125pt>
+<Bilder/cwp_images/24.png, id=881, 1441.385pt x 910.40125pt>
 File: Bilder/cwp_images/24.png Graphic file (type png)
 <use Bilder/cwp_images/24.png>
 Package pdftex.def Info: Bilder/cwp_images/24.png  used on input line 257.
@@ -1875,6 +1876,21 @@ Package pdftex.def Info: Bilder/cwp_images/24.png  used on input line 257.
 Overfull \hbox (77.34846pt too wide) in paragraph at lines 278--280
 [][]$\T1/lmtt/m/n/10.95 https : / / github . com / duerieti / Sensitivity-[]Ana
 lysis-[]of-[]a-[]TIR-[]Based-[]CWP-[]Detection-[]Algorithm$[][] 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 291--291
+[]|\T1/lmr/bx/n/10.95 System /
+ []
+
+
+Underfull \hbox (badness 1320) in paragraph at lines 291--291
+[]|\T1/lmr/bx/n/10.95 Provider & Ver-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 303--303
+[]|\T1/lmr/m/n/10.95 Claude Opus
  []
 
 
@@ -1909,20 +1925,6 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 s/7.png> <./Bilder/cwp_images/11.png> <./Bilder/cwp_images/15.png> <./Bilder/cw
 p_images/20.png> <./Bilder/cwp_images/21.png> <./Bilder/cwp_images/22.png> <./B
 ilder/cwp_images/23.png> <./Bilder/cwp_images/24.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 291--291
-[]|\T1/lmr/bx/n/10.95 System /
- []
-
-
-Underfull \hbox (badness 1320) in paragraph at lines 291--291
-[]|\T1/lmr/bx/n/10.95 Provider & Ver-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 303--303
-[]|\T1/lmr/m/n/10.95 Claude Opus
- []
-
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 13.59999pt, for example:
@@ -1943,7 +1945,7 @@ Package rerunfilecheck Info: File `Mein-erstes-Dokument.out' has not changed.
 Here is how much of TeX's memory you used:
  29628 strings out of 469438
  560196 string characters out of 5468410
- 953684 words of memory out of 5000000
+ 955958 words of memory out of 5000000
  57585 multiletter control sequences out of 15000+600000
  744980 words of font info for 113 fonts, out of 8000000 for 9000
  59 hyphenation exceptions out of 8191
@@ -1962,10 +1964,10 @@ share/texmf/fonts/type1/public/lm/lmr9.pfb></usr/share/texmf/fonts/type1/public
 xmf/fonts/type1/public/lm/lmsy10.pfb></usr/share/texmf/fonts/type1/public/lm/lm
 sy7.pfb></usr/share/texmf/fonts/type1/public/lm/lmsy8.pfb></usr/share/texmf/fon
 ts/type1/public/lm/lmtt10.pfb>
-Output written on Mein-erstes-Dokument.pdf (53 pages, 35360998 bytes).
+Output written on Mein-erstes-Dokument.pdf (53 pages, 36846495 bytes).
 PDF statistics:
- 1071 PDF objects out of 1200 (max. 8388607)
- 859 compressed objects within 9 object streams
+ 1073 PDF objects out of 1200 (max. 8388607)
+ 861 compressed objects within 9 object streams
  170 named destinations out of 1000 (max. 500000)
  654 words of extra memory for PDF output out of 10000 (max. 10000000)
 

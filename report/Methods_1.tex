@@ -550,9 +550,7 @@ occur.
 	\centering
 	\includegraphics[width=\textwidth]{Bilder/inverse_dist_weighting.png}
 	\caption{Illustration of the inverse distance weighting scheme used 
-		in v3. Each cell's reference temperature is computed as a weighted 
-		average of surrounding sample points, where weights decrease with 
-		distance.}
+		in v3. $t_1$ and $t_2$ are two reference temperature points with differing temperatures. The influence they have on determining the temperature of the indicated cell is given by the inverse of their squared distance. The temperature of the indicated cell is closer to that of $t_1$ as this reference point is closer.}
 	\label{fig:idw_illustration}
 \end{figure}
 

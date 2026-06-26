@@ -28,9 +28,9 @@
      inkscape:deskcolor="#d1d1d1"
      inkscape:document-units="mm"
      showgrid="true"
-     inkscape:zoom="5.6568542"
-     inkscape:cx="136.20644"
-     inkscape:cy="85.471532"
+     inkscape:zoom="4"
+     inkscape:cx="130.125"
+     inkscape:cy="120.875"
      inkscape:window-width="1853"
      inkscape:window-height="1011"
      inkscape:window-x="0"
@@ -288,11 +288,11 @@
      inkscape:groupmode="layer"
      id="layer1">
     <path
-       style="fill:#000000;fill-opacity:0;stroke:#000000;stroke-width:0.0867119;stroke-dasharray:none;stroke-opacity:0.217338"
+       style="fill:#000000;fill-opacity:0.02812029;stroke:#000000;stroke-width:0.0867119;stroke-dasharray:none;stroke-opacity:0.217338"
        d="m 29.967118,15.058969 -0.01093,24.818589 h 5.004744 V 15.045066 h 4.998001 v 24.830263 l 5.000044,0.0038 V 15.045824 h 4.998241 v 24.831511 h 4.985839 V 15.047877 h 5.016291 v 24.833815 h 4.996726 l -0.0066,-24.855745 z"
        id="path2" />
     <path
-       style="fill:#000000;fill-opacity:0;stroke:#000000;stroke-width:0.0867119;stroke-dasharray:none;stroke-opacity:0.3109"
+       style="fill:#000000;fill-opacity:0.02812029;stroke:#000000;stroke-width:0.0867119;stroke-dasharray:none;stroke-opacity:0.3109"
        d="M 25.015508,34.938397 H 70.019965 V 29.969863 H 25.002372 v -4.97144 H 70.008273 V 20.026984 H 25.012708 Z"
        id="path3" />
     <path
@@ -328,7 +328,7 @@
        d="M 32.021212,44.78551 Z"
        id="path23" />
     <path
-       style="fill:#00b6ff;fill-opacity:0;stroke:#000000;stroke-width:0.1;stroke-dasharray:none;stroke-opacity:0.253212"
+       style="fill:#000000;fill-opacity:0.02812029;stroke:#000000;stroke-width:0.1;stroke-dasharray:none;stroke-opacity:0.253212"
        d="m 24.97712,39.897704 h 44.999665 l 0.0093,-24.825024 -44.998633,-0.0082 z"
        id="path26" />
     <path
@@ -402,7 +402,7 @@
        id="path4" />
     <g
        inkscape:label=""
-       transform="matrix(0.74271861,0,0,0.62492849,33.839504,31.267926)"
+       transform="matrix(0.74271861,0,0,0.62492849,55.307929,31.688876)"
        id="g1">
       <g
          fill="#000000"
@@ -470,7 +470,7 @@
     </g>
     <g
        inkscape:label=""
-       transform="matrix(0.67475748,0,0,0.60443278,53.4712,31.859942)"
+       transform="matrix(0.67475748,0,0,0.60443278,33.172079,31.766397)"
        id="g2">
       <g
          fill="#000000"
