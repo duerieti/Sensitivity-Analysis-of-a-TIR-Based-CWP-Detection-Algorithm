@@ -43,17 +43,15 @@ the truncation artefacts identified in the sensitivity analysis.
 ---
 ## 2. Prerequisites
 
-> **Note:** This project was developed and run on a Debian-based Linux system
-> and is best suited for execution on a distributed HPC cluster running a
-> Debian-like Linux OS with SLURM as the job scheduler and Conda as the
-> environment manager. The parallel execution scripts rely on GNU Parallel,
-> which is a Linux/macOS tool and is not natively available on Windows (but can be deployed using Conda). Windows
-> users who wish to run the full pipeline locally are advised to install WSL 2
-> with Ubuntu:  
+> **Note:** This project was developed across two environments: a Ubuntu desktop
+> for data analysis and report generation, and a Debian-based ZHAW HPC cluster
+> for parallel model execution. Scripts in the `morris_screening_*/` and
+> `comparison*/` directories are designed specifically for HPC execution via
+> SLURM and GNU Parallel and are not intended to be run locally. All other
+> scripts can be run on any Linux or macOS system with the required dependencies
+> installed. Windows users are advised to install WSL 2 with Ubuntu for full
+> compatibility:  
 > https://learn.microsoft.com/en-us/windows/wsl/install
->
-> When running on Windows, file paths and line endings may need to be adjusted.
-> Any hardcoded paths using `/` may need to be updated, and shell scripts should
 
 ### 2.1 ZHAW HPC Account (recommended)
 
