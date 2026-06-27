@@ -2,16 +2,7 @@
 
 \section{Sensitivity Analysis}
 
-According to Saltelli et al. sensitivity analysis is ``The study of how uncertainty in the output of a model [\dots] can be apportioned to different sources of uncertainty in the model input'' \citep{saltelli_sensitivity_2004}. This definition rests on a broad notion of what counts as a model input: in sensitivity analysis, everything that causes variation in the output of the model is classified as an input \citep{saltelli_global_2007}. Providing an example: if a linear regression of a target variable $Y$ is performed, then not only are the predictors $X_1, \dots, X_n$ considered as model inputs, but also the parameters $\theta_1, \dots, \theta_n$ that correspond to the predictors. So the model:
-
-\begin{equation}
-	Y = f(X_1, X_2, \theta_1, \theta_2)
-	\label{eq:model_with_params}
-\end{equation}
-
-would have four model inputs from the view of sensitivity analysis.
-
-Sensitivity analysis provides a range of benefits. Firstly it allows the modeller to apply a strategy called ``Factor Fixing'': if the model output $Y$ is found to be independent of one or multiple inputs $X_i$, then these can be set to fixed constants,  making sensitivity analysis a tool for model simplification \citep{saltelli_global_2007}. Secondly, sensitivity analysis generally improves model validity by identifying highly influential and therefore critical model components \citep{ligmann-zielinska_spatially-explicit_2013}.
+According to Saltelli et al. sensitivity analysis is ``The study of how uncertainty in the output of a model [\dots] can be apportioned to different sources of uncertainty in the model input'' \citep{saltelli_sensitivity_2004}. This definition rests on a broad notion of what counts as a model input: in sensitivity analysis, everything that causes variation in the output of the model is classified as an input \citep{saltelli_global_2007}. Sensitivity analysis provides a range of benefits. Firstly it allows the modeller to apply a strategy called ``Factor Fixing'': if the model output $Y$ is found to be independent of one or multiple inputs $X_i$, then these can be set to fixed constants,  making sensitivity analysis a tool for model simplification \citep{saltelli_global_2007}. Secondly, sensitivity analysis generally improves model validity by identifying highly influential and therefore critical model components \citep{ligmann-zielinska_spatially-explicit_2013}.
 
 \section{The Morris Method}
 
@@ -36,12 +27,12 @@ At the core of the Morris method sits a $k$-dimensional model $Y$ with inputs $X
 	EE_i = \frac{Y(X_1, X_2, \dots, X_{i-1}, X_i + \Delta, \dots, X_k) - Y(X_1, X_2, \dots, X_k)}{\Delta}
 \end{equation}
 
-Where $\Delta$ represents some step along the grid $\Omega$. Figure~\ref{fig:morris_grid}, taken from \cite{saltelli_global_2007}, shows an example of such a grid for a two-parameter, four-level case.
+Where $\Delta$ represents some step along the grid $\Omega$. Figure~\ref{fig:morris_grid} shows an example of such a grid for a two-parameter, four-level case.
 
 \begin{figure}[h]
 	\centering
 	\includegraphics[width=0.7\textwidth]{Bilder/morris_grid.png}
-	\caption{An example grid $\Omega$. The grid features two parameters $X_1$, $X_2$, meaning that it is a two-dimensional grid. Further, it features four levels ($p = 4$). The step $\Delta$ chosen here is $\frac{2}{3}$ and indicated by the arrows.}
+	\caption{An example grid $\Omega$. The grid features two parameters $X_1$, $X_2$, meaning that it is a two-dimensional grid. Further, it features four levels ($p = 4$). The step $\Delta$ chosen here is $\frac{2}{3}$ and indicated by the arrows. Figure source: \citep{saltelli_global_2007}}
 	\label{fig:morris_grid}
 \end{figure}
 
@@ -49,12 +40,12 @@ Where $\Delta$ represents some step along the grid $\Omega$. Figure~\ref{fig:mor
 
 \subsection{Trajectory-Based Sampling}
 
-The Morris method occupies itself with finding the statistical distribution of each of the $i$ elementary effects. $\mathcal{F}_i$ is thereby used to denote the distribution of $EE_i$, in other words $\mathcal{F}_i \sim EE_i$ . To populate $\mathcal{F}_i$ with multiple samples of $EE_i$, the Morris method uses an efficient trajectory-based sampling design that obtains as many elementary effects $EE_i$ from as few model evaluations as possible. Figure~\ref{fig:saltelli_trajectory_grid}, taken from \cite{saltelli_global_2007}, shows an example trajectory through a three-dimensional sampling grid.
+The Morris method occupies itself with finding the statistical distribution of each of the $i$ elementary effects. $\mathcal{F}_i$ is thereby used to denote the distribution of $EE_i$, in other words $\mathcal{F}_i \sim EE_i$ . To populate $\mathcal{F}_i$ with multiple samples of $EE_i$, the Morris method uses an efficient trajectory-based sampling design that obtains as many elementary effects $EE_i$ from as few model evaluations as possible. Figure~\ref{fig:saltelli_trajectory_grid} shows an example trajectory through a three-dimensional sampling grid.
 
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=0.7\textwidth]{Bilder/satteli_trajectory_grid.png}
-	\caption{An example Morris trajectory through a three-dimensional sampling grid ($k = 3$, $p = 6$). The trajectory consists of $k+1 = 4$ points.}
+	\caption{An example Morris trajectory through a three-dimensional sampling grid ($k = 3$, $p = 6$). The trajectory consists of $k+1 = 4$ points. Figure source: \citep{saltelli_global_2007}}
 	\label{fig:saltelli_trajectory_grid}
 \end{figure}
 

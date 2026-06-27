@@ -29,9 +29,9 @@
      inkscape:deskcolor="#d1d1d1"
      inkscape:document-units="mm"
      showgrid="true"
-     inkscape:zoom="4.5792179"
-     inkscape:cx="348.42194"
-     inkscape:cy="748.49026"
+     inkscape:zoom="6.4759921"
+     inkscape:cx="356.85652"
+     inkscape:cy="778.18193"
      inkscape:window-width="1853"
      inkscape:window-height="1011"
      inkscape:window-x="0"
@@ -207,14 +207,14 @@
        xml:space="preserve"
        style="font-size:1.37208px;writing-mode:lr-tb;direction:ltr;fill:#000000;fill-opacity:1;stroke-width:0.11434"
        x="78.301788"
-       y="228.03676"
+       y="227.94856"
        id="text14"
        transform="scale(1.0793187,0.92651039)"><tspan
          sodipodi:role="line"
          id="tspan14"
          style="fill:#000000;fill-opacity:1;stroke-width:0.11434"
          x="78.301788"
-         y="228.03676">4</tspan></text>
+         y="227.94856">4</tspan></text>
     <text
        xml:space="preserve"
        style="font-size:1.37208px;writing-mode:lr-tb;direction:ltr;fill:#000000;fill-opacity:1;stroke-width:0.11434"
@@ -243,14 +243,14 @@
        xml:space="preserve"
        style="font-size:1.37208px;writing-mode:lr-tb;direction:ltr;fill:#000000;fill-opacity:1;stroke-width:0.11434"
        x="92.240623"
-       y="228.16577"
+       y="227.88515"
        id="text17"
-       transform="scale(1.0793187,0.92651038)"><tspan
+       transform="scale(1.0793187,0.92651039)"><tspan
          sodipodi:role="line"
          id="tspan17"
          style="fill:#000000;fill-opacity:1;stroke-width:0.11434"
          x="92.240623"
-         y="228.16577">7</tspan></text>
+         y="227.88515">7</tspan></text>
     <text
        xml:space="preserve"
        style="font-size:1.35368px;writing-mode:lr-tb;direction:ltr;fill:#000000;fill-opacity:1;stroke-width:0.112807"
@@ -338,15 +338,15 @@
     <text
        xml:space="preserve"
        style="font-size:1.42525px;writing-mode:lr-tb;direction:ltr;fill:#121212;fill-opacity:1;stroke-width:0.118771"
-       x="83.737541"
-       y="207.47922"
+       x="81.177719"
+       y="207.519"
        id="text23"
        transform="scale(0.97358869,1.0271278)"><tspan
          sodipodi:role="line"
          id="tspan23"
          style="fill:#121212;fill-opacity:1;stroke-width:0.118771"
-         x="83.737541"
-         y="207.47922">Buffer Pixel Count</tspan></text>
+         x="81.177719"
+         y="207.519">Reference Strip Width [px]</tspan></text>
     <text
        xml:space="preserve"
        style="font-size:1.50667px;writing-mode:lr-tb;direction:ltr;fill:#121212;fill-opacity:1;stroke-width:0.231512;stroke-dasharray:none"

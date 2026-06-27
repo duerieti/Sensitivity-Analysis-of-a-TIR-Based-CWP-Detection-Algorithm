@@ -10,7 +10,8 @@ classification of CWPs, the computation of sensitivity indices, and the
 subsequent visualisation and statistical modelling. The third section addresses 
 research question 3 by describing the algorithm modifications derived from the 
 sensitivity analysis findings. A description of the data and study area is 
-provided first.
+provided first. All R-based scripts in this thesis were executed using R version 4.5.3 
+\citep{r_core_team}.
 
 \section{Data and Study Area}
 
@@ -99,13 +100,14 @@ infrastructure.
 
 The reworked algorithm (v2) preserves the computational logic of the original 
 implementation (v1) of \citet{tonolla_thermische-kartographie_2026} but differs 
-fundamentally in how each step is mechanistically executed. Where v1 processes 
+fundamentally in how each step is mechanistically executed. v1 processes 
 the raster slab-by-slab using R loops and \texttt{terra}/\texttt{sf} functions, 
 holding intermediate results as R objects in memory. v2 takes a different approach relying on
-calls to the GDAL command line interface, operating directly on raster and 
-vector files on disk. Table~\ref{tab:cwp_pseudocode} gives a high-level 
+GDAL \citep{rouault_2026_20083023} to operate directly on raster and 
+vector files on disk and deploying chunk processing. Table~\ref{tab:cwp_pseudocode} gives a high-level 
 overview of v2. The tool or function used in each step is listed in the 
 right-hand column.
+
 
 \begin{table}[H]
 	\centering
@@ -227,7 +229,7 @@ rounding = $0.1\,^{\circ}$C, 8-connectivity enabled).
 
 With the algorithm optimized, sensitivity analysis was carried out to determine 
 the sensitivity of the CWP detection algorithm with respect to the parameters 
-buffer pixel count, step length, and temperature delta. As the step length 
+reference strip width, step length, and temperature delta. As the step length 
 sensitivity hypothesis concerns CWPs that are variable to the step length parameter specifically, a 
 pre-selection step was first applied to identify CWPs that are actually 
 susceptible to the step length parameter and to classify them by their 
@@ -249,12 +251,11 @@ delta was fitted.
 	\label{fig:cwp_fuzzy_overview}
 \end{figure}
 
-First, a two-dimensional Morris sampling grid was set up spanning buffer pixel 
-count and step length, with 6 levels per parameter (step length: 400--1200~m; 
-buffer pixel count: 2--7~px), using the R package \texttt{sensitivity} 
-\citep{sensitivity} to generate the sampling design. The package handles the 
+First, a two-dimensional Morris sampling grid was set up spanning the parameters reference strip width and step length, with 6 levels per parameter (step length: 400--1200~m; 
+reference strip width: 2--7~px). To generate the grid, the R package \texttt{sensitivity} 
+\citep{sensitivity} was deployed. The package handles the 
 scaling of input parameters to the unit interval $[0,1]$ internally, so the 
-parameters can be specified directly in their original units. Additionaly, in this package, 
+parameters can be specified directly in their original units. Additionaly, in \citep{sensitivity}, 
 the step size is not set directly 
 as a continuous value $\Delta$, but rather through the \texttt{grid.jump} 
 argument, an integer specifying the number of grid levels to be jumped when 
@@ -284,7 +285,7 @@ the buffer pixel count parameter.
 	\centering
 	\includegraphics[width=0.8\textwidth]{Bilder/morris_grid_image.png}
 	\caption{Visual depiction of the Morris sampling grid, spanning step length 
-		and buffer pixel count. The arrow shows the jump distance chosen for the 
+		and reference strip width. The arrow shows the jump distance chosen for the 
 		parameter sampling, corresponding to 3 grid levels.}
 	\label{fig:morris_grid_first}
 \end{figure}
@@ -293,7 +294,7 @@ the buffer pixel count parameter.
 \begin{table}[H]
 	\centering
 	\caption{Parameter values held constant during the first Morris experiment, 
-		while step length and buffer pixel count were varied.}
+		while step length and reference strip width count were varied.}
 	\label{tab:held_constant_first_morris}
 	\begin{tabular}{lr}
 		\toprule
@@ -350,6 +351,8 @@ illustrated in Figure~\ref{fig:freq_raster}.
 		detection frequency than black pixels.}
 	\label{fig:freq_raster}
 \end{figure}
+
+
 
 Finally, from the detection frequency raster, patches that were clearly 
 variable and clearly attributable to either a tributary inflow or its absence 
@@ -433,12 +436,12 @@ sensitivity indices towards conditions prevailing at that particular spot. For e
 \end{figure}
 
 With the 24 CWP classified, Morris sensitivity indices were computed with respect 
-to their area across the three algorithm parameters buffer pixel count, step 
+to their area across the three algorithm parameters reference strip width, step 
 length, and temperature delta. Where the first experiment varied only two 
 parameters to produce the detection frequency raster, the second experiment 
 varied all three to provide sensitivity indices for each parameter.
 
-First, a three-dimensional Morris sampling grid spanning buffer pixel count, 
+First, a three-dimensional Morris sampling grid spanning reference strip width, 
 step length, and temperature delta was set up, as depicted in 
 Figure~\ref{fig:morris_grid_second}. A \texttt{grid.jump} of 3 was again 
 chosen, implementing equal-probability sampling of the elementary effects as 
@@ -455,7 +458,7 @@ Table~\ref{tab:held_constant_first_morris}.
 	\centering
 	\includegraphics[width=0.8\textwidth]{Bilder/large_moris_grid_image.png}
 	\caption{Visual depiction of the second Morris sampling grid, spanning step 
-		length, buffer pixel count, and the temperature delta threshold. The red 
+		length, reference strip width and the temperature delta threshold. The red 
 		arrow indicates the jump distance chosen.}
 	\label{fig:morris_grid_second}
 \end{figure}
@@ -495,8 +498,8 @@ their relative influence on CWP area.
 
 To further explore the relationship between step-length sensitivity and CWP 
 characteristics, a scatter plot was produced displaying $\mu^*$ (step length) 
-against mean CWP area across all Morris runs, with mean temperature delta 
-encoded as colour and CWP class encoded as point shape. Additionally, a linear 
+against mean CWP area across all algorithm runs, with mean temperature delta of all runs
+encoded as colour. Additionally, a linear 
 model was fitted to assess quantitatively whether CWP area and temperature delta are associated 
 with step-length sensitivity:
 
@@ -508,17 +511,17 @@ with step-length sensitivity:
 
 where $\mu^*_{\text{step length}}$ is the Morris sensitivity index for step 
 length, $\overline{\text{area}}$ and $\overline{\Delta T}$ are the mean 
-CWP area and mean temperature delta across all Morris runs for each CWP. The 
+CWP area and mean temperature delta across all algorithm runs for each CWP. The 
 model was fitted using R's \texttt{lm()} across all 24 CWP, pooling both classes.
+
 
 \section{Algorithm Modification}
 \label{sec:rq3_methods}
 
 Two findings from \citet{tonolla_thermische-kartographie_2026} informed 
-specific algorithmic decisions in the design of a second altered CWP detection algorithm (v3). First, the buffer pixel 
-count was found to have little influence on the detected CWP area, qualifying 
+specific algorithmic decisions in the design of a second altered CWP detection algorithm (v3). First, the reference strip width was found to have little influence on the detected CWP area, qualifying 
 it as a candidate for factor fixing. It was therefore internalized in v3 and 
-set to a constant value of 3. Second, the step length parameter was identified 
+set to a constant value of 3 pixel. Second, the step length parameter was identified 
 as having a non-negligible influence on the detected CWP area, motivating a 
 fundamental redesign of the reference temperature computation. The temperature 
 delta parameter is retained as a free parameter, as different thresholds are 
@@ -573,7 +576,7 @@ in the computation of the reference temperature raster. An overview is provided 
 		2 & For each candidate step length, divide the river centerline into $n$ 
 		segments; construct a narrow 3-pixel-wide reference strip polygon for 
 		each segment; extract the median temperature of each segment from the 
-		TIR raster; compute the visual center (pole of inaccessibility) visual center of each strip polygon and assign 
+		TIR raster; compute the visual center (pole of inaccessibility) of each strip polygon and assign 
 		the corresponding median temperature to this point. \\
 		\addlinespace
 		3 & Pool the reference points (location + temperature) from all 20 step 

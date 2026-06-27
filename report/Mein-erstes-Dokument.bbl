@@ -1,4 +1,4 @@
-\begin{thebibliography}{25}
+\begin{thebibliography}{27}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax
@@ -162,6 +162,23 @@ T.~Mieno.
 \newblock {R} as {GIS} for economists: Extraction speed comparison, 2022.
 \newblock URL
   \url{https://tmieno2.github.io/R-as-GIS-for-Economists/extract-speed.html}.
+
+\bibitem[{R Core Team}(2025)]{r_core_team}
+{R Core Team}.
+\newblock \emph{R: A Language and Environment for Statistical Computing}.
+\newblock R Foundation for Statistical Computing, Vienna, Austria, 2025.
+\newblock URL \url{https://www.R-project.org/}.
+
+\bibitem[Rouault et~al.(2026)Rouault, Warmerdam, Schwehr, Kiselev, Butler,
+  Łoskot, Szekeres, Tourigny, Landa, Miara, Elliston, Chaitanya, Plesea,
+  Morissette, Jolma, Dawson, Baston, de~Stigter, and
+  Miura]{rouault_2026_20083023}
+E.~Rouault, F.~Warmerdam, K.~Schwehr, A.~Kiselev, H.~Butler, M.~Łoskot,
+  T.~Szekeres, E.~Tourigny, M.~Landa, I.~Miara, B.~Elliston, K.~Chaitanya,
+  L.~Plesea, D.~Morissette, A.~Jolma, N.~Dawson, D.~Baston, C.~de~Stigter, and
+  H.~Miura.
+\newblock Gdal, May 2026.
+\newblock URL \url{https://doi.org/10.5281/zenodo.20083023}.
 
 \bibitem[Saltelli(2004)]{saltelli_sensitivity_2004}
 A.~Saltelli, editor.

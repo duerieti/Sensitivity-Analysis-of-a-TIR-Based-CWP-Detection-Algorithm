@@ -1,48 +1,48 @@
 \babel@toc {english}{}\relax 
-\contentsline {chapter}{\numberline {1}Introduction}{8}{chapter.1}%
-\contentsline {chapter}{\numberline {2}Theoretical Background}{10}{chapter.2}%
-\contentsline {section}{\numberline {2.1}Sensitivity Analysis}{10}{section.2.1}%
-\contentsline {section}{\numberline {2.2}The Morris Method}{10}{section.2.2}%
-\contentsline {subsection}{\numberline {2.2.1}Elementary Effects and the Sampling Grid}{11}{subsection.2.2.1}%
-\contentsline {subsection}{\numberline {2.2.2}Trajectory-Based Sampling}{11}{subsection.2.2.2}%
-\contentsline {subsection}{\numberline {2.2.3}Choosing $\Delta $ and $r$}{12}{subsection.2.2.3}%
-\contentsline {subsection}{\numberline {2.2.4}Sensitivity Measures: $\mu $, $\sigma $, and $\mu ^*$}{13}{subsection.2.2.4}%
-\contentsline {section}{\numberline {2.3}Sensitivity analysis for Spatial Models}{14}{section.2.3}%
-\contentsline {section}{\numberline {2.4}Coldwater Patches}{14}{section.2.4}%
-\contentsline {chapter}{\numberline {3}Methods}{16}{chapter.3}%
-\contentsline {section}{\numberline {3.1}Data and Study Area}{16}{section.3.1}%
-\contentsline {section}{\numberline {3.2}Algorithm Reimplementation}{18}{section.3.2}%
-\contentsline {subsection}{\numberline {3.2.1}GDAL-Based Reimplementation}{18}{subsection.3.2.1}%
-\contentsline {subsection}{\numberline {3.2.2}Output Equivalence and Runtime Comparison}{20}{subsection.3.2.2}%
-\contentsline {section}{\numberline {3.3}Sensitivity Analysis}{20}{section.3.3}%
-\contentsline {subsection}{\numberline {3.3.1}Determining and Classifying Step Length Sensitive CWP}{21}{subsection.3.3.1}%
-\contentsline {subsection}{\numberline {3.3.2}Computing Morris Sensitivity Indices with respect to CWP Area}{26}{subsection.3.3.2}%
-\contentsline {section}{\numberline {3.4}Algorithm Modification}{29}{section.3.4}%
-\contentsline {subsection}{\numberline {3.4.1}Reference Temperature Redesign}{29}{subsection.3.4.1}%
-\contentsline {subsection}{\numberline {3.4.2}Algorithm Overview}{30}{subsection.3.4.2}%
-\contentsline {subsection}{\numberline {3.4.3}Reduction of Parameters}{31}{subsection.3.4.3}%
-\contentsline {section}{\numberline {3.5}Usage of AI}{32}{section.3.5}%
-\contentsline {chapter}{\numberline {4}Results}{33}{chapter.4}%
-\contentsline {section}{\numberline {4.1}Algorithm Reimplementation}{33}{section.4.1}%
-\contentsline {subsection}{\numberline {4.1.1}Runtime Comparison}{33}{subsection.4.1.1}%
-\contentsline {subsection}{\numberline {4.1.2}Output Equivalence}{34}{subsection.4.1.2}%
-\contentsline {section}{\numberline {4.2}Sensitivity Analysis}{35}{section.4.2}%
-\contentsline {subsection}{\numberline {4.2.1}Sensitivity of CWP Area to Step Length}{36}{subsection.4.2.1}%
-\contentsline {subsection}{\numberline {4.2.2}Overall Sensitivity across all Parameters}{36}{subsection.4.2.2}%
-\contentsline {subsection}{\numberline {4.2.3}Relationship between CWP Area and Step Length Sensitivity}{37}{subsection.4.2.3}%
-\contentsline {section}{\numberline {4.3}Algorithm Modification}{38}{section.4.3}%
-\contentsline {chapter}{\numberline {5}Discussion}{40}{chapter.5}%
-\contentsline {section}{\numberline {5.1}Algorithm Reimplementation}{40}{section.5.1}%
-\contentsline {subsection}{\numberline {5.1.1}Speed Comparison}{40}{subsection.5.1.1}%
-\contentsline {subsection}{\numberline {5.1.2}Difference in CWP Polygons between v1 and v2}{40}{subsection.5.1.2}%
-\contentsline {section}{\numberline {5.2}Sensitivity Analysis}{41}{section.5.2}%
-\contentsline {subsection}{\numberline {5.2.1}Step Length Sensitivity by CWP Class}{41}{subsection.5.2.1}%
-\contentsline {subsection}{\numberline {5.2.2}Overall Sensitivity across all Parameters}{42}{subsection.5.2.2}%
-\contentsline {section}{\numberline {5.3}Algorithm Modification}{42}{section.5.3}%
-\contentsline {section}{\numberline {5.4}Future Improvements}{43}{section.5.4}%
-\contentsline {subsection}{\numberline {5.4.1}Subjective Selection and Classification of CWP}{43}{subsection.5.4.1}%
-\contentsline {subsection}{\numberline {5.4.2}Sample Size}{44}{subsection.5.4.2}%
-\contentsline {subsection}{\numberline {5.4.3}Improvements in the v3 detection algorithm}{44}{subsection.5.4.3}%
-\contentsline {subsection}{\numberline {5.4.4}Unnecessary Parameter in the First morris experiment}{44}{subsection.5.4.4}%
-\contentsline {section}{\numberline {5.5}References}{45}{section.5.5}%
-\contentsline {chapter}{\numberline {6}Appendix}{48}{chapter.6}%
+\contentsline {chapter}{\numberline {1}Introduction}{1}{chapter.1}%
+\contentsline {chapter}{\numberline {2}Theoretical Background}{3}{chapter.2}%
+\contentsline {section}{\numberline {2.1}Sensitivity Analysis}{3}{section.2.1}%
+\contentsline {section}{\numberline {2.2}The Morris Method}{3}{section.2.2}%
+\contentsline {subsection}{\numberline {2.2.1}Elementary Effects and the Sampling Grid}{3}{subsection.2.2.1}%
+\contentsline {subsection}{\numberline {2.2.2}Trajectory-Based Sampling}{4}{subsection.2.2.2}%
+\contentsline {subsection}{\numberline {2.2.3}Choosing $\Delta $ and $r$}{5}{subsection.2.2.3}%
+\contentsline {subsection}{\numberline {2.2.4}Sensitivity Measures: $\mu $, $\sigma $, and $\mu ^*$}{6}{subsection.2.2.4}%
+\contentsline {section}{\numberline {2.3}Sensitivity analysis for Spatial Models}{7}{section.2.3}%
+\contentsline {section}{\numberline {2.4}Coldwater Patches}{7}{section.2.4}%
+\contentsline {chapter}{\numberline {3}Methods}{9}{chapter.3}%
+\contentsline {section}{\numberline {3.1}Data and Study Area}{9}{section.3.1}%
+\contentsline {section}{\numberline {3.2}Algorithm Reimplementation}{11}{section.3.2}%
+\contentsline {subsection}{\numberline {3.2.1}GDAL-Based Reimplementation}{11}{subsection.3.2.1}%
+\contentsline {subsection}{\numberline {3.2.2}Output Equivalence and Runtime Comparison}{13}{subsection.3.2.2}%
+\contentsline {section}{\numberline {3.3}Sensitivity Analysis}{13}{section.3.3}%
+\contentsline {subsection}{\numberline {3.3.1}Determining and Classifying Step Length Sensitive CWP}{14}{subsection.3.3.1}%
+\contentsline {subsection}{\numberline {3.3.2}Computing Morris Sensitivity Indices with respect to CWP Area}{19}{subsection.3.3.2}%
+\contentsline {section}{\numberline {3.4}Algorithm Modification}{22}{section.3.4}%
+\contentsline {subsection}{\numberline {3.4.1}Reference Temperature Redesign}{22}{subsection.3.4.1}%
+\contentsline {subsection}{\numberline {3.4.2}Algorithm Overview}{23}{subsection.3.4.2}%
+\contentsline {subsection}{\numberline {3.4.3}Reduction of Parameters}{24}{subsection.3.4.3}%
+\contentsline {section}{\numberline {3.5}Usage of AI}{25}{section.3.5}%
+\contentsline {chapter}{\numberline {4}Results}{26}{chapter.4}%
+\contentsline {section}{\numberline {4.1}Algorithm Reimplementation}{26}{section.4.1}%
+\contentsline {subsection}{\numberline {4.1.1}Runtime Comparison}{26}{subsection.4.1.1}%
+\contentsline {subsection}{\numberline {4.1.2}Output Equivalence}{27}{subsection.4.1.2}%
+\contentsline {section}{\numberline {4.2}Sensitivity Analysis}{28}{section.4.2}%
+\contentsline {subsection}{\numberline {4.2.1}Step Length Sensitivity by CWP Class}{29}{subsection.4.2.1}%
+\contentsline {subsection}{\numberline {4.2.2}Overall Sensitivity across all Parameters}{29}{subsection.4.2.2}%
+\contentsline {subsection}{\numberline {4.2.3}Relationship between CWP Area and Step Length Sensitivity}{30}{subsection.4.2.3}%
+\contentsline {section}{\numberline {4.3}Algorithm Modification}{31}{section.4.3}%
+\contentsline {chapter}{\numberline {5}Discussion and Outlook}{33}{chapter.5}%
+\contentsline {section}{\numberline {5.1}Algorithm Reimplementation}{33}{section.5.1}%
+\contentsline {subsection}{\numberline {5.1.1}Runtime Comparison}{33}{subsection.5.1.1}%
+\contentsline {subsection}{\numberline {5.1.2}Output Equivalence}{33}{subsection.5.1.2}%
+\contentsline {section}{\numberline {5.2}Sensitivity Analysis}{34}{section.5.2}%
+\contentsline {subsection}{\numberline {5.2.1}Step Length Sensitivity by CWP Class}{34}{subsection.5.2.1}%
+\contentsline {subsection}{\numberline {5.2.2}Overall Sensitivity across all Parameters}{35}{subsection.5.2.2}%
+\contentsline {section}{\numberline {5.3}Algorithm Modification}{35}{section.5.3}%
+\contentsline {section}{\numberline {5.4}Future Improvements}{36}{section.5.4}%
+\contentsline {subsection}{\numberline {5.4.1}Subjective Selection and Classification of CWP}{36}{subsection.5.4.1}%
+\contentsline {subsection}{\numberline {5.4.2}Sample Size}{37}{subsection.5.4.2}%
+\contentsline {subsection}{\numberline {5.4.3}Improvements in the v3 detection algorithm}{37}{subsection.5.4.3}%
+\contentsline {subsection}{\numberline {5.4.4}Unnecessary Parameter in the First morris experiment}{37}{subsection.5.4.4}%
+\contentsline {chapter}{References}{38}{subsection.5.4.4}%
+\contentsline {chapter}{Appendix}{44}{chapter*.34}%

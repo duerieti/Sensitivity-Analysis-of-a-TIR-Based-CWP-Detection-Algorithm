@@ -18,7 +18,9 @@ as step length decreases (i.e., as the number of segments increases).
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=\textwidth]{Bilder/speed_comparison.png}
-	\caption{Execution time of v1 and v2 as a function of step length. In red the original CWP detection algorithm (v1) in blue the speed optimized algorithm (v2).}
+	\caption{Execution time of v1 and v2 as a function of step length. In red 
+		the original CWP detection algorithm (v1), in blue the speed-optimized 
+		algorithm (v2).}
 	\label{fig:speed_comparison}
 \end{figure}
 
@@ -48,7 +50,8 @@ spatial agreement, where the two polygon sets are visually indistinguishable.
 		\centering
 		\includegraphics[width=\textwidth]{Bilder/v1_v2_more_pronounced_dissagreement.png}
 		\caption{More pronounced disagreement. Boundary mismatches between 
-			v1 and v2 are more evident with some smaller CWPs even missing in one result.}
+			v1 and v2 are more evident, with some smaller CWPs missing in 
+			one result.}
 		\label{fig:v1v2_disagreement}
 	\end{subfigure}
 	
@@ -73,25 +76,22 @@ spatial agreement, where the two polygon sets are visually indistinguishable.
 \section{Sensitivity Analysis}
 \label{sec:rq2_results}
 
-
 The Morris sensitivity analysis results are presented below across three 
 complementary views, progressing from the specific hypothesis regarding 
 step-length sensitivity to the broader parameter ranking and the 
 relationship between CWP area and sensitivity.
 
-\subsection{Sensitivity of CWP Area to Step Length}
+\subsection{Step Length Sensitivity by CWP Class}
 
 Figure~\ref{fig:step_length_sensitivity} shows the Morris sensitivity indices 
 $\mu^*$ and $\sigma$ with respect to the step length parameter, stratified by 
-CWP class. All 
-non-tributary-caused CWP show $\mu^*$ values below 0.2, indicating intermediate
-sensitivity to the step length parameter across this class. The tributary-caused 
-CWP show a wider spread in $\mu^*$: some tributary-caused CWP have sensitivity 
-values comparable to the non-tributary-caused group, while others show 
-substantially higher values of up to 0.3--0.6. The median $\mu^*$ values of the 
-two classes are similar, with the primary difference lying in the upper tail of 
-the tributary-caused distribution. The $\sigma$ values show a comparable pattern, 
-with greater spread in the tributary-caused group.
+CWP class. All non-tributary-caused CWP show $\mu^*$ values below 0.2. The 
+tributary-caused CWP show a wider spread in $\mu^*$: some tributary-caused CWP 
+have sensitivity values comparable to the non-tributary-caused group, while 
+others show substantially higher values of up to 0.3--0.6. The median $\mu^*$ 
+values of the two classes are similar, with the primary difference lying in the 
+upper tail of the tributary-caused distribution. The $\sigma$ values show a 
+comparable pattern, with greater spread in the tributary-caused group.
 
 \begin{figure}[H]
 	\centering
@@ -104,8 +104,8 @@ with greater spread in the tributary-caused group.
 \subsection{Overall Sensitivity across all Parameters}
 
 Figure~\ref{fig:mu_star_overall} displays the $\mu^*$ and $\sigma$ values for 
-all 24 CWP locations with respect to the three parameters varied in the second 
-Morris experiment. The buffer pixel count shows consistently low $\mu^*$ values 
+all 24 CWP with respect to the three parameters varied in the second Morris 
+experiment. The reference strip width shows consistently low $\mu^*$ values 
 across all locations, with the entire distribution concentrated near zero, and 
 a similarly negligible $\sigma$, indicating neither a meaningful main effect nor 
 relevant interactions with the other parameters. In contrast, both step length 
@@ -119,11 +119,12 @@ with the other parameters for both.
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=\textwidth]{Bilder/mustar_sig_over_all.png}
-	\caption{$\mu^*$ and $\sigma$ sensitivity indices for buffer pixel count, 
+	\caption{$\mu^*$ and $\sigma$ sensitivity indices for reference strip width, 
 		step length, and temperature delta across all classified cold water 
 		patches ($N = 24$ locations, $r = 64$ trajectories).}
 	\label{fig:mu_star_overall}
 \end{figure}
+
 \subsection{Relationship between CWP Area and Step Length Sensitivity}
 
 Figure~\ref{fig:mu_star_vs_area} shows the 24 CWP along three 
@@ -139,9 +140,8 @@ visible from the colouring.
 	\includegraphics[width=\textwidth]{Bilder/mu_star_vs_area_vs_deltaT.png}
 	\caption{$\mu^*$ (step length) versus mean CWP area for each of the 24 
 		annotated locations. Color indicates the mean temperature delta to the 
-		surrounding river. The 
-		shape indicates CWP class (circle: non-tributary-caused; triangle: 
-		tributary-caused).}
+		surrounding river. The shape indicates CWP class (circle: 
+		non-tributary-caused; triangle: tributary-caused).}
 	\label{fig:mu_star_vs_area}
 \end{figure}
 
@@ -151,8 +151,6 @@ slope, consistent with the visual pattern in Figure~\ref{fig:mu_star_vs_area}.
 The mean temperature delta predictor is not significant ($p = 0.618$). 
 The model explains a substantial proportion of variance ($R^2 = 0.763$, 
 Adjusted $R^2 = 0.740$).
-
-
 
 \begin{table}[H]
 	\centering
@@ -175,7 +173,7 @@ Adjusted $R^2 = 0.740$).
 	\vspace{0.5em}
 	\footnotesize
 	\textit{Note.} $R^2 = 0.763$, Adjusted $R^2 = 0.740$, $F(2, 21) = 33.79$, 
-	$p < 0.001$. Residual standard error $= 0.088$ on 21 degrees of freedom 
+	$p < 0.001$. Residual standard error $= 0.088$ on 21 degrees of freedom.
 \end{table}
 
 \section{Algorithm Modification}
@@ -217,10 +215,10 @@ observed in the v3 detections relative to v1.
 		\label{fig:v3_new}
 	\end{subfigure}
 	
-	\caption{Qualitative comparison of CWP detections between v1 (blue) and v3 (green) at 
-		three example locations. v1 polygons and v3 polygons are overlaid at 
-		50\% transparency; areas covered by both algorithms appear as a blend 
-		of the two colours, while areas covered by only one algorithm appear 
-		in that algorithm's colour alone.}
+	\caption{Qualitative comparison of CWP detections between v1 (blue) and v3 
+		(green) at three example locations. v1 polygons and v3 polygons are 
+		overlaid at 50\% transparency; areas covered by both algorithms appear 
+		as a blend of the two colours, while areas covered by only one algorithm 
+		appear in that algorithm's colour alone.}
 	\label{fig:v3_qualitative}
 \end{figure}

@@ -27,9 +27,9 @@
      inkscape:deskcolor="#d1d1d1"
      inkscape:document-units="mm"
      showgrid="true"
-     inkscape:zoom="2.8284271"
-     inkscape:cx="260.74563"
-     inkscape:cy="522.37514"
+     inkscape:zoom="4"
+     inkscape:cx="362.25"
+     inkscape:cy="545.125"
      inkscape:window-width="1853"
      inkscape:window-height="1011"
      inkscape:window-x="0"
@@ -57,6 +57,25 @@
   </sodipodi:namedview>
   <defs
      id="defs1">
+    <marker
+       style="overflow:visible"
+       id="Triangle"
+       refX="0"
+       refY="0"
+       orient="auto-start-reverse"
+       inkscape:stockid="Triangle arrow"
+       markerWidth="1"
+       markerHeight="1"
+       viewBox="0 0 1 1"
+       inkscape:isstock="true"
+       inkscape:collect="always"
+       preserveAspectRatio="xMidYMid">
+      <path
+         transform="scale(0.5)"
+         style="fill:context-stroke;fill-rule:evenodd;stroke:context-stroke;stroke-width:1pt"
+         d="M 5.77,0 -2.88,5 V -5 Z"
+         id="path135" />
+    </marker>
     <linearGradient
        id="swatch3"
        inkscape:swatch="solid">
@@ -81,25 +100,6 @@
          offset="0"
          id="stop1" />
     </linearGradient>
-    <marker
-       style="overflow:visible"
-       id="RoundedArrow"
-       refX="0"
-       refY="0"
-       orient="auto-start-reverse"
-       inkscape:stockid="Rounded arrow"
-       markerWidth="1"
-       markerHeight="1"
-       viewBox="0 0 1 1"
-       inkscape:isstock="true"
-       inkscape:collect="always"
-       preserveAspectRatio="xMidYMid">
-      <path
-         transform="scale(0.7)"
-         d="m -0.21114562,-4.1055728 6.42229122,3.21114561 a 1,1 90 0 1 0,1.78885438 L -0.21114562,4.1055728 A 1.236068,1.236068 31.717474 0 1 -2,3 v -6 a 1.236068,1.236068 148.28253 0 1 1.78885438,-1.1055728 z"
-         style="fill:context-stroke;fill-rule:evenodd;stroke:none"
-         id="path8" />
-    </marker>
   </defs>
   <g
      inkscape:label="Layer 1"
@@ -359,16 +359,16 @@
          y="125.71782">3.0</tspan></text>
     <text
        xml:space="preserve"
-       style="font-size:1.58933px;writing-mode:lr-tb;direction:ltr;fill:#0d0d0d;fill-opacity:1;stroke:#000000;stroke-width:0;stroke-dasharray:none;stroke-opacity:1"
-       x="-12.717499"
-       y="185.28873"
+       style="font-size:1.69399px;writing-mode:lr-tb;direction:ltr;fill:#0d0d0d;fill-opacity:1;stroke:#000000;stroke-width:0;stroke-dasharray:none;stroke-opacity:1"
+       x="-15.781656"
+       y="184.69264"
        id="text26"
-       transform="matrix(0.88304077,-0.51062948,0.55605306,0.81090584,0,0)"><tspan
+       transform="matrix(0.87520536,-0.51520097,0.55111907,0.8181656,0,0)"><tspan
          sodipodi:role="line"
          id="tspan26"
          style="stroke-width:0;stroke-dasharray:none"
-         x="-12.717499"
-         y="185.28873">Buffer Pixel count</tspan></text>
+         x="-15.781656"
+         y="184.69264">Reference Strip Width [px]</tspan></text>
     <text
        xml:space="preserve"
        style="font-size:1.58933px;writing-mode:lr-tb;direction:ltr;fill:#0d0d0d;fill-opacity:1;stroke:#000000;stroke-width:0;stroke-dasharray:none;stroke-opacity:1"
@@ -383,30 +383,30 @@
          y="182.19182" /></text>
     <text
        xml:space="preserve"
-       style="font-size:1.41819px;writing-mode:lr-tb;direction:ltr;fill:#0d0d0d;fill-opacity:1;stroke:#000000;stroke-width:0;stroke-dasharray:none;stroke-opacity:1"
-       x="131.50661"
-       y="101.94534"
+       style="font-size:1.68496px;writing-mode:lr-tb;direction:ltr;fill:#0d0d0d;fill-opacity:1;stroke:#000000;stroke-width:0;stroke-dasharray:none;stroke-opacity:1"
+       x="131.3558"
+       y="100.52446"
        id="text27"
-       transform="matrix(0.87563796,0.50406783,-0.52590076,0.83928561,0,0)"><tspan
+       transform="matrix(0.86776302,0.50864224,-0.52117114,0.84690212,0,0)"><tspan
          sodipodi:role="line"
          id="tspan27"
          style="stroke-width:0;stroke-dasharray:none"
-         x="131.50661"
-         y="101.94534">Step Length [m]</tspan></text>
+         x="131.3558"
+         y="100.52446">Step Length [m]</tspan></text>
     <text
        xml:space="preserve"
-       style="font-size:1.58255px;writing-mode:lr-tb;direction:ltr;fill:#0d0d0d;fill-opacity:1;stroke:#000000;stroke-width:0;stroke-dasharray:none;stroke-opacity:1"
-       x="-157.77295"
-       y="50.713173"
+       style="font-size:1.50962px;writing-mode:lr-tb;direction:ltr;fill:#0d0d0d;fill-opacity:1;stroke:#000000;stroke-width:0;stroke-dasharray:none;stroke-opacity:1"
+       x="-150.45706"
+       y="53.034374"
        id="text28"
-       transform="matrix(0.0109754,-0.87791835,1.1389523,0.00845996,0,0)"><tspan
+       transform="matrix(0.0104696,-0.92033204,1.0864635,0.00886867,0,0)"><tspan
          sodipodi:role="line"
          id="tspan28"
          style="stroke-width:0;stroke-dasharray:none"
-         x="-157.77295"
-         y="50.713173">Temerature Delta °C</tspan></text>
+         x="-150.45706"
+         y="53.034374">Temerature Delta °C</tspan></text>
     <path
-       style="fill:#0d0d0d;fill-opacity:0;stroke:#e50101;stroke-width:0.182615;stroke-opacity:1;marker-start:url(#RoundedArrow)"
+       style="fill:#0d0d0d;fill-opacity:0;stroke:#e50101;stroke-width:0.182615;stroke-opacity:1;marker-start:url(#Triangle)"
        d="m 105.14726,130.71377 c 7.46691,6.1212 2.37388,11.40828 -0.4641,13.99089"
        id="path28"
        inkscape:transform-center-x="-0.059324637"
