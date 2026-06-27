@@ -27,3 +27,5 @@ literature/
 *.sr.lock
 *.lock
 Slurm*/
+results/
+report/
