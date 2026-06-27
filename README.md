@@ -8,9 +8,41 @@
 
 ## 1. Project Overview
 
-TODO
+This repository contains the code and data associated with the Bachelor thesis 
+*Sensitivity Analysis of a TIR-Based Cold-Water Patch Detection Algorithm* 
+(Etienne Dürig, ZHAW ICLS, 2026).
+
+Cold water patches (CWPs) are localised areas in rivers where the water 
+temperature is measurably colder than the surrounding channel. They provide 
+thermal refugia for cold-water organisms and are expected to gain ecological 
+importance as river temperatures rise due to climate change. This thesis builds 
+on a CWP detection algorithm developed in collaboration with the Canton of Bern, 
+which processes high-resolution thermal infrared (TIR) orthophotos of the Emme 
+river to detect CWPs programmatically.
+
+The thesis addresses three research questions:
+
+1. Can the existing algorithm be reimplemented in a computationally more 
+   efficient form while producing equivalent outputs?
+2. How does the step length parameter contribute to variance in detected CWP 
+   area, and does this differ between tributary-caused and non-tributary-caused 
+   CWPs?
+3. What algorithmic modifications can reduce parameter sensitivity while 
+   maintaining plausible detection results?
+
+To answer these questions, a GDAL-based speed-optimized reimplementation (v2) 
+was developed and validated against the original algorithm (v1). A Morris 
+sensitivity analysis was then conducted across 24 manually selected and 
+classified CWP locations, varying the step length, reference strip width, and 
+temperature delta parameters. Finally, a modified algorithm (v3) was developed 
+that replaces the slab-based reference temperature computation with an inverse 
+distance weighting scheme, eliminating the step length parameter and resolving 
+the truncation artefacts identified in the sensitivity analysis.
+
 
 ---
+## 2. Prerequisites
+
 > **Note:** This project was developed and run on a Debian-based Linux system
 > and is best suited for execution on a distributed HPC cluster running a
 > Debian-like Linux OS with SLURM as the job scheduler and Conda as the
@@ -22,9 +54,6 @@ TODO
 >
 > When running on Windows, file paths and line endings may need to be adjusted.
 > Any hardcoded paths using `/` may need to be updated, and shell scripts should
-
----
-## 2. Prerequisites
 
 ### 2.1 ZHAW HPC Account (recommended)
 
