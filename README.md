@@ -3,7 +3,7 @@
 **Author:** Etienne Dürig  
 **Institution:** ZHAW Institute of Computational Life Sciences (ICLS)  
 **Date:** July 2026
-![v1_v3](v3_fix_cutoff_2.png)
+![v1_v3](v3_fix_cutoff.png)
 ---
 
 ## 1. Project Overview
