@@ -4,13 +4,6 @@ library(tidyverse)     # general data handling
 library(exactextractr) # extracting aggregated statistics from rasters based on polygons
 library(lwgeom)        # line substring operations on sf geometries
 
-getwd()
-
-rast <- terra::rast("../../Downloads/output_compressedV01.tif")
-
-tmap_mode("view")
-
-tm_shape(rast) + tm_raster()
 
 # Detect cold water patches in a single TIR raster using zone rasterisation
 # to construct a reference temperature surface.
@@ -177,7 +170,6 @@ detect_cwp_single <- function(
   sep = ","
   )	
   
-  print(ext_string)
   
   res_string <- paste(
   formatC(terra::res(r_tir)[1], format = "f", digits = 10),
@@ -185,7 +177,6 @@ detect_cwp_single <- function(
   sep = ","
   )
 
-  print(res_string)
   
   # rasterise the zone slabs in ascending order: higher zone_id wins
   system(paste0(
@@ -290,7 +281,6 @@ detect_cwp_single <- function(
   closing_tolerance <- if (connect_diagonals) cell_m * 0.1 else 0
   
 
-  print("starting poly")
   # convert flagged pixels to polygons, then apply morphological closing:
   # expand → union → shrink. This merges patches that are separated by
   # sub-pixel gaps from the raster-to-vector conversion.
