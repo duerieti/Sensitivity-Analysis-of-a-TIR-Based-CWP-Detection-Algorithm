@@ -185,42 +185,77 @@ install.packages(c(
 ## 4. Repository Structure
 
 ```
-├── comparison/                            # Compare v1, v2, and v3 algorithm versions
-│   ├── compute_jaccard.R                  # Compute Jaccard similarities between algorithms
-│   ├── param_combi_1/                     # First parameter combination
-│   │   ├── current/                       # v1 algorithm output
-│   │   ├── new/                           # v2 algorithm output
-│   │   └── v3_12_core/                    # v3 algorithm output
-│   ├── param_combi_2/                     # Second parameter combination
-│   │   ├── current/                       # v1 algorithm output
-│   │   └── new/                           # v2 algorithm output
-│   └── param_combi_3/                     # Third parameter combination
-│       ├── current/                       # v1 algorithm output
-│       └── new/                           # v2 algorithm output
+├── comparison/                                    # Compare v1, v2, and v3 algorithm versions
+│   ├── compute_jaccard.R                          # Compute Jaccard similarities between algorithms
+│   ├── param_combi_1/                             # First parameter combination
+│   │   ├── current/                               # v1 algorithm output
+│   │   │   ├── run_function.sh                    # Execute v1 algorithm on HPC
+│   │   │   └── run_model.R                        # v1 model run script
+│   │   ├── new/                                   # v2 algorithm output
+│   │   │   ├── run_function.sh                    # Execute v2 algorithm on HPC
+│   │   │   └── run_model.R                        # v2 model run script
+│   │   └── v3_12_core/                            # v3 algorithm output
+│   │       ├── idw.cpp                            # IDW C++ function for v3
+│   │       ├── run_function.sh                    # Execute v3 algorithm on HPC
+│   │       └── run_model.R                        # v3 model run script
+│   ├── param_combi_2/                             # Second parameter combination
+│   │   ├── current/                               # v1 algorithm output
+│   │   │   ├── run_function.sh                    # Execute v1 algorithm on HPC
+│   │   │   └── run_model.R                        # v1 model run script
+│   │   └── new/                                   # v2 algorithm output
+│   │       ├── run_function.sh                    # Execute v2 algorithm on HPC
+│   │       └── run_model.R                        # v2 model run script
+│   └── param_combi_3/                             # Third parameter combination
+│       ├── current/                               # v1 algorithm output
+│       │   ├── run_function.sh                    # Execute v1 algorithm on HPC
+│       │   └── run_model.R                        # v1 model run script
+│       └── new/                                   # v2 algorithm output
+│           ├── run_function.sh                    # Execute v2 algorithm on HPC
+│           └── run_model.R                        # v2 model run script
 │
-├── comparison_for_speed/                  # Compare v1 and v2 for runtime benchmarking
-│   ├── param_combi_1/                     # First parameter combination
-│   │   ├── current/                       # v1 algorithm output
-│   │   └── new/                           # v2 algorithm output
-│   ├── param_combi_2/                     # Second parameter combination
-│   │   ├── current/                       # v1 algorithm output
-│   │   └── new/                           # v2 algorithm output
-│   └── param_combi_3/                     # Third parameter combination
-│       ├── current/                       # v1 algorithm output
-│       └── new/                           # v2 algorithm output
+├── comparison_for_speed/                          # Compare v1 and v2 for runtime benchmarking
+│   ├── execution_speed_plot.R                     # Plot execution time comparison
+│   ├── param_combi_1/                             # First parameter combination
+│   │   ├── current/                               # v1 algorithm output
+│   │   │   ├── run_function.sh                    # Execute v1 algorithm on HPC
+│   │   │   └── run_model.R                        # v1 model run script
+│   │   └── new/                                   # v2 algorithm output
+│   │       ├── run_function.sh                    # Execute v2 algorithm on HPC
+│   │       └── run_model.R                        # v2 model run script
+│   ├── param_combi_2/                             # Second parameter combination
+│   │   ├── current/                               # v1 algorithm output
+│   │   │   ├── run_function.sh                    # Execute v1 algorithm on HPC
+│   │   │   └── run_model.R                        # v1 model run script
+│   │   └── new/                                   # v2 algorithm output
+│   │       ├── run_function.sh                    # Execute v2 algorithm on HPC
+│   │       └── run_model.R                        # v2 model run script
+│   └── param_combi_3/                             # Third parameter combination
+│       ├── current/                               # v1 algorithm output
+│       │   ├── run_function.sh                    # Execute v1 algorithm on HPC
+│       │   └── run_model.R                        # v1 model run script
+│       └── new/                                   # v2 algorithm output
+│           ├── run_function.sh                    # Execute v2 algorithm on HPC
+│           └── run_model.R                        # v2 model run script
 │
-├── compute_morris/                        # Scripts and data for Morris sensitivity analysis
-│   ├── compute_aggregated_parameters.R    # Compute CWP area and temperature delta per Morris run
-│   ├── compute_detection_frequency_raster.R  # Compute detection frequency raster
-│   ├── compute_morris_indices.R           # Compute Morris indices from CWP area
-│   ├── cwp_annotated.csv                  # Annotated CWP locations with classifications
-│   ├── lumped_stats_emme_big.csv          # Aggregated statistics per CWP and Morris run
-│   ├── sa_object_big.rds                  # Second Morris sampling grid object
-│   └── data/                             # Input data
-│       ├── derived_data_products/         # Pre-rounded rasters for faster computation
-│       └── original_data/                # TIR data from Tonolla and Antonetti
-│           ├── Centerlines_FINAL/         # River centerlines
-│           └── thermal_rasters_FINAL/    # TIR orthophoto rasters
+├── compute_morris/                                # Scripts and data for Morris sensitivity analysis
+│   ├── aggregated_parameters.csv                  # Temperature delta and CWP area metrics for all 24 annotated CWP over the Morris runs
+│   ├── compute_aggregated_metrics.R               # Compute temperature delta and CWP area metrics
+│   ├── compute_detection_frequency_rasters.R      # Compute detection frequency rasters
+│   ├── compute_morris_indices.R                   # Compute Morris indices from CWP area metric
+│   └── cwp_annotated.csv                          # Bounding box and classification of the 24 selected CWP
+│
+├── data/                                          # Input data
+│   ├── derived_data_products/                     # Pre-rounded rasters for faster computation
+│   │   ├── round_obemme.sh                        # Rounding script for Emme Upper Reach 1
+│   │   ├── round_v01emme.sh                       # Rounding script for Emme Lower Reach
+│   │   └── round_v2emme.sh                        # Rounding script for Emme Upper Reach 2
+│   └── original_data/                             # TIR data from Tonolla and Antonetti
+│       ├── Centerlines_FINAL/                     # River centrelines
+│       └── thermal_rasters_FINAL/                 # TIR orthophoto rasters
+│
+├── environments/                                  # Conda environment files
+│   ├── r_env.yml                                  # Environment for algorithm execution
+│   └── sensitivity_env.yml                        # Environment for sensitivity analysis
 │
 ├── functions/                                     # Algorithm implementations and utility functions
 │   ├── Cold_water_patch_detection_anto.R          # Original v1 implementation (Tonolla & Antonetti)
@@ -233,8 +268,6 @@ install.packages(c(
 │   ├── jaccard.R                                  # Jaccard similarity computation
 │   ├── sample_parameters_big.R                    # Second Morris parameter grid generation
 │   └── sample_parameters.R                        # First Morris parameter grid generation
-│
-│
 │
 ├── morris_screening_emme_v1/                      # Parallel model execution for Emme Lower Reach (first Morris experiment)
 │   ├── params.txt                                 # Sampled parameter tuples
