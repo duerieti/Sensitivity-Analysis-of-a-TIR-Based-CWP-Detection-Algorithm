@@ -222,15 +222,58 @@ install.packages(c(
 │           ├── Centerlines_FINAL/         # River centerlines
 │           └── thermal_rasters_FINAL/    # TIR orthophoto rasters
 │
-└── functions/                             # Algorithm implementations and utility functions
-    ├── Cold_water_patch_detection_anto.R  # Original v1 implementation (Tonolla & Antonetti)
-    ├── CWP_code_commented_claude.R        # Commented version of the original v1 implementation
-    ├── detect_cwp_v2_internal_rounding.R  # v2 algorithm with internal TIR raster rounding
-    ├── detect_cwp_v2.R                    # v2 algorithm without internal rounding
-    ├── detect_cwp_v3.R                    # v3 algorithm (IDW-based reference temperature)
-    ├── function_current.R                 # v1 algorithm isolated as a standalone function
-    ├── idw.cpp                            # IDW function in C++ for v3 (imported via Rcpp)
-    ├── jaccard.R                          # Jaccard similarity computation
-    ├── sample_parameters_big.R            # Second Morris parameter grid generation
-    └── sample_parameters.R               # First Morris parameter grid generation
+├── functions/                                     # Algorithm implementations and utility functions
+│   ├── Cold_water_patch_detection_anto.R          # Original v1 implementation (Tonolla & Antonetti)
+│   ├── CWP_code_commented_claude.r                # Commented version of the original v1 implementation
+│   ├── detect_cwp_v2_internal_rounding.R          # v2 algorithm with internal TIR raster rounding
+│   ├── detect_cwp_v2.R                            # v2 algorithm without internal rounding
+│   ├── detect_cwp_v3.R                            # v3 algorithm (IDW-based reference temperature)
+│   ├── function_current.R                         # v1 algorithm isolated as a standalone function
+│   ├── idw.cpp                                    # IDW function in C++ for v3 (imported via Rcpp)
+│   ├── jaccard.R                                  # Jaccard similarity computation
+│   ├── sample_parameters_big.R                    # Second Morris parameter grid generation
+│   └── sample_parameters.R                        # First Morris parameter grid generation
+│
+│
+│
+├── morris_screening_emme_v1/                      # Parallel model execution for Emme Lower Reach (first Morris experiment)
+│   ├── params.txt                                 # Sampled parameter tuples
+│   ├── run_model.R                                # Execute the CWP detection algorithm for one parameter tuple
+│   ├── run_parallel_jobs.sh                       # Orchestrate parallel execution via GNU Parallel
+│   └── run_parameter_sampling.sh                  # Sample parameter tuples from the Morris design
+│
+├── morris_screening_emme_v1_more_params/          # Parallel model execution for Emme Lower Reach (second Morris experiment)
+│   ├── params.txt                                 # Sampled parameter tuples
+│   ├── run_model.R                                # Execute the CWP detection algorithm for one parameter tuple
+│   ├── run_parallel_jobs.sh                       # Orchestrate parallel execution via GNU Parallel
+│   └── run_parameter_sampling.sh                  # Sample parameter tuples from the Morris design
+│
+├── morris_screening_emme_v2/                      # Parallel model execution for Emme Upper Reach 2 (first Morris experiment)
+│   ├── params.txt                                 # Sampled parameter tuples
+│   ├── run_model.R                                # Execute the CWP detection algorithm for one parameter tuple
+│   ├── run_parallel_jobs.sh                       # Orchestrate parallel execution via GNU Parallel
+│   └── run_parameter_sampling.sh                  # Sample parameter tuples from the Morris design
+│
+├── morris_screening_emme_v2_more_params/          # Parallel model execution for Emme Upper Reach 2 (second Morris experiment)
+│   ├── params.txt                                 # Sampled parameter tuples
+│   ├── run_model.R                                # Execute the CWP detection algorithm for one parameter tuple
+│   ├── run_parallel_jobs.sh                       # Orchestrate parallel execution via GNU Parallel
+│   └── run_parameter_sampling.sh                  # Sample parameter tuples from the Morris design
+│
+├── morris_screening_obemme/                       # Parallel model execution for Emme Upper Reach 1 (first Morris experiment)
+│   ├── params.txt                                 # Sampled parameter tuples
+│   ├── run_model.R                                # Execute the CWP detection algorithm for one parameter tuple
+│   ├── run_parallel_jobs.sh                       # Orchestrate parallel execution via GNU Parallel
+│   └── run_parameter_sampling.sh                  # Sample parameter tuples from the Morris design
+│
+├── morris_screening_obemme_more_params/           # Parallel model execution for Emme Upper Reach 1 (second Morris experiment)
+│   ├── params.txt                                 # Sampled parameter tuples
+│   ├── run_model.R                                # Execute the CWP detection algorithm for one parameter tuple
+│   ├── run_parallel_jobs.sh                       # Orchestrate parallel execution via GNU Parallel
+│   └── run_parameter_sampling.sh                  # Sample parameter tuples from the Morris design
+│
+└── testing_function_v3/                           # Standalone test scripts for the v3 algorithm
+    ├── idw.cpp                                    # Copy of the IDW C++ function for testing
+    └── run_new_function.R                         # Test script for the v3 algorithm
+
 ```
